@@ -1,15 +1,19 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
+
 
 const ProfileSchema = mongoose.Schema(
     {
+        photo: { type: String }, 
         name: { type: String, required: true },
         email: { type: String, required: true },
-        schoolName: { type: String, required: true },
-        cityName: { type: String, required: true },
+        age: { type: Number, required: true },
+        institute: { type: String, required: true },
+        branch: { type: String, required: true },
     },
     {
         timestamps: true
     }
 );
 
-module.exports = mongoose.model("Profile", ProfileSchema);
+
+export default mongoose.model("Profile", ProfileSchema);
