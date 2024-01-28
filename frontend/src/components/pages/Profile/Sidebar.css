@@ -102,22 +102,20 @@ body, html {
     background-color: #ccc;
   }
 
-  .panel {
+  .panel, .panel.instant-close {
     padding: 0 18px;
     background-color: white;
     overflow: hidden;
-    transition: max-height 0.8s ease-out;
+    transition: max-height 1.5s ease-out;
     max-height: 0;
-  }
-  
-  .panel.open {
+    /* transition: max-height 1.5s ease-out; */
+}
+
+.panel.open {
     display: block;
     max-height: 1000px; /* Adjust as needed */
-  }
+}
 
-  .panel.instant-close {
-    transition: none;
-  }
   
   /* .panel {
     padding: 0 18px;
