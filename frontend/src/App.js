@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './components/header/Navbar'
 import { useMsal } from '@azure/msal-react';
 import Sidebar from './components/pages/Profile/Sidebar';
+import Infobar from './components/pages/Home/Infobar';
 
 function App() {
   const { instance, accounts } = useMsal();
@@ -31,8 +32,9 @@ function App() {
   return (
     
     <div className="App">
-        <Navbar/>
-        <Sidebar />
+        {/* <Navbar/> */}
+        {/* <Sidebar /> */}
+        <Infobar />
     <h1>Welcome to Your App</h1>
     {m_strUser !== "" ? (
       <div>
