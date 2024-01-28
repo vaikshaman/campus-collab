@@ -3,13 +3,13 @@ import './App.css';
 import Navbar from './components/header/Navbar';
 import Sidebar from './components/pages/Profile/Sidebar';
 import AzureAuth from '../src/auth/azureRegisteration';
+import Profile from './components/pages/Profile/Profile';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Sidebar />
-      {/*<AzureAuth />*/}
+      <Profile/>
+      {/* <AzureAuth /> */}
     </div>
   );
 }

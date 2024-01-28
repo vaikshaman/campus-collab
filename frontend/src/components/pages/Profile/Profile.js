@@ -1,16 +1,17 @@
 import React from 'react'
 import Sidebar from './Sidebar'
 import Navbar from '../../header/Navbar'
-import YourProjects from './YourProjects'
+import YourProject from './YourProject'
+import './Profile.css'
 
 
 const Profile = () => {
   return (
     <div>
         <Navbar />
-        <div className='Main'>
+        <div className='main'>
             <Sidebar/>
-            <YourProjects/>
+            <YourProject/>
         </div>
     </div>
   )
