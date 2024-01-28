@@ -3,9 +3,6 @@ import './App.css';
 import Navbar from './components/header/Navbar'
 import { useMsal } from '@azure/msal-react';
 import Sidebar from './components/pages/Profile/Sidebar';
-// import cors from 'cors';
-
-// App.use(cors());
 
 function App() {
   const { instance, accounts } = useMsal();
@@ -78,7 +75,6 @@ function App() {
     <div className="App">
         <Navbar/>
         <Sidebar />
-        {/* <Project/> */}
     <h1>Welcome to Your App</h1>
     {m_strUser !== "" ? (
       <div>
