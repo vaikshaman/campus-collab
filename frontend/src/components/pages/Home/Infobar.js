@@ -25,8 +25,8 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="sidebar">
-      <div className="profile-section">
+    <div className="infobar">
+      <div className="info-section">
         <button
           className="accordion"
           onClick={() => toggleSection("notification")}
@@ -38,18 +38,18 @@ const Sidebar = () => {
             openSection === "notification" ? "open" : "instant-close"
           }`}
         >
-          <div className="profile-content">
+          <div className="info-content">
             {/* Profile Bio Here */}
-            <div className="profile-image"></div>
-            <div className="profile-info">
+            <div className="info-image"></div>
+            <div className="info-info">
               <div>Message from Rishi Kiran</div>
               <p>Do you know how to use figma</p>
             </div>
           </div>
-          <div className="profile-content">
+          <div className="info-content">
             {/* Profile Bio Here */}
-            <div className="profile-image"></div>
-            <div className="profile-info">
+            <div className="info-image"></div>
+            <div className="info-info">
               <div>Message from Rishi Kiran</div>
               <p>Do you know how to use figma</p>
             </div>
@@ -57,7 +57,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className="profile-section">
+      <div className="info-section">
         <button className="accordion" onClick={() => toggleSection("discover")}>
           Discover
         </button>
@@ -67,26 +67,26 @@ const Sidebar = () => {
           }`}
         >
           {/* Expertise Content Here */}
-          <div className="profile-content">
-            <div className="profile-image"></div>
-            <div className="profile-info">
+          <div className="info-content">
+            <div className="info-image"></div>
+            <div className="info-info">
               <div>Rishi Kiran</div>
               <p><img src={mapIcon} alt="Map Icon" /> IIT Guwahati</p>
             </div>
-            <div className="profile-select" onClick={madeFriend}>
+            <div className="info-select" onClick={madeFriend}>
               <img
                 src={friend ? isFriend : NotFriend}
                 alt="request friend"
               />
             </div>
           </div>
-          <div className="profile-content">
-            <div className="profile-image"></div>
-            <div className="profile-info">
+          <div className="info-content">
+            <div className="info-image"></div>
+            <div className="info-info">
               <div>Rishi Kiran</div>
               <p><img src={mapIcon} alt="Map Icon" /> IIT Guwahati</p>
             </div>
-            <div className="profile-select" onClick={madeFriend}>
+            <div className="info-select" onClick={madeFriend}>
               <img
                 src={friend ? isFriend : NotFriend}
                 alt="request friend"
@@ -96,7 +96,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className="profile-section fixed-bottom">
+      <div className="info-section fixed-bottom">
         <button className="accordion">
         {/* <button className="accordion" onClick={() => toggleSection("club")}> */}
           Club
@@ -108,9 +108,9 @@ const Sidebar = () => {
           // }`}
         >
           {/* Courses Content Here */}
-          <div class="profile-content">
-            <div class="profile-image"></div>
-            <div class="profile-info">
+          <div class="info-content">
+            <div class="info-image"></div>
+            <div class="info-info">
               <div>Coding Club, IITG</div>
               <p>17 project • 32 courses</p>
             </div>
