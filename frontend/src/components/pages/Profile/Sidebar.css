@@ -1,0 +1,141 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .sidebar {
+    width: 250px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    height: 100vh;
+    box-sizing: border-box;
+  }
+  
+  .profile-image {
+    background-color: #ddd;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .profile-info h2 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .profile-info p {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .profile-tags span {
+    display: inline-block;
+    background-color: #e1e1e1;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .education strong {
+    display: block;
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  .education p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .profile-bio p {
+    font-size: 14px;
+    color: #666;
+    margin-top: 0;
+  }
+  
+  .profile-section {
+    margin-top: 20px;
+  }
+  
+  .profile-section h3 {
+    color: #333;
+    margin: 0 0 10px 0;
+  }
+  
+  .contact-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .contact-button:hover {
+    background-color: #45a049;
+  }
+/* ... [other CSS styles] ... */
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    /* transition:  ease,0.4s; */
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .active, .accordion:hover {
+    background-color: #ccc;
+  }
+
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    overflow: hidden;
+    transition: max-height 0.8s ease-out;
+    max-height: 0;
+  }
+  
+  .panel.open {
+    display: block;
+    max-height: 1000px; /* Adjust as needed */
+  }
+
+  .panel.instant-close {
+    transition: none;
+  }
+  
+  /* .panel {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+  }
+  
+  .panel.open {
+    display: block;
+  } */
+  /* ... [other CSS styles] ... */
+
+  
+  
+  
+  
+  
+  
+  
+ 

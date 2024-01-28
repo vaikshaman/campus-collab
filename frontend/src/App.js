@@ -1,12 +1,8 @@
-
-
-
-
-
 import React, { useState } from 'react';
 import './App.css';
 import Navbar from './components/header/Navbar'
 import { useMsal } from '@azure/msal-react';
+import Sidebar from './components/pages/Profile/Sidebar';
 
 function App() {
   const { instance, accounts } = useMsal();
@@ -36,6 +32,7 @@ function App() {
     
     <div className="App">
         <Navbar/>
+        <Sidebar />
     <h1>Welcome to Your App</h1>
     {m_strUser !== "" ? (
       <div>
