@@ -8,8 +8,8 @@ import Profile from './components/pages/Profile/Profile';
 function App() {
   return (
     <div className="App">
-      <Profile/>
-      {/* <AzureAuth /> */}
+      {/* <Profile/> */}
+      <AzureAuth />
     </div>
   );
 }
