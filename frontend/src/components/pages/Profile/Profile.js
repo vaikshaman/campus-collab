@@ -5,6 +5,7 @@
 // import './Profile.css'
 
 
+<<<<<<< HEAD
 // const Profile = () => {
 //   return (
 //     <div>
@@ -66,3 +67,18 @@ const Profile = () => {
 };
 
 export default Profile;
+=======
+// // const Profile = () => {
+// //   return (
+// //     <div>
+// //         <Navbar />
+// //         <div className='main'>
+// //             <Sidebar/>
+// //             <YourProject/>
+// //         </div>
+// //     </div>
+// //   )
+// // }
+
+export default Profile
+>>>>>>> 562d702c0c6ab6151788af8f3cd758945940fcb8

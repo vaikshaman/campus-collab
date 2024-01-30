@@ -1,6 +1,7 @@
 import express from "express";
 import multer from 'multer';
 import Profile from '../models/profileModel.js';
+import Expertise from '../models/profileModel.js'
 import LoginData from '../models/login.js';
 import cors from 'cors';
 const app=express(); 
@@ -30,37 +31,23 @@ router.post('/upload', upload.single('photo'), (req, res) => {
     res.send('File uploaded successfully.');
 });
 
-// router.post('/upload', upload.single('photo'), async (req, res) => {
-//     try {
-//         const { name, email, age, institute, branch } = req.body;
-//         const profile = new Profile({
-//             photo: req.file ? req.file.path : null,
-//             name,
-//             email,
-//             age,
-//             institute,
-//             branch
-//         });
-//         await profile.save();
 
-
-//         res.send('Profile created successfully.');
-//     } catch (error) {
-
-//         console.error('Error creating profile:', error);
-//         res.status(500).send('Internal Server Error');
-//     }
-// });
-router.post("/profile",async(req,res)=>{
+router.post("/Profile",async(req,res)=>{
     try {
-        const { name, email, age, institute, branch } = req.body;
+        const { name, email, age, institute, branch,course,interest,userId,skills } = req.body;
         const profile = new Profile({
-            // photo: req.file ? req.file.path : null,
+            photo: req.file ? req.file.path : null,
             name,
             email,
             age,
             institute,
-            branch
+            branch,
+            interest,
+            userId,
+            course,
+            skills
+
+
         });
         await profile.save();
 
@@ -72,12 +59,11 @@ router.post("/profile",async(req,res)=>{
         res.status(500).send('Internal Server Error');
     }
 })
-
-app.use(cors());
   
 
-app.post('/api/login', async (req, res) => {
+router.post('/api/login', async (req, res) => {
   try {
+    console.log("hit hirhah");
     const loginResponse = req.body;
     
 

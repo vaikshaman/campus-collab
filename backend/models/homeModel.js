@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const ProfileSchema = mongoose.Schema(
+const HomeSchema = mongoose.Schema(
     {
         
     },
