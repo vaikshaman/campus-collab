@@ -9,9 +9,9 @@ import Home from './components/pages/Home/Home'
 function App() {
   return (
     <div className="App">
-      {/* <Profile/> */}
+      <Profile/>
       {/* <AzureAuth />      */}
-      <Home />
+      {/* <Home /> */}
     </div>
   );
 }
