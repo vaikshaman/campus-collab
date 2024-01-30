@@ -4,7 +4,8 @@ import dotenv from 'dotenv';
 import connectDB from './config/db.js'; // Import from the correct file path
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
-import router from './routes/router.js'; // Import from the correct file path
+import router from './routes/router.js';
+import cors from 'cors'; // Import from the correct file path
 
 // Configure dotenv
 dotenv.config();
@@ -14,6 +15,7 @@ connectDB();
 
 // Create an instance of Express
 const app = express();
+app.use(cors());
 
 // Set view engine
 app.set("view engine","es");

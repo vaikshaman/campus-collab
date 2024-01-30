@@ -6,7 +6,7 @@ import mapIcon from "../../assets/map-icon.png"
 import NotFriend from "../../assets/make-friend.png"
 import isFriend from "../../assets/is-friend.png"
 
-const Sidebar = () => {
+const Infobar = () => {
   // State to track which accordion section is open
   const [openSection, setOpenSection] = useState("discover");
 
@@ -121,4 +121,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default Infobar;

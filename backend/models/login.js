@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 3000;
 
 const loginSchema = new mongoose.Schema({
   loginResponse: Object
+  
 });
 
 export default mongoose.model('LoginData', loginSchema);
