@@ -5,7 +5,7 @@
 // import './Profile.css'
 
 
-<<<<<<< HEAD
+
 // const Profile = () => {
 //   return (
 //     <div>
@@ -20,10 +20,6 @@
 
 // export default Profile
 
-/*
-We're xly improving the code you see. 
-Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
-*/
 import React from "react";
 import "./Profile.css";
 import Sidebar from "./Sidebar";
@@ -31,8 +27,10 @@ import arrow from '../../assets/side-arrow.png'
 import { constants } from "constants-browserify";
 
 const Profile = () => {
+  const [active, setActive] = React.useState('ongoing');
   return (
     <div className="profile">
+
       <div className="div-3">
         <div className="rectangle-3" />
         <div className="text-wrapper-11">Project Overview</div>
@@ -67,18 +65,3 @@ const Profile = () => {
 };
 
 export default Profile;
-=======
-// // const Profile = () => {
-// //   return (
-// //     <div>
-// //         <Navbar />
-// //         <div className='main'>
-// //             <Sidebar/>
-// //             <YourProject/>
-// //         </div>
-// //     </div>
-// //   )
-// // }
-
-export default Profile
->>>>>>> 562d702c0c6ab6151788af8f3cd758945940fcb8

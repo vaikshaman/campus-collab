@@ -8,15 +8,10 @@ import Profile from './components/pages/Profile/Profile';
 function App() {
   return (
     <div className="App">
-<<<<<<< HEAD
       <Profile/>
       {/* <AzureAuth /> */}
       {/* <Home/> */}
       {/* <Footer/> */}
-=======
-      {/* <Profile/> */}
-      <AzureAuth />
->>>>>>> 562d702c0c6ab6151788af8f3cd758945940fcb8
     </div>
   );
 }
