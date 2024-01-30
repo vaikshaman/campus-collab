@@ -98,7 +98,6 @@ import iconParkOutline from "../../assets/graduation-hat.png";
 import mingcuteSchoolLine from "../../assets/school-pic.png";
 import arrow from '../../assets/side-arrow.png';
 import YourProject from "./YourProject";
-import line from "../../assets/vector-1-2.svg"
 
 
 const Sidebar = ({
