@@ -26,14 +26,16 @@ function AzureAuth() {
         // If not logged in, initiate the login process
         const loginResponse = await instance.loginPopup();
         const username = loginResponse.account?.username;
-        if (username) {
-          setm_strUser(username);
-          console.log(username);
-          await postDataToBackend({ username });
-          // Store tokens in local storage
-          localStorage.setItem('msalAccount', JSON.stringify(loginResponse.account));
-        }
+        setm_strUser(username || "");
+
+        // Store tokens in local storage
+        localStorage.setItem('msalAccount', JSON.stringify(loginResponse.account));
       }
+
+      
+      const data = await fetch("https://graph.microsoft.com/v1.0/me");
+      console.log(data.json)
+      
     } catch (error) {
       console.error('Login error:', error);
     }

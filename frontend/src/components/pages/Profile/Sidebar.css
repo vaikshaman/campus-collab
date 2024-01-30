@@ -1,139 +1,578 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .sidebar {
-    width: 45rem;
-    padding: 20px;
-    background-color: #f9f9f9;
-    height: 100vh;
-    box-sizing: border-box;
-  }
-  
-  .profile-image {
-    background-color: #ddd;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-  }
-  
-  .profile-info h2 {
-    margin: 0;
-    font-size: 18px;
-  }
-  
-  .profile-info p {
-    color: #666;
-    font-size: 14px;
-  }
-  
-  .profile-tags span {
-    display: inline-block;
-    background-color: #e1e1e1;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 12px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-  }
-  
-  .education strong {
-    display: block;
-    color: #333;
-    margin-top: 10px;
-  }
-  
-  .education p {
-    font-size: 14px;
-    color: #666;
-  }
-  
-  .profile-bio p {
-    font-size: 14px;
-    color: #666;
-    margin-top: 0;
-  }
-  
-  .profile-section {
-    margin-top: 20px;
-  }
-  
-  .profile-section h3 {
-    color: #333;
-    margin: 0 0 10px 0;
-  }
-  
-  .contact-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-top: 20px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .contact-button:hover {
-    background-color: #45a049;
-  }
-/* ... [other CSS styles] ... */
-
-.accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    /* transition:  ease,0.4s; */
-    transition: background-color 0.2s ease;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .active, .accordion:hover {
-    background-color: #ccc;
-  }
-
-  .panel, .panel.instant-close {
-    padding: 0 18px;
-    background-color: white;
-    overflow: hidden;
-    transition: max-height 1.5s ease-out;
-    max-height: 0;
-    /* transition: max-height 1.5s ease-out; */
+:root {
+  --shadew: 0px 3px 7px 0px rgba(0, 0, 0, 0.03), 0px 12px 12px 0px rgba(0, 0, 0, 0.03),
+    0px 27px 16px 0px rgba(0, 0, 0, 0.02), 0px 48px 19px 0px rgba(0, 0, 0, 0), 0px 75px 21px 0px rgba(0, 0, 0, 0);
+  --shadew-2: 0px 3px 7px 0px rgba(0, 0, 0, 0.03), 0px 12px 12px 0px rgba(0, 0, 0, 0.03),
+    0px 48px 19px 0px rgba(0, 0, 0, 0), 0px 75px 21px 0px rgba(0, 0, 0, 0);
 }
 
-.panel.open {
-    display: block;
-    max-height: 1000px; /* Adjust as needed */
+.component {
+  height: 628px;
+  position: relative;
+  width: 315px;
 }
 
-  
-  /* .panel {
-    padding: 0 18px;
-    display: none;
-    background-color: white;
-    overflow: hidden;
-  }
-  
-  .panel.open {
-    display: block;
-  } */
-  /* ... [other CSS styles] ... */
+.component .frame {
+  align-items: flex-start;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: var(--shadew-2);
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  left: 0;
+  overflow: hidden;
+  padding: 24px 24px 16px;
+  position: absolute;
+  top: 0;
+  /* width: 315px; */
+}
 
-  
-  
-  
-  
-  
-  
-  
- 
+.component .div {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  width: 100%;
+}
+
+.component .frame-2 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 12px;
+  position: relative;
+  width: 100%;
+}
+
+.component .img {
+  height: 30px;
+  position: relative;
+  width: 14px;
+}
+
+.component .text-wrapper {
+  color: #646464;
+  flex: 1;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  left: -72px;
+}
+
+.component .frame-3 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  width: 100%;
+}
+
+.component .frame-4 {
+  align-items: flex-end;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 17px;
+  position: relative;
+  width: 100%;
+}
+
+.component .ellipse {
+  background-color: #d9d9d9;
+  border-radius: 30px;
+  height: 60px;
+  position: relative;
+  width: 60px;
+}
+
+.component .frame-5 {
+  align-items: flex-start;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+  left: -40px;
+}
+
+.component .text-wrapper-2 {
+  align-self: stretch;
+  color: #000000;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+}
+
+.component .p {
+  align-self: stretch;
+  color: #919191;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  margin: 0px;
+}
+
+.component .span {
+  color: #919191;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.component .text-wrapper-3 {
+  font-family: "Pangea Trial-Medium", Helvetica;
+  font-weight: 500;
+}
+
+.component .frame-6 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  width: 100%;
+}
+
+.component .frame-7 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 6px;
+  position: relative;
+  width: 100%;
+}
+
+.component .badge {
+  align-items: center;
+  background-color: #edecff;
+  border-radius: 14px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  padding: 2px 6px;
+  position: relative;
+}
+
+.component .text {
+  color: #000000;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: -0.2px;
+  line-height: 20px;
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.component .div-wrapper {
+  align-items: center;
+  background-color: #fff1e3;
+  border-radius: 14px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  padding: 2px 6px;
+  position: relative;
+}
+
+.component .frame-8 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  width: 100%;
+}
+
+.component .frame-9 {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  position: relative;
+  width: 267px;
+}
+
+.component .icon-park-outline {
+  height: 20px;
+  position: relative;
+  width: 20px;
+}
+
+.component .text-wrapper-4 {
+  color: #000000;
+  flex: 1;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+}
+
+.component .frame-10 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  position: relative;
+  width: 100%;
+}
+
+.component .mingcute-school-line {
+  height: 20px;
+  position: relative;
+  width: 20px;
+}
+
+.component .indian-institute-of {
+  color: #000000;
+  flex: 1;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+}
+
+.component .vector {
+  align-self: stretch;
+  height: 1px;
+  object-fit: cover;
+  position: relative;
+  width: 100%;
+}
+
+.component .frame-wrapper {
+  align-items: flex-start;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: var(--shadew);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  left: 0;
+  overflow: hidden;
+  padding: 24px 24px 16px;
+  position: absolute;
+  /* width: 315px; */
+}
+
+.component .frame-11 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+}
+
+.component .frame-12 {
+  align-items: flex-start;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 12px;
+  position: relative;
+  width: 267px;
+}
+
+.component .vector-2 {
+  height: 1px;
+  object-fit: cover;
+  position: relative;
+  width: 267px;
+}
+
+.component .frame-13 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.component .frame-14 {
+  align-items: flex-start;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 4px;
+  position: relative;
+  width: 267px;
+}
+
+.component .rectangle-wrapper {
+  height: 18px;
+  position: relative;
+  width: 18px;
+}
+
+.component .rectangle {
+  border: 1px solid;
+  border-color: #000000;
+  height: 6px;
+  left: 6px;
+  position: relative;
+  top: 6px;
+  transform: rotate(45deg);
+  width: 6px;
+}
+
+.component .text-wrapper-5 {
+  color: #000000;
+  flex: 1;
+  font-family: "Pangea Trial-Medium", Helvetica;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+}
+
+.component .frame-15 {
+  height: 18px;
+  position: relative;
+  width: 18px;
+}
+
+.component .frame-16 {
+  align-items: flex-end;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+
+.component .frame-17 {
+  align-items: flex-end;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 4px;
+  position: relative;
+  width: 267px;
+}
+
+.component .frame-18 {
+  height: 18px;
+  position: relative;
+  width: 18px;
+}
+
+.component .rectangle-2 {
+  background-color: #000000;
+  border: 1px solid;
+  border-color: #000000;
+  height: 6px;
+  left: 6px;
+  position: relative;
+  top: 6px;
+  transform: rotate(90deg);
+  width: 6px;
+}
+
+.component .text-wrapper-6 {
+  color: #000000;
+  font-family: "Pangea Trial-Medium", Helvetica;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: 63px;
+}
+
+.component .frame-19 {
+  align-items: flex-end;
+  background-color: #fff1e3;
+  border-radius: 10px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  justify-content: center;
+  padding: 2px 6px;
+  position: relative;
+}
+
+.component .text-wrapper-7 {
+  color: #000000;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  width: fit-content;
+}
+
+.component .text-wrapper-8 {
+  color: #919191;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  width: 245px;
+}
+
+.component .frame-20 {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 4px;
+  position: relative;
+  width: 267px;
+}
+
+.component .frame-21 {
+  height: 18px;
+  position: relative;
+  width: 18px;
+}
+
+.component .frame-22 {
+  height: 18px;
+  position: relative;
+  width: 18px;
+}
+
+.component .frame-23 {
+  height: 18px;
+  position: relative;
+  width: 18px;
+}
+
+.component .frame-24 {
+  height: 18px;
+  position: relative;
+  width: 18px;
+}
+
+.component .frame-25 {
+  height: 18px;
+  position: relative;
+  width: 18px;
+}
+
+.component .frame-26 {
+  height: 18px;
+  position: relative;
+  width: 18px;
+}
+
+.component .frame-27 {
+  height: 18px;
+  position: relative;
+  width: 18px;
+}
+
+.component .frame-28 {
+  height: 18px;
+  position: relative;
+  width: 18px;
+}
+
+.component .default {
+  height: 493px;
+}
+
+.component .variant-2 {
+  height: 35px;
+}
+
+.component .property-1-3-default {
+  height: 40px;
+  top: 550px;
+}
+
+.component .property-1-3-variant-2 {
+  height: 500px;
+  top: 91px;
+}
+
+.component .frame.variant-2 .div {
+  margin-bottom: -16px;
+}
+
+.component .frame.variant-2 .icon-park-outline {
+  margin-left: -4126px;
+  margin-top: -1521px;
+}
+
+.component .frame.variant-2 .mingcute-school-line {
+  margin-left: -4126px;
+  margin-top: -1549px;
+}
+
+.component .frame.variant-2 .vector {
+  margin-left: -4126px;
+  margin-top: -1083px;
+}
+
+.component .frame-wrapper.property-1-3-default .frame-11 {
+  margin-bottom: -16px;
+}
+
+.component .frame-wrapper.property-1-3-default .vector-2 {
+  margin-left: -4126px;
+  margin-top: -1187px;
+}
+
+.component .frame-wrapper.property-1-3-default .frame-15 {
+  margin-left: -3877px;
+  margin-top: -1331px;
+}
+
+.component .frame-wrapper.property-1-3-default .frame-22 {
+  margin-left: -3877px;
+  margin-top: -1441px;
+}
+
+.component .frame-wrapper.property-1-3-default .frame-24 {
+  margin-left: -3877px;
+  margin-top: -1479px;
+}
+
+.component .frame-wrapper.property-1-3-default .frame-26 {
+  margin-left: -3877px;
+  margin-top: -1517px;
+}
+
+.component .frame-wrapper.property-1-3-default .frame-28 {
+  margin-left: -3877px;
+  margin-top: -1555px;
+}
