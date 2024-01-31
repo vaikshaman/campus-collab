@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 // Define Profile Schema
 const ProfileSchema = mongoose.Schema({
-    photo: { type: String },
+    // photo: { type: String },
     userId: {
         type: String,
         required: true,
