@@ -4,11 +4,11 @@
 // // import YourProject from './YourProject'
 // // import './Profile.css'
 
-const Profile=()=>{
-    return(
-        <div className="something"></div>
-    )
-}
+// const Profile=()=>{
+//     return(
+//         <div className="something"></div>
+//     )
+// }
 
 // const Profile = () => {
 //   return (
