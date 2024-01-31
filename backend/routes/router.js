@@ -65,8 +65,6 @@ router.post('/api/login', async (req, res) => {
   try {
     
     const loginResponse = req.body;
-    
-
     const loginData = new LoginData({ loginResponse });
     await loginData.save();
 
@@ -80,15 +78,31 @@ router.post('/api/profileModel', async(req, res) => {
     // Retrieve data from request body
     const profileResponse = req.body;
 
-    const ProfileData= new Profile({profileResponse});
+    const ProfileData= new Profile(profileResponse);
     await ProfileData.save();
   
     // Process the profile data (e.g., save it to a database)
     // Replace this with your actual logic
-    console.log('Received profile data:', ProfileData);
+    console.log('Received profile data:', profileResponse);
   
     // Send a response indicating success
     res.status(200).json({ message: 'Profile data received successfully' });
   });
+
+router.get('/api/sortByLatest',async (req,res) => {
+  console.log(req);
+  res.sendStatus(200);
+})
+
+router.get('/api/addProject',async (req,res) => {
+  console.log(req);
+  res.sendStatus(200);
+});
+
+router.get('/api/reqForCollab',async (req,res) => {
+  console.log(req);
+  res.sendStatus(200);
+})
+
 
 export default router;
