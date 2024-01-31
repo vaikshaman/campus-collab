@@ -10,10 +10,11 @@ function EditProfile() {
     institute: "",
     branch: "",
     course: "",
-    skill: "",
+    skills:[{skill: "",
     experience: "",
-    tool: "",
+    tools: "",
     level: ""
+  }]
   });
 
   const handleInput = (e) => {
