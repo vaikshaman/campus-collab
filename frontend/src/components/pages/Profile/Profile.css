@@ -1,4 +1,177 @@
-.main{
-    display: flex;
-    /* flex-direction: row; */
+ /* :root {
+  --shadew: 0px 3px 7px 0px rgba(0, 0, 0, 0.03), 0px 12px 12px 0px rgba(0, 0, 0, 0.03),
+    0px 27px 16px 0px rgba(0, 0, 0, 0.02), 0px 48px 19px 0px rgba(0, 0, 0, 0), 0px 75px 21px 0px rgba(0, 0, 0, 0);
+  --shadew-2: 0px 3px 7px 0px rgba(0, 0, 0, 0.03), 0px 12px 12px 0px rgba(0, 0, 0, 0.03),
+    0px 48px 19px 0px rgba(0, 0, 0, 0), 0px 75px 21px 0px rgba(0, 0, 0, 0);
+} */
+:root {
+  --shadew: 0.2083vw 1.875vw 2.0833vw 0vw rgba(0, 0, 0, 0.03),
+    0vw 4.1667vw 4.1667vw 0vw rgba(0, 0, 0, 0.03),
+    0vw 7.5vw 2.9167vw 0vw rgba(0, 0, 0, 0.02), 0vw 12vw 3.125vw 0vw rgba(0, 0, 0, 0),
+    0vw 15.625vw 3.4375vw 0vw rgba(0, 0, 0, 0);
+  --shadew-2: 0.2083vw 1.875vw 2.0833vw 0vw rgba(0, 0, 0, 0.03),
+    0vw 4.1667vw 4.1667vw 0vw rgba(0, 0, 0, 0.03),
+    0vw 12vw 3.125vw 0vw rgba(0, 0, 0, 0), 0vw 15.625vw 3.4375vw 0vw rgba(0, 0, 0, 0);
+}
+
+.profile {
+  background-color: #f5f5f7;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.profile .div-3 {
+  background-color: #f5f5f7;
+  height: 65.1042vw;
+  position: relative;
+  width: 100%;
+}
+
+.profile .rectangle-3 {
+  background-color: #ffffff;
+  height: 5.2083vw;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.profile .text-wrapper-11 {
+  color: #646464;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 1.5625vw;
+  font-weight: 400;
+  left: 29.3403vw;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 15.625vw;
+}
+
+.profile .frame-29 {
+  align-items: center;
+  background-color: #b9e74d;
+  border-radius: 2.6042vw;
+  display: inline-flex;
+  gap: 0.625vw;
+  justify-content: center;
+  left: 87.0139vw;
+  padding: 0.2604vw 1.0417vw;
+  position: absolute;
+  top: 15.7674vw;
+}
+
+.profile .text-wrapper-12 {
+  color: #000000;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 1.0417vw;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.0651vw;
+  position: relative;
+  width: fit-content;
+}
+
+.profile .frame-30 {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.625vw;
+  justify-content: center;
+  left: 81.0764vw;
+  padding: 0.2604vw 0.625vw;
+  position: absolute;
+  top: 15.7674vw;
+}
+
+.profile .overlap-group {
+  border-radius: 0.9375vw;
+  height: 15.625vw;
+  left: 29.3403vw;
+  position: absolute;
+  top: 21.1589vw;
+  width: 20.5903vw;
+}
+
+.profile .rectangle-4 {
+  background-color: #ffffff;
+  border-radius: 0.9375vw;
+  height: 15.5208vw;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 20.5903vw;
+}
+
+.profile .rectangle-5 {
+  background-color: #ffffff;
+  border-radius: 0.9375vw;
+  height: 15.625vw;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 20.5903vw;
+}
+
+.profile .rectangle-6 {
+  background-color: #ffffff;
+  border-radius: 0.9375vw;
+  height: 15.625vw;
+  left: 51.3889vw;
+  position: absolute;
+  top: 21.1589vw;
+  width: 20.5903vw;
+}
+
+.profile .rectangle-7 {
+  background-color: #ffffff;
+  border-radius: 0.9375vw;
+  height: 15.625vw;
+  left: 73.4375vw;
+  position: absolute;
+  top: 21.1589vw;
+  width: 20.5903vw;
+}
+
+.profile .profile-nav-instance {
+  left: 3.8194vw !important;
+  position: absolute !important;
+  top: 8.9931vw !important;
+}
+
+.profile .design-component-instance-node {
+  margin-left: -20.4861vw !important;
+  margin-top: -79.7436vw !important;
+}
+
+.profile .profile-nav-2 {
+  margin-left: -4.8611vw !important;
+  margin-top: -90.9722vw !important;
+}
+
+.profile .profile-nav-3 {
+  margin-left: -19.6181vw !important;
+  margin-top: -95.4861vw !important;
+}
+
+.profile .profile-nav-4 {
+  margin-left: -4.8611vw !important;
+  margin-top: -100vw !important;
+}
+
+.profile .profile-nav-5 {
+  margin-left: -4.8611vw !important;
+  margin-top: -104.5139vw !important;
+}
+
+.profile .profile-nav-6 {
+  margin-left: -4.8611vw !important;
+  margin-top: -109.0278vw !important;
+}
+
+.profile .profile-nav-7 {
+  margin-left: -4.8611vw !important;
+  margin-top: -113.5417vw !important;
 }

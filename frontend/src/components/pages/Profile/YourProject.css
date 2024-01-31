@@ -1,82 +1,120 @@
-.toggle-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .toggle-button {
-    border: 2px solid transparent;
-    background-color: #fff;
-    color: #000;
-    padding: 8px 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    outline: none;
-    font-size: 16px;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .toggle-button.active {
-    background-color: #4CAF50; /* Light green background */
-    color: white; /* White text */
-    border-color: #4CAF50; /* Light green border */
-  }
-  
-  /* Optionally, add hover effects */
-  .toggle-button:hover {
-    background-color: #4CAF50;
-    color: white;
-  }
+.frame {
+  align-items: flex-end;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.5556vw;
+  position: relative;
+}
 
-  .profile-overview{
-    display: flex;
-    justify-content: space-between;
-    width: 72rem;
-  }
+.frame .div {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  position: relative;
+  width: 18.5417vw;
+}
 
-  /* Projects CSS  */
+.frame .div-2 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 0.5556vw;
+  position: relative;
+}
 
-  .projects-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px; /* Adjust the gap as needed */
-    justify-content: flex-start;
-  }
-  
-  .project-card {
-    flex: 0 1 calc(28% - 20px); /* Subtract the gap to fit three in a row */
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    margin-left: 1.5rem;
-  }
-  
-  /* Responsive adjustments if needed */
-  @media (max-width: 768px) {
-    .project-card {
-      flex: 0 1 calc(50% - 20px); /* Two in a row for smaller screens */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .project-card {
-      flex: 0 1 100%; /* One in a row for mobile screens */
-    }
-  }
-  
-  button {
-    margin: 20px;
-    padding: 10px 20px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  
+.frame .rectangle-wrapper {
+  height: 1.1111vw;
+  position: relative;
+  width: 1.1111vw;
+}
+
+.frame .rectangle {
+  border: 0.1389vw solid;
+  border-color: #000000;
+  height: 0.4167vw;
+  left: 0.4167vw;
+  position: relative;
+  top: 0.4167vw; 
+  width: 0.4167vw; 
+}
+
+.frame .text-wrapper {
+  color: #000000;
+  font-family: "Pangea Trial-Medium", Helvetica;
+  font-size: 0.9722vw;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.0694vw;
+  position: relative;
+  width: 4.4792vw;
+}
+
+.frame .div-wrapper {
+  align-items: flex-end;
+  background-color: #fff1e3;
+  border-radius: 1.3889vw;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 1.3889vw;
+  justify-content: center;
+  padding: 0.2778vw 0.8333vw;
+  position: relative;
+}
+
+.frame .text-wrapper-2 {
+  color: #000000;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 0.6944vw;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.0694vw;
+  position: relative;
+  width: fit-content;
+}
+
+.frame .img {
+  height: 1.1111vw;
+  position: relative;
+  width: 1.1111vw;
+}
+
+.frame .p {
+  color: #919191;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 0.6944vw;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  width: 17.7083vw; 
+}
+
+.frame.closed {
+  height: 1.1111vw;
+  overflow: hidden;
+}
+
+.frame.open {
+  height: 3.0556vw
+}
+
+.frame.closed .rectangle {
+  transform: rotate(135deg);
+}
+
+.frame.open .rectangle {
+  background-color: #000000;
+  transform: rotate(-180deg);
+}
+
+.frame.closed .div-wrapper {
+  opacity: 0;
+}
+
+.frame.open .img {
+  margin-left: -63.5417vw;
+  margin-top: -6.7708vw;
+}

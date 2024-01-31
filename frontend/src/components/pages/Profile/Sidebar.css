@@ -1,139 +1,534 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .sidebar {
-    width: 45rem;
-    padding: 20px;
-    background-color: #f9f9f9;
-    height: 100vh;
-    box-sizing: border-box;
-  }
-  
-  .profile-image {
-    background-color: #ddd;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-  }
-  
-  .profile-info h2 {
-    margin: 0;
-    font-size: 18px;
-  }
-  
-  .profile-info p {
-    color: #666;
-    font-size: 14px;
-  }
-  
-  .profile-tags span {
-    display: inline-block;
-    background-color: #e1e1e1;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 12px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-  }
-  
-  .education strong {
-    display: block;
-    color: #333;
-    margin-top: 10px;
-  }
-  
-  .education p {
-    font-size: 14px;
-    color: #666;
-  }
-  
-  .profile-bio p {
-    font-size: 14px;
-    color: #666;
-    margin-top: 0;
-  }
-  
-  .profile-section {
-    margin-top: 20px;
-  }
-  
-  .profile-section h3 {
-    color: #333;
-    margin: 0 0 10px 0;
-  }
-  
-  .contact-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    margin-top: 20px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .contact-button:hover {
-    background-color: #45a049;
-  }
-/* ... [other CSS styles] ... */
 
-.accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    /* transition:  ease,0.4s; */
-    transition: background-color 0.2s ease;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .active, .accordion:hover {
-    background-color: #ccc;
-  }
-
-  .panel, .panel.instant-close {
-    padding: 0 18px;
-    background-color: white;
-    overflow: hidden;
-    transition: max-height 1.5s ease-out;
-    max-height: 0;
-    /* transition: max-height 1.5s ease-out; */
+:root {
+  --shadew: 1.0417vw 9.375vw 1.0417vw 0vw rgba(0, 0, 0, 0.03),
+    0vw 2.0833vw 2.0833vw 0vw rgba(0, 0, 0, 0.03),
+    0vw 3.75vw 1.4583vw 0vw rgba(0, 0, 0, 0.02), 0vw 6.25vw 1.5625vw 0vw rgba(0, 0, 0, 0),
+    0vw 7.8125vw 1.7188vw 0vw rgba(0, 0, 0, 0);
+  --shadew-2: 1.0417vw 9.375vw 1.0417vw 0vw rgba(0, 0, 0, 0.03),
+    0vw 2.0833vw 2.0833vw 0vw rgba(0, 0, 0, 0.03),
+    0vw 7.8125vw 1.5625vw 0vw rgba(0, 0, 0, 0), 0vw 9.375vw 1.7188vw 0vw rgba(0, 0, 0, 0);
 }
 
-.panel.open {
-    display: block;
-    max-height: 1000px; /* Adjust as needed */
+.profile-nav {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1.3889vw;
+  position: relative;
 }
 
-  
-  /* .panel {
-    padding: 0 18px;
-    display: none;
-    background-color: white;
-    overflow: hidden;
-  }
-  
-  .panel.open {
-    display: block;
-  } */
-  /* ... [other CSS styles] ... */
+.profile-nav .frame-2 {
+  align-items: flex-start;
+  background-color: #ffffff;
+  border-radius: 1.1111vw;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2.9167vw;
+  overflow: hidden;
+  padding: 2.9167vw;
+  position: relative;
+}
 
-  
-  
-  
-  
-  
-  
-  
- 
+.profile-nav .frame-3 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 1.3889vw;
+  position: relative;
+  width: 100%;
+}
+
+.profile-nav .text-wrapper-3 {
+  color: #646464;
+  flex: 1;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 1.6667vw;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.0694vw;
+  position: relative;
+}
+
+.profile-nav .img-2 {
+  height: 1.9444vw;
+  position: relative;
+  width: 0.9028vw;
+}
+
+.profile-nav .frame-4 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 2.9167vw;
+  position: relative;
+  width: 100%;
+}
+
+.profile-nav .frame-5 {
+  align-items: flex-end;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 1.1806vw;
+  position: relative;
+  width: 18.5417vw;
+}
+
+.profile-nav .ellipse {
+  background-color: #d9d9d9;
+  border-radius: 2.0833vw;
+  height: 3.3333vw;
+  position: relative;
+  width: 3.3333vw;
+}
+
+.profile-nav .frame-6 {
+  align-items: flex-start;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+}
+
+.profile-nav .text-wrapper-4 {
+  align-self: stretch;
+  color: #000000;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 1.1111vw;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.0694vw;
+  position: relative;
+}
+
+.profile-nav .element-followers {
+  align-self: stretch;
+  color: #919191;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 0.8333vw;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+}
+
+.profile-nav .span {
+  color: #919191;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 0.8333vw;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.profile-nav .text-wrapper-5 {
+  font-family: "Pangea Trial-Medium", Helvetica;
+  font-weight: 500;
+}
+
+.profile-nav .frame-7 {
+  align-items: flex-start;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 1.1111vw;
+  position: relative;
+  width: 18.5417vw;
+}
+
+.profile-nav .frame-8 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.4167vw;
+  position: relative;
+  width: 100%;
+}
+
+.profile-nav .badge {
+  align-items: center;
+  background-color: #edecff;
+  border-radius: 1.1111vw;
+  display: inline-flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  padding: 0.2778vw 0.8333vw;
+  position: relative;
+}
+
+.profile-nav .text {
+  color: #000000;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 0.5556vw;
+  font-weight: 400;
+  letter-spacing: -0.1111px;
+  line-height: 1.1111vw;
+  margin-top: -0.0694vw;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.profile-nav .badge-2 {
+  align-items: center;
+  background-color: #fff1e3;
+  border-radius: 1.1111vw;
+  display: inline-flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  padding: 0.2778vw 0.8333vw;
+  position: relative;
+}
+
+.profile-nav .frame-9 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 0.5556vw;
+  position: relative;
+  width: 100%;
+}
+
+.profile-nav .frame-10 {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.5556vw;
+  position: relative;
+  width: 18.5417vw;
+}
+
+.profile-nav .icon-park-outline {
+  height: 1.3889vw;
+  position: relative;
+  width: 1.3889vw;
+}
+
+.profile-nav .text-wrapper-6 {
+  color: #000000;
+  flex: 1;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 0.8333vw;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+}
+
+.profile-nav .frame-11 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.5556vw;
+  position: relative;
+  width: 100%;
+}
+
+.profile-nav .mingcute-school-line {
+  height: 1.3889vw;
+  position: relative;
+  width: 1.3889vw;
+}
+
+.profile-nav .indian-institute-of {
+  color: #000000;
+  flex: 1;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 0.8333vw;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.0694vw;
+  position: relative;
+}
+
+.profile-nav .vector {
+  align-self: stretch;
+  height: 0.5556vw;
+  object-fit: cover;
+  position: relative;
+  width: 100%;
+}
+
+.profile-nav .text-wrapper-7 {
+  color: #919191;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 0.8333vw;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  width: 18.5417vw;
+}
+
+.profile-nav .frame-12 {
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 1.1111vw;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3.8889vw;
+  overflow: hidden;
+  padding: 2.9167vw;
+  position: relative;
+}
+
+.profile-nav .frame-13 {
+  align-items: flex-start;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 1.3889vw;
+  position: relative;
+  width: 18.5417vw;
+}
+
+.profile-nav .vector-2 {
+  height: 0.5556vw;
+  object-fit: cover;
+  position: relative;
+  width: 18.5417vw;
+}
+
+.profile-nav .frame-14 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 1.1111vw;
+  position: relative;
+}
+
+.profile-nav .frame-15 {
+  align-items: flex-start;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.2778vw;
+  position: relative;
+  width: 18.5417vw;
+}
+
+.profile-nav .frame-16 {
+  height: 1.1111vw;
+  position: relative;
+  width: 1.1111vw;
+}
+
+.profile-nav .rectangle-2 {
+  border: 0.1389vw solid;
+  border-color: #000000;
+  height: 0.4167vw;
+  left: 0.4167vw;
+  position: relative;
+  top: 0.4167vw;
+  transform: rotate(45deg);
+  width: 0.4167vw;
+}
+
+.profile-nav .text-wrapper-8 {
+  color: #000000;
+  flex: 1;
+  font-family: "Pangea Trial-Medium", Helvetica;
+  font-size: 0.9722vw;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.0694vw;
+  position: relative;
+}
+
+.profile-nav .frame-17 {
+  height: 1.1111vw;
+  position: relative;
+  width: 1.1111vw;
+}
+
+.profile-nav .frame-18 {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.2778vw;
+  position: relative;
+  width: 18.5417vw;
+}
+
+.profile-nav .frame-19 {
+  height: 1.1111vw;
+  position: relative;
+  width: 1.1111vw;
+}
+
+.profile-nav .frame-20 {
+  height: 1.1111vw;
+  position: relative;
+  width: 1.1111vw;
+}
+
+.profile-nav .frame-21 {
+  height: 1.1111vw;
+  position: relative;
+  width: 1.1111vw;
+}
+
+.profile-nav .frame-22 {
+  height: 1.1111vw;
+  position: relative;
+  width: 1.1111vw;
+}
+
+.profile-nav .frame-23 {
+  height: 1.1111vw;
+  position: relative;
+  width: 1.1111vw;
+}
+
+.profile-nav .frame-24 {
+  height: 1.1111vw;
+  position: relative;
+  width: 1.1111vw;
+}
+
+.profile-nav .frame-25 {
+  height: 1.1111vw;
+  position: relative;
+  width: 1.1111vw;
+}
+
+.profile-nav .frame-26 {
+  height: 1.1111vw;
+  position: relative;
+  width: 1.1111vw;
+}
+
+.profile-nav .frame-27 {
+  align-items: flex-start;
+  background-color: #ffffff;
+  border-radius: 1.1111vw;
+  box-shadow: var(--shadew);
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 1.3889vw;
+  padding: 2.9167vw;
+  position: relative;
+}
+
+.profile-nav .text-wrapper-9 {
+  color: #646464;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 1.6667vw;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.0694vw;
+  position: relative;
+  width: 13.1944vw;
+}
+
+.profile-nav .frame-28 {
+  align-items: flex-start;
+  background-color: #b9e74d;
+  border-radius: 1.1111vw;
+  box-shadow: var(--shadew);
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 1.3889vw;
+  padding: 2.9167vw;
+  position: relative;
+}
+
+.profile-nav .text-wrapper-10 {
+  color: #000000;
+  font-family: "Pangea Trial-Regular", Helvetica;
+  font-size: 1.6667vw;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.0694vw;
+  position: relative;
+  width: 13.1944vw;
+}
+
+.profile-nav .section-1 {
+  box-shadow: var(--shadew-2);
+  height: 34.7222vw;
+}
+
+.profile-nav .section-2 {
+  box-shadow: var(--shadew);
+  height: 5.4167vw;
+}
+
+.profile-nav .property-1-4-section-1 {
+  box-shadow: var(--shadew);
+  height: 5.4167vw;
+}
+
+.profile-nav .property-1-4-section-2 {
+  box-shadow: var(--shadew-2);
+  height: 34.7222vw;
+}
+
+.profile-nav .frame-2.section-2 .frame-4 {
+  margin-bottom: -2.9167vw;
+}
+
+.profile-nav .frame-2.section-2 .icon-park-outline {
+  margin-left: -3693px;
+  margin-top: -914px;
+}
+
+.profile-nav .frame-2.section-2 .mingcute-school-line {
+  margin-left: -3693px;
+  margin-top: -942px;
+}
+
+.profile-nav .frame-2.section-2 .vector {
+  margin-left: -3669px;
+  margin-top: -452px;
+}
+
+.profile-nav .frame-2.section-2 .text-wrapper-7 {
+  margin-bottom: -2.9167vw;
+}
+
+.profile-nav .frame-12.property-1-4-section-1 .vector-2 {
+  margin-left: -3334px;
+  margin-top: -1204px;
+}
+
+.profile-nav .frame-12.property-1-4-section-1 .frame-14 {
+  margin-bottom: -2.9167vw;
+}
+
+.profile-nav .frame-12.property-1-4-section-1 .frame-17 {
+  margin-left: -3109px;
+  margin-top: -1372px;
+}
+
+.profile-nav .frame-12.property-1-4-section-1 .frame-20 {
+  margin-left: -3109px;
+  margin-top: -1448px;
+}
+
+.profile-nav .frame-12.property-1-4-section-1 .frame-22 {
+  margin-left: -3109px;
+  margin-top: -1486px;
+}
+
+.profile-nav .frame-12.property-1-4-section-1 .frame-24 {
+  margin-left: -3109px;
+  margin-top: -1524px;
+}
+
+.profile-nav .frame-12.property-1-4-section-1 .frame-26 {
+  margin-left: -3109px;
+  margin-top: -1562px;
+}

@@ -1,6 +1,7 @@
 import express from "express";
 import multer from 'multer';
 import Profile from '../models/profileModel.js';
+import Expertise from '../models/profileModel.js'
 import LoginData from '../models/login.js';
 import cors from 'cors';
 const app=express(); 
@@ -30,16 +31,23 @@ router.post('/upload', upload.single('photo'), (req, res) => {
     res.send('File uploaded successfully.');
 });
 
-// router.post('/upload', upload.single('photo'), async (req, res) => {
+
+// router.post("/Profile",async(req,res)=>{
 //     try {
-//         const { name, email, age, institute, branch } = req.body;
+//         const { name, email, age, institute, branch,course,interest,userId,skills } = req.body;
 //         const profile = new Profile({
 //             photo: req.file ? req.file.path : null,
 //             name,
 //             email,
 //             age,
 //             institute,
-//             branch
+//             branch,
+//             interest,
+//             userId,
+//             course,
+//             skills
+
+
 //         });
 //         await profile.save();
 
@@ -50,34 +58,12 @@ router.post('/upload', upload.single('photo'), (req, res) => {
 //         console.error('Error creating profile:', error);
 //         res.status(500).send('Internal Server Error');
 //     }
-// });
-router.post("/profile",async(req,res)=>{
-    try {
-        const { name, email, age, institute, branch } = req.body;
-        const profile = new Profile({
-            // photo: req.file ? req.file.path : null,
-            name,
-            email,
-            age,
-            institute,
-            branch
-        });
-        await profile.save();
-
-
-        res.send('Profile created successfully.');
-    } catch (error) {
-
-        console.error('Error creating profile:', error);
-        res.status(500).send('Internal Server Error');
-    }
-})
-
-app.use(cors());
+// })
   
 
-app.post('/api/login', async (req, res) => {
+router.post('/api/login', async (req, res) => {
   try {
+    
     const loginResponse = req.body;
     
 
@@ -90,5 +76,19 @@ app.post('/api/login', async (req, res) => {
     res.status(500).send('Internal server error');
   }
 });
+router.post('/api/profileModel', async(req, res) => {
+    // Retrieve data from request body
+    const profileResponse = req.body;
+
+    const ProfileData= new Profile(profileResponse);
+    await ProfileData.save();
+  
+    // Process the profile data (e.g., save it to a database)
+    // Replace this with your actual logic
+    console.log('Received profile data:', profileResponse);
+  
+    // Send a response indicating success
+    res.status(200).json({ message: 'Profile data received successfully' });
+  });
 
 export default router;
