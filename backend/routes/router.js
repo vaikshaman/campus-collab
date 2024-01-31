@@ -80,12 +80,12 @@ router.post('/api/profileModel', async(req, res) => {
     // Retrieve data from request body
     const profileResponse = req.body;
 
-    const ProfileData= new Profile({profileResponse});
+    const ProfileData= new Profile(profileResponse);
     await ProfileData.save();
   
     // Process the profile data (e.g., save it to a database)
     // Replace this with your actual logic
-    console.log('Received profile data:', ProfileData);
+    console.log('Received profile data:', profileResponse);
   
     // Send a response indicating success
     res.status(200).json({ message: 'Profile data received successfully' });

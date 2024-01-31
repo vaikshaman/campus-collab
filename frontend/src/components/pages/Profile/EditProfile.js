@@ -8,6 +8,7 @@ function EditProfile() {
     name: "",
     email: "",
     institute: "",
+    interest: "",
     branch: "",
     course: "",
     skills:[{skill: "",
@@ -29,13 +30,31 @@ function EditProfile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(Data);
+    const DataSend = {
+      userId : Data.userid,
+      age: parseInt(Data.age),
+      name: Data.name,
+      email: Data.email,
+      institute: Data.institute,
+      branch: Data.branch,
+      interest : Data.interest,
+      course: Data.course,
+      skills : [
+        {
+          skill: Data.skill,
+          experience: Data.experience,
+          tools: Data.tools,
+          level: Data.level
+        }
+      ]
+    }
     try {
       const response = await fetch('http://localhost:8080/api/profileModel', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(Data),
+        body: JSON.stringify(DataSend),
       });
   
       if (!response.ok) {
@@ -91,7 +110,7 @@ function EditProfile() {
             <input type="text" id="experience" name="experience" value={Data.experience} onChange={handleInput} />
           </div>
           <div className="tool">TOOL
-            <input type="text" id="tool" name="tool" value={Data.tool} onChange={handleInput}/>
+            <input type="text" id="tools" name="tools" value={Data.tools} onChange={handleInput}/>
           </div>
         </div>
         <button type="submit">Submit</button>
