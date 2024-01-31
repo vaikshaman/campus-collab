@@ -1,0 +1,439 @@
+.edit-profile {
+    background-color: #f5f5f7;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .edit-profile .div {
+    background-color: #f5f5f7;
+    height: 1024px;
+    position: relative;
+    width: 1440px;
+  }
+  
+  .edit-profile .rectangle {
+    background-color: #ffffff;
+    height: 80px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 1440px;
+  }
+  
+  .edit-profile .frame {
+    align-items: flex-start;
+    display: inline-flex;
+    gap: 20px;
+    left: 60px;
+    position: absolute;
+    top: 194px;
+  }
+  
+  .edit-profile .frame-2 {
+    align-items: flex-start;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: var(--shadew-2);
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px;
+    position: relative;
+  }
+  
+  .edit-profile .frame-3 {
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 12px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .edit-profile .img {
+    height: 30px;
+    position: relative;
+    width: 14px;
+  }
+  
+  .edit-profile .text-wrapper {
+    color: #646464;
+    font-family: "Pangea Trial-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    width: fit-content;
+  }
+  
+  .edit-profile .frame-4 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    height: 620px;
+    justify-content: space-between;
+    position: relative;
+  }
+  
+  .edit-profile .frame-5 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+  }
+  
+  .edit-profile .frame-6 {
+    align-items: flex-end;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 24px;
+    position: relative;
+  }
+  
+  .edit-profile .frame-7 {
+    height: 100px;
+    position: relative;
+    width: 100px;
+  }
+  
+  .edit-profile .frame-8 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    width: 334px;
+  }
+  
+  .edit-profile .text-wrapper-2 {
+    align-self: stretch;
+    color: #646464;
+    font-family: "Pangea Trial-Medium", Helvetica;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+  }
+  
+  .edit-profile .frame-9 {
+    align-items: center;
+    align-self: stretch;
+    background-color: #f5f5f7;
+    border: 1px solid;
+    border-color: #d3d3d3;
+    border-radius: 4px;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 10px;
+    overflow: hidden;
+    padding: 10px 12px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .edit-profile .text-wrapper-3 {
+    color: #646464;
+    flex: 1;
+    font-family: "Pangea Trial-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+  }
+  
+  .edit-profile .frame-10 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 16px;
+    position: relative;
+  }
+  
+  .edit-profile .frame-11 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    width: 373px;
+  }
+  
+  .edit-profile .frame-12 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    position: relative;
+    width: 69px;
+  }
+  
+  .edit-profile .div-wrapper {
+    align-items: center;
+    align-self: stretch;
+    background-color: #f5f5f7;
+    border: 1px solid;
+    border-color: #d3d3d3;
+    border-radius: 4px;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 10px;
+    padding: 10px 12px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .edit-profile .text-wrapper-4 {
+    color: #646464;
+    font-family: "Pangea Trial-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+  }
+  
+  .edit-profile .frame-13 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    width: 221px;
+  }
+  
+  .edit-profile .gridicons-dropdown {
+    height: 20px;
+    position: relative;
+    width: 20px;
+  }
+  
+  .edit-profile .frame-14 {
+    align-items: flex-start;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    width: 458px;
+  }
+  
+  .edit-profile .frame-15 {
+    align-items: center;
+    align-self: stretch;
+    background-color: #f5f5f7;
+    border-radius: 4px;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 10px;
+    overflow: hidden;
+    padding: 10px 12px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .edit-profile .frame-16 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+  }
+  
+  .edit-profile .frame-17 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+  }
+  
+  .edit-profile .frame-18 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 20px;
+    position: relative;
+  }
+  
+  .edit-profile .frame-19 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    width: 387px;
+  }
+  
+  .edit-profile .frame-20 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    width: 275px;
+  }
+  
+  .edit-profile .frame-21 {
+    align-items: flex-start;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    width: 682px;
+  }
+  
+  .edit-profile .frame-22 {
+    align-items: center;
+    align-self: stretch;
+    background-color: #f5f5f7;
+    border: 1px solid;
+    border-color: #d3d3d3;
+    border-radius: 4px;
+    display: flex;
+    gap: 10px;
+    height: 40px;
+    overflow: hidden;
+    padding: 10px 12px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .edit-profile .text-wrapper-5 {
+    color: #919191;
+    flex: 1;
+    font-family: "Pangea Trial-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+  }
+  
+  .edit-profile .frame-23 {
+    align-items: center;
+    background-color: #b9e74d80;
+    border: 2px solid;
+    border-color: #b9e74d;
+    border-radius: 40px;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 10px;
+    justify-content: center;
+    padding: 8px 14px;
+    position: relative;
+  }
+  
+  .edit-profile .text-wrapper-6 {
+    color: #000000;
+    font-family: "Pangea Trial-Regular", Helvetica;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -2px;
+    position: relative;
+    width: fit-content;
+  }
+  
+  .edit-profile .frame-24 {
+    align-items: flex-start;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    width: 682px;
+  }
+  
+  .edit-profile .frame-25 {
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    gap: 4px 4px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .edit-profile .frame-26 {
+    align-items: center;
+    border: 1px solid;
+    border-color: #d3d3d3;
+    border-radius: 20px;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 4px;
+    justify-content: center;
+    padding: 6px 10px;
+    position: relative;
+  }
+  
+  .edit-profile .material-symbols {
+    height: 16px;
+    position: relative;
+    width: 16px;
+  }
+  
+  .edit-profile .frame-27 {
+    align-items: center;
+    display: inline-flex;
+    gap: 1134px;
+    left: 60px;
+    position: absolute;
+    top: 125px;
+  }
+  
+  .edit-profile .text-wrapper-7 {
+    color: #646464;
+    font-family: "Pangea Trial-Regular", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    width: fit-content;
+  }
+  
+  .edit-profile .frame-28 {
+    align-items: center;
+    background-color: #b9e74d;
+    border-radius: 40px;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 10px;
+    justify-content: center;
+    padding: 8px 16px;
+    position: relative;
+  }
+  
+  .edit-profile .text-wrapper-8 {
+    color: #000000;
+    font-family: "Pangea Trial-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+  }
+  

@@ -1,9 +1,14 @@
-// // import React from 'react'
+import React from 'react'
 // // import Sidebar from './Sidebar'
 // // import Navbar from '../../header/Navbar'
 // // import YourProject from './YourProject'
 // // import './Profile.css'
 
+const Profile=()=>{
+    return(
+        <div className="something"></div>
+    )
+}
 
 // // const Profile = () => {
 // //   return (
@@ -17,4 +22,4 @@
 // //   )
 // // }
 
-export default Profile
+export default Profile;
