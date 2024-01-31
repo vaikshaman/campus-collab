@@ -1,5 +1,5 @@
 import Notification from '../models/notificationModel';
-import User from '../models/notificationModel';
+import User from '../models/profileModel';
 import authenticateToken from '../middleware/authenticatemail';
 
 const sendNotification = async(req, res) => {

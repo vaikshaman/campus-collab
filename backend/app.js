@@ -1,10 +1,12 @@
 // Import statements
 import express from "express";
 import dotenv from 'dotenv';
+import cors from 'cors';
 import connectDB from './config/db.js';
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
-import router from './routes/router.js'; // Import from the correct file path
+import router from './routes/router.js';
+import notificationRouter from './routes/notificationRouter.js'
 
 // Configure dotenv
 dotenv.config();
@@ -28,7 +30,7 @@ app.use(bodyParser.json());
 
 // Use router middleware
 app.use(router);
-app.use('/api/notification', notifictionRouter)
+app.use('/api/notification', notificationRouter)
 
 // Define the port
 const PORT = process.env.PORT || 4000;
