@@ -103,8 +103,8 @@ import YourProject from "./YourProject";
 const Sidebar = ({
   property1,
   className,
-  // iconParkOutline = "/img/icon-park-outline-degree-hat.svg",
-  // mingcuteSchoolLine = "/img/mingcute-school-line-2.svg",
+  iconParkOutline = "/img/icon-park-outline-degree-hat.svg",
+  mingcuteSchoolLine = "/img/mingcute-school-line-2.svg",
   vectorClassName,
   frameClassName,
   frameFrameClassName,
@@ -128,7 +128,7 @@ const Sidebar = ({
         <div className="frame-3">
           {state.property1 === "section-2" && <div className="text-wrapper-3">Profile</div>}
 
-          <img className="img-2" alt="Frame out" src={arrow} />
+          <img className="img-2" alt="Frame out" src="/img/frame-10-3.svg" />
           {state.property1 === "section-1" && <div className="text-wrapper-3">Profile</div>}
         </div>
         <div className="frame-4">
@@ -176,11 +176,11 @@ const Sidebar = ({
             </div>
           </div>
         </div>
-        {/* <img
+        <img
           className="vector"
           alt="Vector"
-          src={state.property1 === "section-2" ? "/img/frame-17-6.png" : "../../assets/vector-1-2.svg"}
-        /> */}
+          src={state.property1 === "section-2" ? "/img/frame-17-6.png" : "/img/vector-1-2.svg"}
+        />
         <p className="text-wrapper-7">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
           magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -195,10 +195,10 @@ const Sidebar = ({
         }}
       >
         <div className="frame-13">
-          {state.property1 === "section-2" && <img className="img-2" alt="Frame in" src={arrow} />}
+          {state.property1 === "section-2" && <img className="img-2" alt="Frame in" src="/img/frame-10-3.svg" />}
 
           <div className="text-wrapper-3">Expertise</div>
-          {state.property1 === "section-1" && <img className="img-2" alt="Frame out" src={arrow} />}
+          {state.property1 === "section-1" && <img className="img-2" alt="Frame out" src="/img/frame-10-3.svg" />}
         </div>
         <img
           className={`vector-2 ${vectorClassName}`}
@@ -270,11 +270,11 @@ const Sidebar = ({
       </div>
       <div className="frame-27">
         <div className="text-wrapper-9">Courses</div>
-        <img className="img-2" alt="Frame" src={arrow} />
+        <img className="img-2" alt="Frame" src="/img/frame-10-3.svg" />
       </div>
       <div className="frame-28">
         <div className="text-wrapper-10">Get In Touch</div>
-        <img className="img-2" alt="Frame" src={arrow} />
+        <img className="img-2" alt="Frame" src="/img/frame-10-2.svg" />
       </div>
     </div>
   );

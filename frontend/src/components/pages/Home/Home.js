@@ -6,10 +6,10 @@ import Navbar from '../../header/Navbar'
 function Home() {
   return (
     <div>
-        <Navbar/>
+        {/* <Navbar/> */}
         <div className='homer'>
             <HomeFeed/>
-            <Infobar/>
+            {/* <Infobar/> */}
         </div>
     </div>
   )
