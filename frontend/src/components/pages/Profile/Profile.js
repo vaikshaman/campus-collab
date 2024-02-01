@@ -1,48 +1,20 @@
-// // import React from 'react'
-// // import Sidebar from './Sidebar'
-// // import Navbar from '../../header/Navbar'
-// // import YourProject from './YourProject'
-// // import './Profile.css'
 
-const Profile=()=>{
-    return(
-        <div className="something"></div>
-    )
-}
-
-// const Profile = () => {
-//   return (
-//     <div>
-//         {/* <Navbar /> */}
-//         <div className='main'>
-//             <Sidebar/>
-//             <YourProject/>
-//         </div>
-//     </div>
-//   )
-// }
-
-// const Profile = () => {
-//   return (
-//     <div>
-//         <Navbar />
-//         <div className='main'>
-//             <Sidebar/>
-//             <YourProject/>
-//         </div>
-//     </div>
-//   )
-// }
-
-// export default Profile
 
 import React from "react";
+import {useState,useEffect} from "react";
 import "./Profile.css";
 import Sidebar from "./Sidebar";
 import arrow from '../../assets/side-arrow.png'
 import { constants } from "constants-browserify";
 
 const Profile = () => {
+    const [users, setUsers]=useState([]);
+    useEffect(()=>{
+        fetch("http://localhost:8080/profileModel")
+        .then(users=>setUsers(users.data))
+        .catch(err=>console.log(err))
+    })
+    console.log(users.data);
   const [active, setActive] = React.useState('ongoing');
   return (
     <div className="profile">
@@ -80,4 +52,4 @@ const Profile = () => {
   );
 };
 
-export default Profile
+export default Profile;

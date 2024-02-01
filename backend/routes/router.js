@@ -90,5 +90,12 @@ router.post('/api/profileModel', async(req, res) => {
     // Send a response indicating success
     res.status(200).json({ message: 'Profile data received successfully' });
   });
+  router.get('/profileModel',(req,res)=>{
+    
+    Profile.find()
+    .then(profileModel=>res.json(profileModel))
+    .catch(err=>res.json(err))
+    console.log(Profile.find())
+  })
 
 export default router;
