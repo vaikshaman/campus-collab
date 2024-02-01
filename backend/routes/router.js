@@ -65,8 +65,6 @@ router.post('/api/login', async (req, res) => {
   try {
     
     const loginResponse = req.body;
-    
-
     const loginData = new LoginData({ loginResponse });
     await loginData.save();
 
@@ -97,5 +95,21 @@ router.post('/api/profileModel', async(req, res) => {
     .catch(err=>res.json(err))
     console.log(Profile.find())
   })
+
+router.get('/api/sortByLatest',async (req,res) => {
+  console.log(req);
+  res.sendStatus(200);
+})
+
+router.get('/api/addProject',async (req,res) => {
+  console.log(req);
+  res.sendStatus(200);
+});
+
+router.get('/api/reqForCollab',async (req,res) => {
+  console.log(req);
+  res.sendStatus(200);
+})
+
 
 export default router;
