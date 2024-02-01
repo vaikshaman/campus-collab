@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
 
+// Image to be put in upper-level schema.
 const communityPost = mongoose.Schema(
     {
-        authorUserId : 
+        authorId : 
         {
             type : String,
             required: true,
@@ -22,6 +23,22 @@ const communityPost = mongoose.Schema(
             type : Number,
             unique : true
         },
+        title : {
+            type : String,
+            required : true
+        },
+        likecnt : {
+            type : Number,
+            required : true
+        },
+        tags : [
+            {
+                tag: 
+                {
+                    type : String
+                }
+            }
+        ],
         content : {
             type : String,
             required : true
