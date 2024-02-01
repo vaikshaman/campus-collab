@@ -1,3 +1,16 @@
 .homer{
-    display: flex;
+    display: grid;
+    /* fle */
+    /* align-items: flex-end; */
+   grid-template-columns: auto;
+}
+
+.Homefeed{
+    float: left;
+    /* position: absolute; */
+}
+
+.Infobar{
+   float: right;
+   /* position: relative; */
 }

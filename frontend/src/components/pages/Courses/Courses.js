@@ -1,6 +1,6 @@
 import React from 'react'
-import HomeFeed from './HomeFeed'
-import Infobar from './Infobar'
+import Top3 from './Top3'
+import AddCourse from './AddCourse'
 import Navbar from '../../header/Navbar'
 
 function Home() {
@@ -8,8 +8,8 @@ function Home() {
     <div>
         {/* <Navbar/> */}
         <div className='homer'>
-            <HomeFeed className="Homefeed"/>
-            {/* <Infobar className="Infobar"/> */}
+            {/* <Top3 /> */}
+            <AddCourse />
         </div>
     </div>
   )
