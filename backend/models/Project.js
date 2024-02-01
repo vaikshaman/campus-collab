@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// Image to be put in Upper-level schema
 const ProjectSchema = mongoose.Schema(
     {
         projectId : 
@@ -23,8 +24,17 @@ const ProjectSchema = mongoose.Schema(
             type : String,
             required : true
         },
-        tag : {
-            type: String
+        tags : [ 
+            {
+                tag:
+                {
+                    type: String
+                }
+            }
+        ],
+        projectName : {
+            type: String,
+            required : true
         },
         description : 
         {
@@ -50,7 +60,15 @@ const ProjectSchema = mongoose.Schema(
                     required : true
                 }                
             }
-        ]
+        ],
+        projectStatus : {
+            type : String,
+            required : true
+        },
+        collabReq : {
+            type : Boolean,
+            required : true
+        }
 
     }
 )
