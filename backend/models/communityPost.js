@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const communityPost = mongoose.Schema(
     {
-        authorUserId : 
+        authorId : 
         {
             type : String,
             required: true,
