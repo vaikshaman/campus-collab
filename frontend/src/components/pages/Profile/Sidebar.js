@@ -1,4 +1,5 @@
-// import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
+import axios from 'axios';
 // import './Sidebar.css'; // Make sure to include your CSS file
 
 // const Sidebar = () => {
@@ -113,9 +114,11 @@ const Sidebar = ({
   imgClassNameOverride,
   frameClassName1,
 }) => {
+ 
   const [state, dispatch] = useReducer(reducer, {
     property1: property1 || "section-1",
   });
+  
 
   return (
     <div className={`profile-nav ${className}`}>
@@ -135,7 +138,7 @@ const Sidebar = ({
           <div className="frame-5">
             <div className="ellipse" />
             <div className="frame-6">
-              <div className="text-wrapper-4">Rishi Kiran</div>
+              <div className="text-wrapper-4">Something</div>
               <p className="element-followers">
                 <span className="span">134 followers </span>
                 <span className="text-wrapper-5">· </span>

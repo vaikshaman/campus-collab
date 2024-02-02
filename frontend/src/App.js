@@ -12,10 +12,7 @@ import Project from './components/pages/Project/Project';
 function App() {
   return (
     <div className="App">
-      {/* <AzureAuth /> */}
-      <Home/>
-      {/* <Footer/> */}
-      <EditProfile />
+      <AppRoutes/>
     </div>
   );
 }
