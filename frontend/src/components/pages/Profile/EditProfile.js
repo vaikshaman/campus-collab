@@ -8,13 +8,13 @@ function EditProfile() {
     name: "",
     email: "",
     institute: "",
+    interest: "",
     branch: "",
     course: "",
-    skills:[{skill: "",
+    skills: "",
     experience: "",
-    tool: "",
+    tools: "",
     level: ""
-  }]
   });
 
   const handleInput = (e) => {
@@ -29,13 +29,31 @@ function EditProfile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(Data);
+    const DataSend = {
+      userid : Data.userid,
+      age: parseInt(Data.age),
+      name: Data.name,
+      email: Data.email,
+      institute: Data.institute,
+      branch: Data.branch,
+      interest : Data.interest,
+      course: Data.course,
+      skills : [
+        {
+          skill: Data.skills,
+          experience: Data.experience,
+          tools: Data.tools,
+          level: Data.level
+        }
+      ]
+    }
     try {
       const response = await fetch("http://localhost:8080/api/profileModel", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(Data),
+        body: JSON.stringify(DataSend),
       });
 
       if (!response.ok) {
@@ -52,12 +70,12 @@ function EditProfile() {
   const [inputSkill, setInputSkill] = useState('');
 
   const addskill = (e) => {
-    if (Data.skill.trim() === '') {
+    if (Data.skills.trim() === '') {
       window.alert('Add skill first!');
     } else {
       const newSkill = {
         id: skill.length,
-        name: Data.skill,
+        name: Data.skills,
         // You can add more project details here
       };
       setSkill([...skill, newSkill]);
@@ -189,9 +207,9 @@ function EditProfile() {
               <input
               placeholder="Name of skill"
                 type="text"
-                id="skill"
-                name="skill"
-                value={Data.skill}
+                id="skills"
+                name="skills"
+                value={Data.skills}
                 onChange={handleInput}
               />
             </div>
@@ -220,9 +238,9 @@ function EditProfile() {
               TOOL
               <input
                 type="text"
-                id="tool"
-                name="tool"
-                value={Data.tool}
+                id="tools"
+                name="tools"
+                value={Data.tools}
                 onChange={handleInput}
               />
             </div>
@@ -237,14 +255,9 @@ function EditProfile() {
             <button className="skill-butt" onClick={() => removeSkill(s.id)}>{s.name}</button>
             {/* More project details can go here */}
           </div>
-          <div className="level">LEVEL
-            <input type="text" id="level" name="level" value={Data.level} onChange={handleInput}/>
-          </div>
-          <div className="experience">EXPERIENCE
-            <input type="text" id="experience" name="experience" value={Data.experience} onChange={handleInput} />
-          </div>
-          <div className="tool">TOOL
-            <input type="text" id="tools" name="tools" value={Data.tools} onChange={handleInput}/>
+        ))}
+      </div>
+            </div>
           </div>
         </div>
       </form>

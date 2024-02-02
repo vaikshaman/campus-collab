@@ -4,17 +4,19 @@ import React from "react";
 import {useState,useEffect} from "react";
 import "./Profile.css";
 import Sidebar from "./Sidebar";
+import axios from "axios";
 import arrow from '../../assets/side-arrow.png'
 import { constants } from "constants-browserify";
 
 const Profile = () => {
-    const [users, setUsers]=useState([]);
-    useEffect(()=>{
-        fetch("http://localhost:8080/profileModel")
-        .then(users=>setUsers(users.data))
-        .catch(err=>console.log(err))
-    })
-    console.log(users.data);
+  const[profile,setProfile]=useState([]);
+  useEffect(()=>{
+    axios.get('http://localhost:3000/getprofile')
+    .then(Profile=>setProfile(Profile.data))
+    .catch(err=>console.log(err));
+
+  })
+  console.log(profile);
   const [active, setActive] = React.useState('ongoing');
   return (
     <div className="profile">
@@ -23,10 +25,10 @@ const Profile = () => {
         <div className="rectangle-3" />
         <div className="text-wrapper-11">Project Overview</div>
         <div className="frame-29">
-          <div className="text-wrapper-12">Completed</div>
+          <div className="text-wrapper-12">{profile.name}</div>
         </div>
         <div className="frame-30">
-          <div className="text-wrapper-12">Ongoing</div>
+          <div className="text-wrapper-12">{profile.name}</div>
         </div>
         <div className="overlap-group">
           <div className="rectangle-4" />
