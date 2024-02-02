@@ -115,4 +115,100 @@ body{
 
 /* WORKING ON CONTENT SHOWN  */
 
+.project-heading{
+    display: flex;
+    width: 56.5625rem;
+    padding-bottom: 1rem;
+    align-items: center;
+    gap: 0.625rem;
+    color: #000;
+    font-family: "Pangea Trial";
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #929292;
+}
+.project-subheading{
+    color: #000;
+    font-family: "Pangea Trial";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: 56.5625rem;
+    border: none;
+    height: auto;
+    outline: none;
+    margin-top: 1rem;
+}
 
+/* Difference b/w caption and description not clear 
+    Also textarea should be created instead of input text for these two
+*/
+.project-description{
+    color: #000;
+    font-family: "Pangea Trial";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 56.5625rem;
+    margin-top: 0.4rem;
+    border: none;
+    outline: none;
+}
+
+.project-caption{
+    color: #000;
+    font-family: "Pangea Trial";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 56.5625rem;
+    margin-top: 0.4rem;
+    border: none;
+    outline: none;
+}
+
+/* I want "Link: " to be already written on making a link input tag 
+    yet to be done
+*/
+.project-link{
+    color: #000;
+    font-family: "Pangea Trial";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 56.5625rem;
+    border: none;
+    outline: none;
+}
+
+/* Image not clear what to do */
+.project-image{
+    border-radius: 0.25rem;
+    border: 1px solid #D3D3D3;
+    /* background: url(<path-to-image>), lightgray 50% / cover no-repeat; */
+    width: 56.5625rem;
+    /* height: 31.5rem; */
+    outline: none;
+}
+
+/* No idea about attach pdf  */
+
+.project-code-block{
+    border-radius: 0.25rem;
+    border: 1px solid #D3D3D3;
+    background: #F5F5F7;
+    display: flex;
+    padding: 1.5rem;
+    align-items: flex-start;
+    gap: 1.5rem;
+    outline: none;
+    width: 56.5625rem;
+}
