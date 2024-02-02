@@ -1,439 +1,197 @@
-.edit-profile {
+body{
     background-color: #f5f5f7;
+}
+
+   .text-title{
+    display: flex;
+    width: 84vw;
+    height: 10vh;
+    margin: 0.2vw 8vw 0 8vw; 
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Pangea Trial" ;
+   }
+
+   .text-title button{
+    background-color: #BAE84D;
+    width: 6vw;
+    height: 2.5vw;
+    font-size: 1.2vw;
+    border-radius: 15px;
+    
+   }
+
+   .text-title h1{
+    font-size: 1vw;
+    color: #656565;
+   }
+
+.main-box{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .edit-profile .div {
-    background-color: #f5f5f7;
-    height: 1024px;
-    position: relative;
-    width: 1440px;
-  }
-  
-  .edit-profile .rectangle {
-    background-color: #ffffff;
-    height: 80px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 1440px;
-  }
-  
-  .edit-profile .frame {
-    align-items: flex-start;
-    display: inline-flex;
-    gap: 20px;
-    left: 60px;
-    position: absolute;
-    top: 194px;
-  }
-  
-  .edit-profile .frame-2 {
-    align-items: flex-start;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: var(--shadew-2);
-    display: inline-flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 40px;
-    padding: 40px;
-    position: relative;
-  }
-  
-  .edit-profile .frame-3 {
-    align-items: center;
-    align-self: stretch;
-    display: flex;
-    flex: 0 0 auto;
-    gap: 12px;
-    position: relative;
-    width: 100%;
-  }
-  
-  .edit-profile .img {
-    height: 30px;
-    position: relative;
-    width: 14px;
-  }
-  
-  .edit-profile .text-wrapper {
-    color: #646464;
-    font-family: "Pangea Trial-Regular", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    position: relative;
-    width: fit-content;
-  }
-  
-  .edit-profile .frame-4 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex-direction: column;
-    height: 620px;
-    justify-content: space-between;
-    position: relative;
-  }
-  
-  .edit-profile .frame-5 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 20px;
-    position: relative;
-  }
-  
-  .edit-profile .frame-6 {
-    align-items: flex-end;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 24px;
-    position: relative;
-  }
-  
-  .edit-profile .frame-7 {
-    height: 100px;
-    position: relative;
-    width: 100px;
-  }
-  
-  .edit-profile .frame-8 {
-    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+   .left-box{
+    display: grid;
+    width: 30%;
+    height: 80vh;
+    padding: 1vh 0.5vw;
+    background-color: white;
+    border-radius: 5%;
+    box-shadow:  0.2vw 0.2vw lightgrey;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto ;
+   }
+
+   .right-box{
+    display: grid;
+    width: 50%; 
+    height: 80vh;   
+    background-color: white;
+    border-radius: 5%;
+    box-shadow: 0.2vw lightgrey;
+    padding: 1vh 0.5vw;
+    grid-template-columns: auto auto auto auto auto ;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto ;
+   }
+
+
+   .details{
+    grid-column: 1/5;
+    align-items: start;
+   }
+   .photo{
+    grid-column: 1/2;
+    grid-row: 2/4
+   }
+   .userid{
+    grid-column: 2/5; 
+    grid-row: 3/4; 
+   }
+
+   .name{
+    grid-column: 1/4;
+    grid-row: 4/5; 
+   }
+
+   .age{
+    grid-column: 4/5;
+    grid-row: 4/5; 
+   }
+
+   .course{
+    grid-column: 1/3; 
+    grid-row: 5/6; 
+   }
+
+   .branch{
+    grid-column: 3/5;
+    grid-row: 5/6; 
+   }
+
+   .interest{
+    grid-column: 1/5;
+    grid-row: 6/7; 
+   }
+
+   .institute{
+    grid-column: 1/5;
+    grid-row: 9/10; 
+    /* width: 20vw; */
+   }
+
+   #institute{
+    width: 25vw;
+   }
+
+   .email{
+    grid-column: 1/5;
+    grid-row: 10/11; 
+   }
+   #email{
+    width: 25vw;
+   }
+
+   .expertise{
+    grid-column: 1/5;
+    align-items: start;
+   }
+
+   .skill{
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    position: relative;
-    width: 334px;
-  }
-  
-  .edit-profile .text-wrapper-2 {
-    align-self: stretch;
-    color: #646464;
-    font-family: "Pangea Trial-Medium", Helvetica;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-  }
-  
-  .edit-profile .frame-9 {
-    align-items: center;
-    align-self: stretch;
-    background-color: #f5f5f7;
-    border: 1px solid;
-    border-color: #d3d3d3;
-    border-radius: 4px;
-    display: flex;
-    flex: 0 0 auto;
-    gap: 10px;
-    overflow: hidden;
-    padding: 10px 12px;
-    position: relative;
-    width: 100%;
-  }
-  
-  .edit-profile .text-wrapper-3 {
-    color: #646464;
-    flex: 1;
-    font-family: "Pangea Trial-Regular", Helvetica;
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-  }
-  
-  .edit-profile .frame-10 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 16px;
-    position: relative;
-  }
-  
-  .edit-profile .frame-11 {
-    align-items: flex-start;
+    grid-column: 1/3;
+    grid-row: 2/3;
+}
+/* #skill{
+    width: 20vw;
+} */
+
+    .level{
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    position: relative;
-    width: 373px;
-  }
-  
-  .edit-profile .frame-12 {
-    align-items: flex-start;
+    
+    grid-column: 3/6; 
+    grid-row: 2/3; 
+}
+
+.experience{
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    justify-content: center;
-    position: relative;
-    width: 69px;
-  }
-  
-  .edit-profile .div-wrapper {
-    align-items: center;
-    align-self: stretch;
-    background-color: #f5f5f7;
-    border: 1px solid;
-    border-color: #d3d3d3;
-    border-radius: 4px;
+    grid-column: 1/6;
+    grid-row: 3/4; 
+   }
+   
+.tool{
+    grid-column: 1/3; 
+    grid-row: 4/5; 
+}
+
+.left-box input{
+       width: 12.5vw;
+       background-color: #f5f5f7;
+    }
+    
+    .right-box input{
+        background-color: #f5f5f7;
+        width: 23.5vw;
+    }
+    
+    textarea{
+        background-color: #f5f5f7;
+        width: 49vw;
+        height: 5vw;
+        resize: none;
+    }
+
+.right-box button{
+    grid-column: 1/2;
+    grid-row: 5/6;
+    background-color: #BAE84D;
+    width: 7vw;
+    height: 2.5vw;
+    font-size: 1.2vw;
+    border-radius: 15px;
+}
+
+#interest{
+    /* grid-column: 1/5; */
+    width: 25vw;
+}
+
+.skills-add{
+    grid-row: 8/9;
+}
+
+.skill-container{
     display: flex;
-    flex: 0 0 auto;
-    gap: 10px;
-    padding: 10px 12px;
-    position: relative;
-    width: 100%;
-  }
-  
-  .edit-profile .text-wrapper-4 {
-    color: #646464;
-    font-family: "Pangea Trial-Regular", Helvetica;
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-    width: fit-content;
-  }
-  
-  .edit-profile .frame-13 {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    position: relative;
-    width: 221px;
-  }
-  
-  .edit-profile .gridicons-dropdown {
-    height: 20px;
-    position: relative;
-    width: 20px;
-  }
-  
-  .edit-profile .frame-14 {
-    align-items: flex-start;
-    display: flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 8px;
-    position: relative;
-    width: 458px;
-  }
-  
-  .edit-profile .frame-15 {
-    align-items: center;
-    align-self: stretch;
-    background-color: #f5f5f7;
-    border-radius: 4px;
-    display: flex;
-    flex: 0 0 auto;
-    gap: 10px;
-    overflow: hidden;
-    padding: 10px 12px;
-    position: relative;
-    width: 100%;
-  }
-  
-  .edit-profile .frame-16 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 40px;
-    position: relative;
-  }
-  
-  .edit-profile .frame-17 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 16px;
-    position: relative;
-  }
-  
-  .edit-profile .frame-18 {
-    align-items: flex-start;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 20px;
-    position: relative;
-  }
-  
-  .edit-profile .frame-19 {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    position: relative;
-    width: 387px;
-  }
-  
-  .edit-profile .frame-20 {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    position: relative;
-    width: 275px;
-  }
-  
-  .edit-profile .frame-21 {
-    align-items: flex-start;
-    display: flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 8px;
-    position: relative;
-    width: 682px;
-  }
-  
-  .edit-profile .frame-22 {
-    align-items: center;
-    align-self: stretch;
-    background-color: #f5f5f7;
-    border: 1px solid;
-    border-color: #d3d3d3;
-    border-radius: 4px;
-    display: flex;
-    gap: 10px;
-    height: 40px;
-    overflow: hidden;
-    padding: 10px 12px;
-    position: relative;
-    width: 100%;
-  }
-  
-  .edit-profile .text-wrapper-5 {
-    color: #919191;
-    flex: 1;
-    font-family: "Pangea Trial-Regular", Helvetica;
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
-  }
-  
-  .edit-profile .frame-23 {
-    align-items: center;
-    background-color: #b9e74d80;
-    border: 2px solid;
-    border-color: #b9e74d;
-    border-radius: 40px;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 10px;
-    justify-content: center;
-    padding: 8px 14px;
-    position: relative;
-  }
-  
-  .edit-profile .text-wrapper-6 {
-    color: #000000;
-    font-family: "Pangea Trial-Regular", Helvetica;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -2px;
-    position: relative;
-    width: fit-content;
-  }
-  
-  .edit-profile .frame-24 {
-    align-items: flex-start;
-    display: flex;
-    flex: 0 0 auto;
-    flex-direction: column;
-    gap: 12px;
-    position: relative;
-    width: 682px;
-  }
-  
-  .edit-profile .frame-25 {
-    align-items: center;
-    align-self: stretch;
-    display: flex;
-    flex: 0 0 auto;
     flex-wrap: wrap;
-    gap: 4px 4px;
-    position: relative;
-    width: 100%;
-  }
-  
-  .edit-profile .frame-26 {
-    align-items: center;
-    border: 1px solid;
-    border-color: #d3d3d3;
-    border-radius: 20px;
-    display: inline-flex;
-    flex: 0 0 auto;
-    gap: 4px;
-    justify-content: center;
-    padding: 6px 10px;
-    position: relative;
-  }
-  
-  .edit-profile .material-symbols {
-    height: 16px;
-    position: relative;
-    width: 16px;
-  }
-  
-  .edit-profile .frame-27 {
-    align-items: center;
-    display: inline-flex;
-    gap: 1134px;
-    left: 60px;
-    position: absolute;
-    top: 125px;
-  }
-  
-  .edit-profile .text-wrapper-7 {
-    color: #646464;
-    font-family: "Pangea Trial-Regular", Helvetica;
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    position: relative;
-    width: fit-content;
-  }
-  
-  .edit-profile .frame-28 {
-    align-items: center;
-    background-color: #b9e74d;
-    border-radius: 40px;
-    display: inline-flex;
-    flex: 0 0 auto;
     gap: 10px;
-    justify-content: center;
-    padding: 8px 16px;
-    position: relative;
-  }
-  
-  .edit-profile .text-wrapper-8 {
-    color: #000000;
-    font-family: "Pangea Trial-Regular", Helvetica;
-    font-size: 20px;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    margin-top: -1px;
-    position: relative;
+    /* width: 25vw; */
+}
+
+.skill-container button{
+    background-color: #f5f5f7;
     width: fit-content;
-  }
-  
+}

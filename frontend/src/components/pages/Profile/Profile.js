@@ -1,48 +1,20 @@
-// // import React from 'react'
-// // import Sidebar from './Sidebar'
-// // import Navbar from '../../header/Navbar'
-// // import YourProject from './YourProject'
-// // import './Profile.css'
-
-// const Profile=()=>{
-//     return(
-//         <div className="something"></div>
-//     )
-// }
-
-// const Profile = () => {
-//   return (
-//     <div>
-//         {/* <Navbar /> */}
-//         <div className='main'>
-//             <Sidebar/>
-//             <YourProject/>
-//         </div>
-//     </div>
-//   )
-// }
-
-// const Profile = () => {
-//   return (
-//     <div>
-//         <Navbar />
-//         <div className='main'>
-//             <Sidebar/>
-//             <YourProject/>
-//         </div>
-//     </div>
-//   )
-// }
-
-// export default Profile
-
 import React from "react";
+import {useState,useEffect} from "react";
 import "./Profile.css";
 import Sidebar from "./Sidebar";
+import axios from "axios";
 import arrow from '../../assets/side-arrow.png'
 import { constants } from "constants-browserify";
 
 const Profile = () => {
+  const[profile,setProfile]=useState([]);
+  useEffect(()=>{
+    axios.get('http://localhost:8080/getprofile')
+    .then(Profile=>setProfile(Profile.data))
+    .catch(err=>console.log(err));
+
+  },[])
+  console.log(profile);
   const [active, setActive] = React.useState('ongoing');
   return (
     <div className="profile">
@@ -51,10 +23,10 @@ const Profile = () => {
         <div className="rectangle-3" />
         <div className="text-wrapper-11">Project Overview</div>
         <div className="frame-29">
-          <div className="text-wrapper-12">Completed</div>
+          <div className="text-wrapper-12">{profile[0].name}</div>
         </div>
         <div className="frame-30">
-          <div className="text-wrapper-12">Ongoing</div>
+          <div className="text-wrapper-12">{profile[1].name}</div>
         </div>
         <div className="overlap-group">
           <div className="rectangle-4" />
@@ -80,4 +52,4 @@ const Profile = () => {
   );
 };
 
-export default Profile
+export default Profile;

@@ -1,0 +1,214 @@
+body{
+    font-family: sans-serif;
+}
+
+.project-main {
+  display: flex;
+  margin: 3vw;
+  gap: 2vw;
+  margin-left: 5vw;
+}
+
+.content-shown {
+  display: inline-flex;
+  padding: 2.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  border-radius: 1.5rem;
+  background: #FFF;
+  width: 65vw;
+}
+/* WORKING ON ADD CONTENT  */
+.add-box{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8rem;
+    width: 15vw;
+    margin-left: 2vw;
+}
+
+.confirm-content{
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+
+.remove-btn{
+    display: flex;
+    padding: 0.625rem 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    flex: 1 0 0;
+    border-radius: 2.5rem;
+    border: 1px solid #656565;
+    color: #656565;
+    text-align: center;
+    font-family: "Pangea Trial";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.continue-btn{
+    display: flex;
+    padding: 0.625rem 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 2.5rem;
+    background: #BAE84D;
+    color: #000;
+    font-family: "Pangea Trial";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+}
+
+.add-content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    color: #656565;
+    font-family: "Pangea Trial";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.add-btns{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.main-btn{
+    display: flex;
+    width: 17.1875vw;
+    padding: 0.75rem 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.5rem;
+    background: #FFF;
+    border: none;
+    
+    /* Shadew 2 */
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.03), 0px 12px 12px 0px rgba(0, 0, 0, 0.03), 0px 48px 19px 0px rgba(0, 0, 0, 0.00), 0px 75px 21px 0px rgba(0, 0, 0, 0.00);
+    color: #000;
+    font-family: "Pangea Trial";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* WORKING ON CONTENT SHOWN  */
+
+.project-heading{
+    display: flex;
+    width: 56.5625rem;
+    padding-bottom: 1rem;
+    align-items: center;
+    gap: 0.625rem;
+    color: #000;
+    font-family: "Pangea Trial";
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #929292;
+}
+.project-subheading{
+    color: #000;
+    font-family: "Pangea Trial";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: 56.5625rem;
+    border: none;
+    height: auto;
+    outline: none;
+    margin-top: 1rem;
+}
+
+/* Difference b/w caption and description not clear 
+    Also textarea should be created instead of input text for these two
+*/
+.project-description{
+    color: #000;
+    font-family: "Pangea Trial";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 56.5625rem;
+    margin-top: 0.4rem;
+    border: none;
+    outline: none;
+}
+
+.project-caption{
+    color: #000;
+    font-family: "Pangea Trial";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 56.5625rem;
+    margin-top: 0.4rem;
+    border: none;
+    outline: none;
+}
+
+/* I want "Link: " to be already written on making a link input tag 
+    yet to be done
+*/
+.project-link{
+    color: #000;
+    font-family: "Pangea Trial";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 56.5625rem;
+    border: none;
+    outline: none;
+}
+
+/* Image not clear what to do */
+.project-image{
+    border-radius: 0.25rem;
+    border: 1px solid #D3D3D3;
+    /* background: url(<path-to-image>), lightgray 50% / cover no-repeat; */
+    width: 56.5625rem;
+    /* height: 31.5rem; */
+    outline: none;
+}
+
+/* No idea about attach pdf  */
+
+.project-code-block{
+    border-radius: 0.25rem;
+    border: 1px solid #D3D3D3;
+    background: #F5F5F7;
+    display: flex;
+    padding: 1.5rem;
+    align-items: flex-start;
+    gap: 1.5rem;
+    outline: none;
+    width: 56.5625rem;
+}

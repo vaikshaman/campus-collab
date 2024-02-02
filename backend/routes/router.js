@@ -3,8 +3,7 @@ import multer from 'multer';
 import Profile from '../models/profileModel.js';
 import Expertise from '../models/profileModel.js'
 import LoginData from '../models/login.js';
-import cors from 'cors';
-const app=express(); 
+import cors from 'cors'; 
 const router = express.Router();
 
 //to store photo 
@@ -65,8 +64,6 @@ router.post('/api/login', async (req, res) => {
   try {
     
     const loginResponse = req.body;
-    
-
     const loginData = new LoginData({ loginResponse });
     await loginData.save();
 
@@ -76,19 +73,41 @@ router.post('/api/login', async (req, res) => {
     res.status(500).send('Internal server error');
   }
 });
-router.post('/api/profileModel', async(req, res) => {
-    // Retrieve data from request body
-    const profileResponse = req.body;
-
-    const ProfileData= new Profile(profileResponse);
-    await ProfileData.save();
-  
-    // Process the profile data (e.g., save it to a database)
-    // Replace this with your actual logic
-    console.log('Received profile data:', profileResponse);
-  
-    // Send a response indicating success
+router.post('/api/profileModel', async (req, res) => {
+  try {
+    const profileData = req.body;
+    
+    const newProfile = new Profile(profileData);
+    await newProfile.save();
+    console.log('Received profile data:', profileData);
     res.status(200).json({ message: 'Profile data received successfully' });
-  });
+  } catch (error) {
+    console.error('Error saving profile data:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+  router.get('/getprofile',(req,res)=>{
+    
+    Profile.find()
+    .then(Profile=>res.json(Profile))
+    .catch(err=>res.json(err))
+    console.log(Profile.find())
+  })
+
+router.get('/api/sortByLatest',async (req,res) => {
+  console.log(req);
+  res.sendStatus(200);
+})
+
+router.get('/api/addProject',async (req,res) => {
+  console.log(req);
+  res.sendStatus(200);
+});
+
+router.get('/api/reqForCollab',async (req,res) => {
+  console.log(req);
+  res.sendStatus(200);
+})
+
 
 export default router;
