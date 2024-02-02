@@ -38,9 +38,9 @@ const Top3 = () => {
   };
 
   return (
-    <div>
-        <div className="biggest-container">
-            <div className="container-1">
+    <div className="Top3">
+        <div className="Top3-biggest-container">
+        <div className="container-1">
               <nav className='Upper_part'>
               <a href="#" className='gugu item-container-1'>
                 <div
@@ -78,126 +78,6 @@ const Top3 = () => {
                  </svg>
                   <div className="gaga">Filter</div>
               </div>
-            </div>
-            {/* <hr className="bar"></hr> */}
-            
-
-            <div className="biggest-box">
-
-              <div>
-              <div className="box">
-                <div className="greybox"></div>
-                <div className="sideinfo">
-                    <div> Web Security Fundamentals: Safeguarding Your Web Applications Against Common Threats</div>
-                    <div className="clubsss">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24"      height="24" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="12" fill="#D9D9D9"/>
-                    </svg>
-                    <div className="club">Coding Club,IITG</div>
-                    </div>
-                    <div className="skills">
-                        <div className="new1">Web devolopment</div>
-                        <div className="new2">UI/UX</div>
-                    </div>
-                </div>
-              </div>
-              </div>
-              
-              <div>
-              <div className="box">
-                <div className="greybox"></div>
-                <div className="sideinfo">
-                <div> Web Security Fundamentals: Safeguarding Your Web Applications Against Common Threats</div>
-                    <div className="clubsss">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24"      height="24" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="12" fill="#D9D9D9"/>
-                    </svg>
-                    <div className="club">Coding Club,IITG</div>
-                    </div>
-                    <div className="skills">
-                        <div className="new1">Web devolopment</div>
-                        <div className="new2">UI/UX</div>
-                    </div>
-                </div>
-              </div>
-              </div>
-
-              <div>
-              <div className="box">
-                <div className="greybox"></div>
-                <div className="sideinfo">
-                <div> Web Security Fundamentals: Safeguarding Your Web Applications Against Common Threats</div>
-                    <div className="clubsss">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24"      height="24" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="12" fill="#D9D9D9"/>
-                    </svg>
-                    <div className="club">Coding Club,IITG</div>
-                    </div>
-                    <div className="skills">
-                        <div className="new1">Web devolopment</div>
-                        <div className="new2">UI/UX</div>
-                    </div>
-                </div>
-              </div>
-              </div>
-
-              <div>
-              <div className="box">
-                <div className="greybox"></div>
-                <div className="sideinfo">
-                <div> Web Security Fundamentals: Safeguarding Your Web Applications Against Common Threats</div>
-                    <div className="clubsss">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24"      height="24" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="12" fill="#D9D9D9"/>
-                    </svg>
-                    <div className="club">Coding Club,IITG</div>
-                    </div>
-                    <div className="skills">
-                        <div className="new1">Web devolopment</div>
-                        <div className="new2">UI/UX</div>
-                    </div>
-                </div>
-              </div>
-              </div>
-
-              <div>
-              <div className="box">
-                <div className="greybox"></div>
-                <div className="sideinfo">
-                <div> Web Security Fundamentals: Safeguarding Your Web Applications Against Common Threats</div>
-                    <div className="clubsss">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24"      height="24" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="12" fill="#D9D9D9"/>
-                    </svg>
-                    <div className="club">Coding Club,IITG</div>
-                    </div>
-                    <div className="skills">
-                        <div className="new1">Web devolopment</div>
-                        <div className="new2">UI/UX</div>
-                    </div>
-                </div>
-              </div>
-              </div>
-
-              <div>
-              <div className="box">
-                <div className="greybox"></div>
-                <div className="sideinfo">
-                <div> Web Security Fundamentals: Safeguarding Your Web Applications Against Common Threats</div>
-                    <div className="clubsss">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24"      height="24" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="12" fill="#D9D9D9"/>
-                    </svg>
-                    <div className="club">Coding Club,IITG</div>
-                    </div>
-                    <div className="skills">
-                        <div className="new1">Web devolopment</div>
-                        <div className="new2">UI/UX</div>
-                    </div>
-                </div>
-              </div>
-              </div>
-           
             </div>
         </div>
     </div>

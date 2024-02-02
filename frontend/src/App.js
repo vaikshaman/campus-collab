@@ -14,7 +14,7 @@ function App() {
       {/* <Profile/> */}
       {/* <AzureAuth />      */}
       {/* <Home /> */}
-      {/* <Courses/> */}
+      <Courses/>
     </div>
   );
 }

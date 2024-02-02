@@ -3,6 +3,7 @@
     /* fle */
     /* align-items: flex-end; */
    grid-template-columns: auto;
+   background: #f3f3f6;
 }
 
 .Homefeed{

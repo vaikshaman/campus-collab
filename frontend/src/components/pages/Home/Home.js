@@ -8,7 +8,7 @@ function Home() {
     <div>
         {/* <Navbar/> */}
         <div className='homer'>
-            <HomeFeed className="Homefeed"/>
+            {/* <HomeFeed className="Homefeed"/> */}
             {/* <Infobar className="Infobar"/> */}
         </div>
     </div>

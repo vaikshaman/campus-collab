@@ -38,7 +38,7 @@ const HomeFeed = () => {
   };
 
   return (
-    <div>
+    <div className="HomeFeed">
         <div className="biggest-container">
             <div className="container-1">
               <nav className='Upper_part'>
