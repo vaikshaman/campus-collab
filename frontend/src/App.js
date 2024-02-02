@@ -12,12 +12,10 @@ import Project from './components/pages/Project/Project';
 function App() {
   return (
     <div className="App">
-      {/* <Profile/> */}
       {/* <AzureAuth /> */}
-      {/* <Home/> */}
+      <Home/>
       {/* <Footer/> */}
-      {/* <EditProfile /> */}
-      <Project/>
+      <EditProfile />
     </div>
   );
 }

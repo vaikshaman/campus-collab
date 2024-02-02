@@ -1,6 +1,5 @@
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 
-// Image to be put in upper-level schema.
 const communityPost = mongoose.Schema(
     {
         authorId : 
@@ -23,22 +22,6 @@ const communityPost = mongoose.Schema(
             type : Number,
             unique : true
         },
-        title : {
-            type : String,
-            required : true
-        },
-        likecnt : {
-            type : Number,
-            required : true
-        },
-        tags : [
-            {
-                tag: 
-                {
-                    type : String
-                }
-            }
-        ],
         content : {
             type : String,
             required : true
@@ -70,4 +53,4 @@ const communityPost = mongoose.Schema(
     }
 ,{timestamps : true})
 
-export default mongoose.model('CommunityPosts',communityPost);
+// export default mongoose.model('CommunityPosts',communityPost);

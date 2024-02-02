@@ -11,9 +11,9 @@ function EditProfile() {
     interest: "",
     branch: "",
     course: "",
-    skill: "",
+    skills: "",
     experience: "",
-    tool: "",
+    tools: "",
     level: ""
   });
 
@@ -30,7 +30,7 @@ function EditProfile() {
     e.preventDefault();
     console.log(Data);
     const DataSend = {
-      userId : Data.userid,
+      userid : Data.userid,
       age: parseInt(Data.age),
       name: Data.name,
       email: Data.email,
@@ -40,7 +40,7 @@ function EditProfile() {
       course: Data.course,
       skills : [
         {
-          skill: Data.skill,
+          skill: Data.skills,
           experience: Data.experience,
           tools: Data.tools,
           level: Data.level
@@ -70,12 +70,12 @@ function EditProfile() {
   const [inputSkill, setInputSkill] = useState('');
 
   const addskill = (e) => {
-    if (Data.skill.trim() === '') {
+    if (Data.skills.trim() === '') {
       window.alert('Add skill first!');
     } else {
       const newSkill = {
         id: skill.length,
-        name: Data.skill,
+        name: Data.skills,
         // You can add more project details here
       };
       setSkill([...skill, newSkill]);
@@ -207,9 +207,9 @@ function EditProfile() {
               <input
               placeholder="Name of skill"
                 type="text"
-                id="skill"
-                name="skill"
-                value={Data.skill}
+                id="skills"
+                name="skills"
+                value={Data.skills}
                 onChange={handleInput}
               />
             </div>
@@ -238,9 +238,9 @@ function EditProfile() {
               TOOL
               <input
                 type="text"
-                id="tool"
-                name="tool"
-                value={Data.tool}
+                id="tools"
+                name="tools"
+                value={Data.tools}
                 onChange={handleInput}
               />
             </div>

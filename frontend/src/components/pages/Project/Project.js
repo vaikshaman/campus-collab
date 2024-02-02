@@ -1,59 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import Navbar from '../../header/Navbar';
-import "./Project.css"
+import { useState } from "react";
+import React from "react";
 
-const Project = () => {
-  const [inputFields, setInputFields] = useState([]);
-
-  useEffect(() => {
-    // Retrieve stored input fields from localStorage on component mount
-    const storedInputFields = JSON.parse(localStorage.getItem('inputFields'));
-    if (storedInputFields) {
-      setInputFields(storedInputFields);
-    }
-  }, []);
-
-  const addInputField = (type) => {
-    const newInputField = { type };
-    setInputFields((prevFields) => [...prevFields, newInputField]);
-  };
-
-  useEffect(() => {
-    // Store input fields to localStorage whenever inputFields state changes
-    localStorage.setItem('inputFields', JSON.stringify(inputFields));
-  }, [inputFields]);
-
-  return (
-    <div>
-        <Navbar/>
-        
-        <div className='project-main'>
-
-            <div className='content-shown'>
-                <form>
-                    {inputFields.map((field, index) => (
-                    <div key={index}>
-                        <input type="text" className={`project-${field.type}`} placeholder={`Enter ${field.type} here`} />
-                    </div>
-                    ))}
-                </form>
+const Project=()=>{
+return(
+    <div className="container">
+        <div className="Project-desc">
+        </div>
+            <div className="project-img">
+                <img src="" alt="" />
             </div>
+            <div className="Project-code">
 
-            <div className='add-box'>
-                <div className='add-content'>
-                    Add Content
-                    <div className='add-btns'>
-                        <button className='main-btn' onClick={() => addInputField('heading')}>Add Heading</button>
-                        <button className='main-btn' onClick={() => addInputField('subheading')}>Add Subheading</button>
-                        <button className='main-btn' onClick={() => addInputField('description')}>Add Description</button>
-                        <button className='main-btn' onClick={() => addInputField('caption')}>Add Caption</button>
-                        <button className='main-btn' onClick={() => addInputField('image')}>Attach Image</button>
-                        <button className='main-btn' onClick={() => addInputField('pdf')}>Attach PDF</button>
-                        <button className='main-btn' onClick={() => addInputField('link')}>Add Link</button>
-                        <button className='main-btn' onClick={() => addInputField('code-block')}>Code Block</button>
-                        {/* Add more buttons for other types as needed */}
-                    </div>
-                </div>
+            </div>
+            <div className="Project-post">
+            <div className="Project-completed">
+
+            </div>
+            <div className="Project-reviews">
+                <input type="text" />
+                <div className="Project-comments">
 
                 <div className='confirm-content'>
                     <button className='remove-btn'>Discard</button>
