@@ -1,0 +1,118 @@
+body{
+    font-family: sans-serif;
+}
+
+.project-main {
+  display: flex;
+  margin: 3vw;
+  gap: 2vw;
+  margin-left: 5vw;
+}
+
+.content-shown {
+  display: inline-flex;
+  padding: 2.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  border-radius: 1.5rem;
+  background: #FFF;
+  width: 65vw;
+}
+/* WORKING ON ADD CONTENT  */
+.add-box{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8rem;
+    width: 15vw;
+    margin-left: 2vw;
+}
+
+.confirm-content{
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+
+.remove-btn{
+    display: flex;
+    padding: 0.625rem 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    flex: 1 0 0;
+    border-radius: 2.5rem;
+    border: 1px solid #656565;
+    color: #656565;
+    text-align: center;
+    font-family: "Pangea Trial";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.continue-btn{
+    display: flex;
+    padding: 0.625rem 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 2.5rem;
+    background: #BAE84D;
+    color: #000;
+    font-family: "Pangea Trial";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border: none;
+}
+
+.add-content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    color: #656565;
+    font-family: "Pangea Trial";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.add-btns{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.main-btn{
+    display: flex;
+    width: 17.1875vw;
+    padding: 0.75rem 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.5rem;
+    background: #FFF;
+    border: none;
+    
+    /* Shadew 2 */
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.03), 0px 12px 12px 0px rgba(0, 0, 0, 0.03), 0px 48px 19px 0px rgba(0, 0, 0, 0.00), 0px 75px 21px 0px rgba(0, 0, 0, 0.00);
+    color: #000;
+    font-family: "Pangea Trial";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* WORKING ON CONTENT SHOWN  */
+
+

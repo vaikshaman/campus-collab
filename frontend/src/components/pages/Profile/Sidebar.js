@@ -181,7 +181,12 @@ const Sidebar = ({
           alt="Vector"
           src={state.property1 === "section-2" ? "/img/frame-17-6.png" : "/img/vector-1-2.svg"}
         />
-        
+        <p className="text-wrapper-7">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </p>
       </div>
       <div
         className={`frame-12 property-1-4-${state.property1}`}
