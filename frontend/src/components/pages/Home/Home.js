@@ -8,11 +8,11 @@ function Home() {
     <div>
         {/* <Navbar/> */}
         <div className='homer'>
-            {/* <HomeFeed className="Homefeed"/> */}
-            {/* <Infobar className="Infobar"/> */}
+            <HomeFeed className="Homefeed"/>
+            <Infobar className="Infobar"/>
         </div>
     </div>
   )
 }
 
-export default Home
+export default Home;
