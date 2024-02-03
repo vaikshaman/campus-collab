@@ -10,15 +10,8 @@ import Project from './components/pages/Project/Project';
 function App() {
   return (
     <div className="App">
-      {/* <Profile/> */}
-      {/* <AzureAuth /> */}
-      {/* <Home/> */}
-      {/* <Footer/> */}
-      {/* <EditProfile /> */}
-      <Project/>
-      {/* <Profile/> */}
-      {/* <Navbar/> */}
-      {/* <AppRoutes/> */}
+      
+      <AppRoutes/>
     </div>
   );
 }
