@@ -84,4 +84,4 @@ const Top3 = () => {
   )
 }
 
-export default Top3
+export default Top3;
