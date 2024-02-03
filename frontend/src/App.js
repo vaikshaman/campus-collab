@@ -5,13 +5,20 @@ import Sidebar from './components/pages/Profile/Sidebar';
 import AzureAuth from '../src/auth/azureRegisteration';
 import Profile from './components/pages/Profile/Profile';
 import AppRoutes from './AppRoutes';
+import Project from './components/pages/Project/Project';
 
 function App() {
   return (
     <div className="App">
       {/* <Profile/> */}
       {/* <AzureAuth /> */}
-      <AppRoutes/>
+      {/* <Home/> */}
+      {/* <Footer/> */}
+      {/* <EditProfile /> */}
+      <Project/>
+      {/* <Profile/> */}
+      {/* <Navbar/> */}
+      {/* <AppRoutes/> */}
     </div>
   );
 }

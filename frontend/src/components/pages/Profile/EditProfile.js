@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./EditProfile.css";
+import Navbar from "../../header/Navbar";
 
 function EditProfile() {
   const [Data, setData] = useState({
@@ -94,6 +95,7 @@ function EditProfile() {
 
   return (
     <div className="EditProfile">
+      <Navbar/>
       <form onSubmit={handleSubmit}>
         <div className="text-title">
           <h1>EDIT PROFILE</h1>

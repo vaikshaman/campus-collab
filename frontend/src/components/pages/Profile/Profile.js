@@ -23,10 +23,10 @@ const Profile = () => {
         <div className="rectangle-3" />
         <div className="text-wrapper-11">Project Overview</div>
         <div className="frame-29">
-          <div className="text-wrapper-12">{profile[0].name}</div>
+          <div className="text-wrapper-12">{profile.name} Completed</div>
         </div>
         <div className="frame-30">
-          <div className="text-wrapper-12">{profile[1].name}</div>
+          <div className="text-wrapper-12">{profile.name} Ongoing</div>
         </div>
         <div className="overlap-group">
           <div className="rectangle-4" />
