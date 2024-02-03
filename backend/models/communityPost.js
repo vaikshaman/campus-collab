@@ -2,12 +2,6 @@
 
 const communityPost = mongoose.Schema(
     {
-        authorId : 
-        {
-            type : String,
-            required: true,
-            unique : true
-        },
         authorEmail : 
         {
             type : String,
@@ -18,11 +12,11 @@ const communityPost = mongoose.Schema(
             type : String,
             required : true
         },
-        postId : {
-            type : Number,
-            unique : true
+        question : {
+            type : String,
+            required : true
         },
-        content : {
+        description : {
             type : String,
             required : true
         },
@@ -30,10 +24,6 @@ const communityPost = mongoose.Schema(
             {
                 commentId : {
                     type : Number,
-                    required : true
-                },
-                commenterId : {
-                    type : String,
                     required : true
                 },
                 commenterEmail : {
@@ -47,6 +37,10 @@ const communityPost = mongoose.Schema(
                 content : {
                     type : String,
                     required : true
+                },
+                timestamps : {
+                    type: Date,
+                    default : Date.now
                 }
             }
         ]

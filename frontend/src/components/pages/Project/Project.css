@@ -4,9 +4,9 @@ body{
 
 .project-main {
   display: flex;
-  margin: 3vw;
+  margin: 1vw;
   gap: 2vw;
-  margin-left: 5vw;
+  margin-left: 4vw;
 }
 
 .content-shown {
@@ -24,7 +24,7 @@ body{
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8rem;
+    gap: 5.5rem;
     width: 15vw;
     margin-left: 2vw;
 }
@@ -145,6 +145,10 @@ body{
     margin-top: 1rem;
 }
 
+.project-heading:hover{
+    cursor: pointer;
+}
+
 /* Difference b/w caption and description not clear 
     Also textarea should be created instead of input text for these two
 */
@@ -159,6 +163,7 @@ body{
     margin-top: 0.4rem;
     border: none;
     outline: none;
+    background: #FFF;
 }
 
 .project-caption{
@@ -172,6 +177,7 @@ body{
     margin-top: 0.4rem;
     border: none;
     outline: none;
+    background: #FFF;
 }
 
 /* I want "Link: " to be already written on making a link input tag 
@@ -197,9 +203,20 @@ body{
     width: 56.5625rem;
     /* height: 31.5rem; */
     outline: none;
+    border: none;
 }
 
 /* No idea about attach pdf  */
+.project-pdf{
+    border-radius: 0.25rem;
+    border: 1px solid #D3D3D3;
+    /* background: url(<path-to-image>), lightgray 50% / cover no-repeat; */
+    width: 56.5625rem;
+    /* height: 31.5rem; */
+    outline: none;
+    border: none;
+
+}
 
 .project-code-block{
     border-radius: 0.25rem;
