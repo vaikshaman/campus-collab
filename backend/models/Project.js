@@ -3,17 +3,6 @@ import mongoose from "mongoose";
 // Image to be put in Upper-level schema
 const ProjectSchema = mongoose.Schema(
     {
-        projectId : 
-        {
-            type : String,
-            required : true,
-            unique : true
-        },
-        ownerId : 
-        {
-            type : String,
-            required : true
-        },
         ownerName : 
         {
             type: String,
@@ -32,23 +21,30 @@ const ProjectSchema = mongoose.Schema(
                 }
             }
         ],
+        skills : {
+            type : String
+        },
+        imagePath : {
+            type: String
+        },
+        imageName : {
+            type: String
+        },
         projectName : {
             type: String,
             required : true
         },
         description : 
         {
-            type : String,
-            required: true
+            type : [String]
+        },
+        descriptionType : 
+        {
+            type : [String]
         },
         collaborators : 
         [
             {
-                collaboratorId : 
-                {
-                    type:  String,
-                    required : true
-                },
                 collaboratorEmail :
                 {
                     type : String,
@@ -65,10 +61,30 @@ const ProjectSchema = mongoose.Schema(
             type : String,
             required : true
         },
-        collabReq : {
+        isCollabOpen : {
             type : Boolean,
             required : true
-        }
+        },
+        reviews : [
+            {
+                reviewerEmail : {
+                    type : String,
+                    required : true
+                },
+                reviewerName  : {
+                    type : String,
+                    required : true
+                },
+                review : {
+                    type : String,
+                    required : true
+                },
+                timestamp : {
+                    type : Date,
+                    default : Date.now
+                }
+            }
+        ]
 
     }
 )

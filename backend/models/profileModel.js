@@ -2,6 +2,12 @@
 import mongoose from "mongoose";
 
 const ProfileSchema = mongoose.Schema({
+  imagePath : {
+    type : String,
+  },
+  imageName : {
+    type: String
+  },
   userid: {
     type: String,
     required: true,
@@ -14,11 +20,14 @@ const ProfileSchema = mongoose.Schema({
   course: { type: String, required: true },
   interest: { type: String, required: true },
   branch: { type: String, required: true },
-  skills: [{
-  skill:{ type: String, required: true  },
-  level: { type: String, required: true },
-  experience: { type: String, required: true },
-  tools: { type: String, required: true }}]
+  skills: [
+    {
+      skill: { type: String, required: true  },
+      level: { type: String, required: true },
+      experience: { type: String, required: true },
+      tools: { type: String, required: true }
+    }
+  ]
 }, { timestamps: true });
 
 export default mongoose.model('Profile', ProfileSchema);
