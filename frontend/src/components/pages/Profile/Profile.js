@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import {useState,useEffect} from "react";
 import "./Profile.css";
@@ -11,11 +9,11 @@ import { constants } from "constants-browserify";
 const Profile = () => {
   const[profile,setProfile]=useState([]);
   useEffect(()=>{
-    axios.get('http://localhost:3000/getprofile')
+    axios.get('http://localhost:8080/getprofile')
     .then(Profile=>setProfile(Profile.data))
     .catch(err=>console.log(err));
 
-  })
+  },[])
   console.log(profile);
   const [active, setActive] = React.useState('ongoing');
   return (

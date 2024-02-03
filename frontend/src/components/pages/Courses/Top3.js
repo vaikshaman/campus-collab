@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import './HomeFeed.css'
+import './Top3.css'
 
-const HomeFeed = () => {
+const Top3 = () => {
 
   const [isopen1, setisopen1] = useState(true);
   const [isopen2, setisopen2] = useState(false);
@@ -38,9 +38,9 @@ const HomeFeed = () => {
   };
 
   return (
-    <div className="HomeFeed">
-        <div className="biggest-container">
-            <div className="container-1">
+    <div className="Top3">
+        <div className="Top3-biggest-container">
+        <div className="container-1">
               <nav className='Upper_part'>
               <a href="#" className='gugu item-container-1'>
                 <div
@@ -79,59 +79,9 @@ const HomeFeed = () => {
                   <div className="gaga">Filter</div>
               </div>
             </div>
-            {/* <hr className="bar"></hr> */}
-            
-
-            <div className="biggest-box">
-
-              <div>
-              <div className="box"></div>
-              <div className="content_of_box">Spotify Clone</div>
-              </div>
-              
-              <div>
-              <div className="box"></div>
-              <div className="content_of_box">Chess Vs Connect4</div>
-              </div>
-
-              <div>
-              <div className="box"></div>
-              <div className="content_of_box">Windows Assistant</div>
-              </div>
-
-              <div>
-              <div className="box"></div>
-              <div className="content_of_box">Alcheringa Website</div>
-              </div>
-
-              <div>
-              <div className="box"></div>
-              <div className="content_of_box">Shashwat BKL</div>
-              </div>
-
-              <div>
-              <div className="box"></div>
-              <div className="content_of_box">Jatin Pro</div>
-              </div>
-
-              <div>
-              <div className="box"></div>
-              <div className="content_of_box">Jatin Pro</div>
-              </div>
-
-              <div>
-              <div className="box"></div>
-              <div className="content_of_box">Vibhanshu Chakka</div>
-              </div>
-
-              <div>
-              <div className="box"></div>
-              <div className="content_of_box">Veenas ki Mkc</div>
-              </div>
-            </div>
         </div>
     </div>
   )
 }
 
-export default HomeFeed
+export default Top3
