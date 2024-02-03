@@ -13,9 +13,12 @@ function App() {
   return (
     <div className="App">
       {/* <AzureAuth /> */}
-      <Home/>
+      {/* <Home/> */}
       {/* <Footer/> */}
-      <EditProfile />
+      {/* <EditProfile /> */}
+      <Project/>
+      {/* <Profile/> */}
+      {/* <Navbar/> */}
     </div>
   );
 }
