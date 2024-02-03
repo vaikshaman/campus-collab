@@ -51,7 +51,7 @@
     gap: 0.75rem;
     align-self: stretch;
     /* background-color: red; */
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 10px;
 }
 
@@ -123,7 +123,7 @@
 
 .RHS-Add-Courses-My-Courses-Arrow{
     background: #FFF;
-    /* border: none; */
+    border: none;
 }
 
 .RHS-Add-Courses-Ask-Question-Add-Button{
@@ -142,4 +142,35 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+}
+
+.RHS-My-Courses-Text{
+    color: #656565;
+
+font-family: "Pangea Trial";
+font-size: 1.25rem;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+flex: 1 0 0;
+/* float: left; */
+}
+
+.RHS-My-Courses-Text-View-All{
+    color: #656565;
+
+font-family: "Pangea Trial";
+font-size: 0.75rem;
+font-style: normal;
+font-weight: 300;
+line-height: normal;
+text-decoration-line: underline;
+}
+
+.RHS-My-Courses-Content-Text-Below-Part{
+    display: flex;
+align-items: center;
+gap: 1rem;
+align-self: stretch;
 }

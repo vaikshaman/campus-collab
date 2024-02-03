@@ -8,14 +8,60 @@ import Add_A_Course from './Add_A_Course'
 import './image-2.png'
 
 function Courses() {
+
+  const [ShowPopUp,setShowPopUp] = useState(true)
+
+  const PopUp=() => {
+      setShowPopUp(!ShowPopUp)
+  }
+
   return (
     <div>
-        {/* <Navbar/> */}
+        <Navbar/>
         <div className='Coursess'>
-            {/* <Top3 /> */}
-            {/* <AddCourse />  */}
-            {/* <RHS /> */}
-            <Add_A_Course />
+
+           
+
+            {
+              ShowPopUp ? (
+
+                <div className='Courses_Main'>
+                <div className='Top3AndAddCourse'>
+                <Top3 />
+                <AddCourse /> 
+             </div>
+
+             <div className='RHS_Main'>
+                <RHS 
+                   ShowOrNot={ShowPopUp}
+                   ShowOrNotAnswer={PopUp}
+                />
+             </div>
+             </div>
+
+              ):(
+
+                <div>
+
+              <div className='RHS_Main'>
+                <RHS 
+                   ShowOrNot={ShowPopUp}
+                   ShowOrNotAnswer={PopUp}
+                />
+              </div>
+
+                  <Add_A_Course 
+                  ShowOrNot={!ShowPopUp}
+                  ShowOrNotAnswer={PopUp}
+                  />
+                </div>
+              )
+            }
+
+              
+
+          
+            
         </div>
     </div>
   )
