@@ -21,6 +21,8 @@ function App() {
       {/* <Navbar/> */}
       {/* <AppRoutes/> */}
       <AskQuery/>
+      
+      <AppRoutes/>
     </div>
   );
 }

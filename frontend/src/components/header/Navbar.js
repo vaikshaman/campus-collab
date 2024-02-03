@@ -4,12 +4,6 @@ import React, { useState } from 'react';
 import './Navbar.css'; // Import the CSS file for styling
 
 const Navbar = () => {
-  const [isActive, setIsActive] = useState(false);
-
-  const toggleMenu = () => {
-    setIsActive(!isActive);
-  };
-
   return (
     <nav className="navbar">
       <div className="logo">

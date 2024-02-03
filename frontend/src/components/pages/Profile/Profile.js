@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import {useState,useEffect} from "react";
 import "./Profile.css";
@@ -9,11 +11,11 @@ import { constants } from "constants-browserify";
 const Profile = () => {
   const[profile,setProfile]=useState([]);
   useEffect(()=>{
-    axios.get('http://localhost:8080/getprofile')
+    axios.get('http://localhost:3000/getprofile')
     .then(Profile=>setProfile(Profile.data))
     .catch(err=>console.log(err));
 
-  },[])
+  })
   console.log(profile);
   const [active, setActive] = React.useState('ongoing');
   return (
@@ -23,10 +25,10 @@ const Profile = () => {
         <div className="rectangle-3" />
         <div className="text-wrapper-11">Project Overview</div>
         <div className="frame-29">
-          <div className="text-wrapper-12">{profile.name} Completed</div>
+          <div className="text-wrapper-12">{profile.name} ongoing</div>
         </div>
         <div className="frame-30">
-          <div className="text-wrapper-12">{profile.name} Ongoing</div>
+          <div className="text-wrapper-12">{profile.name} compl</div>
         </div>
         <div className="overlap-group">
           <div className="rectangle-4" />
