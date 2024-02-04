@@ -92,3 +92,61 @@ background: rgba(186, 232, 77, 0.50);
     width: 100%; /* Adjusted width for smaller screens */
   }
 }
+/* Navbar.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+    height: 1.75vw;
+  }
+  
+  .logo img {
+    height: 50px; /* Adjust the height of your logo */
+  }
+  
+  .menu {
+    display: none;
+  }
+  
+  .menu.active {
+    display: block;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  li {
+    margin-right: 20px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .burger-menu {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  .bar.active {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  

@@ -6,6 +6,7 @@ import AzureAuth from '../src/auth/azureRegisteration';
 import Profile from './components/pages/Profile/Profile';
 import AppRoutes from './AppRoutes';
 import Project from './components/pages/Project/Project';
+import AskQuery from './components/pages/Query/AskQuery';
 
 function App() {
   return (
