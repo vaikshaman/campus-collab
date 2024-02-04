@@ -47,4 +47,4 @@ function CommunityPosts() {
   )
 }
 
-export default CommunityPosts
+export default CommunityPosts;

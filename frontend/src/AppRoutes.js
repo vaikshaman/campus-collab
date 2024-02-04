@@ -6,6 +6,7 @@ import Project from './components/pages/Project/Project';
 import Infobar from './components/pages/Home/Infobar';
 import About from './components/pages/AboutUs/About';
 import Profile from './components/pages/Profile/Profile';
+import AskQuery from './components/pages/Query/AskQuery';
 
 const AppRoutes = () => {
     return (
@@ -14,7 +15,7 @@ const AppRoutes = () => {
                 <Route path="/" element={<About />} />
                 <Route path="/Login" element={<Login />} />
                 <Route path="/Profile" element={<Profile />} />
-
+                <Route path="/Askquery" element={<AskQuery/>}/>
                 <Route path="/EditProfile" element={<EditProfile />} />
                 <Route path="/Project" element={<Project />} />
                 <Route path="/Infobar" element={<Infobar />} />

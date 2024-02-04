@@ -11,17 +11,6 @@ import AskQuery from './components/pages/Query/AskQuery';
 function App() {
   return (
     <div className="App">
-      {/* <Profile/> */}
-      {/* <AzureAuth /> */}
-      {/* <Home/> */}
-      {/* <Footer/> */}
-      {/* <EditProfile /> */}
-      {/* <Project/> */}
-      {/* <Profile/> */}
-      {/* <Navbar/> */}
-      {/* <AppRoutes/> */}
-      <AskQuery/>
-      
       <AppRoutes/>
     </div>
   );
