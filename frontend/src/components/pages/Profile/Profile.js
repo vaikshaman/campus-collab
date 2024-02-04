@@ -21,15 +21,17 @@ const Profile = () => {
   const [active, setActive] = React.useState('ongoing');
   return (
     <div className="profile">
+    
+      <Navbar/>
+        <Sidebar />
 
-      <div className="div-3">
-        <div className="rectangle-3" />
-        <div className="text-wrapper-11">Project Overview</div>
-        <div className="frame-29">
-          <div className="text-wrapper-12">{profile[0].name}</div>
-        </div>
-        <div className="frame-30">
-          <div className="text-wrapper-12">{profile[1].name}</div>
+        <div className="profile_nav">
+          <div className="profile_pjt_view">Project Overview</div>
+          <div className="profile_ongoing_btn">Ongoing</div>
+          <div className="profile_complete_btn">Complete</div>
+          <div className="profile_box">
+            <div className="profile_box_1"></div>
+          </div>
         </div>
 
       </div>

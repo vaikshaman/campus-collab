@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom";
+
 import './About.css';
 
 const About =()=>{
@@ -7,8 +8,8 @@ const About =()=>{
         return (
           <nav className="Navbar">
             <div className="About-logo">CampusCollaborator</div>
-            <Link to="/queries" className="querie">Login</Link>
-            <Link to="/courses" className="course">Signup with Outlook</Link>
+            <Link to="/Login" className="querie">Login</Link>
+            <Link to="/Login" className="course">Signup with Outlook</Link>
           </nav>
         );
       
