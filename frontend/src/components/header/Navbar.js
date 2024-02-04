@@ -7,7 +7,7 @@ import searchsch from '../assets/search-sch.png';
 const Navbar = () => {
   return (
     <nav className="Navbar-container">
-      <Link to="/" className="home">Home</Link>
+      <Link to="/home" className="home">Home</Link>
       <Link to="/queries" className="queries">Queries</Link>
       <Link to="/courses" className="courses">Courses</Link>
       

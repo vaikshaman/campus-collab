@@ -66,7 +66,7 @@
     border-radius: 1.875rem;
     border: 1px solid #656565;
     display: flex;
-    width: 26.6875rem;
+    width: 29.5vw;
     padding: 0.875rem 0.625rem;
     justify-content: center;
     align-items: center;
@@ -144,7 +144,7 @@
 
 .category{
     display: flex;
-    width: 23.1875rem;
+    width: 25.5vw;
     justify-content: space-between;
     align-items: center;
     color: #929292;
@@ -200,7 +200,7 @@
 
 .tools-used{
     display: flex;
-    width: 23.1875rem;
+    width: 25.5vw;
     justify-content: space-between;
     align-items: center;
     color: #929292;
@@ -266,7 +266,7 @@
 
 .post-div{
     display: flex;
-    width: 52.0625rem;
+    width: 55.4vw;
     padding: 1.25rem;
     align-items: flex-end;
     gap: 1.25rem;
@@ -298,7 +298,7 @@
 
 .posted-reviews{
     display: flex;
-    width: 49.6rem;
+    width: 52.8vw;
     margin-top: 20px;
     min-height: 27.875rem;
     padding: 2.5rem;

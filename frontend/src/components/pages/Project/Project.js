@@ -4,25 +4,25 @@ import "./Project.css"
 import Review from './Review';
 
 const Project = () => {
-  const [inputFields, setInputFields] = useState([]);
+  // const [inputFields, setInputFields] = useState([]);
 
-  useEffect(() => {
-    // Retrieve stored input fields from localStorage on component mount
-    const storedInputFields = JSON.parse(localStorage.getItem('inputFields'));
-    if (storedInputFields) {
-      setInputFields(storedInputFields);
-    }
-  }, []);
+  // useEffect(() => {
+  //   // Retrieve stored input fields from localStorage on component mount
+  //   const storedInputFields = JSON.parse(localStorage.getItem('inputFields'));
+  //   if (storedInputFields) {
+  //     setInputFields(storedInputFields);
+  //   }
+  // }, []);
 
-  const addInputField = (type) => {
-    const newInputField = { type };
-    setInputFields((prevFields) => [...prevFields, newInputField]);
-  };
+  // const addInputField = (type) => {
+  //   const newInputField = { type };
+  //   setInputFields((prevFields) => [...prevFields, newInputField]);
+  // };
 
-  useEffect(() => {
-    // Store input fields to localStorage whenever inputFields state changes
-    localStorage.setItem('inputFields', JSON.stringify(inputFields));
-  }, [inputFields]);
+  // useEffect(() => {
+  //   // Store input fields to localStorage whenever inputFields state changes
+  //   localStorage.setItem('inputFields', JSON.stringify(inputFields));
+  // }, [inputFields]);
 
 //   function inputType(field){
 //     if(field.type == "heading" || "subheading"){
@@ -32,7 +32,39 @@ const Project = () => {
 //     }
 //   }
 
+const [inputFields, setInputFields] = useState([]);
 
+  useEffect(() => {
+    // Retrieve stored input fields from localStorage on component mount
+    const storedInputFields = JSON.parse(localStorage.getItem('inputFields')) || [];
+    setInputFields(storedInputFields);
+  }, []);
+
+  const handleInputChange = (id, value) => {
+    setInputFields((prevFields) => {
+      const updatedFields = prevFields.map((field) => {
+        if (field.id === id) {
+          return { ...field, value };
+        }
+        return field;
+      });
+      localStorage.setItem('inputFields', JSON.stringify(updatedFields));
+      return updatedFields;
+    });
+  };
+
+  const addInputField = (type) => {
+    const newInputField = {
+      id: Date.now(), // Use a timestamp as a simple unique identifier
+      type,
+      value: '' // Initialize with empty value
+    };
+    setInputFields((prevFields) => {
+      const updatedFields = [...prevFields, newInputField];
+      localStorage.setItem('inputFields', JSON.stringify(updatedFields));
+      return updatedFields;
+    });
+  };
 
 const inputType = (field) => {
     const adjustHeight = (e) => {
@@ -71,6 +103,26 @@ const inputType = (field) => {
         );
     }
   };
+
+  // TO Rereash on clicking cancel 
+  const handleDiscardClick = () => {
+    // Show confirmation dialog
+    const isConfirmed = window.confirm('Are you sure you want to discard your changes?');
+    
+    // If the user confirmed, call the reset function
+    if (isConfirmed) {
+      resetToDefault();
+    }
+  };
+  
+  const resetToDefault = () => {
+    // Reset inputFields state to its initial state
+    setInputFields([]);
+  
+    // Clear the localStorage entry
+    localStorage.removeItem('inputFields');
+  };
+  
   
   return (
     <div>
@@ -105,7 +157,7 @@ const inputType = (field) => {
                 </div>
 
                 <div className='confirm-content'>
-                    <button className='remove-btn'>Discard</button>
+                    <button className='remove-btn' onClick={handleDiscardClick}>Discard</button>
                     <button className='continue-btn'>Continue</button>
                 </div>
             </div>
