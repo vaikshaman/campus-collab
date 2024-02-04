@@ -53,6 +53,7 @@ body{
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    cursor: pointer;
 }
 
 .continue-btn{
@@ -70,6 +71,7 @@ body{
     font-weight: 400;
     line-height: normal;
     border: none;
+    cursor: pointer;
 }
 
 .add-content{
@@ -102,6 +104,7 @@ body{
     border-radius: 0.5rem;
     background: #FFF;
     border: none;
+    cursor: pointer;
     
     /* Shadew 2 */
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.03), 0px 12px 12px 0px rgba(0, 0, 0, 0.03), 0px 48px 19px 0px rgba(0, 0, 0, 0.00), 0px 75px 21px 0px rgba(0, 0, 0, 0.00);
@@ -144,11 +147,6 @@ body{
     outline: none;
     margin-top: 1rem;
 }
-
-.project-heading:hover{
-    cursor: pointer;
-}
-
 /* Difference b/w caption and description not clear 
     Also textarea should be created instead of input text for these two
 */
@@ -228,4 +226,5 @@ body{
     gap: 1.5rem;
     outline: none;
     width: 56.5625rem;
+    margin-top: 6px;
 }
