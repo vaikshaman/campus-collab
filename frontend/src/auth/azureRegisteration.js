@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useMsal } from '@azure/msal-react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function AzureAuth() {
   const { instance, accounts } = useMsal();
   const [m_strUser, setm_strUser] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Check if there are accounts in the cache and set the user accordingly
@@ -30,11 +32,14 @@ function AzureAuth() {
 
         // Store tokens in local storage
         localStorage.setItem('msalAccount', JSON.stringify(loginResponse.account));
+        navigate('/Editprofile');
       }
 
       
       const data = await fetch("https://graph.microsoft.com/v1.0/me");
       console.log(data.json)
+
+      postDataToBackend(data);
       
     } catch (error) {
       console.error('Login error:', error);
@@ -69,6 +74,7 @@ function AzureAuth() {
 
     // Clear tokens from local storage
     localStorage.removeItem('msalAccount');
+  
   };
 
   return (

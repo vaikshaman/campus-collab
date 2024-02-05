@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./EditProfile.css";
+import Home from "../Home/Home";
 import Navbar from "../../header/Navbar";
+import { useNavigate } from "react-router-dom";
 
 function EditProfile() {
+  const navigate = useNavigate();
   const [Data, setData] = useState({
     userid: "",
     age: "",
@@ -57,8 +60,13 @@ function EditProfile() {
         body: JSON.stringify(DataSend),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to post data to backend");
+     
+
+      if (response.ok) {
+        navigate('');
+      }
+      else{
+        navigate('/Home');
       }
 
       console.log("Data posted to backend successfully");
