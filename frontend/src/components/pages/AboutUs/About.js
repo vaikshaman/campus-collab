@@ -1,16 +1,17 @@
 import React from "react"
-import { Link } from "react-router-dom";
-
+import Nav_About from "./Nav_About"
 import './About.css';
 
 const About =()=>{
     
         return (
-          <nav className="Navbar">
-            <div className="About-logo">CampusCollaborator</div>
-            <Link to="/Login" className="querie">Login</Link>
-            <Link to="/Login" className="course">Signup with Outlook</Link>
-          </nav>
+
+          <div className="About_Main">
+
+             <Nav_About />
+
+          </div>
+          
         );
       
 }

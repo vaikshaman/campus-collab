@@ -6,7 +6,7 @@ import Project from './components/pages/Project/Project';
 import Infobar from './components/pages/Home/Infobar';
 import About from './components/pages/AboutUs/About';
 import Profile from './components/pages/Profile/Profile';
-import AskQuery from './components/pages/Query/AskQuery';
+import Queries from './components/pages/Query/Queries';
 import Courses from './components/pages/Courses/Courses';
 import Home from './components/pages/Home/Home';
 
@@ -19,7 +19,7 @@ const AppRoutes = () => {
                 <Route path="/Login" element={<Login />} />
                 <Route path="/Profile" element={<Profile />} />
                 <Route path="/About" element={<About/>}/>
-                <Route path="/Askquery" element={<AskQuery/>}/>
+                <Route path="/Queries" element={<Queries/>}/>
                 <Route path='/Courses' element={<Courses/>}/>
                 <Route path="/EditProfile" element={<EditProfile />} />
                 <Route path="/Project" element={<Project />} />

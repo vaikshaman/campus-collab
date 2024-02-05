@@ -16,7 +16,7 @@ border-radius: 0.5rem;
     /* background-color: red; */
     display: grid;
     margin:0;
-    max-width: 75%;
+    /* max-width: 75%; */
     grid-template-columns: repeat(auto-fit, minmax(26.625rem, 1fr));
     grid-gap: 1em;
 }

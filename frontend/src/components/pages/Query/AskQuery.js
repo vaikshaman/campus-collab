@@ -1,7 +1,12 @@
 import React from 'react'
 import './AskQuery.css'
 
-function AskQuery() {
+function AskQuery(props) {
+
+    // const Post =() =>{
+    //     props.Show_Open_Query_Main
+    // }
+
   return (
     <div className='boss'>
         <div className='ques'>
@@ -24,7 +29,7 @@ function AskQuery() {
         </div>
         <div className='cancel'>
             <button className='can'>Cancel</button>
-            <button className='post'>Post</button>
+            <button className='post' onClick={props.Show_Open_Query_Main}>Post</button>
         </div>
     </div>
   )
