@@ -8,8 +8,7 @@ import Profile from './components/pages/Profile/Profile';
 import Queries from './components/pages/Query/Queries';
 import Courses from './components/pages/Courses/Courses';
 import Home from './components/pages/Home/Home';
-import Queries from './components/pages/Query/Queries';
-import Courses from './components/pages/Courses/Courses';
+
 
 const AppRoutes = () => {
     return (
