@@ -6,9 +6,9 @@ import Navbar from '../../header/Navbar'
 function Home() {
   return (
     <div>
-        <Navbar/> 
+        <Navbar className="z-index:100"/> 
         <div className='homer'>
-            <HomeFeed className="Homefeed"/>
+            <HomeFeed className="Homefeed"></HomeFeed>
             <Infobar className="Infobar"/>
         </div>
     </div>

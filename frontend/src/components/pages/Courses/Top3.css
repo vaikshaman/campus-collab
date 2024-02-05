@@ -7,6 +7,8 @@
 }
 
 .Top3-Upper_part{
+    display:flex;
+    flex-direction: row;
 	position: relative;
 	/* margin: 0 ; */
 	width: auto;
@@ -111,6 +113,8 @@
     /* margin-bottom: 200px; */
 }
 /* Adjust other styles as needed */
+
+
 .Top3-Container-1{
     display: flex;
 }

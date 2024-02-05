@@ -4,6 +4,7 @@
   top: 0; /* Stick it to the top of the viewport */
   left: 0; 
   position: fixed;
+  z-index: 1000;
   background: #FFF;
   width: 100%; /* Adjusted for responsiveness */
   display: flex;

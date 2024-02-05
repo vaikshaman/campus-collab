@@ -4,12 +4,9 @@
    background: #f3f3f6;
 }
 
-.Homefeed{
-    float: left;
-    /* position: absolute; */
-}
+
 
 .Infobar{
    float: right;
-   /* position: relative; */
+   position: relative;
 }
