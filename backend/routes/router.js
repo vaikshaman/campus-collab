@@ -1,6 +1,7 @@
 import express from "express";
 import multer from 'multer';
 import Profile from '../models/profileModel.js';
+
 import Expertise from '../models/profileModel.js'
 import LoginData from '../models/login.js';
 import cors from 'cors'; 
@@ -81,6 +82,7 @@ router.post('/api/profileModel', async (req, res) => {
     await newProfile.save();
     console.log('Received profile data:', profileData);
     res.status(200).json({ message: 'Profile data received successfully' });
+    
   } catch (error) {
     console.error('Error saving profile data:', error);
     res.status(500).json({ error: 'Internal server error' });

@@ -1,7 +1,6 @@
 .homer{
-    /* display: grid; */
-   display:flex;
-   grid-template-columns: auto;
+    display: flex;
+    
    background: #f3f3f6;
 }
 
