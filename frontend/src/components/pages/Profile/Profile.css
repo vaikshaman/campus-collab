@@ -1,46 +1,39 @@
-.profile {
+.Profile {
   display: flex;
+  margin-top: 80px;
 }
 
-.profile_nav{
-  margin-top: 3%;
-  width:50vh;
-  display:flex;
-  margin-left:20%;
+.profile_nav {
+  width:120vw;
+  display: flex;
+  margin-left: 250px;
+  margin-top: -550px;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.profile_pjt_view{
+.profile_pjt_view {
   color: #656565;
-font-family: "Pangea Trial";
-font-size: 24px;
-font-style: normal;
-font-weight: 400;
-width:15%;
-line-height: normal;
+  font-family: "Pangea Trial";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  margin-right: auto;
+}
 
-}
-.profile_complete_btn{
-  padding: 5px 12px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 40px;
-background: #BAE84D;
-height:20px;
-margin-left:10%;
-}
-.profile_ongoing_btn{
-  padding: 5px 10px;
-  justify-content: center;
-  align-items: center;
-  margin-left:150%;
+.profile_btn {
+  display: flex;
   
 }
-.profile-box{
-  margin-top: 10%;
-  margin-left: 10%;
+
+.profile_complete_btn {
+  padding: 5px 12px;
+  border-radius: 40px;
+  background: #BAE84D;
+  margin-left: 10px;
 }
-.profile-box-1{
-  height: 10vh;
-  width:10vh;
-  background-color: aliceblue;
+
+.profile_ongoing_btn {
+  padding: 5px 10px;
 }
+

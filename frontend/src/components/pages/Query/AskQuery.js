@@ -13,10 +13,6 @@ function AskQuery() {
 
                 </textarea>
             </div>
-            {/* <div className='categ'>
-                Category
-                <input type='dropdown' className='dd' placeholder='Website Development ,UI Design'></input>
-            </div> */}
             <div className='description'>
                 Description
                 <textarea className='desp' placeholder='Add a Description'></textarea>
@@ -30,4 +26,4 @@ function AskQuery() {
   )
 }
 
-export default AskQuery
+export default AskQuery;
