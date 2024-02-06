@@ -1,0 +1,39 @@
+.Profile {
+  display: flex;
+  margin-top: 80px;
+}
+
+.profile_nav {
+  width:120vw;
+  display: flex;
+  margin-left: 250px;
+  margin-top: -550px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile_pjt_view {
+  color: #656565;
+  font-family: "Pangea Trial";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  margin-right: auto;
+}
+
+.profile_btn {
+  display: flex;
+  
+}
+
+.profile_complete_btn {
+  padding: 5px 12px;
+  border-radius: 40px;
+  background: #BAE84D;
+  margin-left: 10px;
+}
+
+.profile_ongoing_btn {
+  padding: 5px 10px;
+}
+

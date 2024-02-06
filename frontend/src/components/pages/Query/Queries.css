@@ -1,0 +1,28 @@
+.Queriess{
+    background: #f3f3f6;
+}
+
+.Queries_Main{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.RHS_Queries_Main{
+    padding-top: 40px;
+    flex-direction: right;
+    /* width: 25%; */
+    /* margin-right: 0; */
+}
+
+.Top3AndAddCourse_Queries{
+    /* width: 75%; */
+    /* background-color: red; */
+}
+
+.AskQuery_Queries{
+    margin-top: -5%;
+}
+
+/* .Back_Queries{
+    opacity: 0.5;
+} */

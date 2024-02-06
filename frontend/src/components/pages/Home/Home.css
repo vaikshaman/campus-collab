@@ -1,0 +1,12 @@
+.homer{
+    display: flex;
+    
+   background: #f3f3f6;
+}
+
+
+
+.Infobar{
+   float: right;
+   position: relative;
+}
