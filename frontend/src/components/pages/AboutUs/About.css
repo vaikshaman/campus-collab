@@ -2,7 +2,7 @@
   width: 100%;
 }
 
-.Navbar{
+.Navbar-abt{
     top: 0;
     left: 0;
     position: fixed;
@@ -61,13 +61,81 @@
   
   /* Responsive adjustments */
   @media (max-width: 768px) {
-    .Navbar{
-      padding: 0 10px;
-    }
-  
-    .querie,
-    .course {
-      padding: 10px;
+    .Navbar-abt{
+        top: 0;
+        left: 0;
+        position: fixed;
+        background: #FFF;
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
+        box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.03), 0px 12px 12px 0px rgba(0, 0, 0, 0.03), 0px 27px 16px 0px rgba(0, 0, 0, 0.02), 0px 48px 19px 0px rgba(0, 0, 0, 0.00), 0px 75px 21px 0px rgba(0, 0, 0, 0.00);
+      }
+
+      .About-logo{
+        margin-left: 5%;
+        font-weight: 600;
+        color: #000;
+        font-family: Inter;
+        font-size: 2.4rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+      .querie {
+        display: flex;
+        align-items: center;
+        height: 48px;
+        padding:10px 20px;
+        border-radius: 4px;
+        font-family: "Pangea Trial";
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration: none;
+        cursor: pointer;
+        color: #000;
+        height: auto;
+        width: 30px;
+        margin-left: 30%; /* Add right margin for spacing */
+      }
+      
+      .course {
+        display: flex;
+        align-items: center;
+        height: 48px;
+        padding:10px 20px;
+        border-radius: 4px;
+        font-family: "Pangea Trial";
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration: none;
+        cursor: pointer;
+        color: #000;
+        background-color: #BAE84D;
+        height: auto;
+        margin-right: 8%; /* Add right margin for spacing */
+      }
+
+      .well-header{
+        width: 80vw;
+      }
+
+      .well-btn{
+        padding-left: 12vw;
+      }
+
+      .more {
+        display: flex;
+        gap: 2rem;
+        margin: 40px;
+        margin-top: 10rem;
     }
   }
 
@@ -216,13 +284,16 @@
 }
 
 @media(max-width: 600px){
+  .welcome{
+    flex-direction: column;
+  }
   .more{
     display: flex;
     flex-wrap: wrap;
     gap: 3rem;
     margin: 40px;
     margin-top: 14rem;
-    
+    margin-left: 5rem;
   }
   
   .more-boxes{
@@ -240,6 +311,39 @@
 
   .more-img2{
     width: 67vw;
+  }
+
+  .well-write{
+    width: 80vw;
+  }
+
+  .well-content{
+    width: 0rem;
+    margin-left: 70px;
+  }
+
+  .well-btn{
+    padding-left: 10vw;
+    width: 80vw;
+  }
+
+  .About-logo{
+    font-size: 1.6rem;
+  }
+
+  .querie{
+    margin: 0%;
+    font-size: 20px;
+  }
+
+  .course{
+    margin-right: 4%;
+    padding: 10px;
+    font-size: 20px;
+  }
+
+  .more-para{
+    width: 28rem;
   }
   
 }

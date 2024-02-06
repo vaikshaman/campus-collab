@@ -39,7 +39,7 @@ const About =()=>{
         return (
           <div className="About-boss">
             {/* NAVBAR  */}
-            <nav className="Navbar">
+            <nav className="Navbar-abt">
               <div className="About-logo">CampusCollaborator</div>
               <Link to="/Login" className="querie">Login</Link>
               <Link to="/Login" className="course">Signup with Outlook</Link>
