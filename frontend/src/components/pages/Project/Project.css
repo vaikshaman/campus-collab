@@ -58,6 +58,7 @@ body{
 }
 
 .continue-btn{
+    text-decoration: none;
     display: flex;
     padding: 0.625rem 1rem;
     justify-content: center;

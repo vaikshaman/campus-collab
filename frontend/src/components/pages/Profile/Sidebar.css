@@ -1,6 +1,7 @@
 .app{
-  margin: 2vw;
-  width: 10vh;
+  margin: 35px;
+  margin-top: 2rem;
+  width: 21rem ;
   display: flex;
   flex-direction: column;
 }

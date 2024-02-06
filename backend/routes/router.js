@@ -1,115 +1,103 @@
 import express from "express";
 import multer from 'multer';
 import Profile from '../models/profileModel.js';
-
 import Expertise from '../models/profileModel.js'
 import LoginData from '../models/login.js';
 import cors from 'cors'; 
+import { useNavigate } from 'react-router-dom';
+import Project from "../models/Project.js";
+
+
+// import upload from "../utils/upload.js";
+
+
 const router = express.Router();
-
-//to store photo 
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'D:/Kriti_manas_webCollab/backend/models/uploads');
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname);
-    }
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/');
+  },
+  // filename: (req, file, cb) => {
+  //   cb(null, Date.now() + '-' + file.originalname);
+  // }
 });
-
 const upload = multer({ storage: storage });
 
-
-router.get('/', (req, res) => {
-    res.send("Manas website is live");
-});
-
-router.post('/upload', upload.single('photo'), (req, res) => {
-    if (!req.file) {
-        return res.status(400).send('No file uploaded.');
-    }
-    res.send('File uploaded successfully.');
-});
-
-
-// router.post("/Profile",async(req,res)=>{
-//     try {
-//         const { name, email, age, institute, branch,course,interest,userId,skills } = req.body;
-//         const profile = new Profile({
-//             photo: req.file ? req.file.path : null,
-//             name,
-//             email,
-//             age,
-//             institute,
-//             branch,
-//             interest,
-//             userId,
-//             course,
-//             skills
-
-
-//         });
-//         await profile.save();
-
-
-//         res.send('Profile created successfully.');
-//     } catch (error) {
-
-//         console.error('Error creating profile:', error);
-//         res.status(500).send('Internal Server Error');
-//     }
-// })
-  
-
-router.post('/api/login', async (req, res) => {
-  try {
-    
-    const loginResponse = req.body;
-    const loginData = new LoginData({ loginResponse });
-    await loginData.save();
-
-    res.status(201).send('Login data stored successfully');
-  } catch (error) {
-    console.error('Error storing login data:', error);
-    res.status(500).send('Internal server error');
+const uploadImage = async (request, response) => {
+  const fileObj = {
+      path: request.file.path,
+      name: request.file.originalname,
   }
-});
-router.post('/api/profileModel', async (req, res) => {
+  
   try {
-    const profileData = req.body;
-    
-    const newProfile = new Profile(profileData);
-    await newProfile.save();
-    console.log('Received profile data:', profileData);
-    res.status(200).json({ message: 'Profile data received successfully' });
-    
+      // const file = await File.create(fileObj);
+      console.log(fileObj);
+      response.status(200).json({ path: `http://localhost:8080/${fileObj.path}`});
   } catch (error) {
-    console.error('Error saving profile data:', error);
+      console.error(error.message);
+      response.status(500).json({ error: error.message });
+  }
+}
+
+const getImage = async (request, response) => {
+  try {   
+      const file = await File.findById(request.params.fileId);
+      
+      file.downloadCount++;
+
+      await file.save();
+
+      response.download(file.path, file.name);
+  } catch (error) {
+      console.error(error.message);
+      response.status(500).json({ msg: error.message });
+  }
+}
+
+router.post('/upload', upload.single('file'), uploadImage);
+router.get('/file/:fileId', getImage);
+
+
+
+
+
+//API FOR UPLOADING PROJECT
+router.post('/api/saveProject', upload.single('image'), async (req, res) => {
+  try {
+   // const imageName = req.file.filename;
+    const inputFields = req.body;
+
+    
+   // await Project.create({ image: imageName });
+
+    
+    const newProject = new Project({
+      ...inputFields,
+    //  image: imageName, 
+    });
+
+   
+    await newProject.save();
+
+    
+    console.log('Received inputFields:', inputFields);
+    res.status(200).json({ message: 'Project data saved successfully' });
+  } catch (error) {
+    console.error('Error saving project data:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-  router.get('/getprofile',(req,res)=>{
-    
-    Profile.find()
-    .then(Profile=>res.json(Profile))
-    .catch(err=>res.json(err))
-    console.log(Profile.find())
-  })
+// END API FOR UPLOAD PROJECT
 
-router.get('/api/sortByLatest',async (req,res) => {
-  console.log(req);
-  res.sendStatus(200);
-})
 
-router.get('/api/addProject',async (req,res) => {
-  console.log(req);
-  res.sendStatus(200);
+// API FOR GETTING PROJECT DETAILS IN FRONTEN
+router.get('/api/addProject', async (req, res) => {
+  try {
+    Project.find({}, 'projectId inputFields image').then(data => {
+      res.send({ status: "ok", data: data });
+    });
+  } catch (error) {
+    res.json({ status: error });
+  }
 });
-
-router.get('/api/reqForCollab',async (req,res) => {
-  console.log(req);
-  res.sendStatus(200);
-})
-
 
 export default router;
