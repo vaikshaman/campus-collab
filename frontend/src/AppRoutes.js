@@ -9,6 +9,8 @@ import Queries from './components/pages/Query/Queries';
 import Courses from './components/pages/Courses/Courses';
 import Home from './components/pages/Home/Home';
 
+
+
 const AppRoutes = () => {
     return (
         <Router> 
