@@ -1,14 +1,16 @@
 import React,{useState} from 'react'
 import './Queries_Main.css'
 
-function Queries_Main() {
+function Queries_Main(props) {
   return (
     <div className='Queries_Main'>
 
 
         <div class="section-container">
             <div class="comment-section">
-                <div class="individual-comment">
+                <div class="individual-comment"
+                   onClick={props.Show_Query}
+                >
                     <div className='Queries_Main-Text_with_Skills'>
                          <p className='Queries_Main-RHS-Text-Main'> What are the steps for submitting an app to major app stores like the Apple App Store and Google Play Store? </p>
                          <div class="skill-section">
@@ -21,7 +23,9 @@ function Queries_Main() {
                         <div class="posted-when"> Posted by Shashwat Sharma 6 hrs ago </div>
                     </div>
                 </div>
-                <div class="individual-comment">
+                <div class="individual-comment"
+                   onClick={props.Show_Query}
+                >
                     <div className='Queries_Main-Text_with_Skills'>
                          <p className='Queries_Main-RHS-Text-Main'> What are the steps for submitting an app to major app stores like the Apple App Store and Google Play Store? </p>
                          <div class="skill-section">

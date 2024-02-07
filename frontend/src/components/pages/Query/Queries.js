@@ -14,17 +14,25 @@ function Queries() {
   const [ShowOpenQuery,setShowOpenQuery]= useState(false)
 
   const PopUp_Queries=() => {
-      setShowPopUp_Queries(!ShowPopUp_Queries)
+      setShowPopUp_Queries(false)
+  }
+
+  const PopUp_Main = () =>{
+    setShowPopUp_Queries(true)
   }
 
   const Post =() =>{
     setShowOpenQuery(!ShowOpenQuery)
   }
 
+  const ShowQuery =()=>{
+    setShowOpenQuery(true)
+  }
+
   return (
 
 
-    <div>
+    <div className='Queries_Done'>
         
         {/* <div className='Queries'> */}
       {/* <AskQuery /> */}
@@ -49,7 +57,7 @@ function Queries() {
 
            ):(
 
-            <div>
+            <div className='Edit'>
 
  
 <div className='Queriess'>
@@ -58,10 +66,12 @@ function Queries() {
           ShowPopUp_Queries ? (
 
             <div className='Queries_Main'>
-            <div className='Top3AndAddCourse_Queries'>
-            <Top3 />
-            <Queries_Main /> 
-         </div>
+              <div className='Top3AndAddCourse_Queries'>
+                 <Top3 />
+                 <Queries_Main 
+                    Show_Query={ShowQuery}
+                 /> 
+              </div>
 
          <div className='RHS_Queries_Main'>
             <RHS_Queries 
@@ -74,21 +84,24 @@ function Queries() {
           ):(
 
             <div className='Back_Queries'>
-
-          <div className='RHS_Queries_Main'>
-            <RHS_Queries 
-               ShowOrNot_Queries={ShowPopUp_Queries}
-               ShowOrNotAnswer_Queries={PopUp_Queries}
-            />
-          </div>
               
               <div className='AskQuery_Queries'>
               <AskQuery
               ShowOrNot_Queries={!ShowPopUp_Queries}
               ShowOrNotAnswer_Queries={PopUp_Queries}
-              Show_Open_Query_Main={Post}
+              // Show_Open_Query_Main={Post}
+              ShowMain={PopUp_Main}
               />
               </div>
+
+              <div className='RHS_Queries_Main'>
+            <RHS_Queries 
+               ShowOrNot_Queries={ShowPopUp_Queries}
+               ShowOrNotAnswer_Queries={PopUp_Queries}
+            />
+          </div>
+
+
             </div>
           )
         }

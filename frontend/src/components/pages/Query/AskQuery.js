@@ -24,8 +24,10 @@ function AskQuery(props) {
             </div>
         </div>
         <div className='cancel'>
-            <button className='can'>Cancel</button>
-            <button className='post' onClick={props.Show_Open_Query_Main}>Post</button>
+            <button className='can'
+              onClick={props.ShowMain}
+            >Cancel</button>
+            <button className='post'>Post</button>
         </div>
     </div>
   )

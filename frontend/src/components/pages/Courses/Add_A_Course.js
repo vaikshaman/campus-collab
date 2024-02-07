@@ -62,9 +62,11 @@ function Add_A_Course(props) {
  
         <div className='Add_A_Course-Lower-Part'>
  
-            <div className='Add_A_Course-Lower-Part-Cancel'>
+            <button className='Add_A_Course-Lower-Part-Cancel'
+              onClick={props.Ha}
+            >
                Cancel
-            </div>
+            </button>
  
             <button className='Add_A_Course-Lower-Part-Post'>
                Post

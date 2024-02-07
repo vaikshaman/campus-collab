@@ -1,13 +1,15 @@
 import React,{useState} from 'react'
 import './AddCourses.css'
 
-function AddCourse() {
+function AddCourse(props) {
   return (
         <div className='AddCourses'>
         <div className="Top3-biggest-box">
 
 
-<div className="Top3-box">
+<div className="Top3-box"
+  onClick={props.Haha}
+  >
   <div className="Top3-greybox"></div>
   <div className="Top3-sideinfo">
       <div> Web Security Fundamentals: Safeguarding Your Web Applications Against Common Threats</div>
@@ -26,7 +28,8 @@ function AddCourse() {
 
 
 
-<div className="Top3-box">
+<div className="Top3-box"
+  onClick={props.Haha}>
   <div className="Top3-greybox"></div>
   <div className="Top3-sideinfo">
   <div> Web Security Fundamentals: Safeguarding Your Web Applications Against Common Threats</div>
@@ -45,7 +48,8 @@ function AddCourse() {
 
 
 
-<div className="Top3-box">
+<div className="Top3-box"
+  onClick={props.Haha}>
   <div className="Top3-greybox"></div>
   <div className="Top3-sideinfo">
   <div> Web Security Fundamentals: Safeguarding Your Web Applications Against Common Threats</div>
@@ -62,7 +66,8 @@ function AddCourse() {
   </div>
 </div>
 
-<div className="Top3-box">
+<div className="Top3-box"
+  onClick={props.Haha}>
   <div className="Top3-greybox"></div>
   <div className="Top3-sideinfo">
   <div> Web Security Fundamentals: Safeguarding Your Web Applications Against Common Threats</div>
@@ -79,7 +84,8 @@ function AddCourse() {
   </div>
 </div>
 
-<div className="Top3-box">
+<div className="Top3-box"
+  onClick={props.Haha}>
   <div className="Top3-greybox"></div>
   <div className="Top3-sideinfo">
   <div> Web Security Fundamentals: Safeguarding Your Web Applications Against Common Threats</div>
@@ -96,7 +102,8 @@ function AddCourse() {
   </div>
 </div>
 
-<div className="Top3-box">
+<div className="Top3-box"
+  onClick={props.Haha}>
   <div className="Top3-greybox"></div>
   <div className="Top3-sideinfo">Top3-
   <div> Web Security Fundamentals: Safeguarding Your Web Applications Against Common Threats</div>

@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 .HomeFeed{
 	font-family: 'Open Sans', sans-serif;
-	margin-top: 80px;
+	/* background: #2c3e50; */
     background: #f3f3f6;
+    display: flex;
     /* float: left; */
-    max-width: 75%;
+    /* max-width: 75%; */
 }
 .Upper_part{
 	position: relative;
@@ -70,12 +71,13 @@
 
 
 
-.container-1{
-    margin:20px;
+.container-1 {
+    margin: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 1em;
-    max-width: 75%;
+    /* max-width: 75%; */
+    width: 40vw;
     /* background-color: rgb(3, 255, 255); */
     height: 40px;
 }
@@ -121,13 +123,17 @@
     display: flex;
     align-items: flex-end;
 }
-
-.biggest-box{
+.biggest-box {
+    justify-content: center;
     /* background-color: red; */
-    display: grid;
-    margin:20px;
+    display: flex;
+    margin: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* max-width: 75%; */
+    /* width: 30vw; */
     grid-template-columns: repeat(auto-fit, minmax(19.6875rem, 1fr));
-    grid-gap: 1em;
+    /* grid-gap: 1em; */
 }
 
 .box{
@@ -189,3 +195,8 @@
     /* margin-bottom: 200px; */
 }
 /* Adjust other styles as needed */
+
+@media(max-width:400px){
+
+    
+}

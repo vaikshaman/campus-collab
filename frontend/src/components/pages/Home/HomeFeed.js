@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Infobar from './Infobar'
 import './HomeFeed.css'
 
 const HomeFeed = () => {
@@ -130,6 +131,7 @@ const HomeFeed = () => {
               </div>
             </div>
         </div>
+        <Infobar className="Infobar"/>
     </div>
   )
 }

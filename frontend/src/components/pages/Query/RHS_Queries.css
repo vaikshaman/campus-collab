@@ -1,20 +1,22 @@
 .RHS_Queries{
     font-family: 'Open Sans', sans-serif;
 	/* background: #2c3e50; */
-    background: #f3f3f6;
-    float: right;
+    background: #F5F5F7;
+    /* float: right; */
+    /* padding-right: 20px; */
 }
 
 .RHS_Queries-Add-Courses{
     background-color: red;
     display: flex;
-    width: 24.1875rem;
+    width: 80%;
     padding: 1.75rem 1.5rem;
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
 
     border-radius: 0.5rem;
+    border: none;
     background: #BAE84D;
 
     /* Shadew 2 */
@@ -22,9 +24,9 @@
 }
 
 .RHS_Queries-My-Courses{
-    background-color: blue;
+    /* background-color: blue; */
     display: flex;
-    width: 24.1875rem;
+    /* width: 24.1875rem; */
     height: 44.875rem;
     padding: 1.75rem;
     flex-direction: column;
@@ -43,6 +45,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 1.25rem;
+    margin-top: 4.5%;
 }
 
 .RHS_Queries-My-Courses-Upper-Part{
@@ -136,7 +139,7 @@
     background: #FFF;
 
     display: flex;
-    width: 54.5625rem;
+    /* width: 54.5625rem; */
     height: 51.5rem;
     padding: 2.5rem;
     flex-direction: column;
@@ -173,4 +176,12 @@ text-decoration-line: underline;
 align-items: center;
 gap: 1rem;
 align-self: stretch;
+}
+
+@media (min-width:0px) and (max-width:550px){
+    /* .Que */
+    .RHS_Queries-Biggest-Container{
+        margin:1rem;
+        width:100vw
+    }
 }

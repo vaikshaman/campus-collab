@@ -6,19 +6,37 @@ import Navbar from '../../header/Navbar'
 import './Courses.css'
 import Add_A_Course from './Add_A_Course'
 import './image-2.png'
+import Open_Courses from './Open_Courses'
 
 function Courses() {
 
   const [ShowPopUp,setShowPopUp] = useState(true)
+  const [ShowOpenCourses,setShowOpenCourses]=useState(false)
 
   const PopUp=() => {
-      setShowPopUp(!ShowPopUp)
+      setShowPopUp(false)
+  }
+
+  const PopUpI=()=>{
+    setShowPopUp(true)
+  }
+
+  const OpenCourses=()=>{
+       setShowOpenCourses(true)
   }
 
   return (
     <div>
         <Navbar/>
-        <div className='Coursess'>
+
+
+        {
+          ShowOpenCourses?(
+                       <Open_Courses /> 
+          ):(
+
+
+            <div className='Coursess'>
 
            
 
@@ -28,7 +46,9 @@ function Courses() {
                 <div className='Courses_Main'>
                 <div className='Top3AndAddCourse'>
                 <Top3 />
-                <AddCourse /> 
+                <AddCourse 
+                   Haha={OpenCourses}
+                /> 
              </div>
 
              <div className='RHS_Main'>
@@ -53,6 +73,7 @@ function Courses() {
                   <Add_A_Course 
                   ShowOrNot={!ShowPopUp}
                   ShowOrNotAnswer={PopUp}
+                  Ha={PopUpI}
                   />
                 </div>
               )
@@ -63,6 +84,12 @@ function Courses() {
           
             
         </div>
+
+
+          )
+        }
+
+
     </div>
   )
 }

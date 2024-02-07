@@ -1,4 +1,4 @@
-.Open_Queires_LHS_Top_Left{
+.Open_Courses_LHS_Top_Left{
     margin: 1rem;
      display: flex;
      flex-direction: column;
@@ -6,7 +6,7 @@
      gap: 2rem;
   }
   
-  .Open_Queires_LHS_Top_right{
+  .Open_Courses_LHS_Top_right{
      display: flex;
      flex-direction: column;
      align-items: flex-start;
@@ -14,7 +14,7 @@
      flex: 1 0 0;
   }
   
-  .Open_Queries_LHS{
+  .Open_Courses_LHS{
      display: flex;
      /* width: 47.0625rem; */
      min-height: 51.5rem;
@@ -34,7 +34,7 @@
   
   }
   
-  .Open_Queries_RHS{
+  .Open_Courses_RHS{
      margin-left: 5%;
      display: flex;
      width: 70%;
@@ -59,15 +59,15 @@
      box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.03), 0px 12px 12px 0px rgba(0, 0, 0, 0.03), 0px 48px 19px 0px rgba(0, 0, 0, 0.00), 0px 75px 21px 0px rgba(0, 0, 0, 0.00);
   }
   
-  .Open_Queries_Rectangle{
+  .Open_Courses_Rectangle{
      width: 5.25rem;
      height: 5.25rem;
   
-     border-radius: 0.25rem;
+     border-radius: 30rem;
      background: #D9D9D9;
   }
   
-  .Open_Queries_LHS_Top_Left_Icons{
+  .Open_Courses_LHS_Top_Left_Icons{
      /* margin-top: 2rem; */
      display: flex;
      flex-direction: column;
@@ -78,7 +78,7 @@
      /* padding-left:1.5rem; */
   }
   
-  .Open_Queries_Thumbs_Up{
+  .Open_Courses_Thumbs_Up{
      display: flex;
      padding: 0.625rem 1.125rem;
      flex-direction: column;
@@ -87,11 +87,12 @@
   
      border-radius: 2.5rem;
      border: 1px solid #D9D9D9;
+     border: 2px solid rgb(196, 196, 196);
   
      background: #F5F5F7;
   }
   
-  .Open_Queries_Thumbs_Up_Number{
+  .Open_Courses_Thumbs_Up_Number{
      color: #929292;
   
      font-family: "Pangea Trial";
@@ -99,9 +100,10 @@
      font-style: normal;
      font-weight: 400;
      line-height: normal;
+     
   }
   
-  .Open_Queries_Comments_Views{
+  .Open_Courses_Comments_Views{
      display: flex;
      /* width: 3.75rem; */
      padding: 1.25rem 0.75rem;
@@ -113,10 +115,11 @@
      border-radius: 2.5rem;
      background: #F5F5F7;
      width:50px;
-     height:50px;
+     border: 2px solid rgb(196, 196, 196);
+     /* height:50px; */
   }
   
-  .Open_Queries_Comments{
+  .Open_Courses_Comments{
      display: flex;
      flex-direction: column;
      align-items: center;
@@ -124,7 +127,7 @@
      align-self: stretch;
   }
   
-  .Open_Queries_Views{
+  .Open_Courses_Views{
      display: flex;
      flex-direction: column;
      align-items: center;
@@ -132,12 +135,12 @@
      align-self: stretch;
   }
   
-  .Open_Queries_Comment_Img{
+  .Open_Courses_Comment_Img{
      /* width: 1.5rem; */
      /* height: 1.5rem; */
   }
   
-  .Open_Queries_Comments_Number{
+  .Open_Courses_Comments_Number{
      align-self: stretch;
   
      color: #929292;
@@ -150,12 +153,12 @@
      line-height: normal;
   }
   
-  .Open_Queries_View_Img{
+  .Open_Courses_View_Img{
      /* width: 1.5rem; */
      /* height: 1.5rem; */
   }
   
-  .Open_Queries_Views_Number{
+  .Open_Courses_Views_Number{
      align-self: stretch;
      color: #929292;
   
@@ -167,11 +170,11 @@
      line-height: normal;
   }
   
-  .Open_Queries_Questions{
+  .Open_Courses_Questions{
     display: grid;
   }
   
-  .Open_Queries_Main_Question{
+  .Open_Courses_Main_Question{
      align-self: stretch;
   
      color: #000;
@@ -183,7 +186,7 @@
      /* margin-left: 0; */
   }
   
-  .Open_Queries_Post_Time{
+  .Open_Courses_Post_Time{
      align-self: stretch;
   
      color: #929292;
@@ -195,7 +198,7 @@
      /* margin: 0; */
   }
   
-  .Open_Queries_Post_Time_Date{
+  .Open_Courses_Post_Time_Date{
      align-self: stretch;
   
      color: #929292;
@@ -206,7 +209,7 @@
      line-height: normal;
   }
   
-  .Open_Queries_Main_Answer{
+  .Open_Courses_Main_Answer{
      flex: 1 0 0;
   
      color: #000;
@@ -227,14 +230,14 @@
      border-bottom: 1px solid #E2E2E2;
   }
   
-  .Open_Queries_Main_Comments{
+  .Open_Courses_Main_Comments{
     width: 95.5%;
     /* margin-right: 11%; */
     /* padding-right: 15%; */
   
   }
   
-  .Open_Queries_Comment_Big_box{
+  .Open_Courses_Comment_Big_box{
      display: flex;
      padding: 1rem;
      align-items: flex-end;
@@ -247,7 +250,7 @@
      width:100%
   }
   
-  .Open_Queries_Comment_here{
+  .Open_Courses_Comment_here{
      flex: 1 0 0;
   
      background: #F5F5F7;
@@ -259,7 +262,7 @@
      border: none;
   }
   
-  .Open_Queries_Comment_Post_button{
+  .Open_Courses_Comment_Post_button{
      /* width: 2.5625rem; */
   
      color: #000;
@@ -272,7 +275,7 @@
      background: #F5F5F7;
   }
   
-  .Open_Queries_Actual_Comments{
+  .Open_Courses_Actual_Comments{
      display: flex;
      min-height: 27.875rem;
      flex-direction: column;
@@ -281,7 +284,7 @@
      align-self: stretch;
   }
   
-  .Open_Queries_Actual_Sub_Comments{
+  .Open_Courses_Actual_Sub_Comments{
      /* display: flex; */
      padding-bottom: 1.25rem;
      align-items: flex-start;
@@ -295,7 +298,7 @@
      /* grid-template-rows: auto; */
   }
   
-  .Open_queries_Sub_Comments_Profile{
+  .Open_Courses_Sub_Comments_Profile{
      /* width: 3rem; */
      /* height: 3rem; */
      fill: #D9D9D9;
@@ -306,7 +309,7 @@
      /* align-items: center; */
   }
   
-  .Open_Queries_Comments_Content{
+  .Open_Courses_Comments_Content{
      /* display: flex;
      flex-direction: column;
      align-items: flex-start; */
@@ -323,7 +326,7 @@
      margin-left: 2%;
   }
   
-  .Open_Queries_Comments_Content_Name_Time{
+  .Open_Courses_Comments_Content_Name_Time{
      align-self: stretch;
   
      color: #000;
@@ -334,7 +337,7 @@
      line-height: normal;
   }
   
-  .Open_Queries_dot{
+  .Open_Courses_dot{
      color: #929292;
      font-family: "Pangea Trial";
      font-size: 1rem;
@@ -343,7 +346,7 @@
      line-height: normal;
   }
   
-  .Open_Queries_timesinceposted{
+  .Open_Courses_timesinceposted{
      color: #929292;
      font-family: "Pangea Trial";
      font-size: 1rem;
@@ -352,7 +355,7 @@
      line-height: normal;
   }
   
-  .Open_Queries_Cant_Think_Of_Any_Name{
+  .Open_Courses_Cant_Think_Of_Any_Name{
      align-self: stretch;
   
      color: #000;
@@ -368,14 +371,14 @@
   
   }
   
-  .Open_Queries_RHS_Related{
+  .Open_Courses_RHS_Related{
      display: flex;
      align-items: flex-start;
      gap: 1.75rem;
      align-self: stretch;
   }
   
-  .Open_Queries_RHS_Related{
+  .Open_Courses_RHS_Related{
      max-height: 1.875rem;
      flex: 1 0 0;
   
@@ -388,7 +391,7 @@
      /* background-color: blue; */
   }
   
-  .Open_Queries_RHS_Courses{
+  .Open_Courses_RHS_Courses{
      display: flex;
      /* width: 21.6875rem; */
      padding-bottom: 1rem;
@@ -401,7 +404,7 @@
      /* background-color: red; */
   }
   
-  .Open_Queries_RHS_Black_Text{
+  .Open_Courses_RHS_Black_Text{
      align-self: stretch;
   
      color: #000;
@@ -414,7 +417,7 @@
     
   }
   
-  .Open_Queries_Posted_By{
+  .Open_Courses_Posted_By{
      display: flex;
      align-items: flex-start;
      gap: 0.25rem;
@@ -428,7 +431,7 @@
      line-height: normal;
   }
   
-  .Open_Queries_Posts{
+  .Open_Courses_Posts{
      display: grid;
      grid-template-columns: 8fr 1fr;
      color: #929292;
@@ -439,7 +442,7 @@
      line-height: normal;
   }
   @media screen and (min-width:500px){
-    .Open_Queries{
+    .Open_Courses{
         display: grid;
         margin-top: 1rem;
         background: #FFF;
@@ -447,7 +450,7 @@
     }
     }
     @media screen and (min-width:500px){
-      .Open_Queries_RHS{
+      .Open_Courses_RHS{
         margin: 0.5rem;
         height:41.07rem;
       }
@@ -455,23 +458,23 @@
     
   
     @media screen and (min-width:100px) and (max-width:800px) {
-      .Open_Queries_Main_Answer{
+      .Open_Courses_Main_Answer{
         /* font-size: 2.8rem; */
       }
     
-    .Open_Queries_RHS_Black_Text{
+    .Open_Courses_RHS_Black_Text{
       /* font-size: 2rem; */
     }
-    .Open_Queries_Posted_By{
+    .Open_Courses_Posted_By{
       /* font-size:2rem; */
     }
-    .Open_Queries_Comments_Content_Name_Time{
+    .Open_Courses_Comments_Content_Name_Time{
       /* font-size:1.5rem; */
       display:flex;
       flex-wrap:wrap;
       
     }
-    .Open_Queries_Cant_Think_Of_Any_Name{
+    .Open_Courses_Cant_Think_Of_Any_Name{
       /* font-size:1.3rem; */
     
       
@@ -479,14 +482,14 @@
   }
     
     @media screen and (min-width:0px){
-      .Open_Queries_RHS{
+      .Open_Courses_RHS{
         height: fit-content;
         /* padding-left: 8.5rem; */
       }
     }
-    .Open_Queries_Main_Question{
+    .Open_Courses_Main_Question{
       font-size:30px;
     }
-  .Open_Queries_Post_Time{
+  .Open_Courses_Post_Time{
     font-size:1.323rem;
   }

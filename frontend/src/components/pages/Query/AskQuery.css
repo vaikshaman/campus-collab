@@ -1,6 +1,6 @@
 .boss{
     display: flex;
-    width: 46.5625rem;
+    /* width: 46.5625rem; */
     height: 32.5rem;
     padding: 2.5rem;
     flex-direction: column;

@@ -4,7 +4,7 @@ nav{
 }
 
 .selection-section{
-    width: 100vw;
+    /* width: 100vw; */
     height: 10vh;
     border: 1px solid red;
 }
@@ -17,7 +17,7 @@ nav{
 }
 
 .Queries_Main-RHS-Text-Main{
-    width: 48.5625rem;
+    /* width: 48.5625rem; */
     max-height: 4.6875rem;
 
     color: #000;
@@ -31,19 +31,22 @@ nav{
 
 .section-container{
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
 }
 
 .comment-section{
-    margin-left: 5vw;
-    width: 55vw;   
+    /* margin-left: 5vw; */
+    /* width: 55vw;    */
     height: 65vh;
     /* border: 1px solid red; */
-    margin-top: 5vh;
+    /* margin-top: 5vh; */
+    padding: 5%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .queries-section{
-    width: 25vw;
+    /* width: 25vw; */
     height: 65vh;
     margin-top: 5vh;
     margin-right: 2vw;
@@ -56,6 +59,7 @@ nav{
 .individual-comment{
     /* border: 1px solid blue;  */
     display: inline-flex;
+    width: 45vw;
     height: 13.375rem;
     padding: 1.75rem;
     flex-direction: column;
@@ -118,7 +122,7 @@ nav{
 
 .interaction-section{
     display: flex;
-    width: 48.5625rem;
+    /* width: 48.5625rem; */
     justify-content: space-between;
     align-items: center;
 }
@@ -147,7 +151,7 @@ background: #F5F5F7;
 
 .posted-when{
     height: 1.5vh;
-    width: 60%;
+    /* width: 60%; */
     align-items: flex-end;
     font-size: 1vw;
     text-decoration-color: gray;
@@ -176,4 +180,29 @@ hr{
     flex-direction: row;
     justify-content: space-between;
     margin: 1vw;
+}
+
+@media (min-width: 0px) and (max-width: 550px) {
+    .comment-section {
+        height: auto; /* Adjusted height */
+        width: 100%; /* Adjusted width */
+        justify-content: center;
+        padding: 5% 2%; /* Adjusted padding */
+    }
+
+    .section-container {
+        width: 100vw;
+        flex-direction: column; /* Adjusted flex-direction */
+    }
+
+    .queries-section {
+        height: auto; /* Adjusted height */
+        margin-top: 2.5vh; /* Adjusted margin */
+        margin-right: 0; /* Removed margin-right */
+    }
+
+    .individual-comment {
+        width: 90%; /* Adjusted width */
+        margin-bottom: 2rem; /* Adjusted margin */
+    }
 }

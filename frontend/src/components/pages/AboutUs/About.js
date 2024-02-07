@@ -1,5 +1,6 @@
 import React from "react"
 import { useEffect,useRef } from "react";
+import { Link } from "react-router-dom";
 import Nav_About from "./Nav_About"
 import './About.css';
 import abtwow from "../../assets/abt-wow.png";
