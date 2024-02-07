@@ -2,7 +2,21 @@ import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../../header/Navbar';
 import './Project.css';
 import axios from 'axios';
+import ContinueProject from './ContinueProject';
+import Review from './Review';
 const API_URI = 'http://localhost:8080';
+
+const PopupPage = ({ onClose }) => {
+  return (
+    <div className='popup-overlay'>
+      <div className="popup">
+        <ContinueProject
+          close= {onClose}
+        />
+      </div>
+    </div>
+  );
+};
 
 const Project = () => {
   const [projectId, setProjectId] = useState('');
@@ -48,13 +62,23 @@ const Project = () => {
       console.error("fileInputRef.current is null or undefined");
     }
   }
+  
+  // PREVENT FORM LOSS ON RELOAD 
+  // const [inputFields, setInputFields] = useState([]);
 
   useEffect(() => {
-    const storedInputFields = JSON.parse(localStorage.getItem('inputFields'));
-    if (storedInputFields) {
-      setInputFields(storedInputFields);
-    }
+    // Retrieve stored input fields from localStorage on component mount
+    const storedInputFields = JSON.parse(localStorage.getItem('inputFields')) || [];
+    setInputFields(storedInputFields);
   }, []);
+
+  // useEffect(() => {
+  //   const storedInputFields = JSON.parse(localStorage.getItem('inputFields'));
+  //   if (storedInputFields) {
+  //     setInputFields(storedInputFields);
+  //   }
+  // }, []);
+  
 
   const addInputField = (type) => {
     if(type === 'image'){
@@ -153,17 +177,50 @@ const Project = () => {
     }
   };
 
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  // Function to toggle the visibility of the pop-up page
+  const togglePopup = () => {
+    if(projectId.trim() === ""){
+      window.alert('Enter Project Id First!');
+    }else{
+      setIsPopupOpen(!isPopupOpen);
+
+    }
+  };
+
+  // TO Rereash on clicking cancel 
+  const handleDiscardClick = () => {
+    // Show confirmation dialog
+    const isConfirmed = window.confirm('Are you sure you want to discard your changes?');
+    
+    // If the user confirmed, call the reset function
+    if (isConfirmed) {
+      resetToDefault();
+    }
+  };
+  
+  const resetToDefault = () => {
+    // Reset inputFields state to its initial state
+    setInputFields([]);
+  
+    // Clear the localStorage entry
+    localStorage.removeItem('inputFields');
+  };
+
+
+
   return (
     <div>
       <Navbar />
       <div className="project-main">
         <div className="content-shown">
           <form onSubmit={handleSubmit}>
-            <div>
+            <div className='Id-div'>
               <input
                 type="text"
                 className="project-projectId"
-                placeholder="Enter Project ID"
+                placeholder="Enter Project ID (Compulsory)"
                 value={projectId}
                 onChange={(e) => setProjectId(e.target.value)}
               />
@@ -174,10 +231,15 @@ const Project = () => {
             {/* <button type="submit" className="main-btn">
               Save Project
             </button> */}
-            <button type = "submit" className="continue-btn">Continue</button>
-            <button className="remove-btn">Discard</button>
+
+            <div className='confirm-content'>
+            <button type = "submit" className="continue-btn"  onClick={togglePopup}>Continue</button>
+            <button className="remove-btn" onClick={handleDiscardClick} >Discard</button>
+            </div>
           </form>
         </div>
+
+
 
         <div className="add-box">
           <div className="add-content">
@@ -198,11 +260,11 @@ const Project = () => {
               <button className="main-btn" onClick={() => addInputField('image')} >
                 Attach Image
               </button>
-              {/* <button className="main-btn" onClick={() => addInputField('image')}>
-                Attach Image
-              </button> */}
               <button className="main-btn" onClick={() => addInputField('pdf')}>
                 Attach PDF
+              </button>
+              <button className="main-btn" onClick={() => addInputField('code-block')}>
+                Code Block
               </button>
             </div>
           </div>
@@ -215,6 +277,11 @@ const Project = () => {
           <img src={result} alt="alt text"/> */}
         </div>
       </div>
+
+              {/* Render the pop-up page conditionally */}
+              {isPopupOpen && <PopupPage onClose={togglePopup} />}
+      
+      {/* <Review/> */}
     </div>
   );
 };
