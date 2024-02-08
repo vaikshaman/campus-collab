@@ -3,6 +3,7 @@ import "./EditProfile.css";
 import Home from "../Home/Home";
 import Navbar from "../../header/Navbar";
 import { useNavigate } from "react-router-dom";
+import '../../../fonts/fonts.css'
 
 function EditProfile() {
   const navigate = useNavigate();
@@ -86,8 +87,13 @@ function EditProfile() {
         name: Data.skills,
         // You can add more project details here
       };
-      setSkill([...skill, newSkill]);
       setInputSkill(""); // Reset the input after adding the skill
+      setSkill([...skill, newSkill]);
+      setData("");
+      document.getElementById("skills").value = '';
+      document.getElementById("level").value = '';
+      document.getElementById("experience").value = '';
+      document.getElementById("tools").value = '';
     }
   };
   const removeSkill = (id) => {
@@ -111,13 +117,13 @@ function EditProfile() {
 
         <div className="main-box">
           <div className="left-box">
-            <div className="details">DETAILS</div>
+            <div className="details">Details</div>
             <div className="photo">
               <img src="" alt="" />
             </div>
 
             <div className="userid">
-              USERID
+              USER ID
               <input
                 type="text"
                 id="userid"
@@ -210,7 +216,7 @@ function EditProfile() {
             </div>
           </div>
           <div className="right-box">
-            <div className="expertise">EXPERTISE</div>
+            <div className="expertise">Expertise</div>
             <div className="skill">
               SKILL
               <input
@@ -255,21 +261,21 @@ function EditProfile() {
               />
             </div>
 
-            <button onClick={addskill} className="skill-ep">
+            <span onClick={addskill} className="skill-ep">
               Add Skill
-            </button>
+            </span>
 
             <div className="skills-add">
               <div className="added">Added Skills :</div>
               <div className="skill-container">
                 {skill.map((s) => (
                   <div key={s.id} className="skill-card-ep">
-                    <button
+                    <span
                       className="skill-butt-ep"
                       
                     >
                       {s.name} <p onClick={() => removeSkill(s.id)}>X</p>
-                    </button>
+                    </span>
                     {/* More project details can go here */}
                   </div>
                 ))}

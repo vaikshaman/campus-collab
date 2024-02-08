@@ -74,7 +74,7 @@ const About =()=>{
             <div className="more"  ref={animatedDivRef}>
               <div className="more-boxes">
                 <div className="more-content">
-                  Content
+                  CONTENT
                   <div className="more-para">
                     <p>Unleash Your Creativity: share, showcase, and inspire with our seamless project upload feature</p>
                     <p>Upload and update your projects and maintain a professional portfolio on CampusCollaborate</p>
@@ -86,7 +86,7 @@ const About =()=>{
               </div>
               <div className="more-boxes">
                 <div className="more-content">
-                  Collaborate
+                  COLLABORATE
                   <div className="more-para">
                     <p>Foster Collaboration, Ignite Innovation: Connect with peers, collaborate on projects, and Amplify your learning experience</p>
                     <p>Share ideas, split tasks, and achieve more together. Our feature makes collaboration easy, so you can ace your projects</p>
@@ -104,7 +104,7 @@ const About =()=>{
               </div>
               <div className="more-boxes">
                 <div className="more-content">
-                  Connect
+                  CONNECT
                   <div className="more-para">
                     <p>Elevate Your Learning Community: Share knowledge, solve doubts, and discover new courses together</p>
                     <p>Upload and update your projects and maintain a professional portfolio on CampusCollaborate</p>
