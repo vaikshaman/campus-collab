@@ -18,7 +18,7 @@ function EditProfile() {
     skills: "",
     experience: "",
     tools: "",
-    level: ""
+    level: "",
   });
 
   const handleInput = (e) => {
@@ -34,23 +34,23 @@ function EditProfile() {
     e.preventDefault();
     console.log(Data);
     const DataSend = {
-      userid : Data.userid,
+      userid: Data.userid,
       age: parseInt(Data.age),
       name: Data.name,
       email: Data.email,
       institute: Data.institute,
       branch: Data.branch,
-      interest : Data.interest,
+      interest: Data.interest,
       course: Data.course,
-      skills : [
+      skills: [
         {
           skill: Data.skills,
           experience: Data.experience,
           tools: Data.tools,
-          level: Data.level
-        }
-      ]
-    }
+          level: Data.level,
+        },
+      ],
+    };
     try {
       const response = await fetch("http://localhost:8080/api/profileModel", {
         method: "POST",
@@ -60,13 +60,10 @@ function EditProfile() {
         body: JSON.stringify(DataSend),
       });
 
-     
-
       if (response.ok) {
-        navigate('');
-      }
-      else{
-        navigate('/Home');
+        navigate("");
+      } else {
+        navigate("/Home");
       }
 
       console.log("Data posted to backend successfully");
@@ -75,12 +72,14 @@ function EditProfile() {
     }
   };
 
-  const [skill, setSkill] = useState(JSON.parse(localStorage.getItem("skills")) || []);
-  const [inputSkill, setInputSkill] = useState('');
+  const [skill, setSkill] = useState(
+    JSON.parse(localStorage.getItem("skills")) || []
+  );
+  const [inputSkill, setInputSkill] = useState("");
 
   const addskill = (e) => {
-    if (Data.skills.trim() === '') {
-      window.alert('Add skill first!');
+    if (Data.skills.trim() === "") {
+      window.alert("Add skill first!");
     } else {
       const newSkill = {
         id: skill.length,
@@ -88,7 +87,7 @@ function EditProfile() {
         // You can add more project details here
       };
       setSkill([...skill, newSkill]);
-      setInputSkill(''); // Reset the input after adding the skill
+      setInputSkill(""); // Reset the input after adding the skill
     }
   };
   const removeSkill = (id) => {
@@ -103,7 +102,7 @@ function EditProfile() {
 
   return (
     <div className="EditProfile">
-      <Navbar/>
+      <Navbar />
       <form onSubmit={handleSubmit}>
         <div className="text-title">
           <h1>EDIT PROFILE</h1>
@@ -150,7 +149,7 @@ function EditProfile() {
                 onChange={handleInput}
               />
             </div>
-            <div className="course">
+            <div className="course-ep">
               COURSE
               <input
                 type="text"
@@ -190,13 +189,13 @@ function EditProfile() {
             <div className="institute">
               INSTITUTE
               <input
-              placeholder="IIT Guwahati"
+                placeholder="IIT Guwahati"
                 type="text"
                 id="institute"
                 name="institute"
                 value={Data.institute}
                 onChange={handleInput}
-                />
+              />
             </div>
             <div className="email">
               EMAIL
@@ -215,7 +214,7 @@ function EditProfile() {
             <div className="skill">
               SKILL
               <input
-              placeholder="Name of skill"
+                placeholder="Name of skill"
                 type="text"
                 id="skills"
                 name="skills"
@@ -252,21 +251,29 @@ function EditProfile() {
                 name="tools"
                 value={Data.tools}
                 onChange={handleInput}
+                placeholder="Add Used Tools"
               />
             </div>
 
-            <button onClick={addskill}>Add Skill</button>
+            <button onClick={addskill} className="skill-ep">
+              Add Skill
+            </button>
 
             <div className="skills-add">
               <div className="added">Added Skills :</div>
               <div className="skill-container">
-        {skill.map((s) => (
-          <div key={s.id} className="skill-card">
-            <button className="skill-butt" onClick={() => removeSkill(s.id)}>{s.name}</button>
-            {/* More project details can go here */}
-          </div>
-        ))}
-      </div>
+                {skill.map((s) => (
+                  <div key={s.id} className="skill-card-ep">
+                    <button
+                      className="skill-butt-ep"
+                      
+                    >
+                      {s.name} <p onClick={() => removeSkill(s.id)}>X</p>
+                    </button>
+                    {/* More project details can go here */}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
