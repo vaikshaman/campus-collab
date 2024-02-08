@@ -5,7 +5,7 @@ import RHS from './RHS'
 import Navbar from '../../header/Navbar'
 import './Courses.css'
 import Add_A_Course from './Add_A_Course'
-import './image-2.png'
+// import './image-2.png'
 import Open_Courses from './Open_Courses'
 
 function Courses() {
@@ -61,21 +61,25 @@ function Courses() {
 
               ):(
 
-                <div>
+                <div className='Newww'>
 
-              <div className='RHS_Main'>
-                <RHS 
-                   ShowOrNot={ShowPopUp}
-                   ShowOrNotAnswer={PopUp}
-                />
-              </div>
+              
 
                   <Add_A_Course 
                   ShowOrNot={!ShowPopUp}
                   ShowOrNotAnswer={PopUp}
                   Ha={PopUpI}
                   />
+
+                  <div className='RHS_Main'>
+                    <RHS 
+                   ShowOrNot={ShowPopUp}
+                   ShowOrNotAnswer={PopUp}
+                    />
+                  </div>
                 </div>
+
+                
               )
             }
 

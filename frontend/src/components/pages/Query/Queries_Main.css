@@ -206,3 +206,8 @@ hr{
         margin-bottom: 2rem; /* Adjusted margin */
     }
 }
+
+
+.individual-comment:hover{
+    cursor: pointer;
+}

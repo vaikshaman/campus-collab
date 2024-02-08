@@ -9,7 +9,7 @@
 }
 
 .RHS_Main{
-    padding: 4vw 1vw 2vw 1vw;
+    padding: 4vw 1vw 2vw 0vw;
     
     background: #f3f3f6;
 
@@ -32,4 +32,17 @@
         align-items: center;
     }
     
+}
+
+.Newww{
+    display: grid;
+    grid-template-columns: 6fr 3fr;
+    margin-top: 6rem;
+}
+
+@media (min-width:0px) and (max-width:500px){
+    .Newww{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
 }

@@ -4,19 +4,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 4vw;
+    padding-right: 4vw;
 }
 
 .Add_A_Course-Biggest-Container {
     display: flex;
-    width: 54.5625rem; /* Adjusted to full width */
-    height: 51.5rem; /* Changed to auto */
-    padding: 2.5rem;
+    /* width: 54.5625rem; Adjusted to full width */
+    height: fit-content; /* Changed to auto */
+    padding: 0.5rem;
     flex-direction: column;
     justify-content: space-between;
     align-items: center; /* Centering horizontally */
     border-radius: 0.5rem;
     background: #FFF;
     box-shadow: black;
+    margin-bottom: 2rem;
 }
 
 .Add_A_Course-Upper-Part {
@@ -55,6 +58,7 @@
     display: flex;
     /* justify-content: center; */
     align-items: center; /* Centering vertically */
+    flex-direction: column;
     gap: 1.75rem;
     /* padding-left: 2.5rem;
     padding-top: 2.5rem; */
@@ -63,7 +67,7 @@
 
 .Add_A_Course-Upper-Part-ThumbNail {
 
-    width: 15.25rem; /* Adjusted for desktop */
+    /* width: 15.25rem; Adjusted for desktop */
     height: 15.25rem; /* Adjusted for desktop */
     flex-shrink: 0;
     border-radius: 0.25rem;
@@ -71,7 +75,7 @@
 }
 
 .Add_A_Course-Upper-Part-Write-Course-Name{
-    width: 32.8125rem;
+    /* width: 100%; */
     padding: 0.625rem 0.75rem;
     align-items: flex-start;
     gap: 0.625rem;
@@ -84,7 +88,7 @@
 .Add_A_Course-Upper-Part-Category,
 .Add_A_Course-Upper-Part-Review,
 .Add_A_Course-Upper-Part-Link {
-    width: 49.5625rem;
+    /* width: 49.5625rem; */
     height: 1.5rem;
     padding: 0.625rem 0.75rem;
     align-items: flex-start;
@@ -99,6 +103,7 @@
 @media (max-width: 768px) {
     .Add_A_Course-Biggest-Container {
         padding: 1.5rem;
+        margin:2rem
     }
 
     .Add_A_Course-Upper-Part {
@@ -106,7 +111,7 @@
     }
 
     .Add_A_Course-Upper-Part-ThumbNail {
-        width: 100%; /* Adjusted for smaller screens */
+        /* width: 100%; Adjusted for smaller screens */
         height: auto; /* Adjusted for smaller screens */
         border-radius: 0.25rem;
     }
@@ -137,4 +142,12 @@
 .Add_A_Course-Upper-Part-Review::placeholder-shown{
     /* float: top; */
     
+}
+
+.Add_A_Course-Lower-Part-Cancel:hover{
+    cursor: pointer;
+}
+
+.Add_A_Course-Lower-Part-Post{
+    cursor: pointer;
 }

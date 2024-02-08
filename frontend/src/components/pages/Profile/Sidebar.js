@@ -111,8 +111,9 @@ function App() {
           </button>
         </div> */}
       </div>
-      <div>
+      <div className="butt-div1">
         <Link to="/editprofile" className="edit-profile-btn">Edit Profile</Link>
+        <button  className="edit-profile-btn">Logout</button>
       </div>
     </div>
   );

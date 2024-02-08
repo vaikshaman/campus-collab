@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import RHS from './RHS'
 import './Add_A_Course.css'
-import './image-2.png'
+import img from '../../assets/image-2.png'
 
 function Add_A_Course(props) {
 
@@ -19,7 +19,7 @@ function Add_A_Course(props) {
            <div className='Add_A_Course-Upper-Part-Course-Name'>
                
                <div className='Add_A_Course-Upper-Part-ThumbNail'>
-                   <img src='./image-2.png'>
+                   <img src={img}>
  
                    </img>
                    Edit ThumbNail Images
@@ -29,8 +29,8 @@ function Add_A_Course(props) {
                    <div className='Text-Course-Name'>
                        Course-Name
                    </div>
-                   <input className='Add_A_Course-Upper-Part-Write-Course-Name'>
-                   </input>
+                   <textarea className='Add_A_Course-Upper-Part-Write-Course-Name'>
+                   </textarea>
                </div>
  
            </div>
@@ -39,20 +39,20 @@ function Add_A_Course(props) {
                  <div className='Text-Category'>
                  Category
                  </div>
-                  <input className='Add_A_Course-Upper-Part-Category' placeholder='Website Development,UI Design'>
-                  </input>
+                  <textarea className='Add_A_Course-Upper-Part-Category' placeholder='Website Development,UI Design'>
+                  </textarea>
            </div>
  
            <div className='Add_A_Course-Upper-Part-Review-text'>
                  <div className='Text-Review'>Review</div>
-                  <input className='Add_A_Course-Upper-Part-Review' placeholder='Add A Description'>
-                  </input>
+                  <textarea className='Add_A_Course-Upper-Part-Review' placeholder='Add A Description'>
+                  </textarea>
            </div>
  
            <div className='Add_A_Course-Upper-Part-Link-text'>
                   <div className='Text-Link'>Link</div>
-                  <input className='Add_A_Course-Upper-Part-Link' placeholder='Add Link to Course'>
-                  </input>
+                  <textarea className='Add_A_Course-Upper-Part-Link' placeholder='Add Link to Course'>
+                  </textarea>
            </div>
         </div>
  

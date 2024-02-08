@@ -140,7 +140,11 @@
     font-weight: 400;
     line-height: normal;
     border: none;
-    /* outline: none; */
+    /* outline: none; */   
+}
+
+.can:hover{
+    cursor: pointer;
 }
 
 .post{
@@ -158,4 +162,8 @@
     font-weight: 400;
     line-height: normal;
     border: none;
+}
+
+.post:hover{
+    cursor: pointer;
 }

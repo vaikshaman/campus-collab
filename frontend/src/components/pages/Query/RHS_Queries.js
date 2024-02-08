@@ -47,6 +47,7 @@ function RHS_Queries(props) {
 
              <div className='RHS_Queries-My-Courses-Upper-Part'>
 
+
                 <button className='RHS_Queries-Add-Courses-My-Courses-Arrow'>
                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="30" viewBox="0 0 14 30" fill="none">
                       <path d="M2 27L12 16L2 6" stroke="#656565"/>
@@ -54,6 +55,7 @@ function RHS_Queries(props) {
                 </button>
 
                 <div className='RHS_Queries-My-Courses-Text'>My Queries</div>
+
 
                 <div className='RHS_Queries-My-Courses-Text-View-All'>View All</div>
 

@@ -23,6 +23,8 @@ function Queries_Main(props) {
                         <div class="posted-when"> Posted by Shashwat Sharma 6 hrs ago </div>
                     </div>
                 </div>
+
+                
                 <div class="individual-comment"
                    onClick={props.Show_Query}
                 >
