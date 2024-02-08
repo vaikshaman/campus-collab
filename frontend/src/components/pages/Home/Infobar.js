@@ -5,6 +5,19 @@ import "./Infobar.css"; // Make sure to include your CSS file
 import mapIcon from "../../assets/map-icon.png"
 import NotFriend from "../../assets/make-friend.png"
 import isFriend from "../../assets/is-friend.png"
+import Notification from "./Notification";
+
+const NotifyPage = ({ onClose }) => {
+  return (
+    <div className='notify-overlay'>
+      <div className="notify">
+        <Notification
+          close= {onClose}
+        />
+      </div>
+    </div>
+  );
+};
 
 const Infobar = () => {
   // State to track which accordion section is open
@@ -24,6 +37,14 @@ const Infobar = () => {
     setFriend((prevState) =>!prevState)
   }
 
+  const [isNotifyOpen, setIsNotifyOpen] = useState(false);
+
+  // Function to toggle the visibility of the pop-up page
+  const toggleNotify = () => {
+    
+      setIsNotifyOpen(!isNotifyOpen);
+  };
+
   return (
     <div className="infobar">
       <div className="info-section">
@@ -41,15 +62,15 @@ const Infobar = () => {
           <div className="info-content">
             {/* Profile Bio Here */}
             <div className="info-image"></div>
-            <div className="info-info">
-              <div>Message from Rishi Kiran</div>
+            <div className="info-info" onClick={toggleNotify}>
+              <div >Message from Rishi Kiran</div>
               <p>Do you know how to use figma</p>
             </div>
           </div>
           <div className="info-content">
             {/* Profile Bio Here */}
             <div className="info-image"></div>
-            <div className="info-info">
+            <div className="info-info" onClick={toggleNotify}>
               <div>Message from Rishi Kiran</div>
               <p>Do you know how to use figma</p>
             </div>
@@ -117,6 +138,8 @@ const Infobar = () => {
           </div>
         </div>
       </div>
+      {/* Render the pop-up page conditionally */}
+      {isNotifyOpen && <NotifyPage onClose={toggleNotify} />}
     </div>
   );
 };
