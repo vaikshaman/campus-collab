@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from "react";
+import { Link } from 'react-router-dom';
 import axios from "axios";
 import './Sidebar.css'
 
@@ -111,7 +112,7 @@ function App() {
         </div> */}
       </div>
       <div>
-        <button className="edit-profile-btn">Edit Profile</button>
+        <Link to="/editprofile" className="edit-profile-btn">Edit Profile</Link>
       </div>
     </div>
   );

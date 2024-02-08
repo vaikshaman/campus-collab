@@ -1,7 +1,6 @@
 import React from "react"
 import { useEffect,useRef } from "react";
 import { Link } from "react-router-dom";
-import Nav_About from "./Nav_About"
 import './About.css';
 import abtwow from "../../assets/abt-wow.png";
 import abtimg1 from "../../assets/abt-img1.png";
@@ -41,7 +40,7 @@ const About =()=>{
         return (
           <div className="About-boss">
             {/* NAVBAR  */}
-            <nav className="Navbar">
+            <nav className="Navbar-abt">
               <div className="About-logo">CampusCollaborator</div>
               <Link to="/Login" className="querie">Login</Link>
               <Link to="/Login" className="course">Signup with Outlook</Link>

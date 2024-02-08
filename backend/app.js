@@ -6,6 +6,8 @@ import connectDB from './config/db.js';
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import router from './routes/router.js';
+import path from 'path';
+const uploadsDirectory = path.join(process.cwd(), 'uploads');
 
 
 // Configure dotenv
@@ -23,7 +25,8 @@ app.set("view engine", "es");
 
 // Serve static files from the 'public' directory
 app.use(express.static('public'));
-
+//for accessing uploads folder
+app.use('/uploads', express.static(uploadsDirectory));
 // Middleware for parsing incoming request bodies
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());

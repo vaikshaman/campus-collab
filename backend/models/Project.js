@@ -1,92 +1,26 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-// Image to be put in Upper-level schema
-const ProjectSchema = mongoose.Schema(
+const projectSchema = new mongoose.Schema({
+  projectId: {
+    type: String,
+    unique: true,
+    required: true,  // Add this line to enforce that projectId is required
+  },
+  inputFields: [
     {
-        ownerName : 
-        {
-            type: String,
-            required : true
-        },
-        ownerEmail :
-        {
-            type : String,
-            required : true
-        },
-        tags : [ 
-            {
-                tag:
-                {
-                    type: String
-                }
-            }
-        ],
-        skills : {
-            type : String
-        },
-        imagePath : {
-            type: String
-        },
-        imageName : {
-            type: String
-        },
-        projectName : {
-            type: String,
-            required : true
-        },
-        description : 
-        {
-            type : [String]
-        },
-        descriptionType : 
-        {
-            type : [String]
-        },
-        collaborators : 
-        [
-            {
-                collaboratorEmail :
-                {
-                    type : String,
-                    required : true
-                },
-                collaboratorName : 
-                {
-                    type : String,
-                    required : true
-                }                
-            }
-        ],
-        projectStatus : {
-            type : String,
-            required : true
-        },
-        isCollabOpen : {
-            type : Boolean,
-            required : true
-        },
-        reviews : [
-            {
-                reviewerEmail : {
-                    type : String,
-                    required : true
-                },
-                reviewerName  : {
-                    type : String,
-                    required : true
-                },
-                review : {
-                    type : String,
-                    required : true
-                },
-                timestamp : {
-                    type : Date,
-                    default : Date.now
-                }
-            }
-        ]
+      type: {
+        type: String,
+      },
+      value: {
+        type: String,
+      },
+    },
+  ],
+  image: [{
+    type: String // Store the image filename
+  }]
+});
 
-    }
-)
+const Project = mongoose.model('Project', projectSchema);
 
-export default mongoose.model("Projects",ProjectSchema);  
+export default Project;
