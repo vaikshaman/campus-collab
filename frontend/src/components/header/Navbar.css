@@ -1,19 +1,20 @@
-/* Navbar container styles */
-.Navbar-container {
+.nav-items{
   z-index:100;
   top: 0; /* Stick it to the top of the viewport */
-  left: 0; 
+  left:0;
   position: fixed;
-  z-index: 1000;
   background: #FFF;
-  width: 100%; /* Adjusted for responsiveness */
+  width: 100%; 
+  height:10vh;
   display: flex;
-  /* justify-content: space-between; Adjusted alignment */
+  flex-direction: row;
   align-items: center;
-  padding: 0 20px; /* Adjusted padding for smaller screens */
+  padding: 0 2vh; /* Adjusted padding for smaller screens */
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.03), 0px 12px 12px 0px rgba(0, 0, 0, 0.03), 0px 27px 16px 0px rgba(0, 0, 0, 0.02), 0px 48px 19px 0px rgba(0, 0, 0, 0.00), 0px 75px 21px 0px rgba(0, 0, 0, 0.00);
 }
-
+.campus{
+  display:none;
+}
 /* Navbar item styles */
 .home,
 .queries,
@@ -23,13 +24,12 @@
 .createproject {
   display: flex;
   align-items: center;
-  /* flex-shrink: 0; */
-  height: 48px;
-  padding: 12px 20px;
+  height: auto;
+  position: relative;
+  padding: 1vw 2vh;
   border-radius: 4px;
-  background: #FFF;
   font-family: "Pangea Trial";
-  font-size: 16px;
+  font-size: 2vh;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -48,67 +48,155 @@
 
 .home {
   background-color: #BAE84D;
-  height: auto;
-  color:black;
-  
+  color: black;
+  margin-left: 1%; 
 }
-.queries{
-  margin-left: 40px;
 
+.queries {
+  margin-left: 2%; /* Converted from 1vw */
 }
-.courses{
-  margin-left:30px;
+
+.courses {
+  margin-left: 2%; /* Converted from 1vw */
 }
 
 .search-input {
-  height: 45px;
+  height: 6vh;
   width: 30%;
   border-radius: 4px;
   border: 1px solid #D3D3D3;
   background: #F5F5F7;
   padding-left: 1%;
-  margin-left: 100px;
+  margin-left: 8%; /* Converted from 6vw */
+  
+}
 
+.myprofile {
+  color: #000;
+  margin-left: 7%; /* Converted from 8vw */
 }
-.myprofile{
-  color:#000;
-  margin-left: 100px;
-}
+
 .createproject {
   background: rgba(186, 232, 77, 0.50);
-  height: auto;
-  margin-left: 100px;
-  color:#000;
+  margin-left: 7%; /* Converted from 5vw */
+  color: #000;
+  width: 7%;
+  height: 2.5vh;
+  margin-right:5%; /* Converted from 2vw */
 }
 
-/* Adjust margins for responsive layout */
+
+
+
+
 @media (max-width: 768px) {
-  .home,
-  .queries,
-  .courses,
-  .search,
-  .myprofile,
-  .createproject {
-    padding: 10px; /* Adjusted padding for smaller screens */
+  .campus{
+    display: block;
+    margin-left: 7%;
+    font-size: 2.5vh;
+    color:black;
+    margin-top:2vh;
+    font-weight: 800;
   }
-
-  .search {
-    width: 100%; /* Adjusted width for smaller screens */
+  .hamburger {
+    margin-top: 3vh;
+    margin-bottom: 1vh;
+    margin-left: 5vw;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    
   }
-
-  .queries {
-    margin-left: -80px;
+  .horizontal-line{
+    color:#656565;
+    width:85%;
+    margin-left:7%;
+    margin-top: 5%;
   }
-
-  .courses {
-    margin-left: -100px;
+  .nav-items {
+    display: none;
   }
-
+  
+  .hamburger-span-line {
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+    height:1vh;
+    background-color: #656565;
+    margin: 0.5vw;
+    border-radius: 5px;
+  }
+  /* .hamburger-text{
+    margin-left: 40%;
+    margin-top: .5%;
+    font-size: 20px;
+    font-weight: 800;
+    color:#656565;
+  } */
+  .campus-main{
+    margin-top: 5%;
+  }
+  
+  .nav-items.open {
+    display: flex; /* Show Navbar items when the menu is toggled */
+    flex-direction: column;
+    background: #FFF;
+    position: fixed;
+    top: 0;
+    right: 30%;
+    bottom: 0;
+    left: 0; /* Adjusted to cover 70% of the screen */
+    align-items: flex-start;
+    width: 55%; /* Adjusted to cover 70% of the screen */
+    height: 100%;
+    padding: 10px;
+    transition: all 1s ease;
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.03), 0px 12px 12px 0px rgba(0, 0, 0, 0.03), 0px 27px 16px 0px rgba(0, 0, 0, 0.02), 0px 48px 19px 0px rgba(0, 0, 0, 0.00), 0px 75px 21px 0px rgba(0, 0, 0, 0.00);
+  }
+  
+  .home {
+    margin-left: 3%;
+    font-size: 2.5vh;
+    margin-top:10vh;
+    background-color: white;
+  }
+  
   .search-input {
-    margin-left: -50px;
+    margin-left:7%;
+    font-size: 2.5vh;
+    margin-top:2vh;
+    width: 80%;
+    padding-left: 1%;
+    border: none; /* Remove all borders */
+  border-bottom: 2px solid black; /* Add bottom border */
+  outline: none; 
+  background:#FFF;
+  }
+  
+  .queries,
+  .courses {
+    margin-left: 3%;
+    font-size: 2.5vh;
+    color:black;
+    margin-top:2vh;
   }
 
   .myprofile {
-    margin-right: -80px;
+    margin-left: 3%; /* Start from 5vw left margin */
+    font-size: 2.5vh;
+    margin-top: auto; /* Move to the bottom */
+  }
+
+  .createproject {
+    align-self:left;
+    margin-left: 7%; /* Start from 5vw left margin */
+    font-size: 2.3vh;
+    padding-left:10%;
+    margin-top:2vh;
+    height:6vh;
+    width:70%;
+    border-radius:5px ;
+    border: 2px solid #BAE84D;
+    margin-bottom: 5vh; /* Adjust bottom margin as needed */
   }
 }

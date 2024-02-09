@@ -442,6 +442,8 @@
     .Open_Queries{
         display: grid;
         margin-top: 1rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
         background: #FFF;
       grid-template-columns: 3fr 1fr;
     }

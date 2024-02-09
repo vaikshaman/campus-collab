@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const communityPost = mongoose.Schema(
+const coursePosts = mongoose.Schema(
     {
         authorEmail : 
         {
@@ -11,17 +11,19 @@ const communityPost = mongoose.Schema(
             type : String,
             required : true
         },
-        question : {
+        courseName : {
             type : String,
             required : true
         },
-        description : {
+        category : {
             type : String,
-            required : true
         },
-        postType : {
+        review : {
             type: String,
             required : true
+        },
+        link : {
+            type : String,
         },
         comments : [
             {
@@ -46,4 +48,4 @@ const communityPost = mongoose.Schema(
     }
 ,{timestamps : true})
 
-export default mongoose.model('CommunityPosts',communityPost); 
+export default mongoose.model('coursePosts',coursePosts); 

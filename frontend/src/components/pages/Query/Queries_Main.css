@@ -124,6 +124,7 @@ nav{
     display: flex;
     /* width: 48.5625rem; */
     justify-content: space-between;
+    gap: 1.5vw;
     align-items: center;
 }
 
@@ -150,10 +151,10 @@ background: #F5F5F7;
 }
 
 .posted-when{
-    height: 1.5vh;
+    /* height: 1.5vh; */
     /* width: 60%; */
-    align-items: flex-end;
-    font-size: 1vw;
+    /* align-items: flex-end; */
+    font-size: 1rem;
     text-decoration-color: gray;
 }
 

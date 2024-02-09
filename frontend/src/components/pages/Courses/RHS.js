@@ -1,5 +1,6 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import './RHS.css'
+import axios from 'axios'
 
 function RHS(props) {
 
@@ -10,6 +11,28 @@ function RHS(props) {
   const AddCourseClicked = () => {
       setShowCourses(!ShowCourses)
   }
+
+  const [myCourses,setMyCourses] = useState([])
+
+  useEffect(() => {
+    let isMounted = true;
+    async function fetchMyCourses() {
+      const resp = await axios.post('http://localhost:8080/api/myCoursePosts',{userEmail : (JSON.parse(localStorage.getItem('msalAccount')))['username'] });
+      console.log(resp.data);
+      if(isMounted){
+        resp.data.forEach(element => {
+          setMyCourses(myCourses => [...myCourses,{courseName : element.courseName,timeStamp : element.createdAt }])
+          console.log(element);
+        });
+      }
+      
+    }
+    fetchMyCourses();
+    console.log("FIRE :: ",myCourses);
+    return () => {
+      isMounted = false;
+    };
+  },[])  
 
   return (
     <div className='RHS'>
@@ -83,8 +106,31 @@ function RHS(props) {
                       </div>
                     </div>
                 </div>
-
-
+                
+                  {myCourses.map(elm => 
+                
+                <div className='RHS-My-Courses-Content-Main'>
+                      <div className='RHS-My-Courses-Content-Text'>
+                          {elm.courseName}
+                      </div>
+                      <div className='RHS-My-Courses-Content-Text-Below-Part'>
+                        <div className='RHS-My-Courses-Content-Text-Below-Part-LHS'>
+                        <div className='RHS-My-Courses-Content-Text-Below-Part-Circle-Img'>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            < circle cx="12" cy="12" r="12" fill="#D9D9D9"/>
+                          </svg>
+                        </div>
+                        <div className='RHS-My-Courses-Content-Text-Below-Part-Club-Name'>
+                          {JSON.parse(localStorage.getItem('msalAccount'))['name']}
+                        </div>
+                        </div>
+                        <div className='RHS-My-Courses-Content-Text-Below-Part-Date'>
+                            {elm.timeStamp}   {/*..............Variable Date that we get from Backend*/}
+                        </div>
+                      </div>
+                  </div>
+                  )}
+                
 
                 <div className='RHS-My-Courses-Content-Main'>
                     <div className='RHS-My-Courses-Content-Text'>

@@ -5,6 +5,11 @@ import img from '../../assets/image-2.png'
 
 function Add_A_Course(props) {
 
+  const [courseName,setCourseName] = useState('')
+  const [category,setCategory] = useState('');
+  const [review, setReview] = useState('');
+  const [link,setLink] = useState('');
+
   return (
 
     

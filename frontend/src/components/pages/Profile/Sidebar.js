@@ -1,16 +1,26 @@
 import React, { useState,useEffect } from "react";
-import { Link } from 'react-router-dom';
 import axios from "axios";
 import './Sidebar.css'
 
-function App() {
-  const[profile,setProfile]=useState([]);
-  useEffect(()=>{
-    axios.get('http://localhost:8080/getprofile')
-    .then(Profile=>setProfile(Profile.data))
-    .catch(err=>console.log(err));
 
-  },[])
+function Sidebar({m_strUser}) {
+
+  const[profiles,setProfiles]=useState([]);
+  useEffect(() => {
+    const username=JSON.parse(localStorage.getItem('msalAccount'))[
+      "username"
+    ]
+    axios.get(`http://localhost:8080/getprofile?userid=${username}`)
+      .then(Profile => {
+        setProfiles(Profile.data);
+      })
+      .catch(err => console.log(err));
+  }, [m_strUser]);
+  
+
+  console.log(profiles);
+
+  
   const [activeSection, setActiveSection] = useState("profile");
 
   const handleSectionToggle = (section) => {
@@ -38,8 +48,8 @@ function App() {
               <div className="profile-head">
                 <img src=""></img>
                 <div className="profile-name">
-                  <p className="p1">{profile.length>0?profile[0].name:""}</p>
-                  <p className="p2">134 followers  -  3 projects</p>
+                  <p className="p1">{profiles.map(profile => profile.name)}</p>
+                  
                 </div>
               </div>
               <div className="profile-origin">
@@ -50,8 +60,8 @@ function App() {
                 </div>
 
                 <div className="education">
-                  <div><img src=""></img> <p>EEE (B.Tech)</p></div>
-                  <div> <img src=""></img><p>Indian Institute of Information Technology, Guwahati</p></div>
+                  <div><img src=""></img> <p>{profiles.map(profile => profile.branch)}</p></div>
+                  <div> <img src=""></img><p>I{profiles.map(profile => profile.institute)}</p></div>
                 </div>
                 
               </div>
@@ -111,12 +121,11 @@ function App() {
           </button>
         </div> */}
       </div>
-      <div className="butt-div1">
-        <Link to="/editprofile" className="edit-profile-btn">Edit Profile</Link>
-        <button  className="edit-profile-btn">Logout</button>
+      <div>
+        <button className="edit-profile-btn">Edit Profile</button>
       </div>
     </div>
   );
 }
 
-export default App;
+export default Sidebar;
