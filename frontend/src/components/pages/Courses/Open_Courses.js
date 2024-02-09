@@ -1,8 +1,66 @@
 import React from 'react'
-// import './Frame_10.png'
 import './Open_Courses.css'
+import { useLocation } from 'react-router-dom';
+import { useState,useEffect } from 'react';
+import axios from 'axios';
 
 function Open_Courses() {
+    const location = useLocation();
+    const params = new URLSearchParams(location.search);
+    const receivedData = params.get('id');
+
+    const [detailCourse,setdetailCourse] = useState([]);    
+    const [comment,setComment] = useState('');
+    const [FullComments,setFullComments] = useState(true);
+    const [detailComment,setdetailComment] = useState([]);
+
+    useEffect(()=>{
+            axios.get(`http://localhost:8080/api/getdetailcoursebyid?id=${receivedData}`).then(
+                response => {
+                    // console.log("response ye hai", response)
+                    setdetailCourse(response.data)
+                }
+            ).catch(err => console.log(err));
+    },[receivedData])
+   
+    console.log(detailCourse);
+    
+    useEffect(()=>{
+            axios.get(`http://localhost:8080/api/getdetailcoursebyid?id=${receivedData}`).then(
+                response => {
+                    setdetailComment(response.data.comments)
+                }
+            ).catch(err => console.log(err));
+            const reverseArr = [...detailComment].reverse()
+            setdetailComment(reverseArr);
+    },[FullComments]) 
+
+    console.log("yaha se hua hai",detailComment)
+
+    const postComment = async () => {
+        console.log(comment);
+        console.log(receivedData);
+        if(comment){
+            const resp = await axios.post('http://localhost:8080/api/updateCoursePost',{
+                comment,
+                pid : receivedData,
+                commenterEmail : (JSON.parse(localStorage.getItem('msalAccount')))['username'],
+                commenterName :  (JSON.parse(localStorage.getItem('msalAccount')))['name']
+            })
+            console.log(resp);
+            if(resp.status === 200) {
+                window.location.reload()
+            }
+            else{ 
+                console.log("ERROR IN POSTING COMMENT");
+            }
+        }
+        else{ 
+            alert('Empty post message');
+        }
+        setComment('');
+        setFullComments(!FullComments);
+    }
   return (
     <div className='Open_Courses'>
 
@@ -73,35 +131,34 @@ function Open_Courses() {
            <div className='Open_Courses_Questions'>
 
               <div className='Open_Courses_Main_Question'>
-              Can someone help me find resources on how to use Flutter to create responsive application layouts ?
+              {detailCourse.courseName}
               </div>
 
               <div className='Open_Courses_Post_Time'>
-              Posted by Sai Sankeerth NonVeg on <span className='Open_Queries_Post_Time_Date'>Oct 16</span>
+              Posted by {detailCourse.authorName} on <span className='Open_Queries_Post_Time_Date'>{detailCourse.createdAt}</span>
               </div>
+              <div>{detailCourse.category}</div>
 
            </div>
 
            <div className='Open_Courses_Main_Answer'>
-           At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. 
-
-            Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. 
-
-            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+            {detailCourse.review}
            </div>
-
+            <a href={detailCourse.link}>Link to Course</a>
            <div className='Open_Courses_Main_Comments'>
                <div className='Open_Courses_Comment_Big_box'>
-                <input className='Open_Courses_Comment_here' placeholder='Add a Comment'></input>
+                <input className='Open_Courses_Comment_here' placeholder='Add a Comment'  onChange={(e)=>setComment(e.target.value)} value={comment}></input>
 
                 <div>
-                   <button className='Open_Courses_Comment_Post_button'>Post</button>
+                   <button className='Open_Courses_Comment_Post_button' onClick={postComment}>Post</button>
                 </div>
 
                </div>
            </div>
 
            <div className='Open_Courses_Actual_Comments'>
+           {   
+                detailComment.map(element => 
 
                 <div className='Open_Courses_Actual_Sub_Comments'>
                     <div className='Open_queries_Sub_Comments_Profile'>
@@ -113,82 +170,15 @@ function Open_Courses() {
 
                         <div className='Open_Courses_Comments_Content'>
                             <div className='Open_Courses_Comments_Content_Name_Time'>
-                            Shashwat Sharma <span className='Open_Queries_dot'>.</span> <span className='Open_Queries_timesinceposted'>14 mins ago</span>
+                            {element.commenterName} <span className='Open_Queries_dot'>.</span> <span className='Open_Queries_timesinceposted'>{element.timestamps}</span>
                             </div>
-                            <div className='Open_Courses_Cant_Think_Of_Any_Name'>I love this design you have made.</div>
+                            <div className='Open_Courses_Cant_Think_Of_Any_Name'>{element.comment}</div>
                         </div>
                     </div>
                 </div>
 
+            )}
 
-
-                <div className='Open_Courses_Actual_Sub_Comments'>
-                    <div className='Open_queries_Sub_Comments_Profile'>
-                        <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <circle cx="24" cy="24" r="24" fill="#D9D9D9"/>
-                        </svg>
-                        </div>
-
-                        <div className='Open_Courses_Comments_Content'>
-                            <div className='Open_Courses_Comments_Content_Name_Time'>
-                            Shashwat Sharma <span className='Open_Courses_dot'>.</span> <span className='Open_Queries_timesinceposted'>14 mins ago</span>
-                            </div>
-                            <div className='Open_Courses_Cant_Think_Of_Any_Name'>I love this design you have made.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className='Open_Courses_Actual_Sub_Comments'>
-                    <div className='Open_Courses_Sub_Comments_Profile'>
-                        <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <circle cx="24" cy="24" r="24" fill="#D9D9D9"/>
-                        </svg>
-                        </div>
-
-                        <div className='Open_Courses_Comments_Content'>
-                            <div className='Open_Courses_Comments_Content_Name_Time'>
-                            Shashwat Sharma <span className='Open_Courses_dot'>.</span> <span className='Open_Queries_timesinceposted'>14 mins ago</span>
-                            </div>
-                            <div className='Open_Courses_Cant_Think_Of_Any_Name'>I love this design you have made.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className='Open_Courses_Actual_Sub_Comments'>
-                    <div className='Open_Courses_Sub_Comments_Profile'>
-                        <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <circle cx="24" cy="24" r="24" fill="#D9D9D9"/>
-                        </svg>
-                        </div>
-
-                        <div className='Open_Courses_Comments_Content'>
-                            <div className='Open_Courses_Comments_Content_Name_Time'>
-                            Shashwat Sharma <span className='Open_Courses_dot'>.</span> <span className='Open_Queries_timesinceposted'>14 mins ago</span>
-                            </div>
-                            <div className='Open_Courses_Cant_Think_Of_Any_Name'>I love this design you have made.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className='Open_Courses_Actual_Sub_Comments'>
-                    <div className='Open_Courses_Sub_Comments_Profile'>
-                        <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <circle cx="24" cy="24" r="24" fill="#D9D9D9"/>
-                        </svg>
-                        </div>
-
-                        <div className='Open_Courses_Comments_Content'>
-                            <div className='Open_Courses_Comments_Content_Name_Time'>
-                            Shashwat Sharma <span className='Open_Courses_dot'>.</span> <span className='Open_Queries_timesinceposted'>14 mins ago</span>
-                            </div>
-                            <div className='Open_Courses_Cant_Think_Of_Any_Name'>I love this design you have made.</div>
-                        </div>
-                    </div>
-                </div>
 
                 
            </div>
