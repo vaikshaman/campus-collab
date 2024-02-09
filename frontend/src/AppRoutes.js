@@ -10,6 +10,8 @@ import Courses from './components/pages/Courses/Courses';
 import Home from './components/pages/Home/Home';
 import Test from './components/pages/Test';
 import Open_Queries from './components/pages/Query/Open_Queries';
+import PostedProject from './components/pages/Project/PostedProject'
+
 
 const AppRoutes = () => {
     return (
@@ -24,6 +26,7 @@ const AppRoutes = () => {
                 <Route path='/Courses' element={<Courses/>}/>
                 <Route path="/EditProfile" element={<EditProfile />} />
                 <Route path="/Project" element={<Project />} />
+                <Route path="/PostedProject" element={<PostedProject />} />
                 <Route path="/detailquery" element={<Open_Queries />} />
             </Routes>
         </Router>

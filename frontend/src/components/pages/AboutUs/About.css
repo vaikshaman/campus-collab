@@ -292,7 +292,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2.5rem;
+  gap: 1.5rem;
   color: #929292;
   font-family: "Pangea Trial";
   font-size: 0.875rem;
@@ -308,7 +308,7 @@
   width: 22.6875rem;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.25rem;
+  gap: 0.25rem;
   color: #000;
   font-family: "Pangea Trial";
   font-size: 1.1rem;
@@ -408,8 +408,8 @@
   flex-direction: column;
   align-items: center;
   gap: 1.25rem;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+  /* margin: 3rem 42rem; */
+  margin-left: 50vw;
 }
 
 .bottom-log1{
@@ -451,6 +451,18 @@
   line-height: normal;
   border: none;
   cursor: pointer;
+}
+
+@media(max-width: 1000px){
+  .abt-login{
+    margin-left: 70vw;
+  }
+}
+
+@media(max-width: 750px){
+  .abt-login{
+    margin-left: 90vw;
+  }
 }
 
 @media(max-width: 600px){
