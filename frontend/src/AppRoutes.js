@@ -8,6 +8,7 @@ import Profile from './components/pages/Profile/Profile';
 import Queries from './components/pages/Query/Queries';
 import Courses from './components/pages/Courses/Courses';
 import Home from './components/pages/Home/Home';
+import PostedProject from './components/pages/Project/PostedProject'
 
 
 const AppRoutes = () => {
@@ -23,6 +24,7 @@ const AppRoutes = () => {
                 <Route path='/Courses' element={<Courses/>}/>
                 <Route path="/EditProfile" element={<EditProfile />} />
                 <Route path="/Project" element={<Project />} />
+                <Route path="/PostedProject" element={<PostedProject />} />
             </Routes>
         </Router>
     )
