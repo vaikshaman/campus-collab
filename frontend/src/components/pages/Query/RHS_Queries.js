@@ -20,7 +20,7 @@ function RHS_Queries(props) {
       console.log(resp.data);
       if(isMounted){
         resp.data.forEach(element => {
-          setMyQueries(myQueries => [...myQueries,element.question])
+          setMyQueries(myQueries => [...myQueries,element])
           console.log(element);
         });
       }
@@ -28,7 +28,7 @@ function RHS_Queries(props) {
     }
     fetchMyQueries();
 
-    
+
     console.log("FIRE :: ",myQueries);
     return () => {
       isMounted = false;
@@ -74,9 +74,8 @@ function RHS_Queries(props) {
              <div className='RHS_Queries-My-Courses-Content'>
 
              {myQueries.map(elm => 
-                
                 <div className='RHS_Queries-My-Courses-Content-Main'>  
-                <div className='RHS_Queries-My-Courses-Content-Text'>  {elm} </div>  
+                <div className='RHS_Queries-My-Courses-Content-Text'>  {elm.question} </div>  
                 <div className='RHS_Queries-My-Courses-Content-Text-Below-Part'>    
                 <div className='RHS_Queries-My-Courses-Content-Text-Below-Part-LHS'>    
                 <div className='RHS_Queries-My-Courses-Content-Text-Below-Part-Circle-Img'>       
@@ -84,55 +83,8 @@ function RHS_Queries(props) {
                 </div> 
                 <div className='RHS_Queries-My-Courses-Content-Text-Below-Part-Club-Name'>  {JSON.parse(localStorage.getItem('msalAccount'))['name']} </div> 
                 </div>    
-                <div className='RHS_Queries-My-Courses-Content-Text-Below-Part-Date'> 1 Aug </div> </div></div>
+                <div className='RHS_Queries-My-Courses-Content-Text-Below-Part-Date'> {new Date(elm.createdAt).toLocaleString()} </div> </div></div>
               )}
-
-
-                <div className='RHS_Queries-My-Courses-Content-Main'>
-                    <div className='RHS_Queries-My-Courses-Content-Text'>
-                    What are the best practices for optimizing app performance across different mobile devices and operating systems?
-                    </div>
-                    <div className='RHS_Queries-My-Courses-Content-Text-Below-Part'>
-                      <div className='RHS_Queries-My-Courses-Content-Text-Below-Part-LHS'>
-                      <div className='RHS_Queries-My-Courses-Content-Text-Below-Part-Circle-Img'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          < circle cx="12" cy="12" r="12" fill="#D9D9D9"/>
-                        </svg>
-                      </div>
-                      <div className='RHS_Queries-My-Courses-Content-Text-Below-Part-Club-Name'>
-                         Coding Club,IITG
-                      </div>
-                      </div>
-                      <div className='RHS_Queries-My-Courses-Content-Text-Below-Part-Date'>
-                          1 Aug    {/*..............Variable Date that we get from Backend*/}
-                      </div>
-                    </div>
-                </div>
-
-
-
-                <div className='RHS_Queries-My-Courses-Content-Main'>
-                    <div className='RHS_Queries-My-Courses-Content-Text'>
-                        Foundations of Web Development: Understanding HTML and CSS Fundamentals
-                    </div>
-                    <div className='RHS_Queries-My-Courses-Content-Text-Below-Part'>
-                      <div className='RHS_Queries-My-Courses-Content-Text-Below-Part-LHS'>
-                      <div className='RHS_Queries-My-Courses-Content-Text-Below-Part-Circle-Img'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          < circle cx="12" cy="12" r="12" fill="#D9D9D9"/>
-                        </svg>
-                      </div>
-                      <div className='RHS_Queries-My-Courses-Content-Text-Below-Part-Club-Name'>
-                         Coding Club,IITG
-                      </div>
-                      </div>
-                      <div className='RHS_Queries-My-Courses-Content-Text-Below-Part-Date'>
-                          1 Aug    {/*..............Variable Date that we get from Backend*/}
-                      </div>
-                    </div>
-                </div>
-
-
 
              </div>
              

@@ -267,7 +267,7 @@
   
   .Open_Courses_Comment_Post_button{
      /* width: 2.5625rem; */
-  
+     cursor: pointer;
      color: #000;
      font-family: "Pangea Trial";
      font-size: 1rem;

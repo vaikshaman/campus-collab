@@ -31,12 +31,12 @@
 }
 
 .comment-section{
-    /* margin-left: 5vw; */
+    margin-left: 2.5vw;
     /* width: 55vw;    */
     height: 65vh;
     /* border: 1px solid red; */
-    /* margin-top: 5vh; */
-    padding: 5%;
+    margin-top: 2.5vh;
+    /* padding: 5%; */
     display: flex;
     flex-wrap: wrap;
 }
@@ -55,7 +55,7 @@
 .individual-comment{
     /* border: 1px solid blue;  */
     display: inline-flex;
-    width: 45vw;
+    width: 52vw;
     height: max-content;
     padding: 1.75rem;
     flex-direction: column;

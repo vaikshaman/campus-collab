@@ -42,7 +42,7 @@ const HomeFeed = () => {
     <div className="HomeFeed">
         <div className="biggest-container">
             <div className="container-1">
-              <nav className='Upper_part'>
+              {/* <nav className='Upper_part'>
               <a href="#" className='gugu item-container-1'>
                 <div
                     className={`${
@@ -72,8 +72,13 @@ const HomeFeed = () => {
               </a>
 
               <div class="animation start-home"></div>
-              </nav>
-              
+              </nav> */}
+              {/* <div className="item-container-1  filter">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path d="M7.50002 15V9.75L2.21252 3H15.7875L10.5 9.75V15H7.50002Z" fill="#929292"/>
+                 </svg>
+                  <div className="gaga">Filter</div>
+              </div> */}
             </div>
             {/* <hr className="bar"></hr> */}
             

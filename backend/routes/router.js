@@ -236,6 +236,15 @@ router.get('/api/sortQueryPostsByLatest',async (req,res) => {
   //res.sendStatus(200);
 })
 
+router.get('/api/sortCoursePostsByLatest',async (req,res) => {
+  //console.log(req);
+  const sort = {'_id': -1}
+  const sorted = await mongoose.model('coursePosts').find().sort(sort)
+  console.log(sorted);
+  res.json(sorted);
+  //res.sendStatus(200);
+})
+
 router.post('/api/addPost',async (req,res) => {
     
   // const obj = {
@@ -312,6 +321,45 @@ router.post('/api/myCoursePosts',async (req,res) => {
   const sorted = await mongoose.model("coursePosts").find({authorEmail : username}).sort(sort);
   res.json(sorted);
 });
+
+router.post('/api/addCourse',async (req,res) => {
+  const resu = await mongoose.model('coursePosts').insertMany({
+    ...req.body,
+    comments : []
+  })
+  console.log(resu);
+  res.sendStatus(200);
+})
+
+//for fetching course
+router.get("/api/getdetailcoursebyid",async (req,res) => {
+  const qid = req.query.id;
+  console.log(qid)
+  const resu = await mongoose.model("coursePosts").findOne({_id:qid});
+  console.log(resu)
+  res.json(resu);
+})
+
+//for posting comment in course page
+router.post("/api/updateCoursePost", async(req,res) =>{
+  const pid = req.body.pid;
+  const comment = req.body.comment;
+  const commenterEmail = req.body.commenterEmail;
+  const commenterName = req.body.commenterName;
+  const post = await mongoose.model("coursePosts").findById(pid)
+  
+  post.comments.push(
+   {
+     commenterEmail,
+     commenterName,
+     comment
+   }
+  )
+  console.log(post);
+  await post.save();
+  res.sendStatus(200);
+})
+
 /* import multer from 'multer'; // Import multer here
 import express from "express";
 import Profile from '../models/profileModel.js';
