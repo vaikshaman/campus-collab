@@ -45,7 +45,7 @@
      align-items: center;
      gap: 2.5rem;
      flex-shrink: 0;
-     margin: 0.5rem;
+     /* margin: 0.5rem; */
      padding-right: 2.5rem;
      
   
@@ -257,6 +257,7 @@
      font-weight: 400;
      line-height: normal;
      border: none;
+     outline: none;
   }
   
   .Open_Queries_Comment_Post_button{
@@ -440,17 +441,19 @@
   }
   @media screen and (min-width:500px){
     .Open_Queries{
-        display: grid;
-        margin-top: 1rem;
-        margin-left: 2rem;
-        margin-right: 2rem;
-        background: #FFF;
+      display: grid;
+      margin-top: 7rem;
+      margin-left: 2rem;
+      margin-right: 2rem;
+      /* background: #FFF; */
       grid-template-columns: 3fr 1fr;
+      /* width: 94vw; */
+      gap: 20px;
     }
     }
     @media screen and (min-width:500px){
       .Open_Queries_RHS{
-        margin: 0.5rem;
+        /* margin: 0.5rem; */
         height:41.07rem;
       }
     }

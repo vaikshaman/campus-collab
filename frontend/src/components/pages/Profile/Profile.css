@@ -135,9 +135,9 @@ body{
   .app{
     margin-top: 120px;
   }
-  .show-project{
-    /* width: 42rem; */
-  }
+  /* .show-project{
+    width: 42rem;
+  } */
 }
 @media(max-width:400px){
   .Profile{
@@ -149,9 +149,9 @@ body{
     margin-top: 120px;
     width: 100%;
   }
-  .show-project{
-    /* width: 32rem; */
-  }
+  /* .show-project{
+    width: 32rem;
+  } */
 }
 
 @media (max-width: 400px) {
@@ -162,9 +162,5 @@ body{
 
   .app {
     width: 100%;
-  }
-
-  .show-project {
-    /* Adjust width or any other styles as needed */
   }
 }

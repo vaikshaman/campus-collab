@@ -4,6 +4,7 @@ import './Open_Queries.css'
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../../header/Navbar';
+import sidearrow from "../../assets/side-arrow.png"
 
 function Open_Queries() {
     const location = useLocation();
@@ -67,7 +68,7 @@ function Open_Queries() {
         
   return (
     <div>
-        <Navbar/>
+        {/* <Navbar/> */}
     <div className='Open_Queries'>
      <div className='Open_Queries_LHS'>
          
@@ -77,7 +78,7 @@ function Open_Queries() {
 
           <div className='Open_Queries_LHS_Top_Left_Icons'>
 
-            <div className='Open_Queries_Thumbs_Up'>
+            {/* <div className='Open_Queries_Thumbs_Up'>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                  <path d="M5 9V21H1V9H5ZM9 21C8.46957 21 7.96086 20.7893 7.58579 20.4142C7.21071 20.0391 7 19.5304 7 19V9C7 8.45 7.22 7.95 7.59 7.59L14.17 1L15.23 2.06C15.5 2.33 15.67 2.7 15.67 3.11L15.64 3.43L14.69 8H21C21.5304 8 22.0391 8.21071 22.4142 8.58579C22.7893 8.96086 23 9.46957 23 10V12C23 12.26 22.95 12.5 22.86 12.73L19.84 19.78C19.54 20.5 18.83 21 18 21H9ZM9 19H18.03L21 12V10H12.21L13.34 4.68L9 9.03V19Z" fill="#929292"/>
               </svg>
@@ -85,9 +86,9 @@ function Open_Queries() {
               <div className='Open_Queries_Thumbs_Up_Number'>
                187
               </div>
-            </div>
+            </div> */}
 
-            <div className='Open_Queries_Comments_Views'>
+            {/* <div className='Open_Queries_Comments_Views'>
 
                <div className='Open_Queries_Comments'>
 
@@ -120,7 +121,7 @@ function Open_Queries() {
 
                </div>
 
-            </div>
+            </div> */}
 
 
           </div>
@@ -200,7 +201,7 @@ function Open_Queries() {
 
 
          <div className='Open_Queries_RHS_Related'>
-            <img src='./Frame_10.png'></img>
+            <img src={sidearrow}></img>
             <div className='Open_Queries_RHS_Related'>Related</div>
          </div>
 

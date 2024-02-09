@@ -17,7 +17,7 @@ function RHS(props) {
   useEffect(() => {
     let isMounted = true;
     async function fetchMyCourses() {
-      const resp = await axios.post('http://localhost:8080/api/myCoursePosts',{userEmail : (JSON.parse(localStorage.getItem('msalAccount')))['username'] });
+      const resp = await axios.post('http://localhost:8080/api/myCoursePosts',{userEmail : (JSON.parse(localStorage.getItem('msalAccount')))["username"] });
       console.log(resp.data);
       if(isMounted){
         resp.data.forEach(element => {

@@ -72,12 +72,10 @@ const Top3 = () => {
 
               <div class="animation start-home"></div>
               </nav>
-              <div className="item-container-1  filter">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                    <path d="M7.50002 15V9.75L2.21252 3H15.7875L10.5 9.75V15H7.50002Z" fill="#929292"/>
-                 </svg>
-                  <div className="gaga">Filter</div>
-              </div>
+              {/* <div className="item-container-1  filter">
+                 
+                  
+              </div> */}
             </div>
         </div>
     </div>
