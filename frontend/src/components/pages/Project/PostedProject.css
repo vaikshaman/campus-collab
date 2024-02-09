@@ -36,6 +36,7 @@ body {
   .Id-div-pp {
     display: flex;
     margin-bottom: 13px;
+    width: 50%;
   }
   
   .project-projectId {
@@ -255,6 +256,9 @@ body {
           width: 64vw;
           justify-content: center;
       }
+      .content-shown-pp form{
+        width: -webkit-fill-available;
+      }
   }
   
   @media(max-width: 600px){
@@ -281,4 +285,5 @@ body {
           font-size: 1.3rem;
       }
   }
+
   

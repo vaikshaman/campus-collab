@@ -1,5 +1,6 @@
 import React from 'react'
 import './Review.css'
+import thumbsUp from "../../assets/thumbs-up.png";
 
 function Review() {
   return (
@@ -44,7 +45,7 @@ function Review() {
             <div className='right-review'>
                 <div className='right-head'>
                     <p>Reviews & FeedBack</p>
-                    <button>562 <img src="" alt='thumbsUp'></img></button>
+                    <button>562 <img src={thumbsUp}></img></button>
                 </div>
                 <div className='right-content'>
                     <div className='post-div'>
