@@ -45,6 +45,7 @@
     align-items: center;
     gap: 0.625rem;
     border-radius: 2.5rem;
+    border: none;
     background: #BAE84D;
     color: #000;
     font-family: "Pangea Trial";
@@ -129,6 +130,13 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    border-radius: 2.5rem;
+    display: flex;
+    padding: 0.625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border: none;
 }
 
 .Add_A_Course-Upper-Part-Write-Course-Name-text{

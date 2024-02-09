@@ -271,6 +271,7 @@
      line-height: normal;
      border: none;
      background: #F5F5F7;
+     cursor: pointer;
   }
   
   .Open_Queries_Actual_Comments{
@@ -317,7 +318,8 @@
      /* flex: 1 0 0; */
      /* display: flex; */
      display: flex;
-     /* width: 36.0625rem; */
+     width: 36.0625rem;
+     flex-direction: column;
      /* max-height: 2px; */
      /* background: red; */
      margin-top: 2.5%;
@@ -362,10 +364,6 @@
      font-style: normal;
      font-weight: 400;
      line-height: normal;
-     margin-left: 23%;
-     /* margin-right: 0%; */
-     /* padding-right: 0; */
-     /* background-color: red; */
   
   }
   

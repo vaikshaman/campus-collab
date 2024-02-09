@@ -10,7 +10,7 @@
 .Upper_part{
 	position: relative;
 	/* margin: auto ; */
-	width: fit-content;
+	width: auto;
 	height: 50px;
     /* margin-bottom: 5px; */
 	/* background: #34495e; */
@@ -166,7 +166,7 @@
     position: relative;
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
-    width: fit-content;
+    width: auto;
     height: 50px;
     /* background: #34495e; */
     /* background-color: greenyellow; */

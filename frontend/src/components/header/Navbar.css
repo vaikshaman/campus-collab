@@ -83,6 +83,9 @@
   width: 8%;
   height: 2.5vh;
   margin-right:5%; /* Converted from 2vw */
+  border-radius: 0.375rem;
+  border: 2px solid #BAE84D;
+  background: rgba(186, 232, 77, 0.50);
 }
 
 
