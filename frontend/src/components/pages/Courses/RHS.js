@@ -48,18 +48,6 @@ function RHS(props) {
                  </div>
           </button>
 
-
-          {/* {
-            ShowCourses? (
-
-             <div className='RHS-Ask-Questions-Pop-Up'>
-
-             </div>
-
-            ):null
-          }
-       */}
-
           
           {
             ShowMyCourses ? (
@@ -85,26 +73,7 @@ function RHS(props) {
 
 
 
-                <div className='RHS-My-Courses-Content-Main'>
-                    <div className='RHS-My-Courses-Content-Text'>
-                        Foundations of Web Development: Understanding HTML and CSS Fundamentals
-                    </div>
-                    <div className='RHS-My-Courses-Content-Text-Below-Part'>
-                      <div className='RHS-My-Courses-Content-Text-Below-Part-LHS'>
-                      <div className='RHS-My-Courses-Content-Text-Below-Part-Circle-Img'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          < circle cx="12" cy="12" r="12" fill="#D9D9D9"/>
-                        </svg>
-                      </div>
-                      <div className='RHS-My-Courses-Content-Text-Below-Part-Club-Name'>
-                         Coding Club,IITG
-                      </div>
-                      </div>
-                      <div className='RHS-My-Courses-Content-Text-Below-Part-Date'>
-                          1 Aug    {/*..............Variable Date that we get from Backend*/}
-                      </div>
-                    </div>
-                </div>
+                
                 
                   {myCourses.map(elm => 
                 
@@ -124,82 +93,11 @@ function RHS(props) {
                         </div>
                         </div>
                         <div className='RHS-My-Courses-Content-Text-Below-Part-Date'>
-                            {elm.timeStamp}   {/*..............Variable Date that we get from Backend*/}
+                          {new Date(elm.timeStamp).toLocaleString()}
                         </div>
                       </div>
                   </div>
                   )}
-                
-
-                <div className='RHS-My-Courses-Content-Main'>
-                    <div className='RHS-My-Courses-Content-Text'>
-                        Foundations of Web Development: Understanding HTML and CSS Fundamentals
-                    </div>
-                    <div className='RHS-My-Courses-Content-Text-Below-Part'>
-                      <div className='RHS-My-Courses-Content-Text-Below-Part-LHS'>
-                      <div className='RHS-My-Courses-Content-Text-Below-Part-Circle-Img'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          < circle cx="12" cy="12" r="12" fill="#D9D9D9"/>
-                        </svg>
-                      </div>
-                      <div className='RHS-My-Courses-Content-Text-Below-Part-Club-Name'>
-                         Coding Club,IITG
-                      </div>
-                      </div>
-                      <div className='RHS-My-Courses-Content-Text-Below-Part-Date'>
-                          1 Aug    {/*..............Variable Date that we get from Backend*/}
-                      </div>
-                    </div>
-                </div>
-
-
-
-                <div className='RHS-My-Courses-Content-Main'>
-                    <div className='RHS-My-Courses-Content-Text'>
-                        Foundations of Web Development: Understanding HTML and CSS Fundamentals
-                    </div>
-                    <div className='RHS-My-Courses-Content-Text-Below-Part'>
-                      <div className='RHS-My-Courses-Content-Text-Below-Part-LHS'>
-                      <div className='RHS-My-Courses-Content-Text-Below-Part-Circle-Img'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          < circle cx="12" cy="12" r="12" fill="#D9D9D9"/>
-                        </svg>
-                      </div>
-                      <div className='RHS-My-Courses-Content-Text-Below-Part-Club-Name'>
-                         Coding Club,IITG
-                      </div>
-                      </div>
-                      <div className='RHS-My-Courses-Content-Text-Below-Part-Date'>
-                          1 Aug    {/*..............Variable Date that we get from Backend*/}
-                      </div>
-                    </div>
-                </div>
-
-
-
-                <div className='RHS-My-Courses-Content-Main'>
-                    <div className='RHS-My-Courses-Content-Text'>
-                        Foundations of Web Development: Understanding HTML and CSS Fundamentals
-                    </div>
-                    <div className='RHS-My-Courses-Content-Text-Below-Part'>
-                      <div className='RHS-My-Courses-Content-Text-Below-Part-LHS'>
-                      <div className='RHS-My-Courses-Content-Text-Below-Part-Circle-Img'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                          < circle cx="12" cy="12" r="12" fill="#D9D9D9"/>
-                        </svg>
-                      </div>
-                      <div className='RHS-My-Courses-Content-Text-Below-Part-Club-Name'>
-                         Coding Club,IITG
-                      </div>
-                      </div>
-                      <div className='RHS-My-Courses-Content-Text-Below-Part-Date'>
-                          1 Aug    {/*..............Variable Date that we get from Backend*/}
-                      </div>
-                    </div>
-                </div>
-
-
-
              </div>
              
           </div>

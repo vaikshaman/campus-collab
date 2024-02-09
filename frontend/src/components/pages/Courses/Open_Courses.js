@@ -135,7 +135,7 @@ function Open_Courses() {
               </div>
 
               <div className='Open_Courses_Post_Time'>
-              Posted by {detailCourse.authorName} on <span className='Open_Queries_Post_Time_Date'>{detailCourse.createdAt}</span>
+              Posted by {detailCourse.authorName} on <span className='Open_Queries_Post_Time_Date'>{new Date(detailCourse.createdAt).toLocaleString()}</span>
               </div>
               <div>{detailCourse.category}</div>
 
@@ -170,7 +170,7 @@ function Open_Courses() {
 
                         <div className='Open_Courses_Comments_Content'>
                             <div className='Open_Courses_Comments_Content_Name_Time'>
-                            {element.commenterName} <span className='Open_Queries_dot'>.</span> <span className='Open_Queries_timesinceposted'>{element.timestamps}</span>
+                            {element.commenterName} <span className='Open_Queries_dot'>.</span> <span className='Open_Queries_timesinceposted'>{Math.floor((Date.now() - new Date(element.timestamps).getTime()) / (1000 * 60 * 60))} hrs ago</span>
                             </div>
                             <div className='Open_Courses_Cant_Think_Of_Any_Name'>{element.comment}</div>
                         </div>

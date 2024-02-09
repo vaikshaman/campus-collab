@@ -47,7 +47,7 @@
 
 
 .home {
-  background-color: #BAE84D;
+  /* background-color: #BAE84D; */
   color: black;
   margin-left: 1%; 
 }
@@ -199,4 +199,11 @@
     border: 2px solid #BAE84D;
     margin-bottom: 5vh; /* Adjust bottom margin as needed */
   }
+}
+
+.home.active,
+.queries.active,
+.courses.active {
+  background-color: #BAE84D;
+  color: black;
 }

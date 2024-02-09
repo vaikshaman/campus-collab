@@ -56,7 +56,7 @@ function AddCourse(props) {
                 >
                   <circle cx="12" cy="12" r="12" fill="#D9D9D9" />
                 </svg>
-                <div className="Top3-club" id={`F${elm._id}`}>Coding Club,IITG</div>
+                <div className="Top3-club" id={`F${elm._id}`} style={{marginLeft: '0.4vw', marginTop:'0.4vh'}}>{elm.authorName}</div>
               </div>
               <div className="Top3-skills" id={`G${elm._id}`}>
                 <div className="Top3-new1" id={`H${elm._id}`}>Web devolopment</div>

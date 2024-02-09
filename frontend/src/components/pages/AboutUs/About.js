@@ -121,10 +121,10 @@ const About =()=>{
             </div>
 
             {/* PLZ LOGIN  */}
-            <div className="abt-login">
+            {/* <div className="abt-login">
               <Link to ="/Login" className="bottom-log1">Sign Up with Outlook</Link>
               <Link to ="/Login" className="bottom-log2">Login</Link>
-            </div>
+            </div> */}
 
             {/* <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
             <script>

@@ -60,8 +60,8 @@ const Profile = () => {
         {projects.map((project) => (
             <div key={project.projectId} className="project-box">
             <img
-              // src={project.image[0]}
-              src="http://localhost:8080/uploads\\23d2d58b7cbfd54b635c526d4b199a39"
+              src={project.image[0]}
+              // src="http://localhost:8080/uploads\\23d2d58b7cbfd54b635c526d4b199a39"
               alt="Project"
                className="project-image"
                style={{ width: '28vw' }}

@@ -40,48 +40,22 @@ function Queries_Main(props) {
 
         <div class="section-container">
             <div class="comment-section">
-                <div class="individual-comment"
-                   onClick={props.Show_Query}
-                >
-                    <div className='Queries_Main-Text_with_Skills'>
-                         <p className='Queries_Main-RHS-Text-Main'> What are the steps for submitting an app to major app stores like the Apple App Store and Google Play Store? </p>
-                         <div class="skill-section">
-                        <div class="webd-tag">Web Development</div> <div class="uidesign-tag">UI Design</div><div class="appd-tag">App Development</div>
-                    </div>
-                    </div>
-                    <div class="interaction-section">
-                        {/* <div class = "likes-interacted">187</div>
-                        <div class="comments-interacted"> 7 258 </div> */}
-                        <div class="posted-when"> Posted by Shashwat Sharma 6 hrs ago </div>
-                    </div>
-                </div>
-                <div class="individual-comment"
-                   onClick={props.Show_Query}
-                >
-                    <div className='Queries_Main-Text_with_Skills'>
-                         <p className='Queries_Main-RHS-Text-Main'> How do I make my website responsive in React, using Tailwind CSS without putting much efforts? </p>
-                         <div class="skill-section">
-                        <div class="webd-tag">Web Development</div> <div class="uidesign-tag">UI Design</div>
-                    </div>
-                    </div>
-                    <div class="interaction-section">
-                        {/* <div class = "likes-interacted">187</div>
-                        <div class="comments-interacted"> 7 258 </div> */}
-                        <div class="posted-when"> Posted by Utkarsh Verma 8 hrs ago </div>
-                    </div>
-                </div>
+                
+                
                 {
                     allQueries.map(elm => 
+                        
                         <div class="individual-comment" id={`U${elm._id}`} onClick={openPost}>
                         <div className='Queries_Main-Text_with_Skills' id={`I${elm._id}`}>
                              <p className='Queries_Main-RHS-Text-Main' id={`J${elm._id}`}> {elm.question} </p>
                              <div class="skill-section" id={`K${elm._id}`}>
-                        </div>
+                                <div class="webd-tag">Web Development</div> <div class="uidesign-tag">UI Design</div>
+                            </div>
                         </div>
                         <div class="interaction-section" id={`L${elm._id}`}>
                             {/* <div class = "likes-interacted" id={`M${elm._id}`}>187</div>
                             <div class="comments-interacted" id={`N${elm._id}`}> 7 258 </div> */}
-                            <div class="posted-when" id={`O${elm._id}`}> Posted by {elm.authorName} 6 hrs ago </div>
+                            <div class="posted-when" id={`O${elm._id}`}> Posted by {elm.authorName} {Math.floor((Date.now() - new Date(elm.createdAt).getTime()) / (1000 * 60 * 60))} hrs ago </div>
                         </div>
                     </div>
                         
@@ -89,21 +63,7 @@ function Queries_Main(props) {
                 }
 
                 
-                <div class="individual-comment"
-                   onClick={props.Show_Query}
-                >
-                    <div className='Queries_Main-Text_with_Skills'>
-                         <p className='Queries_Main-RHS-Text-Main'> What are the steps for submitting an app to major app stores like the Apple App Store and Google Play Store? </p>
-                         <div class="skill-section">
-                        <div class="webd-tag">Web Development</div> <div class="uidesign-tag">UI Design</div><div class="appd-tag">App Development</div>
-                    </div>
-                    </div>
-                    <div class="interaction-section">
-                        {/* <div class = "likes-interacted">187</div>
-                        <div class="comments-interacted"> 7 258 </div> */}
-                        <div class="posted-when"> Posted by Shashwat Sharma 6 hrs ago </div>
-                    </div>
-                </div>
+                
 
             </div>
 
