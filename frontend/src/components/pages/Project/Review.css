@@ -10,7 +10,7 @@
     font-weight: 400;
     line-height: normal;
     display: flex;
-    width: 16vw;
+    /* width: 16vw; */
     margin-top: 6vw;
     margin-left: 6vw;
 }
@@ -30,6 +30,7 @@
     font-weight: 400;
     line-height: normal;
     margin-left: 3vw;
+    margin-top: 0px;
 }
 
 .user-info{
@@ -241,6 +242,7 @@
 .right-head{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
 }
 
@@ -376,3 +378,48 @@
     line-height: normal;
     align-self: stretch;
 }
+
+
+@media (max-width: 800px){
+    .section{
+        flex-direction: column;
+    }
+
+    
+
+    .heading{
+        margin-top: 85px;
+    }
+
+    .user-user{
+        width: -webkit-fill-available;
+        
+    }
+
+    .about-proj{
+        width: -webkit-fill-available;
+    }
+    .category{
+        width: -webkit-fill-available;
+    }
+
+    .tools-used{
+        width: -webkit-fill-available;
+    }
+
+    .edit-me{
+        width: -webkit-fill-available;
+    }
+
+    .right-review{
+        width: -webkit-fill-available;
+    }
+
+    .post-div{
+        width: -webkit-fill-available;
+    }
+
+    .posted-reviews{
+        width: -webkit-fill-available;
+    }
+  }

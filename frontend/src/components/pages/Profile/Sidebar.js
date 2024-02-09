@@ -1,15 +1,14 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
 import './Sidebar.css'
+import {Avatar} from "flowbite-react"
 
 
 function Sidebar({m_strUser}) {
 
   const[profiles,setProfiles]=useState([]);
   useEffect(() => {
-    const username=JSON.parse(localStorage.getItem('msalAccount'))[
-      "username"
-    ]
+    const username=JSON.parse(localStorage.getItem('msalAccount'))["username"]
     axios.get(`http://localhost:8080/getprofile?userid=${username}`)
       .then(Profile => {
         setProfiles(Profile.data);
@@ -46,7 +45,8 @@ function Sidebar({m_strUser}) {
           {activeSection === "profile" && (
             <div className="profile-details">
               <div className="profile-head">
-                <img src=""></img>
+                {/* <img src=""></img> */}
+                <Avatar img="https://img.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg?w=1380&t=st=1707489879~exp=1707490479~hmac=c74fc2653ab4232a6cddd0e5c8e4c2f230951067ad7fed99b78ab008e200a07a" alt="avatar of Jese" rounded />
                 <div className="profile-name">
                   <p className="p1">{profiles.map(profile => profile.name)}</p>
                   

@@ -23,7 +23,7 @@ const Navbar = () => {
         
       </div>
         
-      <div className={`nav-items  ${isOpen ? "open" : ""}`}>
+      <div className={`nav-items ${isOpen ? "open" : ""}`}>
         <div className="campus" onClick={toggleMenu} >CAMPUS COLLABORATOR</div>
         <hr className="horizontal-line" />
         <Link to="/Home" className="home">Home</Link>
