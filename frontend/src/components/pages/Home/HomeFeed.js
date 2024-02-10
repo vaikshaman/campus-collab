@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './HomeFeed.css'
 import DOLO from "../../assets/Dolo.png"
-
+import Infobar from "./Infobar";
 const HomeFeed = () => {
 
   const [isopen1, setisopen1] = useState(true);
