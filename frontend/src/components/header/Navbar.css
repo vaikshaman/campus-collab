@@ -48,7 +48,7 @@
 
 .home {
   /* background-color: #BAE84D; */
-  color: black;
+  color:#656565;
   margin-left: 1%; 
 }
 
@@ -206,7 +206,8 @@
 
 .home.active,
 .queries.active,
-.courses.active {
+.courses.active,
+.myprofile.active {
   background-color: #BAE84D;
   color: black;
 }

@@ -127,7 +127,7 @@
     justify-content: center;
     /* background-color: red; */
     display: flex;
-    margin: 20px;
+    margin: 3.5vw;
     flex-wrap: wrap;
     gap: 20px;
     /* max-width: 75%; */
@@ -158,7 +158,8 @@
 /* font-family: "Pangea Trial"; */
    font-size: 14px;
    font-style: normal;
-   font-weight: 400;
+   font-weight: bold;
+   margin-left: 9px;
    line-height: normal;
 }
 
@@ -196,7 +197,37 @@
 }
 /* Adjust other styles as needed */
 
-@media(max-width:400px){
 
-    
+
+@media(min-width:0px) and (max-width:550px){
+
+    .HomeFeed{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Home_img{
+        width: 90%;
+    }
+
+    .Home_img{
+        width: 100%;
+    }
+
+    .biggest-box{
+        display: flex;
+        align-items: center;
+        margin-left: 40vw;
+    }
+
+    .biggest-conatainer{
+        margin-left: 20px;
+    }
+
+    .box{
+        width: 90vw;
+        height: 70vw;
+    }
+
 }

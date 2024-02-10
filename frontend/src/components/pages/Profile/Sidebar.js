@@ -2,6 +2,9 @@ import React, { useState,useEffect } from "react";
 import axios from "axios";
 import './Sidebar.css'
 import {Avatar} from "flowbite-react"
+import Side_arrow from "../../assets/side-arrow.png"
+import Graduation_hat from "../../assets/graduation-hat.png"
+import School_Pic from "../../assets/school-pic.png"
 
 
 function Sidebar({m_strUser}) {
@@ -39,7 +42,7 @@ function Sidebar({m_strUser}) {
             className="profile-btn"
             onClick={() => handleSectionToggle("profile")}
           >
-            <img src=""></img>Profile {activeSection === "profile" ? "▲" : "▼"}
+            <img src={Side_arrow} className="Sidarrow"></img>Profile 
           </button>
 
           {activeSection === "profile" && (
@@ -60,8 +63,8 @@ function Sidebar({m_strUser}) {
                 </div>
 
                 <div className="education">
-                  <div><img src=""></img> <p>{profiles.map(profile => profile.branch)}</p></div>
-                  <div> <img src=""></img><p>I{profiles.map(profile => profile.institute)}</p></div>
+                  <div><img src={Graduation_hat}></img> <p>{profiles.map(profile => profile.branch)}</p></div>
+                  <div> <img src={School_Pic}></img><p>I{profiles.map(profile => profile.institute)}</p></div>
                 </div>
                 
               </div>
@@ -85,8 +88,8 @@ function Sidebar({m_strUser}) {
             className="profile-btn"
             onClick={() => handleSectionToggle("expertise")}
           >
-            <img src=""></img>Expertise{" "}
-            {activeSection === "expertise" ? "▲" : "▼"}
+            <img src={Side_arrow} className="Sidarrow"></img>Expertise{" "}
+            {/* {activeSection === "expertise" ? "▲" : "▼"} */}
           </button>
           {activeSection === "expertise" && (
             <div className="expertise-details">

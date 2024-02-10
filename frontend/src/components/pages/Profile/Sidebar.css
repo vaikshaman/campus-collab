@@ -17,7 +17,7 @@
   display: flex;
   align-self: center;
   text-decoration: none;
-  /* width: 18.5rem; */
+  width: 86%;
   padding: 0.625rem;
   justify-content: center;
   align-items: center;
@@ -88,7 +88,7 @@
 
 .profile-btn img{
   width: 0.875rem;
-  height: 1.875rem;
+  height: 1.5rem;
 }
 
 .view-expertise-close{
@@ -303,4 +303,12 @@
   height: 1.125rem;
   flex-shrink: 0;
   float: right;
+}
+
+.Sidarrow:hover{
+    cursor: pointer;
+}
+
+.profile-btn:hover{
+  cursor: pointer;
 }

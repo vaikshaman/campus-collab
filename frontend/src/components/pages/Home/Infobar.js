@@ -6,6 +6,7 @@ import mapIcon from "../../assets/map-icon.png"
 import NotFriend from "../../assets/make-friend.png"
 import isFriend from "../../assets/is-friend.png"
 import Notification from "./Notification";
+import AVATAR from "../../assets/Avatar.jpg"
 
 const NotifyPage = ({ onClose }) => {
   return (
@@ -61,7 +62,7 @@ const Infobar = () => {
         >
           <div className="info-content">
             {/* Profile Bio Here */}
-            <div className="info-image"></div>
+            <img src={AVATAR} className="info-image"/>
             <div className="info-info" onClick={toggleNotify}>
               <div >Message from Rishi Kiran</div>
               <p>Do you know how to use figma</p>
@@ -69,7 +70,7 @@ const Infobar = () => {
           </div>
           <div className="info-content">
             {/* Profile Bio Here */}
-            <div className="info-image"></div>
+            <img src={AVATAR} className="info-image" />
             <div className="info-info" onClick={toggleNotify}>
               <div>Message from Rishi Kiran</div>
               <p>Do you know how to use figma</p>
@@ -89,7 +90,7 @@ const Infobar = () => {
         >
           {/* Expertise Content Here */}
           <div className="info-content">
-            <div className="info-image"></div>
+          <img src={AVATAR} className="info-image" />
             <div className="info-info">
               <div>Rishi Kiran</div>
               <p><img src={mapIcon} alt="Map Icon" /> IIT Guwahati</p>
@@ -102,7 +103,7 @@ const Infobar = () => {
             </div>
           </div>
           <div className="info-content">
-            <div className="info-image"></div>
+          <img src={AVATAR} className="info-image" />
             <div className="info-info">
               <div>Rishi Kiran</div>
               <p><img src={mapIcon} alt="Map Icon" /> IIT Guwahati</p>
@@ -130,7 +131,7 @@ const Infobar = () => {
         >
           {/* Courses Content Here */}
           <div class="info-content">
-            <div class="info-image"></div>
+          <img src={AVATAR} className="info-image" />
             <div class="info-info">
               <div>Coding Club, IITG</div>
               <p>17 project • 32 courses</p>
