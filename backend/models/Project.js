@@ -4,21 +4,24 @@ const projectSchema = new mongoose.Schema({
   projectId: {
     type: String,
     unique: true,
-    required: true,  // Add this line to enforce that projectId is required
+    required: true,
   },
-  inputFields: [
-    {
-      type: {
-        type: String,
+//   loginResponse: Object,
+  projectData: {
+    inputFields: [
+      {
+        type: {
+          type: String,
+        },
+        value: {
+          type: String,
+        },
       },
-      value: {
-        type: String,
-      },
-    },
-  ],
-  image: [{
-    type: String // Store the image filename
-  }]
+    ],
+    image: [{
+      type: String, // Store the image filename
+    }],
+  },
 });
 
 const Project = mongoose.model('Project', projectSchema);

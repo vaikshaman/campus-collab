@@ -29,6 +29,8 @@ const AppRoutes = () => {
                 <Route path="/Project" element={<Project />} />
                 <Route path="/PostedProject" element={<PostedProject />} />
                 <Route path="/detailquery" element={<Open_Queries />} />
+                <Route path="/fullproject" element={<Test />} />
+
                 <Route path="/detailcourse" element={<Open_Courses />} />
             </Routes>
         </Router>

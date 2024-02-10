@@ -19,25 +19,27 @@
      display: flex;
      /* width: 47.0625rem; */
      min-height: 51.5rem;
+     background: #FFF;
      /* padding-bottom: 11.25rem; */
      align-items: flex-start;
-     gap: 1.5rem;
-     /* height:70%; */
+     gap: 1rem;
+     height:fit-content;
      border-radius: 0.5rem;
+     margin-left: 20px;
      height:fit-content;
      padding-top:2.5rem;
      /* padding-left: 1.5rem; */
      
      
      
-     padding-right:2.5rem;
+     padding-right:1rem;
      /* padding-left: 2.5rem; */
   
   }
   
   .Open_Courses_RHS{
-     margin-left: 5%;
      display: flex;
+     margin-right: 20px;
      width: 70%;
      height: 41rem;
      padding: 2.5rem;
@@ -46,7 +48,6 @@
      align-items: center;
      gap: 2.5rem;
      flex-shrink: 0;
-     margin: 0.5rem;
      padding-right: 2.5rem;
      
   
@@ -261,6 +262,7 @@
      font-weight: 400;
      line-height: normal;
      border: none;
+     outline: none;
   }
   
   .Open_Courses_Comment_Post_button{
@@ -320,7 +322,9 @@
      /* flex: 1 0 0; */
      /* display: flex; */
      display: flex;
-     /* width: 36.0625rem; */
+     flex-direction: column;
+     justify-content: flex-start;
+     width: 36.0625rem;
      /* max-height: 2px; */
      /* background: red; */
      margin-top: 2.5%;
@@ -365,10 +369,6 @@
      font-style: normal;
      font-weight: 400;
      line-height: normal;
-     margin-left: 23%;
-     /* margin-right: 0%; */
-     /* padding-right: 0; */
-     /* background-color: red; */
   
   }
   
@@ -445,17 +445,13 @@
   @media screen and (min-width:500px){
     .Open_Courses{
         display: grid;
-        margin-top: 1rem;
-        background: #FFF;
+        margin-top: 7rem;
+        /* background: #FFF; */
       grid-template-columns: 3fr 1fr;
+      gap: 20px;
     }
-    }
-    @media screen and (min-width:500px){
-      .Open_Courses_RHS{
-        margin: 0.5rem;
-        height:41.07rem;
-      }
-    }
+    
+   }
     
   
     @media screen and (min-width:100px) and (max-width:800px) {

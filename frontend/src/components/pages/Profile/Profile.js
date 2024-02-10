@@ -10,6 +10,8 @@ import arrow from "../../assets/side-arrow.png";
 import { constants } from "constants-browserify";
 
 const Profile = () => {
+  
+
   const [active, setActive] = React.useState("ongoing");
 
   const [divCount, setDivCount] = useState(0);
@@ -23,7 +25,7 @@ const Profile = () => {
 
   const fetchProjectDetails = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/addProject');
+      const response = await fetch('http://localhost:8080/api/fetchProject');
       if (response.ok) {
         const data = await response.json();
         setProjects(data.data);
@@ -39,6 +41,16 @@ const Profile = () => {
     // Fetch project details when the component mounts
     fetchProjectDetails();
   }, []);
+
+  const fetchproject = (e) => {
+    console.log("ye trigger hua",e)
+    const pid = e.target.id;
+    console.log("pid",pid);
+    const url =` /fullproject?id=${pid}`;
+    // Navigate to the constructed URL
+    window.location.href=url;
+}
+
 
   return (
     <div>
@@ -67,14 +79,14 @@ const Profile = () => {
                style={{ width: '28vw' }}
               />
 
-              <div className="project-details">
-                <h3>{project.projectId}</h3>
+              <div className="project-details" onClick={fetchproject} id={`${project.projectId}`}>
+                <h3 id={`${project.projectId}`}>{project.projectId}</h3>
                 
-                {project.inputFields
-                      .filter((field) => field.type === 'heading' || field.type === 'subheading')
-                      .map((field, index) => (
-                        <p key={index}>{field.value}</p>
-                      ))}
+                {project.inputFields && project.inputFields.map((field, index) => (
+  // Display only heading
+  field.type === 'heading' && <p key={index}>{field.value}</p>
+))}
+
                
               </div>
             </div>

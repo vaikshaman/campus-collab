@@ -39,10 +39,10 @@ function RHS_Queries(props) {
     <div className='RHS_Queries'>
         <div className='RHS_Queries-Biggest-Container'>
 
-          <div className='RHS_Queries-Add-Courses'>
+          <div className='RHS_Queries-Add-Courses' onClick={props.ShowOrNotAnswer_Queries}>
                  <div className='RHS_Queries-Add-Courses-Ask-Question'>Ask Question</div>
                  <button className='RHS_Queries-Add-Courses-Ask-Question-Add-Button'
-                   onClick={props.ShowOrNotAnswer_Queries}
+                   
                  >
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                         <path d="M13.75 16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75V16.25Z" fill="black"/>

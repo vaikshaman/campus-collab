@@ -68,7 +68,7 @@ function Open_Queries() {
         
   return (
     <div>
-        {/* <Navbar/> */}
+        <Navbar/>
     <div className='Open_Queries'>
      <div className='Open_Queries_LHS'>
          

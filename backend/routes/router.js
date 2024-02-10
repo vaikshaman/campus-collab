@@ -16,6 +16,37 @@ import coursePosts from "../models/coursePosts.js";
 
 const router = express.Router();
 
+
+//API FOR LOGIN
+router.post('/api/login', async (req, res) => {
+  try {
+    console.log(req.body);
+    const loginResponse = req.body;
+    const loginData = new LoginData({ loginResponse });
+    await loginData.save();
+
+    res.status(201).send('Login data stored successfully');
+  } catch (error) {
+    console.error('Error storing login data:', error);
+    res.status(500).send('Internal server error');
+  }
+});
+
+
+router.get('/api/getlogin', async (req, res) => {
+  try {
+    // Assuming you want to retrieve all login data
+    const loginData = await LoginData.find();
+
+    res.status(200).json(loginData);
+  } catch (error) {
+    console.error('Error retrieving login data:', error);
+    res.status(500).send('Internal server error');
+  }
+});
+
+
+//Project upload api
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'uploads/');
@@ -62,19 +93,70 @@ router.get('/file/:fileId', getImage);
 
 
 
-router.post('/api/login', async (req, res) => {
+
+
+// router.post('/api/login', async (req, res) => {
+//   try {
+    
+//     const loginResponse = req.body;
+//     const loginData = new LoginData({ loginResponse });
+//     await loginData.save();
+    
+//     res.status(201).send('Login data stored successfully');
+//   } catch (error) {
+//     console.error('Error storing login data:', error);
+//     res.status(500).send('Internal server error');
+//   }
+// });
+
+//API FOR UPLOADING PROJECT
+router.post('/api/saveProject', upload.single('image'), async (req, res) => {
   try {
+   // const imageName = req.file.filename;
+   console.log(req.body);
+    const inputFields = req.body;
+
     
-    const loginResponse = req.body;
-    const loginData = new LoginData({ loginResponse });
-    await loginData.save();
+   // await Project.create({ image: imageName });
+
     
-    res.status(201).send('Login data stored successfully');
+    const newProject = new Project({
+      ...inputFields,
+    //  image: imageName, 
+    });
+
+   
+    await newProject.save();
+
+    
+    console.log('Received inputFields:', inputFields);
+    res.status(200).json({ message: 'Project data saved successfully' });
   } catch (error) {
-    console.error('Error storing login data:', error);
-    res.status(500).send('Internal server error');
+    console.error('Error saving project data:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
+// END API FOR UPLOAD PROJECT
+
+
+// API FOR GETTING PROJECT DETAILS IN FRONTEN
+router.get('/api/fetchProject', async (req, res) => {
+  try {
+    Project.find({}, 'projectId inputFields image').then(data => {
+      res.send({ status: "ok", data: data });
+    });
+  } catch (error) {
+    res.json({ status: error });
+  }
+});
+router.get('/api/addProject', async (req, res) => {
+  
+  const projectid=req.query.projectId;
+  const project = await Project.find({projectId:projectid})
+  res.json(project)
+
+});
+
 router.post('/api/profileModel', async (req, res) => {
   try {
     const profileData = req.body;
@@ -133,6 +215,8 @@ router.get('/api/addProject', async (req, res) => {
     res.json({ status: error });
   }
 });
+
+
 
 router.post('/api/myQueryPosts',async (req,res) => {
   
