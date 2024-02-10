@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Infobar from './Infobar'
 import './HomeFeed.css'
+import DOLO from "../../assets/Dolo.png"
 
 const HomeFeed = () => {
 
@@ -41,7 +42,7 @@ const HomeFeed = () => {
   return (
     <div className="HomeFeed">
         <div className="biggest-container">
-            <div className="container-1">
+            {/* <div className="container-1"> */}
               {/* <nav className='Upper_part'>
               <a href="#" className='gugu item-container-1'>
                 <div
@@ -79,54 +80,54 @@ const HomeFeed = () => {
                  </svg>
                   <div className="gaga">Filter</div>
               </div> */}
-            </div>
+            {/* </div> */}
             {/* <hr className="bar"></hr> */}
             
 
             <div className="biggest-box">
 
-              <div>
-              <div className="box"></div>
+              <div className="Home_img">
+              <img src={DOLO} className="box"></img>
               <div className="content_of_box">Spotify Clone</div>
               </div>
               
-              <div>
-              <div className="box"></div>
+              <div className="Home_img">
+              <img src={DOLO} className="box"></img>
               <div className="content_of_box">Chess Vs Connect4</div>
               </div>
 
-              <div>
-              <div className="box"></div>
+              <div className="Home_img">
+              <img src={DOLO} className="box"></img>
               <div className="content_of_box">Windows Assistant</div>
               </div>
 
-              <div>
-              <div className="box"></div>
+              <div className="Home_img">
+              <img src={DOLO} className="box"></img>
               <div className="content_of_box">Alcheringa Website</div>
               </div>
 
-              <div>
-              <div className="box"></div>
+              <div className="Home_img">
+              <img src={DOLO} className="box"></img>
               <div className="content_of_box">Shashwat BKL</div>
               </div>
 
-              <div>
-              <div className="box"></div>
+              <div className="Home_img">
+              <img src={DOLO} className="box"></img>
               <div className="content_of_box">Jatin Pro</div>
               </div>
 
-              <div>
-              <div className="box"></div>
+              <div className="Home_img">
+              <img src={DOLO} className="box"></img>
               <div className="content_of_box">Jatin Pro</div>
               </div>
 
-              <div>
-              <div className="box"></div>
+              <div className="Home_img">
+              <img src={DOLO} className="box"></img>
               <div className="content_of_box">Vibhanshu Chakka</div>
               </div>
 
-              <div>
-              <div className="box"></div>
+              <div className="Home_img">
+              <img src={DOLO} className="box"></img>
               <div className="content_of_box">Veenas ki Mkc</div>
               </div>
             </div>

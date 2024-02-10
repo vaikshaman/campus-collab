@@ -27,7 +27,7 @@ const Navbar = () => {
         <Link to="/Queries" className={`queries ${location.pathname === "/Queries" ? "active" : ""}`}>Queries</Link>
         <Link to="/Courses" className={`courses ${location.pathname === "/Courses" ? "active" : ""}`}>Courses</Link>
         <input type="text" className="search-input" placeholder="Search" />
-        <Link to="/profile" className="myprofile">My Profile</Link>
+        <Link to="/profile" className={`myprofile ${location.pathname === "/profile" ? "active" : ""}`}>My Profile</Link>
         <Link to="/Project" className="createproject">Create Project
           <img src={search} className="createproject-img" alt="Create Project" />
         </Link>

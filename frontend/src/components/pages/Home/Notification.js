@@ -1,13 +1,14 @@
 import React from 'react'
 import "./Notification.css";
 import mapicon from "../../assets/map-icon.png";
+import AVATAR from "../../assets/Avatar.jpg"
 
 function Notification(props) {
   return (
     <div className='noti-boss'>
          <div className='noti-name'>
             <div className='noti-noti'>
-                <img></img>
+                <img src={AVATAR}></img>
                 <div className='noti-info'>
                     Shashwat Sharma
                     <div className='noti-loc'>
