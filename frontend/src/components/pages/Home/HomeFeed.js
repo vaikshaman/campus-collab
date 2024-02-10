@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './HomeFeed.css'
 import DOLO from "../../assets/Dolo.png"
+import Infobar from "./Infobar";
 
 const HomeFeed = () => {
 
@@ -131,7 +132,7 @@ const HomeFeed = () => {
               </div>
             </div>
         </div>
-        <Infobar/>
+        <Infobar />
     </div>
   )
 }
