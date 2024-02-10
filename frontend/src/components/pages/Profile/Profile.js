@@ -69,7 +69,7 @@ const Profile = () => {
           
           <div className="show-project">
           <div className="projects">
-        {projects.map((project) => (
+        {projects.project && projects.map((project) => (
             <div key={project.projectId} className="project-box">
             <img
               src={project.image[0]}
@@ -83,11 +83,9 @@ const Profile = () => {
                 <h3 id={`${project.projectId}`}>{project.projectId}</h3>
                 
                 {project.inputFields && project.inputFields.map((field, index) => (
-  // Display only heading
-  field.type === 'heading' && <p key={index}>{field.value}</p>
-))}
-
-               
+            // Display only heading
+            field.type === 'heading' && <p key={index}>{field.value}</p>
+        ))}   
               </div>
             </div>
           ))}
