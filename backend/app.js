@@ -44,6 +44,9 @@ app.use(router);
 
 // Define the port
 const PORT = process.env.PORT || 4000;
+app.get("/", (req, res) => {
+    res.json({ message: "Welcome to the API!" });
+});
 
 // Start the server
 app.listen(PORT, () => {
