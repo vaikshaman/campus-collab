@@ -37,8 +37,12 @@ app.use(router);
 // app.use('/api/notification', notificationRouter)
 
 // Define the port
+<<<<<<< HEAD:backend/index.js
 const PORT = process.env.PORT || 8050;
 
+=======
+const PORT = process.env.PORT || 4000;
+>>>>>>> 38833896d79d800c4cc107ad433255b0da9a8c14:backend/app.js
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to the API!" });
 });
