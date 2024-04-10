@@ -5,11 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-<<<<<<< HEAD
     "start": "nodemon index.js",
-=======
-    "start": "node app.js",
->>>>>>> 38833896d79d800c4cc107ad433255b0da9a8c14
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

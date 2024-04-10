@@ -1,30 +1,15 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 38833896d79d800c4cc107ad433255b0da9a8c14
 {
     "version": 2,
     "builds": [
       {
-<<<<<<< HEAD
         "src": "index.js", 
-=======
-        "src": "app.js", 
->>>>>>> 38833896d79d800c4cc107ad433255b0da9a8c14
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-<<<<<<< HEAD
         "dest": "index.js"
       }
     ]
   }
-=======
-        "dest": "app.js"
-      }
-    ]
-  }
->>>>>>> 38833896d79d800c4cc107ad433255b0da9a8c14
