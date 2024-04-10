@@ -1,7 +1,6 @@
-// firebase.js
-
 import { initializeApp } from 'firebase/app';
 import { getAuth, OAuthProvider, signInWithPopup, signOut as firebaseSignOut } from 'firebase/auth';
+import { getStorage } from 'firebase/storage'; // Updated import for storage
 
 const firebaseConfig = {
   apiKey: "AIzaSyB-xAaS27EgvTK8NgGN7r6fobXYN-0-4k8",
@@ -16,10 +15,10 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const storage = getStorage(app); // Initialize storage
 
 const provider = new OAuthProvider('microsoft.com');
 provider.setCustomParameters({
-  // Replace 'YOUR_TENANT_ID' with your Azure Active Directory tenant ID
   tenant: '850aa78d-94e1-4bc6-9cf3-8c11b530701c'
 });
 
@@ -43,5 +42,5 @@ export const signOut = async () => {
   }
 };
 
-// Export auth and provider
-export { auth, provider };
+// Export auth, provider, and storage
+export { auth, provider, storage };

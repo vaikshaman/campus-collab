@@ -80,9 +80,9 @@ const About =()=>{
               {user ? (
         <>
           {/* Display user information and sign-out button */}
-          {/* <p className="user">Welcome, {user.displayName}</p> */}
+          <p className="user">Welcome, {user.displayName}</p>
           {/* <p className="email">Email: {user.email}</p> */}
-          {/* <button className="btn" onClick={handleSignOut}>Sign out</button> */}
+          <button className="btn" onClick={handleSignOut}>Sign out</button>
         </>
       ) : (
         <>
@@ -105,9 +105,26 @@ const About =()=>{
                     CampusCollaborate provides a platform for students to post and collaborate with other students on projects.
                     </div>
                   </div>
+
+
+                  {user ? (
+        <>
+          {/* Display user information and sign-out button */}
+          <p className="user">Welcome, {user.displayName}</p>
+          {/* <p className="email">Email: {user.email}</p> */}
+          {/* <button className="btn" onClick={handleSignOut}>Sign out</button> */}
+        </>
+      ) : (
+        <>
+        <div className="well-btn">
+          <button className="sign-up" onClick={handleSignIn}>Login</button>
+          <button className="log" onClick={handleSignIn}>Signup with Outlook</button>
+          </div>
+        </>
+      )}
                   <div className="well-btn">
-                    <Link to="/Login" className="sign-up">Sign Up with Outlook</Link>
-                    <Link to ="/Login" className="log">Login</Link>
+                    <Link to="/Editprofile" className="sign-up">Complete your Profile</Link>
+                  
                   </div>
                 </div>
 

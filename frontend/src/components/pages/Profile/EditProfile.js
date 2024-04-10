@@ -4,6 +4,7 @@ import Home from "../Home/Home";
 import Navbar from "../../header/Navbar";
 import { useNavigate } from "react-router-dom";
 import '../../../fonts/fonts.css'
+import { signInWithMicrosoft, signOut, auth } from '../../../auth/firebase';
 
 function EditProfile() {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ function EditProfile() {
       ],
     };
     try {
-      const response = await fetch("http://localhost:8080/api/profileModel", {
+      const response = await fetch("https://collabbackend.vercel.app/api/profileModel", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -106,6 +107,26 @@ function EditProfile() {
     localStorage.setItem("skills", JSON.stringify(skill));
   }, [skill]);
 
+
+  const [user, setUser] = useState(null); 
+
+
+  useEffect(() => {
+    // Listen for changes in authentication state
+    const unsubscribe = auth.onAuthStateChanged(currentUser => {
+      setUser(currentUser); // Update user state
+    });
+  
+    // Clean up subscription on unmount
+    return () => unsubscribe();
+  }, []);
+
+
+
+
+
+  
+
   return (
     <div className="EditProfile">
       <Navbar />
@@ -134,15 +155,17 @@ function EditProfile() {
               />
             </div>
             <div className="name">
-              NAME
-              <input
-                type="text"
-                id="name"
-                placeholder="Rishi Kiran"
-                name="name"
-                value={Data.name}
-                onChange={handleInput}
-              />
+  NAME
+  <input
+    type="text"
+    id="name"
+    placeholder="Rishi Kiran"
+    name="name"
+    value={user?.displayName || 'Loading ...'} // Use optional chaining and provide a default value
+    readOnly
+  />
+
+
             </div>
             <div className="age">
               AGE
@@ -210,8 +233,8 @@ function EditProfile() {
                 type="text"
                 id="email"
                 name="email"
-                value={Data.email}
-                onChange={handleInput}
+                value={user?.email || ' Loading...'}
+               readOnly
               />
             </div>
           </div>

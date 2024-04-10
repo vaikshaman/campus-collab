@@ -635,3 +635,19 @@ box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.03), 0px 12px 12px 0px rgba(0, 0, 0,
     
 }
 
+.photo {
+    position: relative; /* Ensure the container is positioned relatively */
+  }
+  
+  .edit-icon {
+    position: absolute; /* Position the edit icon relative to its container */
+    top: 10px; /* Adjust the top position as needed */
+    right: 10px; /* Adjust the right position as needed */
+    cursor: pointer;
+  }
+  
+  .upload-btn {
+    display: none; /* Hide the file upload input by default */
+  }
+  
+
