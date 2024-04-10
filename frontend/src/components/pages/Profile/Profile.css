@@ -39,12 +39,19 @@ body{
 .profile_complete_btn {
   padding: 5px 12px;
   border-radius: 40px;
-  background: #BAE84D;
+  /* background: #BAE84D; */
   margin-left: 10px;
+  cursor: pointer;
+}
+
+.activeStatus{
+  background-color: #BAE84D;
+  border-radius: 40px;
 }
 
 .profile_ongoing_btn {
   padding: 5px 10px;
+  cursor: pointer;
 }
 
 .show-project{
@@ -65,7 +72,9 @@ body{
 
 .show-button{
   display: inline-flex;
-  padding: 5rem 3.375rem;
+  /* padding: 5rem 3.375rem; */
+  padding: 4.5vw 4vw 8vw 4vw;
+  margin: 0vw 0vw 2vw 0.7vw;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
@@ -103,7 +112,8 @@ body{
 
 .show-divs{
   display: inline-flex;
-  padding: 5rem 3.375rem;
+  padding: 4.5vw 4vw 8vw 4vw;
+  margin: 0vw 0vw 2vw 0.92vw;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
@@ -119,6 +129,7 @@ body{
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  text-decoration: none;
 }
 
 @media(min-width:700px){

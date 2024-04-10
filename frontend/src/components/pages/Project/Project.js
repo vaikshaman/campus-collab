@@ -273,13 +273,10 @@ const Project = () => {
           {/* <div>result:{result}</div>
           <img src={result} alt="alt text"/> */}
         </div>
-      </div>
+       </div>
 
               {/* Render the pop-up page conditionally */}
-              {isPopupOpen && <PopupPage onClose={togglePopup} />}
-      
-      {/* <Review/> */}
-    </div>
+              {isPopupOpen && <PopupPage onClose={togglePopup} />} </div> 
   );
 };
 

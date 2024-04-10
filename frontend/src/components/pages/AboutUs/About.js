@@ -1,13 +1,48 @@
 import React from "react"
-import { useEffect,useRef } from "react";
+import { useEffect,useRef ,useState} from "react";
 import { Link } from "react-router-dom";
 import './About.css';
 import abtwow from "../../assets/abt-wow.png";
 import abtimg1 from "../../assets/abt-img1.png";
 import abtimg21 from "../../assets/image10.png";
 import abtimg3 from "../../assets/abt-img3.png";
+import { useNavigate } from 'react-router-dom';
+import { signInWithMicrosoft, signOut, auth } from '../../../auth/firebase';
 
 const About =()=>{
+  const [user, setUser] = useState(null); 
+  const navigate = useNavigate(); 
+
+  useEffect(() => {
+    // Listen for changes in authentication state
+    const unsubscribe = auth.onAuthStateChanged(currentUser => {
+      setUser(currentUser); // Update user state
+    });
+  
+    // Clean up subscription on unmount
+    return () => unsubscribe();
+  }, []);
+
+  // Function to handle sign-in
+  const handleSignIn = async () => {
+    try {
+      await signInWithMicrosoft(); 
+      navigate('/EditProfile'); 
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // Function to handle sign-out
+  const handleSignOut = async () => {
+    try {
+      await signOut(); 
+      navigate('/'); 
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
     // Use the useRef hook to create a reference to the animated div
     const animatedDivRef = useRef(null);
@@ -42,8 +77,20 @@ const About =()=>{
             {/* NAVBAR  */}
             <nav className="Navbar-abt">
               <div className="About-logo">CampusCollaborator</div>
-              <Link to="/Login" className="querie">Login</Link>
-              <Link to="/Login" className="course">Signup with Outlook</Link>
+              {user ? (
+        <>
+          {/* Display user information and sign-out button */}
+          {/* <p className="user">Welcome, {user.displayName}</p> */}
+          {/* <p className="email">Email: {user.email}</p> */}
+          {/* <button className="btn" onClick={handleSignOut}>Sign out</button> */}
+        </>
+      ) : (
+        <>
+         
+          <button className="querie" onClick={handleSignIn}>Login</button>
+          <button className="course" onClick={handleSignIn}>Signup with Outlook</button>
+        </>
+      )}
             </nav>
 
             {/* MAIN CONTENT  */}

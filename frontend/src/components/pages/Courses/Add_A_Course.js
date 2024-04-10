@@ -30,7 +30,7 @@ function Add_A_Course(props) {
 
   const handleSubmit = async () => {
     const resp = await axios.post('http://localhost:8080/api/addCourse',{
-      authorEmail : (JSON.parse(localStorage.getItem('msalAccount')))['username'],
+      // authorEmail : (JSON.parse(localStorage.getItem('msalAccount')))['username'],
       authorName : (JSON.parse(localStorage.getItem('msalAccount')))['name'],
       courseName,
       category,

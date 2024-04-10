@@ -5,7 +5,7 @@ import Expertise from "../models/profileModel.js";
 import LoginData from "../models/login.js";
 import cors from "cors";
 import { useNavigate } from "react-router-dom";
-import Project from "../models/Project.js";
+// import Project from "../models/Project.js";
 import CommunityPosts from "../models/communityPost.js";
 import mongoose from "mongoose";
 import coursePosts from "../models/coursePosts.js";

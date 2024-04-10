@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './HomeFeed.css'
 import DOLO from "../../assets/Dolo.png"
+import course_img from "../../assets/course_img.jpg"
 import Infobar from "./Infobar";
 const HomeFeed = () => {
 
@@ -86,47 +87,47 @@ const HomeFeed = () => {
             <div className="biggest-box">
 
               <div className="Home_img">
-              <img src={DOLO} className="box"></img>
+              <img src={course_img} className="box"></img>
               <div className="content_of_box">Spotify Clone</div>
               </div>
               
               <div className="Home_img">
-              <img src={DOLO} className="box"></img>
+              <img src={course_img} className="box"></img>
               <div className="content_of_box">Chess Vs Connect4</div>
               </div>
 
               <div className="Home_img">
-              <img src={DOLO} className="box"></img>
+              <img src={course_img} className="box"></img>
               <div className="content_of_box">Windows Assistant</div>
               </div>
 
               <div className="Home_img">
-              <img src={DOLO} className="box"></img>
+              <img src={course_img} className="box"></img>
               <div className="content_of_box">Alcheringa Website</div>
               </div>
 
               <div className="Home_img">
-              <img src={DOLO} className="box"></img>
-              <div className="content_of_box">Shashwat BKL</div>
+              <img src={course_img} className="box"></img>
+              <div className="content_of_box">Git clone</div>
               </div>
 
               <div className="Home_img">
-              <img src={DOLO} className="box"></img>
+              <img src={course_img} className="box"></img>
+              <div className="content_of_box">Merge Editor</div>
+              </div>
+
+              <div className="Home_img">
+              <img src={course_img} className="box"></img>
               <div className="content_of_box">Jatin Pro</div>
               </div>
 
               <div className="Home_img">
-              <img src={DOLO} className="box"></img>
-              <div className="content_of_box">Jatin Pro</div>
-              </div>
-
-              <div className="Home_img">
-              <img src={DOLO} className="box"></img>
+              <img src={course_img} className="box"></img>
               <div className="content_of_box">Vibhanshu Chakka</div>
               </div>
 
               <div className="Home_img">
-              <img src={DOLO} className="box"></img>
+              <img src={course_img} className="box"></img>
               <div className="content_of_box">Veenas ki Mkc</div>
               </div>
             </div>

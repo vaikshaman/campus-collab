@@ -13,13 +13,13 @@ const ProfileSchema = mongoose.Schema({
     required: true,
     unique: true
   },
-  name: { type: String, required: true },
-  email: { type: String, required: true },
-  age: { type: Number, required: true },
-  institute: { type: String, required: true },
-  course: { type: String, required: true },
-  interest: { type: String, required: true },
-  branch: { type: String, required: true },
+  name: { type: String,  },
+  email: { type: String,  },
+  age: { type: Number,  },
+  institute: { type: String,  },
+  course: { type: String,  },
+  interest: { type: String,  },
+  branch: { type: String,  },
   skills: [
     {
       skill: { type: String, required: true  },

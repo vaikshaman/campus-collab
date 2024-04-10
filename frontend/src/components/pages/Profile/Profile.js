@@ -20,6 +20,13 @@ const Profile = () => {
     setDivCount((prevCount) => prevCount + 1);
   };
 
+  // function ToggleStatus() {
+  const [selectedStatus, setSelectedStatus] = useState("button1");
+  
+  const handleStatusClick = (button) => {
+    setSelectedStatus(button);
+  };
+
 
   const [projects, setProjects] = useState([]);
 
@@ -62,8 +69,12 @@ const Profile = () => {
           
             <div className="profile_pjt_view">Project Overview</div>
             <div className="profile_btn">
-              <div className="profile_ongoing_btn">Ongoing</div>
-              <div className="profile_complete_btn">Complete</div>
+              <div className={selectedStatus === 'button1' ? 'activeStatus profile_ongoing_btn' : ' profile_ongoing_btn'}
+                    onClick={() => handleStatusClick('button1')}
+              >Ongoing</div>
+              <div className={selectedStatus === 'button2' ? 'activeStatus profile_complete_btn' : ' profile_complete_btn'}
+                    onClick={() => handleStatusClick('button2')}
+              >Complete</div>
             </div>
           </div>
           
@@ -92,11 +103,14 @@ const Profile = () => {
 
 
           {[...Array(divCount)].map((_, index) => (
-              <div key={index} className="show-divs">This is div {index + 1}</div>
+              <Link key={index} className="show-divs" to="/PostedProject">This is div {index + 1}</Link>
             ))}
             <div className="show-button">
               <p>Add your latest ongoing or completed projects</p>
-              <Link className="link" to="/Project" onClick={handleAddProject}>Create a Project</Link>
+              <div onClick={handleAddProject}>
+                
+                <Link className="link" onClick={handleAddProject} to="/Project">Create a Project</Link>
+              </div>
 
             </div>
         </div>

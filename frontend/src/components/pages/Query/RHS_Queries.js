@@ -16,7 +16,7 @@ function RHS_Queries(props) {
   useEffect(() => {
     let isMounted = true;
     async function fetchMyQueries() {
-      const resp = await axios.post('http://localhost:8080/api/myQueryPosts',{userEmail : JSON.parse(localStorage.getItem('msalAccount'))['username'] });
+      const resp = await axios.post('http://localhost:8080/api/myQueryPosts',{userEmail : JSON.parse(localStorage.getItem('msalAccount')) });
       console.log(resp.data);
       if(isMounted){
         resp.data.forEach(element => {

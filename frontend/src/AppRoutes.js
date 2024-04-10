@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Import BrowserRouter
 import EditProfile from "../src/components/pages/Profile/EditProfile";
-import Login from "../src/auth/azureRegisteration";
+
 import Project from "./components/pages/Project/Project";
 import About from "./components/pages/AboutUs/About";
 import Profile from "./components/pages/Profile/Profile";
@@ -13,6 +13,7 @@ import Open_Queries from "./components/pages/Query/Open_Queries";
 import PostedProject from "./components/pages/Project/PostedProject";
 import Open_Courses from "./components/pages/Courses/Open_Courses";
 import SearchResult from "./components/pages/SearchResult";
+import Login from './auth/Login';
 
 const AppRoutes = () => {
   return (
@@ -20,7 +21,7 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/" element={<About />} />
         <Route path="/Home" element={<Home />} />
-        <Route path="/Login" element={<Login />} />
+        <Route path="/Login" element={<Login/>} />
         <Route path="/Profile" element={<Profile />} />
         <Route path="/About" element={<About />} />
         <Route path="/Queries" element={<Queries />} />

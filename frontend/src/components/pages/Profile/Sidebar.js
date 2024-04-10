@@ -11,18 +11,18 @@ import diamond from "../../assets/diamond.png";
 
 function Sidebar({m_strUser}) {
 
-  const[profiles,setProfiles]=useState([]);
-  useEffect(() => {
-    const username=JSON.parse(localStorage.getItem('msalAccount'))["username"]
-    axios.get(`http://localhost:8080/getprofile?userid=${username}`)
-      .then(Profile => {
-        setProfiles(Profile.data);
-      })
-      .catch(err => console.log(err));
-  }, [m_strUser]);
+  // const[profiles,setProfiles]=useState([]);
+  // useEffect(() => {
+  //   const username=JSON.parse(localStorage.getItem('msalAccount'))["username"]
+  //   axios.get(`http://localhost:8080/getprofile?`)
+  //     .then(Profile => {
+  //       setProfiles(Profile.data);
+  //     })
+  //     .catch(err => console.log(err));
+  // }, [m_strUser]);
   
 
-  console.log(profiles);
+  // console.log(profiles);
 
   
   const [activeSection, setActiveSection] = useState("profile");
@@ -53,7 +53,7 @@ function Sidebar({m_strUser}) {
                 {/* <img src=""></img> */}
                 <Avatar img="https://img.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg?w=1380&t=st=1707489879~exp=1707490479~hmac=c74fc2653ab4232a6cddd0e5c8e4c2f230951067ad7fed99b78ab008e200a07a" alt="avatar of Jese" rounded />
                 <div className="profile-name">
-                  <p className="p1">{profiles.map(profile => profile.name)}</p>
+                  <p className="p1">Utkarsh</p>
                   
                 </div>
               </div>
@@ -65,8 +65,8 @@ function Sidebar({m_strUser}) {
                 </div>
 
                 <div className="education">
-                  <div><img src={Graduation_hat}></img> <p>{profiles.map(profile => profile.branch)}</p></div>
-                  <div> <img src={School_Pic}></img><p>I{profiles.map(profile => profile.institute)}</p></div>
+                  <div><img src={Graduation_hat}></img> <p>Web Dev</p></div>
+                  <div> <img src={School_Pic}></img><p>DSA</p></div>
                 </div>
                 
               </div>
@@ -127,8 +127,8 @@ function Sidebar({m_strUser}) {
         </div> */}
       </div>
       <div>
-        <button className="edit-profile-btn">Edit Profile</button>
-        <button className="edit-profile-btn">Logout</button>
+        <Link className="edit-profile-btn1" to="/EditProfile">Edit Profile</Link>
+        <button className="edit-profile-btn2">Logout</button>
       </div>
     </div>
   );

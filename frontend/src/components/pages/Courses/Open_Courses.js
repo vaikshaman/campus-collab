@@ -45,8 +45,8 @@ function Open_Courses() {
             const resp = await axios.post('http://localhost:8080/api/updateCoursePost',{
                 comment,
                 pid : receivedData,
-                commenterEmail : (JSON.parse(localStorage.getItem('msalAccount')))['username'],
-                commenterName :  (JSON.parse(localStorage.getItem('msalAccount')))['name']
+                commenterEmail : (JSON.parse(localStorage.getItem('msalAccount'))),
+                commenterName :  (JSON.parse(localStorage.getItem('msalAccount')))
             })
             console.log(resp);
             if(resp.status === 200) {
