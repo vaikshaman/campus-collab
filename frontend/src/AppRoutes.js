@@ -14,7 +14,8 @@ import PostedProject from "./components/pages/Project/PostedProject";
 import Open_Courses from "./components/pages/Courses/Open_Courses";
 import SearchResult from "./components/pages/SearchResult";
 import Login from './auth/Login';
-
+import ProjectDetail from "./components/pages/Project/projectdetail";
+import Projectuser from "./components/pages/Project/projectdetailuser";
 const AppRoutes = () => {
   return (
     <Router>
@@ -33,6 +34,8 @@ const AppRoutes = () => {
         <Route path="/fullproject" element={<Test />} />
         <Route path="/search" element={<SearchResult />} />
         <Route path="/detailcourse" element={<Open_Courses />} />
+        <Route path="/project/:projectId" element={<ProjectDetail/>} /> 
+        <Route path="/profile/:projectId" element={<Projectuser/>} /> 
       </Routes>
     </Router>
   );

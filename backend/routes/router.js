@@ -5,28 +5,35 @@ import Expertise from "../models/profileModel.js";
 import LoginData from "../models/login.js";
 import cors from "cors";
 import { useNavigate } from "react-router-dom";
-// import Project from "../models/Project.js";
+import Project from "../models/Project.js";
 import CommunityPosts from "../models/communityPost.js";
 import mongoose from "mongoose";
 import coursePosts from "../models/coursePosts.js";
 import notification from "../models/notificationModel.js";
+import Comment from "../models/Projectcomments.js";
+import Likes from "../models/projectlike.js";
+import Message from "../models/Message.js";
 
 // import upload from "../utils/upload.js";
 
 const router = express.Router();
 
 //API FOR LOGIN
-router.post("/api/login", async (req, res) => {
+// POST endpoint to store login data
+router.post('/api/login', async (req, res) => {
   try {
+    // Create a new document using the LoginData model
     console.log(req.body);
-    const loginResponse = req.body;
-    const loginData = new LoginData({ loginResponse });
-    await loginData.save();
-
-    res.status(201).send("Login data stored successfully");
+    const newLoginData = new LoginData({
+    
+      loginResponse: req.body // Assuming req.body contains the login response object
+    });
+    // Save the document to the MongoDB collection
+    await newLoginData.save();
+    res.status(201).json({ message: 'Login data saved successfully' });
   } catch (error) {
-    console.error("Error storing login data:", error);
-    res.status(500).send("Internal server error");
+    console.error('Error saving login data:', error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 });
 
@@ -43,101 +50,136 @@ router.get("/api/getlogin", async (req, res) => {
 });
 
 //Project upload api
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/");
-  },
-  // filename: (req, file, cb) => {
-  //   cb(null, Date.now() + '-' + file.originalname);
-  // }
-});
-const upload = multer({ storage: storage });
 
-const uploadImage = async (request, response) => {
-  const fileObj = {
-    path: request.file.path,
-    name: request.file.originalname,
-  };
 
-  try {
-    // const file = await File.create(fileObj);
-    console.log(fileObj);
-    response
-      .status(200)
-      .json({ path: `http://localhost:8080/${fileObj.path}` });
-  } catch (error) {
-    console.error(error.message);
-    response.status(500).json({ error: error.message });
-  }
-};
-
-const getImage = async (request, response) => {
-  try {
-    const file = await File.findById(request.params.fileId);
-
-    file.downloadCount++;
-
-    await file.save();
-
-    response.download(file.path, file.name);
-  } catch (error) {
-    console.error(error.message);
-    response.status(500).json({ msg: error.message });
-  }
-};
-
-router.post("/upload", upload.single("file"), uploadImage);
-router.get("/file/:fileId", getImage);
-
-// router.post('/api/login', async (req, res) => {
-//   try {
-
-//     const loginResponse = req.body;
-//     const loginData = new LoginData({ loginResponse });
-//     await loginData.save();
-
-//     res.status(201).send('Login data stored successfully');
-//   } catch (error) {
-//     console.error('Error storing login data:', error);
-//     res.status(500).send('Internal server error');
-//   }
-// });
-
-//API FOR UPLOADING PROJECT
-router.post("/api/saveProject", upload.single("image"), async (req, res) => {
-  try {
-    // const imageName = req.file.filename;
-    console.log(req.body);
-    const inputFields = req.body;
-
-    // await Project.create({ image: imageName });
-
-    const newProject = new Project({
-      ...inputFields,
-      //  image: imageName,
-    });
-
-    await newProject.save();
-
-    console.log("Received inputFields:", inputFields);
-    res.status(200).json({ message: "Project data saved successfully" });
-  } catch (error) {
-    console.error("Error saving project data:", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
 // END API FOR UPLOAD PROJECT
 
-// API FOR GETTING PROJECT DETAILS IN FRONTEN
-router.get("/api/fetchProject", async (req, res) => {
+//API FOR FETCHING PROJECT DETAIL IN PROJECTDETAIL PAGE
+router.get('/api/Project/:projectId', async (req, res) => {
   try {
-    Project.find({}, "projectId inputFields image").then((data) => {
-      res.send({ status: "ok", data: data });
-    });
+    const projectId = req.params.projectId;
+    // console.log('Project ID:', projectId); // Log the projectId for debugging
+    // Query the database for project data based on the projectId
+    const project = await Project.find({ projectId: projectId });
+    // console.log(project);
+    if (!project) {
+      return res.status(404).json({ status: 'error', message: 'Project not found' });
+    }
+    res.status(200).json({ status: 'success', data: project });
   } catch (error) {
-    res.json({ status: error });
+    console.error('Error fetching project:', error);
+    res.status(500).json({ status: 'error', message: 'Failed to fetch project' });
   }
 });
+// API FOR GETTING PROJECT DETAILS IN FRONTEN PROFILE PAGE
+router.get('/api/fetchProject/:email', async (req, res) => {
+  try {
+    const userEmail = req.params.email;
+    console.log(userEmail);
+    // Query the database for projects data associated with the user's email
+    const projects = await Project.find({ email: userEmail });
+    console.log(projects);
+    res.status(200).json({ status: 'success', data: projects });
+  } catch (error) {
+    console.error('Error fetching projects:', error);
+    res.status(500).json({ status: 'error', message: 'Failed to fetch projects' });
+  }
+});
+// API FOR GETTING PROJECT DETAILS IN FRONTEN home PAGE
+router.get('/api/fetchProject', async (req, res) => {
+  try {
+    
+    // Query the database for projects data associated with the user's email
+    const projects = await Project.find();
+    res.status(200).json({ status: 'success', data: projects });
+  } catch (error) {
+    console.error('Error fetching projects:', error);
+    res.status(500).json({ status: 'error', message: 'Failed to fetch projects' });
+  }
+});
+
+//fetching project commment
+
+router.get('/api/comments/:projectId', async (req, res) => {
+  try {
+    const projectId = req.params.projectId;
+    // console.log(projectId);
+    const comments = await Comment.find({ projectId: projectId });
+    // console.log(comments);
+    res.json({ status: 'success', comments });
+  } catch (error) {
+    console.error('Error fetching comments:', error);
+    res.status(500).json({ status: 'error', message: 'Failed to fetch comments' });
+  }
+});
+
+
+
+router.post('/api/comments', async (req, res) => {
+  try {
+    const { projectId, userName, image, content } = req.body; // Destructure projectId, userName, image, and content from the request body
+    const comment = new Comment({ projectId, userName, image, content }); // Create a new Comment document
+    await comment.save(); // Save the comment to the database
+    res.json({ status: 'success', comment }); // Respond with success status and the saved comment
+  } catch (error) {
+    console.error('Error posting comment:', error);
+    res.status(500).json({ status: 'error', message: 'Failed to post comment' }); // Respond with error status and message
+  }
+});
+
+///////commentend
+
+
+//likes
+// Route to handle liking a project
+router.post('/api/projectslike/:projectId/:userId/like', async (req, res) => {
+  const { projectId, userId } = req.params;
+  console.log(projectId);
+
+  try {
+      // Check if the user has already liked the project
+      const existingLike = await Likes.findOne({ projectId, userId });
+
+      if (existingLike) {
+          // If like exists, delete it (unlike)
+          await Likes.findOneAndDelete({ projectId, userId });
+          res.status(200).json({ message: 'Unlike successful' });
+      } else {
+          // If like doesn't exist, create a new like
+          const newLike = new Likes({ projectId, userId });
+          await newLike.save();
+          res.status(200).json({ message: 'Like successful' });
+      }
+  } catch (error) {
+      console.error('Error liking/unliking project:', error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+});
+
+
+// Route to get total likes for each project
+router.get('/api/projectslike/likes', async (req, res) => {
+  try {
+      const likes = await Likes.aggregate([
+          { $group: { _id: '$projectId', totalLikes: { $sum: 1 } } }
+      ]);
+
+      res.status(200).json(likes);
+  } catch (error) {
+      console.error('Error fetching total likes:', error);
+      res.status(500).json({ success: false, message: 'Internal server error' });
+  }
+});
+
+
+//likes end
+
+
+
+//CollaborTION
+
+//collab end
+
 router.get("/api/addProject", async (req, res) => {
   const projectid = req.query.projectId;
   const project = await Project.find({ projectId: projectid });
@@ -145,8 +187,10 @@ router.get("/api/addProject", async (req, res) => {
 });
 
 router.post("/api/profileModel", async (req, res) => {
+  
   try {
     const profileData = req.body;
+    
 
     const newProfile = new Profile(profileData);
 
@@ -158,35 +202,46 @@ router.post("/api/profileModel", async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
-router.get("/getprofile", async (req, res) => {
-  const userId = req.query.userid;
-  console.log(userId);
-  const profile = await Profile.find({ userid: userId });
-  res.json(profile);
-  console.log(profile);
+//API FOR GETTING EDITPRIFILE IN SIDEBAR
+router.get('/api/profile/:userId', async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    // Query the database for the profile data associated with the userId
+    const profile = await Profile.findOne({ userid: userId });
+    if (!profile) {
+      return res.status(404).json({ message: 'Profile not found' });
+    }
+    res.json(profile);
+  } catch (error) {
+    console.error('Error fetching profile data:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
 });
 
+
+
+
+
+
 //API FOR UPLOADING PROJECT
-router.post("/api/saveProject", upload.single("image"), async (req, res) => {
+router.post("/api/saveProject", async (req, res) => {
   try {
-    // const imageName = req.file.filename;
-    const inputFields = req.body;
+    console.log(req.body);
+    const inputFields = req.body; // Access form fields from req.body
 
-    // await Project.create({ image: imageName });
-
+    // Create a new project with the received data
     const newProject = new Project({
       ...inputFields,
-      //  image: imageName,
     });
 
     await newProject.save();
-    // console.log('Received inputFields:', inputFields);
     res.status(200).json({ message: "Project data saved successfully" });
   } catch (error) {
     console.error("Error saving project data:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
+
 // END API FOR UPLOAD PROJECT
 
 // API FOR GETTING PROJECT DETAILS IN FRONTEN

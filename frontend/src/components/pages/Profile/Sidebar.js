@@ -9,20 +9,26 @@ import School_Pic from "../../assets/school-pic.png"
 import diamond from "../../assets/diamond.png";
 
 
-function Sidebar({m_strUser}) {
+function Sidebar() {
 
-  // const[profiles,setProfiles]=useState([]);
-  // useEffect(() => {
-  //   const username=JSON.parse(localStorage.getItem('msalAccount'))["username"]
-  //   axios.get(`http://localhost:8080/getprofile?`)
-  //     .then(Profile => {
-  //       setProfiles(Profile.data);
-  //     })
-  //     .catch(err => console.log(err));
-  // }, [m_strUser]);
+  const[profiles,setProfiles]=useState([]);
+  const storedUserData = localStorage.getItem('user'); // Retrieve the stored user data
+
+    const user = JSON.parse(storedUserData); // Parse the stored user data from JSON to JavaScript object
   
 
-  // console.log(profiles);
+  useEffect(() => {
+    axios.get(`http://localhost:8050/api/profile/${user.uid}`)
+      .then(Profile => {
+
+        console.log(Profile);
+        setProfiles(Profile.data);
+      })
+      .catch(err => console.log(err));
+  }, []);
+  
+
+
 
   
   const [activeSection, setActiveSection] = useState("profile");
@@ -51,9 +57,9 @@ function Sidebar({m_strUser}) {
             <div className="profile-details">
               <div className="profile-head">
                 {/* <img src=""></img> */}
-                <Avatar img="https://img.freepik.com/free-vector/mysterious-mafia-man-smoking-cigarette_52683-34828.jpg?w=1380&t=st=1707489879~exp=1707490479~hmac=c74fc2653ab4232a6cddd0e5c8e4c2f230951067ad7fed99b78ab008e200a07a" alt="avatar of Jese" rounded />
+                <Avatar img={profiles.imageUrl} alt="avatar" rounded />
                 <div className="profile-name">
-                  <p className="p1">Utkarsh</p>
+                <p className="p1">{profiles.name}</p>
                   
                 </div>
               </div>

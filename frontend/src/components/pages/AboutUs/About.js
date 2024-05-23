@@ -17,6 +17,11 @@ const About =()=>{
     // Listen for changes in authentication state
     const unsubscribe = auth.onAuthStateChanged(currentUser => {
       setUser(currentUser); // Update user state
+      if (currentUser) {
+        // If user is signed in, store the username and email in local storage
+        localStorage.setItem('username', currentUser.displayName);
+        localStorage.setItem('email', currentUser.email);
+      }
     });
   
     // Clean up subscription on unmount

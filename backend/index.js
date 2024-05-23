@@ -18,7 +18,10 @@ connectDB();
 
 // Create an instance of Express
 const app = express();
-app.use(cors({origin:["http://localhost:3000"]}));
+// app.use(cors({origin:["http://localhost:3000"]}));
+// Middleware
+app.use(cors());
+
 
 // Set view engine
 app.set("view engine", "es");

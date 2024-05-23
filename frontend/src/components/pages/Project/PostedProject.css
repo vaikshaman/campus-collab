@@ -117,7 +117,9 @@ body {
     align-items: flex-start;
     gap: 1.1rem;
   }
-  
+  img{
+    width: 100%;
+  }
   .main-btn {
     display: flex;
     width: 17.1875vw;
