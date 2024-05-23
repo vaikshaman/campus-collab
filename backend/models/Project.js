@@ -6,22 +6,27 @@ const projectSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
-//   loginResponse: Object,
-  projectData: {
-    inputFields: [
-      {
-        type: {
-          type: String,
-        },
-        value: {
-          type: String,
-        },
-      },
-    ],
-    image: [{
-      type: String, // Store the image filename
-    }],
+  email: {
+    type: String,
+    required: true,
   },
+  name: {
+    type: String,
+    required: true,
+  },
+  images: {
+    type: String,
+  },
+  inputFields: [
+    {
+      type: {
+        type: String,
+      },
+      value: {
+        type: mongoose.Schema.Types.Mixed, // Change the type to accept any data type
+      },
+    },
+  ],
 });
 
 const Project = mongoose.model('Project', projectSchema);
