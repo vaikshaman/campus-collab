@@ -107,7 +107,7 @@ const About =()=>{
                     Create and Collaborate with students across the country.
                     </div>
                     <div className="well-write">
-                    CampusCollaborate provides a platform for students to post and collaborate with other students on projects.
+                    Welcome to CampusCollaborate, the ultimate platform designed to empower students by fostering collaboration and innovation. Our mission is to connect students across various disciplines and institutions, enabling them to work together on diverse projects, share knowledge, and achieve their academic and professional goals.
                     </div>
                   </div>
 
@@ -122,12 +122,13 @@ const About =()=>{
       ) : (
         <>
         <div className="well-btn">
-          <button className="sign-up" onClick={handleSignIn}>Login</button>
-          <button className="log" onClick={handleSignIn}>Signup with Outlook</button>
+          <button className="sign-up" onClick={handleSignIn}>Signup with Outlook</button>
+          <button className="log" onClick={handleSignIn}>Login</button>
           </div>
         </>
       )}
                   <div className="well-btn">
+                    <Link to="/Home" className="sign-up">Home</Link>
                     <Link to="/Editprofile" className="sign-up">Complete your Profile</Link>
                   
                   </div>

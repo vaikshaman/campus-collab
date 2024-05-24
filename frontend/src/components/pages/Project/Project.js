@@ -274,7 +274,7 @@ const Project = () => {
             </button> */}
 
             <div className='confirm-content'>
-            <button type = "submit" className="continue-btn" >Continue</button>
+            <button type = "submit" className="continue-btn" onClick={togglePopup}>Continue</button>
             <button className="remove-btn" onClick={handleDiscardClick} >Discard</button>
             </div>
           </form>
