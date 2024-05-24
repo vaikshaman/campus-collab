@@ -5,11 +5,11 @@
   position: fixed;
   background: #FFF;
   width: 100%; 
-  height:10vh;
+  height: 4vw;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0 2vh; /* Adjusted padding for smaller screens */
+  /* padding: 0 2vh; Adjusted padding for smaller screens */
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.03), 0px 12px 12px 0px rgba(0, 0, 0, 0.03), 0px 27px 16px 0px rgba(0, 0, 0, 0.02), 0px 48px 19px 0px rgba(0, 0, 0, 0.00), 0px 75px 21px 0px rgba(0, 0, 0, 0.00);
 }
 .campus{
@@ -26,10 +26,11 @@
   align-items: center;
   height: auto;
   position: relative;
-  padding: 1vw 2vh;
+  position: relative;
+  padding: 0.7vw 1vw;
   border-radius: 4px;
   font-family: "Pangea Trial";
-  font-size: 2vh;
+  font-size: 1.1vw;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -61,8 +62,9 @@
 }
 
 .search-input {
-  height: 6vh;
-  width: 30%;
+  height: 2.3vw;
+  width: 37vw;
+  font-size: 1vw;
   border-radius: 4px;
   border: 1px solid #D3D3D3;
   background: #F5F5F7;
@@ -73,22 +75,60 @@
 
 .myprofile {
   color: #000;
+  width: 6vw;
   margin-left: 7%; /* Converted from 8vw */
 }
 
 .createproject {
   background: rgba(186, 232, 77, 0.50);
-  margin-left: 7%; /* Converted from 5vw */
+  margin-left: 5vw;
   color: #000;
-  width: 8%;
-  height: 2.5vh;
-  margin-right:5%; /* Converted from 2vw */
+  width: 10vw;
+  /* height: 2.5vh; */
+  margin-right: 3vw;
   border-radius: 0.375rem;
   border: 2px solid #BAE84D;
   background: rgba(186, 232, 77, 0.50);
 }
 
+@media(max-width: 1300px){
 
+  .nav-items{
+    height: 8vw;
+  }
+  .home,
+.queries,
+.courses,
+.search,
+.myprofile,
+.createproject{
+  font-size: 1.8vw;
+}
+
+.myprofile{
+  width: 13vw;
+  margin-left: 4vw;
+}
+
+.search-input {
+  height: 3vw;
+  /* width: 20vw; */
+  font-size: 1.8vw;
+  border-radius: 4px;
+  border: 1px solid #D3D3D3;
+  background: #F5F5F7;
+  padding-left: 1%;
+  margin-left: 5vw;
+}
+
+.createproject{
+  margin-left: 5vw;
+  margin-right: 1.4vw;
+  color: #000;
+  width: 21vw;
+}
+
+}
 
 
 
@@ -102,14 +142,32 @@
     font-weight: 800;
   }
   .hamburger {
-    margin-top: 3vh;
-    margin-bottom: 1vh;
-    margin-left: 5vw;
+    padding-top: 4vw;
+    padding-bottom: 3vw;
+    padding-left: 2vw;
     display: flex;
+    /* background: #BAE84D; */
     flex-direction: row;
     cursor: pointer;
-    
+    transition: all 0.3s ease-in-out;
   }
+
+  .ham-active{
+    background-color: rgba(186, 232, 77, 0.50);
+
+  }
+
+
+  .ham-heading{
+    font-size: 6vw;
+    font-weight: 700;
+    padding-left: 10vw;
+  }
+
+  .ham-heading-active{
+    display: none;
+  }
+
   .horizontal-line{
     color:#656565;
     width:85%;
@@ -153,7 +211,7 @@
     width: 55%; /* Adjusted to cover 70% of the screen */
     height: 100%;
     padding: 10px;
-    transition: all 1s ease;
+    transition: 1s ease-in-out;
     box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.03), 0px 12px 12px 0px rgba(0, 0, 0, 0.03), 0px 27px 16px 0px rgba(0, 0, 0, 0.02), 0px 48px 19px 0px rgba(0, 0, 0, 0.00), 0px 75px 21px 0px rgba(0, 0, 0, 0.00);
   }
   
@@ -165,11 +223,11 @@
   }
   
   .search-input {
-    margin-left:7%;
+    margin-left: 0px;
     font-size: 2.5vh;
     margin-top:2vh;
     width: 80%;
-    padding-left: 1%;
+    padding: 10px;
     border: none; /* Remove all borders */
   border-bottom: 2px solid black; /* Add bottom border */
   outline: none; 
@@ -185,9 +243,12 @@
   }
 
   .myprofile {
-    margin-left: 3%; /* Start from 5vw left margin */
+    margin-left: 17px;
+    padding: 10px;
     font-size: 2.5vh;
-    margin-top: auto; /* Move to the bottom */
+    width: 25vw;
+    margin-top: auto;
+
   }
 
   .createproject {
@@ -207,7 +268,7 @@
 .home.active,
 .queries.active,
 .courses.active,
-.myprofile.active {
+.myprofile.active{
   background-color: #BAE84D;
   color: black;
 }

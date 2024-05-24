@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./EditProfile.css";
 import Home from "../Home/Home";
 import Navbar from "../../header/Navbar";
 import { useNavigate } from "react-router-dom";
 import '../../../fonts/fonts.css'
+import upload_img from '../../assets/upload_img.png'
 
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../../auth/firebase'; // Adjust the path as per your project structure
@@ -191,8 +192,11 @@ function EditProfile() {
     return () => unsubscribe();
   }, []);
   
+const imageClickRef = useRef(null);
 
-
+const handleImageClick = () =>{
+  imageClickRef.current.click(); 
+}
 
   
 
@@ -208,17 +212,17 @@ function EditProfile() {
         <div className="main-box">
           <div className="left-box">
             <div className="details">Details</div>
-            <div className="photo">
-            <div>
-      <img src={url || 'http://via.placeholder.com/400x300'} alt="Uploaded images" height="80" width="80" />
-      <br />
-      <input type="file" onChange={handleChange} />
-      <button type="button" onClick={handleImageUpload}>Upload</button>
+            <div className="photo" >
+            <div className="photo-1" onClick={handleImageClick}>
+      <img src={url || {upload_img}} alt="Uploaded images" height="80" width="80" />
+      {/* <br /> */}
+      <input type="file" onChange={handleChange} ref={imageClickRef} style={{display: "none"}}/>
+          </div>
+      <button className="photo-upload" type="button" onClick={handleImageUpload}>Upload</button>
 
 
-      <br />
+      {/* <br /> */}
       
-    </div>
               
             </div>
 

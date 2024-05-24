@@ -39,7 +39,7 @@ const ProjectDetail = () => {
         <div key={project.projectId}>
           <h2>Project ID: {project.projectId}</h2>
           <p>Email: {project.email}</p>
-          <p>Images: <img src={project.images} alt="Project Image" /></p>
+          <p className="posted-proj-img">Images: <img src={project.images} alt="Project Image" /></p>
 
           <h3>Input Fields:</h3>
           <ul>

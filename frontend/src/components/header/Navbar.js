@@ -34,15 +34,16 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="hamburger" onClick={toggleMenu}>
+      <div className={`hamburger ${isOpen ? "" : "ham-active"}`} onClick={toggleMenu}>
         <div className="hamburger-span">
           <span className={`hamburger-span-line ${isOpen ? "open" : ""}`} />
           <span className={`hamburger-span-line ${isOpen ? "open" : ""}`} />
           <span className={`hamburger-span-line ${isOpen ? "open" : ""}`} />
         </div>
+        <div className={`ham-heading ${isOpen ? "ham-heading-active" : ""}`}>Campus Collaborator</div>
       </div>
       <div className={`nav-items ${isOpen ? "open" : ""}`}>
-        <div className="campus">CAMPUS COLLABORATOR</div>
+        <div className="campus" onClick={toggleMenu}>CAMPUS COLLABORATOR</div>
         <hr className="horizontal-line" />
         <Link
           to="/Home"

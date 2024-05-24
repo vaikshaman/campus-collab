@@ -107,13 +107,13 @@ const Projectuser = () => {
     return (
         <div>
             <Navbar />
-            <div className="project-main-pp">
-                <div className="content-shown-pp">
+            <div className="pdu-project-main-pp">
+                <div className="pdu-content-shown-pp">
                     <form>
-                        <div className='Id-div-pp'>
+                        <div className='pdu-Id-div-pp'>
                             <input
                                 type="text"
-                                className="project-projectId"
+                                className="pdu-project-projectId"
                                 placeholder="Enter Project ID (Compulsory)"
                                 value={projectId}
                                 readOnly // Make the input read-only
@@ -140,49 +140,49 @@ const Projectuser = () => {
 
 
             <div>
-        <div className='heading'>
+        <div className='pdu-heading'>
             Project Heading
-            <p className='update-btn'>Completed</p>
+            <p className='pdu-update-btn'>Completed</p>
         </div>
 
-        <div className='section'>
-            <div className='user-info'>
-                <div className='user-user'>
-                    <div className='user-name'>
+        <div className='pdu-section'>
+            <div className='pdu-user-info'>
+                <div className='pdu-user-user'>
+                    <div className='pdu-user-name'>
                         Owner
                         {projects.length > 0 &&
-    <div className='my-name'>
+    <div className='pdu-my-name'>
         <img src=""></img>
-        <div className='final-name'>
-            <p className='p1'>{projects[0].name}</p>
-            <p className='p2'>134 projects - 3 following</p>
+        <div className='pdu-final-name'>
+            <p className='pdu-p1'>{projects[0].name}</p>
+            <p className='pdu-p2'>134 projects - 3 following</p>
         </div>
     </div>
 }
 
                     </div>
-                    <div className='about-proj'>
-                        <div className='category'>
+                    <div className='pdu-about-proj'>
+                        <div className='pdu-category'>
                             Category 
-                            <div className='cat-names'>
-                                <div className='badge1'>Web Development</div>
-                                <div className='badge2'>App Development</div>
+                            <div className='pdu-cat-names'>
+                                <div className='pdu-badge1'>Web Development</div>
+                                <div className='pdu-badge2'>App Development</div>
                             </div>
                         </div>
-                        <div className='tools-used'>
+                        <div className='pdu-tools-used'>
                             Tools Used 
                             <p>Figma, React.js, VS Code, NodeJs</p>
                         </div>
                     </div>
                 </div>
-                <button className='edit-me'>
+                <button className='pdu-edit-me'>
                     Edit Project
                 </button>
             </div>
 
-            <div className='right-review'>
-            <div className='right-review'>
-            <div className='right-head'>
+            <div className='pdu-right-review'>
+            <div className='pdu-right-review'>
+            <div className='pdu-right-head'>
                 <p>Reviews & Feedback</p>
                 <button onClick={handleLikeClick}>{liked ? 'Unlike' : 'Like'} {totalLikes}</button>
             </div>
@@ -203,27 +203,27 @@ const Projectuser = () => {
 
          
 
-            <div className='right-content'>
-    <div className='post-div'>
+            <div className='pdu-right-content'>
+    <div className='pdu-post-div'>
         <input 
             type='text' 
             placeholder='What are your comments on this project?' 
             value={newComment}
             onChange={e => setNewComment(e.target.value)}
         />
-        <button className='post-btn' onClick={handleCommentSubmit}>POST</button>
+        <button className='pdu-post-btn' onClick={handleCommentSubmit}>POST</button>
     </div>
-    <div className='posted-reviews'>
+    <div className='pdu-posted-reviews'>
         {comments.map(comment => (
-            <div className='one-post' key={comment._id}>
-<img  className='poster-pic' src={comment.image}></img>
+            <div className='pdu-one-post' key={comment._id}>
+<img  className='pdu-poster-pic' src={comment.image}></img>
              
-                <div className='poster-content'>
-                    <div className='div-1'>
-                        <div className='d1'>{comment.userName}</div>
-                        <div className='d2'>&nbsp;. {comment.createdAt}</div>
+                <div className='pdu-poster-content'>
+                    <div className='pdu-div-1'>
+                        <div className='pdu-d1'>{comment.userName}</div>
+                        <div className='pdu-d2'>&nbsp;. {comment.createdAt}</div>
                     </div>
-                    <div className='the-comment'>{comment.content}</div>
+                    <div className='pdu-the-comment'>{comment.content}</div>
                 </div>
             </div>
         ))}
