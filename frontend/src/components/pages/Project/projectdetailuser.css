@@ -19,20 +19,15 @@
     width: 93%;
     margin-right: 30px;
   }
-  /* WORKING ON ADD CONTENT  */
-  .pdu-add-box {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5.5rem;
-    width: 15vw;
-    margin-left: 2vw;
-  }
   
   .pdu-Id-div-pp {
     display: flex;
     margin-bottom: 13px;
-    width: 50%;
+    /* width: 50%; */
+}
+
+  .pdu-project-form{
+    width: -webkit-fill-available;
   }
   
   .pdu-project-projectId {
@@ -42,109 +37,14 @@
     padding: 4px;
     text-align: center;
   }
+  /* WORKING ON ADD CONTENT  */
   
-  .pdu-confirm-content-pp {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    align-self: stretch;
-    flex-wrap: wrap;
-    margin-top: 24rem;
-    width: 60rem;
-    justify-content: space-evenly;
-  }
-  
-  .pdu-remove-btn {
-    display: flex;
-    padding: 0.625rem 1rem;
-    width: 10rem;
-    justify-content: center;
-    align-items: center;
-    gap: 0.625rem;
-    /* flex: 1 0 0; */
-    border-radius: 2.5rem;
-    border: 1px solid #656565;
-    color: #656565;
-    text-align: center;
-    font-family: "Pangea Trial";
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    cursor: pointer;
-  }
-  
-  .pdu-continue-btn {
-    text-decoration: none;
-    width: 10rem;
-    display: flex;
-    padding: 0.625rem 1rem;
-    justify-content: center;
-    align-items: center;
-    gap: 0.625rem;
-    border-radius: 2.5rem;
-    background: #bae84d;
-    color: #000;
-    font-family: "Pangea Trial";
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .pdu-add-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2.3rem;
-    color: #656565;
-    font-family: "Pangea Trial";
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-  
-  .pdu-add-btns {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.1rem;
-  }
-  .pdu-posted-proj-img{
-    width: 100%;
-  }
-  .pdu-main-btn {
-    display: flex;
-    width: 17.1875vw;
-    padding: 0.75rem 1rem;
-    justify-content: center;
-    align-items: center;
-    gap: 0.625rem;
-    border-radius: 0.5rem;
-    background: #fff;
-    border: none;
-    cursor: pointer;
-  
-    /* Shadew 2 */
-    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.03),
-      0px 12px 12px 0px rgba(0, 0, 0, 0.03), 0px 48px 19px 0px rgba(0, 0, 0, 0),
-      0px 75px 21px 0px rgba(0, 0, 0, 0);
-    color: #000;
-    font-family: "Pangea Trial";
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
   
   /* WORKING ON CONTENT SHOWN  */
   
   .pdu-project-heading {
     display: flex;
-    width: 62vw;
+    /* width: 62vw; */
     padding-bottom: 1rem;
     align-items: center;
     gap: 0.625rem;
@@ -165,7 +65,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    width: 62vw;
+    /* width: 62vw; */
     border: none;
     height: auto;
     outline: none;
@@ -181,7 +81,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    width: 62vw;
+    /* width: 62vw; */
     margin-top: 0.4rem;
     border: none;
     outline: none;
@@ -195,7 +95,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    width: 62vw;
+    /* width: 62vw; */
     margin-top: 0.4rem;
     border: none;
     outline: none;
@@ -212,17 +112,19 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    width: 62vw;
+    /* width: 62vw; */
     border: none;
     outline: none;
   }
   
   /* Image not clear what to do */
   .pdu-project-image {
+    display: flex;
+    flex-direction: column;
     border-radius: 0.25rem;
     border: 1px solid #d3d3d3;
     /* background: url(<path-to-image>), lightgray 50% / cover no-repeat; */
-    width: 62vw;
+    /* width: 62vw; */
     /* height: 31.5rem; */
     outline: none;
     border: none;
@@ -233,7 +135,7 @@
     border-radius: 0.25rem;
     border: 1px solid #d3d3d3;
     /* background: url(<path-to-image>), lightgray 50% / cover no-repeat; */
-    width: 62vw;
+    /* width: 62vw; */
     /* height: 31.5rem; */
     outline: none;
     border: none;
@@ -248,7 +150,7 @@
     align-items: flex-start;
     gap: 1.5rem;
     outline: none;
-    width: 62vw;
+    /* width: 62vw; */
     margin-top: 6px;
   }
   
@@ -336,13 +238,25 @@
 }
 
 .pdu-user-info{
-    display: inline-flex;
+    /* display: inline-flex;
     padding-top: 2.5rem;
     flex-direction: column;
     align-items: flex-start;
     gap: 2.5rem;
     margin-left: 5vw;
-    margin-bottom: 1vw;
+    margin-bottom: 1vw; */
+}
+
+.pdu-test{
+        display: inline-flex;
+        padding-top: 2.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.5rem;
+        margin-left: 5vw;
+        margin-bottom: 1vw;
+        position: sticky;
+                top: 0px;
 }
 
 .pdu-user-user{
@@ -545,7 +459,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    border-bottom: 1px solid #929292;
 }
 
 .pdu-right-head p{
@@ -687,7 +601,25 @@
         flex-direction: column;
     }
 
+    .pdu-content-shown-pp{
+        padding: 1rem;
+        padding-top: 1.5rem;
+    }
+
+    .pdu-test{
+        display: inline-flex;
+        padding-top: 2.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.5rem;
+        margin-right: 6vw;
+        margin-left: 5vw;
+        margin-bottom: 1vw;
+        width: -webkit-fill-available;
+        position: sticky;
+        top: 0px;
     
+    }
 
     .pdu-heading{
         margin-top: 85px;

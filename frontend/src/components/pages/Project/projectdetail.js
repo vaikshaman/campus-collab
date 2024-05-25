@@ -155,8 +155,8 @@ const Project = () => {
       <Navbar />
       <div className="pd-project-main-pp">
         <div className="pd-content-shown-pp">
-          <form>
-            <div className="pd-Id-div-pp">
+          <form className="pd-project-form">
+            {/* <div className="pd-Id-div-pp">
               <input
                 type="text"
                 className="pd-project-projectId"
@@ -164,16 +164,16 @@ const Project = () => {
                 value={projectId}
                 readOnly // Make the input read-only
               />
-            </div>
-            <h1>Project Detail</h1>
+            </div> */}
+            <div className="pd-project-heading">Project Detail</div>
             {projects && projects.length > 0 && (
               <div>
-                <h2>Project ID: {projects[0].projectId}</h2>
-                <p>Email: {projects[0].email}</p>
-                <p>
+                <div className="pd-project-subheading">Project ID: {projects[0].projectId}</div>
+                <p className="pd-project-description">Email: {projects[0].email}</p>
+                <p className="pd-project-image">
                   Images: <img src={projects[0].images} alt="Project Image" />
                 </p>
-                <h3>Input Fields:</h3>
+                <div className="pd-project-subheading">Input Fields:</div>
                 <ul>
                   {projects[0].inputFields.map((field, index) => (
                     <li key={index}>
@@ -195,35 +195,38 @@ const Project = () => {
 
         <div className="pd-section">
           <div className="pd-user-info">
-            <div className="pd-user-user">
-              <div className="pd-user-name">
-                Owner
-                {projects.length > 0 && (
-                  <div className="pd-my-name">
-                    <img src=""></img>
-                    <div className="pd-final-name">
-                      <p className="pd-p1">{projects[0].name}</p>
-                      <p className="pd-p2">134 projects - 3 following</p>
+            <div className="pd-test">
+              <div className="pd-user-user">
+                <div className="pd-user-name">
+                  Owner
+                  {projects.length > 0 && (
+                    <div className="pd-my-name">
+                      <img src=""></img>
+                      <div className="pd-final-name">
+                        <p className="pd-p1">{projects[0].name}</p>
+                        <p className="pd-p2">134 projects - 3 following</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <div className="pd-about-proj">
+                  <div className="pd-category">
+                    Category
+                    <div className="pd-cat-names">
+                      <div className="pd-badge1">Web Development</div>
+                      <div className="pd-badge2">App Development</div>
                     </div>
                   </div>
-                )}
-              </div>
-              <div className="pd-about-proj">
-                <div className="pd-category">
-                  Category
-                  <div className="pd-cat-names">
-                    <div className="pd-badge1">Web Development</div>
-                    <div className="pd-badge2">App Development</div>
+                  <div className="pd-tools-used">
+                    Tools Used
+                    <p>Figma, React.js, VS Code, NodeJs</p>
                   </div>
                 </div>
-                <div className="pd-tools-used">
-                  Tools Used
-                  <p>Figma, React.js, VS Code, NodeJs</p>
-                </div>
               </div>
+              {/* <button className="pd-edit-me">Edit Project</button> */}
+              <button className="pd-edit-me" onClick={handleCollaboration}>Collaborate</button>
+
             </div>
-            <button className="pd-edit-me">Edit Project</button>
-            <button onClick={handleCollaboration}>Collaborate</button>
           </div>
 
           <div className="pd-right-review">

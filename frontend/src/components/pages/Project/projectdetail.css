@@ -18,120 +18,7 @@
     background: #fff;
     width: 93%;
     margin-right: 30px;
-  }
-  /* WORKING ON ADD CONTENT  */
-  .pd-add-box {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5.5rem;
-    width: 15vw;
-    margin-left: 2vw;
-  }
-  
-  .pd-Id-div-pp {
-    display: flex;
-    margin-bottom: 13px;
-    width: 50%;
-  }
-  
-  .pd-project-projectId {
-    font-size: 1rem;
-    width: 280px;
-    border-radius: 6px;
-    padding: 4px;
-    text-align: center;
-  }
-  
-  .pd-confirm-content-pp {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
     align-self: stretch;
-    flex-wrap: wrap;
-    margin-top: 24rem;
-    width: 60rem;
-    justify-content: space-evenly;
-  }
-  
-  .pd-remove-btn {
-    display: flex;
-    padding: 0.625rem 1rem;
-    width: 10rem;
-    justify-content: center;
-    align-items: center;
-    gap: 0.625rem;
-    /* flex: 1 0 0; */
-    border-radius: 2.5rem;
-    border: 1px solid #656565;
-    color: #656565;
-    text-align: center;
-    font-family: "Pangea Trial";
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    cursor: pointer;
-  }
-  
-  .pd-continue-btn {
-    text-decoration: none;
-    width: 10rem;
-    display: flex;
-    padding: 0.625rem 1rem;
-    justify-content: center;
-    align-items: center;
-    gap: 0.625rem;
-    border-radius: 2.5rem;
-    background: #bae84d;
-    color: #000;
-    font-family: "Pangea Trial";
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .pd-add-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2.3rem;
-    color: #656565;
-    font-family: "Pangea Trial";
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-  
-  .pd-add-btns {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.1rem;
-  }
-  .pd-posted-proj-img{
-    width: 100%;
-  }
-  .pd-main-btn {
-    display: flex;
-    width: 17.1875vw;
-    padding: 0.75rem 1rem;
-    justify-content: center;
-    align-items: center;
-    gap: 0.625rem;
-    border-radius: 0.5rem;
-    background: #fff;
-    border: none;
-    cursor: pointer;
-  
-    /* Shadew 2 */
-    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.03),
-      0px 12px 12px 0px rgba(0, 0, 0, 0.03), 0px 48px 19px 0px rgba(0, 0, 0, 0),
-      0px 75px 21px 0px rgba(0, 0, 0, 0);
     color: #000;
     font-family: "Pangea Trial";
     font-size: 1.25rem;
@@ -139,12 +26,11 @@
     font-weight: 400;
     line-height: normal;
   }
-  
   /* WORKING ON CONTENT SHOWN  */
   
   .pd-project-heading {
     display: flex;
-    width: 62vw;
+    /* width: 62vw; */
     padding-bottom: 1rem;
     align-items: center;
     gap: 0.625rem;
@@ -158,14 +44,18 @@
     outline: none;
     border-bottom: 1px solid #929292;
   }
+
+  .pd-project-form{
+    width: -webkit-fill-available;
+  }
   .pd-project-subheading {
     color: #000;
     font-family: "Pangea Trial";
     font-size: 1.25rem;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     line-height: normal;
-    width: 62vw;
+    /* width: 62vw; */
     border: none;
     height: auto;
     outline: none;
@@ -181,7 +71,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    width: 62vw;
+    /* width: 62vw; */
     margin-top: 0.4rem;
     border: none;
     outline: none;
@@ -195,7 +85,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    width: 62vw;
+    /* width: 62vw; */
     margin-top: 0.4rem;
     border: none;
     outline: none;
@@ -212,17 +102,19 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    width: 62vw;
+    /* width: 62vw; */
     border: none;
     outline: none;
   }
   
   /* Image not clear what to do */
   .pd-project-image {
+    display: flex;
+    flex-direction: column;
     border-radius: 0.25rem;
     border: 1px solid #d3d3d3;
     /* background: url(<path-to-image>), lightgray 50% / cover no-repeat; */
-    width: 62vw;
+    /* width: 62vw; */
     /* height: 31.5rem; */
     outline: none;
     border: none;
@@ -233,7 +125,7 @@
     border-radius: 0.25rem;
     border: 1px solid #d3d3d3;
     /* background: url(<path-to-image>), lightgray 50% / cover no-repeat; */
-    width: 62vw;
+    /* width: 62vw; */
     /* height: 31.5rem; */
     outline: none;
     border: none;
@@ -248,7 +140,7 @@
     align-items: flex-start;
     gap: 1.5rem;
     outline: none;
-    width: 62vw;
+    /* width: 62vw; */
     margin-top: 6px;
   }
   
@@ -336,6 +228,16 @@
 }
 
 .pd-user-info{
+    /* display: inline-flex;
+    padding-top: 2.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+    margin-left: 5vw;
+    margin-bottom: 1vw; */
+}
+
+.pd-test{
     display: inline-flex;
     padding-top: 2.5rem;
     flex-direction: column;
@@ -343,6 +245,8 @@
     gap: 2.5rem;
     margin-left: 5vw;
     margin-bottom: 1vw;
+    position: sticky;
+            top: 0px;
 }
 
 .pd-user-user{
@@ -359,7 +263,7 @@
 }
 
 .pd-edit-me{
-    color: #656565;
+    color: #000000;
     text-align: center;
     font-family: "Pangea Trial";
     font-size: 1.125rem;
@@ -374,7 +278,12 @@
     justify-content: center;
     align-items: center;
     gap: 0.625rem;
-    cursor: pointer;
+    cursor: pointer;  
+    border: 2px solid #BAE84D;
+    background: rgba(186, 232, 77, 0.50);
+
+/* Shadew 2 */
+box-shadow: 0px 75px 21px 0px rgba(0, 0, 0, 0.00), 0px 48px 19px 0px rgba(0, 0, 0, 0.00), 0px 12px 12px 0px rgba(0, 0, 0, 0.03), 0px 3px 7px 0px rgba(0, 0, 0, 0.03);
 }
 
 .pd-user-name{
@@ -545,7 +454,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    border-bottom: 1px solid #929292;
 }
 
 .pd-right-head p{
@@ -687,6 +596,20 @@
         flex-direction: column;
     }
 
+    .pd-test{
+        display: inline-flex;
+        padding-top: 2.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.5rem;
+        margin-right: 6vw;
+        margin-left: 5vw;
+        margin-bottom: 1vw;
+        width: -webkit-fill-available;
+        position: sticky;
+        top: 0px;
+    
+    }
     
 
     .pd-heading{
