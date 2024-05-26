@@ -110,6 +110,18 @@ const Projectuser = () => {
   };
   //LIKES END
 
+  const renderFieldValue = (field) => {
+    // Check if the value of the field is an object
+    if (typeof field.value === 'object' && field.value !== null) {
+      // If it's an object, stringify it for display
+      return JSON.stringify(field.value);
+    } else {
+      // Otherwise, render the value as is
+      return field.value;
+    }
+  };
+  
+
   return (
     <div>
       <Navbar />
@@ -127,22 +139,23 @@ const Projectuser = () => {
             </div>
             <div className="pdu-project-heading">Project Detail</div>
             {projects && projects.length > 0 && (
-              <div>
-                <div className="pdu-project-subheading">Project ID: {projects[0].projectId}</div>
-                <p className="pdu-project-description">Email: {projects[0].email}</p>
-                <p className="pd-project-image">
-                  Images: <img src={projects[0].images} alt="Project Image" />
-                </p>
-                <h3>Input Fields:</h3>
-                <ul>
-                  {projects[0].inputFields.map((field, index) => (
-                    <li key={index}>
-                      Type: {field.type}, Value: {field.value}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+        <div>
+          <h2>Project ID: {projects[0].projectId}</h2>
+
+          <p>Email: {projects[0].email}</p>
+          <p>
+            Images: <img src={projects[0].images} alt="Project Image" />
+          </p>
+          <h3>Input Fields:</h3>
+          <ul>
+            {projects[0].inputFields.map((field, index) => (
+              <li key={index}>
+                Type: {field.type}, Value: {renderFieldValue(field)}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
           </form>
         </div>
       </div>
