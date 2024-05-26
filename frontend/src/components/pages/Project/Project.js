@@ -1,86 +1,290 @@
-import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
-import "./Profile.css";
-import Sidebar from "./Sidebar";
-import axios from "axios";
-import Navbar from "../../header/Navbar";
+import React, { useState, useEffect, useRef } from 'react';
+import Navbar from '../../header/Navbar';
+import './Project.css';
+import axios from 'axios';
+import ContinueProject from './ContinueProject';
+import ImageUpload from './projectimage'; // Import the ImageUpload component
+import { auth } from '../../../auth/firebase';
+const API_URI = 'http://localhost:8080';
 
-const Profile = () => {
-  const [selectedStatus, setSelectedStatus] = useState("ongoing"); // Initialize selectedStatus with "ongoing"
-  const [projects, setProjects] = useState([]);
-  const storedUserData = localStorage.getItem('user');
-  const user = JSON.parse(storedUserData);
-
-  const fetchProjectDetails = async () => {
-    try {
-      const response = await fetch(`http://localhost:8050/api/fetchProject/${user.email}?status=${selectedStatus}`);
-      if (response.ok) {
-        const data = await response.json();
-        setProjects(data.data);
-      } else {
-        throw new Error('Failed to fetch project details');
-      }
-    } catch (error) {
-      console.error('Error fetching project details:', error);
-    }
-  };
-
-  useEffect(() => {
-    fetchProjectDetails();
-  }, [selectedStatus]); // Refetch projects whenever selectedStatus changes
-
-  const handleStatusClick = (status) => {
-    setSelectedStatus(status); // Update selectedStatus when the status button is clicked
-  };
-
+const PopupPage = ({ onClose, formData, setFormData, handleSubmit }) => {
   return (
-    <div>
-      <Navbar />
-      <div className="Profile">
-        <Sidebar />
-        <div className="prof-homer">
-          <div className="profile_nav">
-            <div className="profile_pjt_view">Project Overview</div>
-            <div className="profile_btn">
-              <div className={selectedStatus === 'ongoing' ? 'activeStatus profile_ongoing_btn' : 'profile_ongoing_btn'} onClick={() => handleStatusClick('ongoing')}>Ongoing</div>
-              <div className={selectedStatus === 'completed' ? 'activeStatus profile_complete_btn' : 'profile_complete_btn'} onClick={() => handleStatusClick('completed')}>Completed</div>
-            </div>
-          </div>
-
-          <div className="show-project">
-            <div className="projects">
-            {projects.map((project) => (
-  <Link 
-    to={`/profile/${encodeURIComponent(project.projectId)}`} 
-    key={project.projectId} 
-    className="project-box" 
-  >
-    <div className="project-box">
-      <img
-        src={project.images}
-        alt="Project"
-        className="project-image"
-        style={{ width: '28vw' }}
-      />
-      <div className="project-details">
-        <h3>{project.projectId}</h3>
-        {project.inputFields.map((field, index) => {
-          if (field.type === 'heading') {
-            return <p key={index}>{field.value}</p>;
-          }
-          return null; // Return null if the field type is not 'heading'
-        })}
-      </div>
-    </div>
-  </Link>
-))}
-
-            </div>
-          </div>
-        </div>
+    <div className='popup-overlay'>
+      <div className="popup">
+        <ContinueProject
+          close={onClose}
+          formData={formData}
+          setFormData={setFormData}
+          handleSubmit={handleSubmit}
+        />
       </div>
     </div>
   );
 };
 
-export default Profile;
+const Project = () => {
+  const [user, setUser] = useState(null);
+  const [projectId, setProjectId] = useState('');
+  const [inputFields, setInputFields] = useState([]);
+  const [file, setFile] = useState('');
+  const [result, setResult] = useState([]);
+  const fileInputRef = useRef();
+  const [url, setUrl] = useState('');
+  const [formData, setFormData] = useState({
+    projectName: '',
+    category: '',
+    tools: '',
+    status: 'ongoing',
+  });
+
+  useEffect(() => {
+    // Check if image URL exists in browser storage
+    const ImageUrl = localStorage.getItem('imageURL');
+    setUrl(ImageUrl);
+  }, []);
+
+  useEffect(() => {
+    // Listen for changes in authentication state
+    const unsubscribe = auth.onAuthStateChanged(currentUser => {
+      if (currentUser) {
+        setUser(currentUser); // Update user state
+        localStorage.setItem('user', JSON.stringify(currentUser));
+      } else {
+        setUser(null); // Update user state
+        localStorage.removeItem('user');
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const uploadFile = async (data) => {
+    try {
+      const response = await axios.post(`${API_URI}/upload`, data);
+      console.log("response is:", response)
+      return response.data;
+    } catch (error) {
+      console.log('Error while calling the API ', error.message);
+    }
+  }
+
+  useEffect(() => {
+    const getImage = async () => {
+      if (file) {
+        const data = new FormData();
+        data.append("name", file.name);
+        data.append("file", file);
+
+        const response = await uploadFile(data);
+        console.log(response.path)
+        setResult(prev => [...prev, response.path]);
+      }
+    }
+    getImage();
+  }, [file])
+
+  const onUploadClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    } else {
+      console.error("fileInputRef.current is null or undefined");
+    }
+  }
+
+  useEffect(() => {
+    const storedInputFields = JSON.parse(localStorage.getItem('inputFields')) || [];
+    setInputFields(storedInputFields);
+  }, []);
+
+  const addInputField = (type) => {
+    const imageFieldExists = inputFields.some(field => field.type === 'image');
+
+    if (type === 'image' && imageFieldExists) {
+      alert('You can only add one image.');
+      return;
+    }
+
+    if (type === 'image') {
+      const newInputField = { type, value: <ImageUpload setFile={setFile} /> };
+      setInputFields((prevFields) => [...prevFields, newInputField]);
+    } else {
+      const newInputField = { type, value: '' };
+      setInputFields((prevFields) => [...prevFields, newInputField]);
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem('inputFields', JSON.stringify(inputFields));
+  }, [inputFields]);
+
+  const inputType = (field, index) => {
+    const adjustHeight = (e) => {
+      e.target.style.height = 'inherit';
+      e.target.style.height = `${e.target.scrollHeight}px`;
+    };
+
+    if (field.type === 'heading' || field.type === 'subheading') {
+      return (
+        <input
+          type="text"
+          className={`project-${field.type}`}
+          placeholder={`Enter ${field.type} here`}
+          value={field.value}
+          onChange={(e) => handleInputChange(index, e.target.value)}
+        />
+      );
+    } else if (field.type === 'description' || field.type === 'code-block') {
+      return (
+        <textarea
+          className={`project-${field.type}`}
+          placeholder={`Enter ${field.type} here`}
+          value={field.value}
+          onChange={(e) => handleInputChange(index, e.target.value)}
+          onInput={adjustHeight}
+        />
+      );
+    } else if (field.type === 'image' || field.type === 'pdf') {
+      return field.value;
+    }
+  };
+
+  const handleInputChange = (index, value) => {
+    setInputFields((prevFields) => {
+      const updatedFields = prevFields.map((f, i) =>
+        i === index ? { ...f, value } : f
+      );
+      return updatedFields;
+    });
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const requestData = {
+        projectId: projectId,
+        email: user?.email,
+        name: user?.displayName,
+        images: url,
+        inputFields: inputFields,
+        projectDetails: formData,
+      };
+  
+      console.log('Combined Form Data:', requestData);
+  
+      const response = await fetch('http://localhost:8050/api/saveProject', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to save project data');
+      }
+  
+      console.log('Project data saved successfully');
+      setProjectId('');
+      setInputFields([]);
+      setFormData({
+        projectName: '',
+        category: '',
+        tools: '',
+        status: 'ongoing',
+      });
+  
+      // Save form data to localStorage
+      // localStorage.setItem('formData', JSON.stringify(formData));
+    } catch (error) {
+      console.error('Error saving project data:', error);
+    }
+  
+  
+  };
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const togglePopup = () => {
+    if (projectId.trim() === "") {
+      window.alert('Enter Project Id First!');
+    } else {
+      setIsPopupOpen(!isPopupOpen);
+    }
+  };
+
+  const handleDiscardClick = () => {
+    const isConfirmed = window.confirm('Are you sure you want to discard your changes?');
+    if (isConfirmed) {
+      resetToDefault();
+    }
+  };
+
+  const resetToDefault = () => {
+    setInputFields([]);
+    localStorage.removeItem('inputFields');
+  };
+
+  return (
+    <div>
+      <Navbar />
+      <div className="project-main">
+        <div className="content-shown">
+          <form onSubmit={handleSubmit}>
+            <div className='Id-div'>
+              <input
+                type="text"
+                className="project-projectId"
+                placeholder="Enter Project ID (Compulsory)"
+                value={projectId}
+                onChange={(e) => setProjectId(e.target.value)}
+              />
+            </div>
+            {inputFields.map((field, index) => (
+              <div key={index}>{inputType(field, index)}</div>
+            ))}
+            <div className='confirm-content'>
+              <button type="button" className="continue-btn" onClick={togglePopup}>Continue</button>
+              <button type="button" className="remove-btn" onClick={handleDiscardClick}>Discard</button>
+            </div>
+          </form>
+        </div>
+
+        <div className="add-box">
+          <div className="add-content">
+            Add Content
+            <div className="add-btns">
+              <button className="main-btn" onClick={() => addInputField('heading')}>
+                Add Heading
+              </button>
+              <button className="main-btn" onClick={() => addInputField('subheading')}>
+                Add Subheading
+              </button>
+              <button className="main-btn" onClick={() => addInputField('description')}>
+                Add Description
+              </button>
+              <button className="main-btn" onClick={() => addInputField('image')}>
+                Attach Image
+              </button>
+              <button className="main-btn" onClick={() => addInputField('pdf')}>
+                Attach PDF
+              </button>
+              <button className="main-btn" onClick={() => addInputField('code-block')}>
+                Code Block
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     {isPopupOpen && (
+  <PopupPage
+    onClose={togglePopup}
+    formData={formData}
+    setFormData={setFormData}
+    handleSubmit={handleSubmit ? handleSubmit : null} // Pass null if handleSubmit is not defined
+  />
+)}
+    </div>
+  );
+};
+
+export default Project;
