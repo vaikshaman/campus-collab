@@ -1,5 +1,10 @@
 import mongoose from 'mongoose';
 
+const fieldSchema = new mongoose.Schema({
+  type: String,
+  value: mongoose.Schema.Types.Mixed // Allow any type of value
+});
+
 const projectSchema = new mongoose.Schema({
   projectId: {
     type: String,
@@ -17,16 +22,13 @@ const projectSchema = new mongoose.Schema({
   images: {
     type: String,
   },
-  inputFields: [
-    {
-      type: {
-        type: String,
-      },
-      value: {
-        type: mongoose.Schema.Types.Mixed, // Change the type to accept any data type
-      },
-    },
-  ],
+  inputFields: [fieldSchema], // Array of field objects
+  projectDetails: {
+    projectName: String,
+    category: String,
+    tools: String,
+    status: String,
+  },
 });
 
 const Project = mongoose.model('Project', projectSchema);
