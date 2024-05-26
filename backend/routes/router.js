@@ -75,16 +75,26 @@ router.get('/api/Project/:projectId', async (req, res) => {
 router.get('/api/fetchProject/:email', async (req, res) => {
   try {
     const userEmail = req.params.email;
-    console.log(userEmail);
-    // Query the database for projects data associated with the user's email
-    const projects = await Project.find({ email: userEmail });
-    console.log(projects);
+    const status = req.query.status; // Get the status query parameter from the request URL
+
+    let projects;
+    if (status === 'ongoing' || status === 'completed') {
+      // Query the database for projects data associated with the user's email and matching status
+      projects = await Project.find({ email: userEmail, 'projectDetails.status': status });
+     
+    } else {
+      // If no status query parameter is provided or it's invalid, fetch all projects for the user
+      projects = await Project.find({ email: userEmail });
+    }
+
+    // console.log(projects);
     res.status(200).json({ status: 'success', data: projects });
   } catch (error) {
     console.error('Error fetching projects:', error);
     res.status(500).json({ status: 'error', message: 'Failed to fetch projects' });
   }
 });
+
 // API FOR GETTING PROJECT DETAILS IN FRONTEN home PAGE
 router.get('/api/fetchProject', async (req, res) => {
   try {
@@ -226,21 +236,29 @@ router.get('/api/profile/:userId', async (req, res) => {
 //API FOR UPLOADING PROJECT
 router.post("/api/saveProject", async (req, res) => {
   try {
-    console.log(req.body);
-    const inputFields = req.body; // Access form fields from req.body
+    // Extract fields from req.body
+    const { projectId, email, name, images, inputFields, projectDetails } = req.body;
 
-    // Create a new project with the received data
+    // Create a new project with the extracted data
     const newProject = new Project({
-      ...inputFields,
+      projectId,
+      email,
+      name,
+      images,
+      inputFields,
+      projectDetails,
     });
 
+    // Save the new project
     await newProject.save();
+
     res.status(200).json({ message: "Project data saved successfully" });
   } catch (error) {
     console.error("Error saving project data:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
+
 
 // END API FOR UPLOAD PROJECT
 

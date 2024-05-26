@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // Import Link component from React Router
+import { Link } from "react-router-dom";
 import './HomeFeed.css';
 import Infobar from "./Infobar";
 import axios from "axios";
@@ -31,26 +31,32 @@ const HomeFeed = () => {
     <div className="HomeFeed">
       <div className="biggest-container">
         <div className="biggest-box">
-          {projects.map((project) => (
-            <Link 
-              to={`/project/${project.projectId}`} // Create link to project detail page with project ID
-              key={project.projectId} 
-              className="project-box" 
-            >
-              <img
-                src={project.images} // Assuming images is an array
-                alt="Project"
-                className="project-image"
-                style={{ width: '28vw' }}
-              />
-              <div className="project-details">
-                <h3>{project.projectId}</h3>
-                {project.inputFields.map((field, index) => (
-                  field.type === 'heading' && <p key={index}>{field.value}</p>
-                ))}
-              </div>
-            </Link>
-          ))}
+          {projects && projects.length > 0 ? (
+            // Render project boxes if projects array is not empty
+            projects.map((project) => (
+              <Link 
+                to={`/project/${project.projectId}`} 
+                key={project.projectId} 
+                className="project-box" 
+              >
+                <img
+                  src={project.images} 
+                  alt="Project"
+                  className="project-image"
+                  style={{ width: '28vw' }}
+                />
+                <div className="project-details">
+                  <h3>{project.projectId}</h3>
+                  {project.inputFields && project.inputFields.map((field, index) => (
+                    field.type === 'heading' && <p key={index}>{field.value}</p>
+                  ))}
+                </div>
+              </Link>
+            ))
+          ) : (
+            // Render loading message or error message if projects array is empty or undefined
+            <p>{projects ? "No projects found" : "Loading..."}</p>
+          )}
         </div>
       </div>
       <Infobar />
