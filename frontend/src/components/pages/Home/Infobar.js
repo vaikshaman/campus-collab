@@ -66,6 +66,24 @@ const Infobar = () => {
           Notification
         </button>
         <div className={`panel ${openSection === "notification" ? "open" : "instant-close"}`}>
+        <div className="info-content">
+            {/* Profile Bio Here */}
+            <img src={AVATAR} className="info-image" alt="Avatar" />
+            <div className="info-info">
+              <div>Message from Rishi Kiran</div>
+              <p>Do you know how to use figma</p>
+            </div>
+          </div>
+          <div className="info-content">
+            {/* Profile Bio Here */}
+            <img src={AVATAR} className="info-image" alt="Avatar" />
+            <div className="info-info">
+              <div>Message from Rishi Kiran</div>
+              <p>Do you know how to use figma</p>
+            </div>
+          </div>
+        
+
           {/* Notification panel content */}
         </div>
       </div>
