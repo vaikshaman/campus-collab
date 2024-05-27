@@ -1,7 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import search from "../assets/search-add.png";
 import "./Navbar.css"; // Assuming you have a CSS file for Navbar styles
+import axios from "axios";
 
 const Navbar = () => {
   const inputRef = useRef(null);
@@ -30,6 +31,29 @@ const Navbar = () => {
       inputRef.current.value = '';
     }
   }
+
+
+  const[profiles,setProfiles]=useState([]);
+  const storedUserData = localStorage.getItem('user'); // Retrieve the stored user data
+
+    const user = JSON.parse(storedUserData); // Parse the stored user data from JSON to JavaScript object
+  
+
+  useEffect(() => {
+    axios.get(`http://localhost:8050/api/profile/${user.uid}`)
+      .then(Profile => {
+
+        console.log(Profile);
+        setProfiles(Profile.data);
+      })
+      .catch(err => console.log(err));
+  }, []);
+  
+
+
+
+  
+
 
 
   return (
@@ -75,14 +99,14 @@ const Navbar = () => {
           onChange={(e) => setTarget(e.target.value)}
           onKeyDown={handleKeyDown}
         />
-        <Link
-          to="/profile"
-          className={`myprofile ${
-            location.pathname === "/profile" ? "active" : ""
-          }`}
-        >
-          My Profile
-        </Link>
+       <Link
+      to={`/userprofile/${profiles.userid}`}
+      className={`myprofile ${
+        location.pathname === `/profile/${profiles.userid}` ? "active" : ""
+      }`}
+    >
+      My Profile
+    </Link>
         <Link to="/Project" className="createproject">
           Create Project
           <img

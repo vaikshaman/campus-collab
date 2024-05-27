@@ -13,6 +13,7 @@ import notification from "../models/notificationModel.js";
 import Comment from "../models/Projectcomments.js";
 import Likes from "../models/projectlike.js";
 import Message from "../models/Message.js";
+import Follow from '../models/Profilefollow.js';
 
 // import upload from "../utils/upload.js";
 
@@ -139,6 +140,26 @@ router.post('/api/comments', async (req, res) => {
 
 ///////commentend
 
+//api fro project owner detail in vewi project
+router.get('/api/ownerprofile/:email', async (req, res) => {
+  const email = req.params.email;
+  console.log(email);
+
+  try {
+    const profile = await Profile.findOne({ email : email });
+    // console.log(profile);
+
+    if (!profile) {
+      return res.status(404).json({ error: "Profile not found" });
+    }
+
+    res.json({ profile });
+  } catch (error) {
+    console.error("Error fetching profile details:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 
 //likes
 // Route to handle liking a project
@@ -229,7 +250,45 @@ router.get('/api/profile/:userId', async (req, res) => {
 });
 
 
+//FOllowingstart
 
+router.post('/api/follow', async (req, res) => {
+  const { follower_username, following_username } = req.body;
+  const follow = new Follow({ follower_username, following_username });
+  try {
+    await follow.save();
+    res.status(201).send('Followed successfully');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+router.delete('/api/unfollow', async (req, res) => {
+  const { follower_username, following_username } = req.body;
+  try {
+    await Follow.findOneAndDelete({ follower_username, following_username });
+    res.status(200).send('Unfollowed successfully');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+// Add a new route to fetch followed users for a specific user with the current user's ID
+router.get('/api/followedUsers/:userId/:currentUserId', async (req, res) => {
+  const { userId, currentUserId } = req.params;
+  try {
+    const followedUsers = await Follow.find({ follower_username: currentUserId });
+    const isFollowing = followedUsers.some(user => user.following_username === userId);
+    res.status(200).json({ followedUsers, isFollowing });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+//follow end
 
 
 

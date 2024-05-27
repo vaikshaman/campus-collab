@@ -7,18 +7,19 @@ import Side_arrow from "../../assets/side-arrow.png"
 import Graduation_hat from "../../assets/graduation-hat.png"
 import School_Pic from "../../assets/school-pic.png"
 import diamond from "../../assets/diamond.png";
-
+import { useParams } from "react-router-dom";
 
 function Sidebar() {
 
   const[profiles,setProfiles]=useState([]);
-  const storedUserData = localStorage.getItem('user'); // Retrieve the stored user data
+  const storedUserData = localStorage.getItem('user');
+  const user = JSON.parse(storedUserData);
 
-    const user = JSON.parse(storedUserData); // Parse the stored user data from JSON to JavaScript object
-  
+    const { userid } = useParams(); // Extract userid from URL
+    
 
   useEffect(() => {
-    axios.get(`http://localhost:8050/api/profile/${user.uid}`)
+    axios.get(`http://localhost:8050/api/profile/${userid}`)
       .then(Profile => {
 
         console.log(Profile);
@@ -35,6 +36,51 @@ function Sidebar() {
 
   const handleSectionToggle = (section) => {
     setActiveSection(activeSection === section ? section : section);
+
+  };
+
+  const currentUserId = user.email;
+  const  userId = profiles.email;
+
+  const [followedUsers, setFollowedUsers] = useState([]);
+  const [isFollowing, setIsFollowing] = useState(false);
+
+  useEffect(() => {
+    // Fetch followed users when the component mounts
+    const fetchFollowedUsers = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8050/api/followedUsers/${userId}/${currentUserId}`);
+        setFollowedUsers(response.data.followedUsers);
+        setIsFollowing(response.data.isFollowing);
+      } catch (error) {
+        console.error('Error fetching followed users:', error);
+      }
+    };
+
+    fetchFollowedUsers();
+  }, [userId, currentUserId]); // Fetch followed users whenever userId or currentUserId changes
+
+  // Function to handle follow action
+  const handleFollow = async () => {
+    try {
+      await axios.post('http://localhost:8050/api/follow', { follower_username: currentUserId, following_username: userId });
+      setIsFollowing(true);
+      alert(`You started following ${profiles.name}`);
+
+    } catch (error) {
+      console.error('Error following user:', error);
+    }
+  };
+
+  // Function to handle unfollow action
+  const handleUnfollow = async () => {
+    try {
+      await axios.delete('http://localhost:8050/api/unfollow', { data: { follower_username: currentUserId, following_username: userId } });
+      setIsFollowing(false);
+      alert(`You unfollowed ${profiles.name}`);
+    } catch (error) {
+      console.error('Error unfollowing user:', error);
+    }
   };
   return (
     <div className="app">
@@ -132,10 +178,25 @@ function Sidebar() {
           </button>
         </div> */}
       </div>
+
       <div>
-        <Link className="edit-profile-btn1" to="/EditProfile">Edit Profile</Link>
-        <button className="edit-profile-btn2">Logout</button>
-      </div>
+      {user.uid !== userid && (
+  isFollowing ? (
+    <button className="edit-profile-btn1" onClick={handleUnfollow}>Unfollow</button>
+  ) : (
+    <button className="edit-profile-btn1"  onClick={handleFollow}>Follow</button>
+  )
+)}
+
+
+
+    </div>
+    {user.uid === userid && (
+        <>
+          <Link className="edit-profile-btn1" to="/EditProfile">Edit Profile</Link>
+          <button className="edit-profile-btn2">Logout</button>
+        </>
+      )}
     </div>
   );
 }

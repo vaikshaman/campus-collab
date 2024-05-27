@@ -3,6 +3,7 @@ import Navbar from "../../header/Navbar";
 // import "./PostedProject.css";
 // import "./Review.css";
 import "./projectdetail.css";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { useParams } from "react-router-dom"; // Import useParams to extract parameters
 import Review from "./Review";
@@ -17,14 +18,17 @@ const Project = () => {
   const [profiles, setProfiles] = useState([]);
   const storedUserData = localStorage.getItem("user"); // Retrieve the stored user data
 
+  const [profileDetails, setProfileDetails] = useState(null);
+
   const user = JSON.parse(storedUserData); // Parse the stored user data from JSON to JavaScript object
 
   useEffect(() => {
     axios
       .get(`http://localhost:8050/api/profile/${user.uid}`)
       .then((Profile) => {
-        console.log(Profile);
+      
         setProfiles(Profile.data);
+       
       })
       .catch((err) => console.log(err));
   }, []);
@@ -38,6 +42,7 @@ const Project = () => {
         );
         if (response.data.status === "success") {
           setProjects(response.data.data); // Set projects state to the array of project data
+          console.log(projects);
           setComments(response.data.data.comments || []); // Set comments state from fetched project data
         } else {
           console.error(
@@ -53,6 +58,29 @@ const Project = () => {
     fetchProjectDetail();
   }, [projectId]);
 
+
+  useEffect(() => {
+    if (projects && projects.length > 0 && projects[0].email) {
+      const fetchProfileDetails = async () => {
+        try {
+          const response = await axios.get(
+            `http://localhost:8050/api/ownerprofile/${projects[0].email}`
+          );
+
+          console.log(projects[0].email);
+      
+          setProfileDetails(response.data.profile);
+        
+          
+        } catch (error) {
+          console.error("Error fetching profile details:", error);
+        }
+      };
+      fetchProfileDetails();
+    }
+  }, [projects]);
+
+
   useEffect(() => {
     const fetchComments = async () => {
       try {
@@ -60,6 +88,9 @@ const Project = () => {
           `http://localhost:8050/api/comments/${projectId}`
         );
         setComments(response.data.comments);
+
+
+        
       } catch (error) {
         console.error("Error fetching comments:", error);
       }
@@ -67,14 +98,17 @@ const Project = () => {
     fetchComments();
   }, [projectId]);
 
+
   const handleCommentSubmit = async () => {
     try {
       const response = await axios.post("http://localhost:8050/api/comments", {
         projectId,
         userName: profiles.name, // Replace with actual username or fetch from authentication
         image: profiles.imageUrl,
+        userid : profiles.userid,
         content: newComment,
       });
+     
       console.log(response);
       if (response.data.status === "success") {
         setComments([...comments, response.data.comment]);
@@ -88,29 +122,48 @@ const Project = () => {
   };
 
   //LIKES
-
-  const [liked, setLiked] = useState(false);
-  const [totalLikes, setTotalLikes] = useState(0);
-
-  const handleLikeClick = async () => {
-    try {
-      const response = await fetch(
-        `http://localhost:8050/api/projectslike/${projectId}/${user.uid}/like`,
-        { method: "POST" }
-      );
-      if (response.ok) {
-        setLiked(!liked);
-        setTotalLikes((prevTotalLikes) =>
-          liked ? prevTotalLikes - 1 : prevTotalLikes + 1
-        );
-      } else {
-        console.error("Failed to update like status");
+ 
+    const [liked, setLiked] = useState(false);
+    const [totalLikes, setTotalLikes] = useState(0);
+  
+    useEffect(() => {
+      const fetchLikeStatus = async () => {
+        try {
+          const response = await axios.get(`http://localhost:8050/api/projectslike/status/${projectId}/${user.uid}`);
+          if (response.status === 200) {
+            setLiked(response.data.liked);
+            setTotalLikes(response.data.totalLikes);
+          } else {
+            console.error("Failed to fetch like status");
+          }
+        } catch (error) {
+          console.error("Error fetching like status:", error);
+        }
+      };
+  
+      fetchLikeStatus();
+    }, [projectId, user.uid]);
+  
+    const handleLikeClick = async () => {
+      try {
+        const response = await axios.post(`http://localhost:8050/api/projectslike/${projectId}/${user.uid}/like`);
+        if (response.status === 200) {
+          setLiked(response.data.liked);
+          setTotalLikes((prevTotalLikes) => response.data.liked ? prevTotalLikes + 1 : prevTotalLikes - 1);
+        } else {
+          console.error("Failed to update like status");
+        }
+      } catch (error) {
+        console.error("Error updating like status:", error);
       }
-    } catch (error) {
-      console.error("Error updating like status:", error);
-    }
-  };
+    };
+  
+  
   //LIKES END
+
+
+
+  
 
   //Collaboration
 
@@ -203,7 +256,7 @@ const Project = () => {
       <div className="pd-review-section">
         <div className="pd-heading">
           Project Heading
-          <p className="pd-update-btn">Completed</p>
+          <p className="pd-update-btn"></p>
         </div>
 
         <div className="pd-section">
@@ -212,22 +265,26 @@ const Project = () => {
               <div className="pd-user-user">
                 <div className="pd-user-name">
                   Owner
-                  {projects.length > 0 && (
-                    <div className="pd-my-name">
-                      <img src=""></img>
-                      <div className="pd-final-name">
-                        <p className="pd-p1">{projects[0].name}</p>
-                        <p className="pd-p2">134 projects - 3 following</p>
-                      </div>
-                    </div>
-                  )}
+                  {projects.length > 0 && profileDetails && (
+        <div className="pd-my-name">
+          <img src={profileDetails.imageUrl} alt={profileDetails.name} />
+          <div className="pd-final-name">
+          
+          <Link
+      to={`/userprofile/${profileDetails.userid}`}>
+        <p className="pd-p1">{profileDetails.name}</p>
+    </Link>
+            <p className="pd-p2">134 projects - 3 following</p>
+          </div>
+        </div>
+      )}
                 </div>
                 <div className="pd-about-proj">
                   <div className="pd-category">
                     Category
                     <div className="pd-cat-names">
                       <div className="pd-badge1">Web Development</div>
-                      <div className="pd-badge2">App Development</div>
+                     
                     </div>
                   </div>
                   <div className="pd-tools-used">
@@ -247,8 +304,8 @@ const Project = () => {
             <div className="pd-right-head">
               <p>Reviews & Feedback</p>
               <button onClick={handleLikeClick}>
-                {liked ? "Unlike" : "Like"} {totalLikes}
-              </button>
+        {liked ? "Unlike" : "Like"} {totalLikes}
+      </button>
             </div>
             {/* </div> */}
 
@@ -272,7 +329,10 @@ const Project = () => {
 
                     <div className="pd-poster-content">
                       <div className="pd-div-1">
+                      <Link
+      to={`/userprofile/${comment.userid}`}>
                         <div className="pd-d1">{comment.userName}</div>
+                        </Link>
                         <div className="pd-d2">&nbsp;. {comment.createdAt}</div>
                       </div>
                       <div className="pd-the-comment">{comment.content}</div>

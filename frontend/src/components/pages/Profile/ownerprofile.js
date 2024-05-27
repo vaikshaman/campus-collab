@@ -4,7 +4,6 @@ import "./Profile.css";
 import Sidebar from "./Sidebar";
 import axios from "axios";
 import Navbar from "../../header/Navbar";
-import { useParams } from "react-router-dom";
 
 const Profile = () => {
   const [selectedStatus, setSelectedStatus] = useState("ongoing"); // Initialize selectedStatus with "ongoing"
@@ -12,31 +11,9 @@ const Profile = () => {
   const storedUserData = localStorage.getItem('user');
   const user = JSON.parse(storedUserData);
 
-
-
-  const[profiles,setProfiles]=useState([]);
-  const { userid } = useParams(); // Extract userid from URL
-  
-
-  useEffect(() => {
-    axios.get(`http://localhost:8050/api/profile/${userid}`)
-      .then(Profile => {
-
-        console.log(Profile);
-        setProfiles(Profile.data);
-      })
-      .catch(err => console.log(err));
-  }, []);
-  
-
-
-
-
-  
-
   const fetchProjectDetails = async () => {
     try {
-      const response = await fetch(`http://localhost:8050/api/fetchProject/${profiles.email}?status=${selectedStatus}`);
+      const response = await fetch(`http://localhost:8050/api/fetchProject/${user.email}?status=${selectedStatus}`);
       if (response.ok) {
         const data = await response.json();
         setProjects(data.data);
@@ -55,13 +32,6 @@ const Profile = () => {
   const handleStatusClick = (status) => {
     setSelectedStatus(status); // Update selectedStatus when the status button is clicked
   };
-
-
-
-
-  
-   
-  
 
   return (
     <div>
@@ -104,8 +74,6 @@ const Profile = () => {
     </div>
   </Link>
 ))}
-
-
 
             </div>
           </div>

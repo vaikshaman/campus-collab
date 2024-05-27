@@ -536,6 +536,9 @@
     border-bottom: 1px solid #E2E2E2;
 }
 
+img{
+    width: 100%;
+}
 .pdu-poster-pic{
     width: 3rem;
     height: 3rem;
