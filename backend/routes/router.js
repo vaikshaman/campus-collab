@@ -21,16 +21,23 @@ const router = express.Router();
 
 //API FOR LOGIN
 // POST endpoint to store login data
-router.post('/api/login', async (req, res) => {
+router.post('/api/loginData', async (req, res) => {
   try {
+    const loginData = req.body;
+
+    // Check if the login data already exists
+    const existingLoginData = await LoginData.findOne({ loginResponse: loginData });
+
+    if (existingLoginData) {
+      return res.status(400).json({ message: 'Login data already exists' });
+    }
+
     // Create a new document using the LoginData model
-    console.log(req.body);
-    const newLoginData = new LoginData({
-    
-      loginResponse: req.body // Assuming req.body contains the login response object
-    });
+    const newLoginData = new LoginData({ loginResponse: loginData });
+
     // Save the document to the MongoDB collection
     await newLoginData.save();
+
     res.status(201).json({ message: 'Login data saved successfully' });
   } catch (error) {
     console.error('Error saving login data:', error);
@@ -38,15 +45,15 @@ router.post('/api/login', async (req, res) => {
   }
 });
 
-router.get("/api/getlogin", async (req, res) => {
+router.get('/api/getlogin', async (req, res) => {
   try {
-    // Assuming you want to retrieve all login data
+    // Retrieve all login data from the MongoDB collection
     const loginData = await LoginData.find();
-
+    
     res.status(200).json(loginData);
   } catch (error) {
-    console.error("Error retrieving login data:", error);
-    res.status(500).send("Internal server error");
+    console.error('Error retrieving login data:', error);
+    res.status(500).send('Internal server error');
   }
 });
 
@@ -248,6 +255,19 @@ router.get('/api/profile/:userId', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
+//api for profile in infobar
+router.get('/api/profiles', async (req, res) => {
+  try {
+    // Query the database to retrieve all profile data
+    const profiles = await Profile.find();
+    res.json(profiles);
+  } catch (error) {
+    console.error('Error fetching profiles:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
 
 
 //FOllowingstart
