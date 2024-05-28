@@ -51,9 +51,9 @@
   .pd-project-subheading {
     color: #000;
     font-family: "Pangea Trial";
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     line-height: normal;
     /* width: 62vw; */
     border: none;
@@ -118,6 +118,7 @@
     /* height: 31.5rem; */
     outline: none;
     border: none;
+    
   }
   
   /* No idea about attach pdf  */
@@ -136,6 +137,7 @@
     border: 1px solid #d3d3d3;
     background: #f5f5f7;
     display: flex;
+    flex-direction: column;
     padding: 1.5rem;
     align-items: flex-start;
     gap: 1.5rem;
@@ -649,6 +651,6 @@ box-shadow: 0px 75px 21px 0px rgba(0, 0, 0, 0.00), 0px 48px 19px 0px rgba(0, 0, 
     }
   }
 
-  img {
+  /* img {
     width: 100%;
-  }
+  } */

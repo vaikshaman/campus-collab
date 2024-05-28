@@ -207,17 +207,28 @@ const Project = () => {
     }
   };
 
-
   const renderFieldValue = (field) => {
     // Check if the value of the field is an object
     if (typeof field.value === 'object' && field.value !== null) {
       // If it's an object, stringify it for display
       return JSON.stringify(field.value);
     } else {
+      // Check for the specific input type that requires splitting by `;`
+      if (field.type === 'code-block') { // Replace 'specialType' with the specific type
+        return field.value.split(';').map((part, index) => (
+          <div key={index}>{part.trim()}</div>
+        ));
+      }
       // Otherwise, render the value as is
       return field.value;
     }
   };
+
+  const excludedTypes = ['image']; // Add the types you want to exclude here
+  const typesWithoutDescription = ['heading', 'subheading'];
+
+  // const headingField = projects[0].inputFields.find(field => field.type === 'heading');
+
 
   return (
     <div>
@@ -237,20 +248,25 @@ const Project = () => {
             <div className="pd-project-heading">Project Detail</div>
             {projects && projects.length > 0 && (
         <div>
-          <h2>Project ID: {projects[0].projectId}</h2>
+          <div className="pd-project-subheading">Project ID: {projects[0].projectId}</div>
 
-          <p>Email: {projects[0].email}</p>
-          <p>
-            Images: <img src={projects[0].images} alt="Project Image" />
+          <p className="pd-project-subheading">Email: <p className="pdu-project-description">{projects[0].email}</p></p>
+          <p className="pd-project-image">
+            Image: <img src={projects[0].images} alt="Project Image" />
           </p>
-          <h3>Input Fields:</h3>
-          <ul>
-            {projects[0].inputFields.map((field, index) => (
-              <li key={index}>
-                Type: {field.type}, Value: {renderFieldValue(field)}
-              </li>
+          <br/>
+          <h2>Project Content:</h2>
+          <div>
+            {projects[0].inputFields.filter(field => !excludedTypes.includes(field.type)).map((field, index) => (
+              
+              <div key={index} >
+                {!typesWithoutDescription.includes(field.type) && (
+                  <div className="pd-project-subheading">{field.type}: </div>
+                )}
+                <div className={`pd-project-${field.type}`}>{renderFieldValue(field)}</div>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       )}
           </form>
