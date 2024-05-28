@@ -83,14 +83,7 @@ const Navbar = () => {
         >
           Queries
         </Link>
-        <Link
-          to="/Courses"
-          className={`courses ${
-            location.pathname === "/Courses" ? "active" : ""
-          }`}
-        >
-          Courses
-        </Link>
+       
         <input
           ref={inputRef}
           type="text"

@@ -21,6 +21,7 @@ const Project = () => {
   const [profileDetails, setProfileDetails] = useState(null);
 
   const user = JSON.parse(storedUserData); // Parse the stored user data from JSON to JavaScript object
+  console.log(user.uid);
 
   useEffect(() => {
     axios
@@ -28,6 +29,8 @@ const Project = () => {
       .then((Profile) => {
       
         setProfiles(Profile.data);
+
+        console.log(profiles);
        
       })
       .catch((err) => console.log(err));
@@ -173,6 +176,7 @@ const Project = () => {
   const handleCollaboration = async () => {
     try {
       const senderName = profiles.name; // Assuming profiles contains sender information
+      console.log(senderName);
 
       let projectName = ""; // Initialize projectName
 

@@ -1,49 +1,44 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const communityPost = mongoose.Schema(
-    {
-        authorEmail : 
-        {
-            type : String,
-            required : true,
-        },
-        authorName : {
-            type : String,
-            required : true
-        },
-        question : {
-            type : String,
-            required : true
-        },
-        description : {
-            type : String,
-            required : true
-        },
-        postType : {
-            type: String,
-            required : true
-        },
-        comments : [
-            {
-                commenterEmail : {
-                    type : String,
-                    required : true
-                },
-                commenterName : {
-                    type : String,
-                    required : true
-                },
-                comment : {
-                    type : String,
-                    required : true
-                },
-                timestamps : {
-                    type: Date,
-                    default : Date.now
-                }
-            }
-        ]
-    }
-,{timestamps : true})
+// Define the schema
+const CommunityPostSchema = new mongoose.Schema({
+  authorEmail: {
+    type: String,
+    required: true
+  },
+  authorName: {
+    type: String,
+    required: true
+  },
+  autherimage: {
+    type: String,
+    required: true,
+    
+  },
+  question: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  category: {
+    type: String,
+    required: true
+  },
+  postType: {
+    type: String,
+    required: true
+  },
+  
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
+});
 
-export default mongoose.model('CommunityPosts',communityPost); 
+// Create the model
+const CommunityPosts = mongoose.model('CommunityPost', CommunityPostSchema);
+
+export default CommunityPosts;

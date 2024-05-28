@@ -14,6 +14,7 @@ import Comment from "../models/Projectcomments.js";
 import Likes from "../models/projectlike.js";
 import Message from "../models/Message.js";
 import Follow from '../models/Profilefollow.js';
+import QueryComment from "../models/comunitycomments.js";
 
 // import upload from "../utils/upload.js";
 
@@ -382,51 +383,121 @@ router.get("/api/sortCoursePostsByLatest", async (req, res) => {
 });
 
 router.post("/api/addPost", async (req, res) => {
-  // const obj = {
-  //   authorEmail : req.body.authorEmail,
-  //   authorName : req.body.authorName,
-  //   question : req.body.question,
-  //   description : req.body.description,
-  //   comments : []
-  // }
+  try {
+    const { authorEmail, authorName, autherimage, question, description, category, postType } = req.body;
 
-  // const obj = {
-  //   authorEmail : "g.kancharla@iitg.ac.in",
-  //   authorName : "KANCHARLA ABHIJITH GOUD",
-  //   question : "HELLO WORLD",
-  //   description : "HELLO WORLD",
-  //   postType : "QUERY",
-  //   comments : []
-  // }
-  //console.log(req.body);
-  // const obj = {
-  //   authorEmail : "pratyush.r@iitg.ac.in",
-  //   authorName : "PRATYUSH R",
-  //   question : "HELLO WORLD",
-  //   description : "HELLO WORLD",
-  //   postType : "COURSE",
-  //   comments : []
-  // }
-  const obj = {
-    authorEmail: req.body.authorEmail,
-    authorName: req.body.authorName,
-    question: req.body.question,
-    description: req.body.description,
-    postType: req.body.postType,
-    comments: [],
-  };
-  const resu = await mongoose.model("CommunityPosts").insertMany(obj);
-  console.log(resu);
-  res.sendStatus(200);
+    // Check if any required fields are missing
+    if (!authorEmail || !authorName || !autherimage || !question || !description || !category || !postType) {
+      return res.status(400).send({ message: "Missing required fields" });
+    }
+
+    // Create a new post object
+    const newPost = await CommunityPosts.create({
+      authorEmail,
+      authorName,
+      autherimage,
+      question,
+      description,
+      category,
+      postType,
+    });
+
+    console.log("New post created:", newPost);
+
+    // Send a success response
+    res.sendStatus(201); // 201 Created status
+  } catch (error) {
+    // Handle errors
+    console.error("Error creating new post:", error);
+    res.status(500).send({ message: "Internal server error" });
+  }
 });
 
-router.get("/api/getdetailquerybyid", async (req, res) => {
-  const qid = req.query.id;
-  console.log(qid);
-  const resu = await mongoose.model("CommunityPosts").findOne({ _id: qid });
-  console.log(resu);
-  res.json(resu);
+//get all postquesry
+
+router.get("/api/posts", async (req, res) => {
+  try {
+    // Fetch all posts from the database
+    const posts = await CommunityPosts.find();
+
+    // Send the posts as a response
+    res.status(200).json(posts);
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
 });
+
+router.get("/api/getdetailquerybyid/:id", async (req, res) => {
+  try {
+    const qid = req.params.id;
+    console.log(qid);
+    const resu = await CommunityPosts.findOne({ _id: qid }); // Use the imported model
+    console.log(resu);
+    if (!resu) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+    // Exclude comments for now
+    const { comments, ...postWithoutComments } = resu.toObject();
+    res.json(postWithoutComments);
+  } catch (error) {
+    console.error("Error fetching detail query by ID:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+router.get('/api/querycomments/:queryId', async (req, res) => {
+  try {
+    const queryId = req.params.queryId;
+    const comments = await QueryComment.find({ queryId });
+    res.json({ status: 'success', comments });
+  } catch (error) {
+    console.error('Error fetching comments:', error);
+    res.status(500).json({ status: 'error', message: 'Failed to fetch comments' });
+  }
+});
+
+router.post('/api/querycomments', async (req, res) => {
+  try {
+    const { queryId, userid ,userName, image, content } = req.body; // Destructure queryId, userName, image, and content from the request body
+    const comment = new QueryComment({ queryId,userid, userName, image, content }); // Create a new QueryComment document
+    await comment.save(); // Save the comment to the database
+    res.json({ status: 'success', comment }); // Respond with success status and the saved comment
+  } catch (error) {
+    console.error('Error posting comment:', error);
+    res.status(500).json({ status: 'error', message: 'Failed to post comment' }); // Respond with error status and message
+  }
+});
+
+
+
+// GET all queries for a specific user email
+router.get('/api/getqueries/:userEmail', async (req, res) => {
+  try {
+    const userEmail = req.params.userEmail;
+    const queries = await  CommunityPosts.find({ authorEmail: userEmail });
+
+    
+    res.json({ status: 'success', queries });
+  } catch (error) {
+    console.error('Error fetching queries:', error);
+    res.status(500).json({ status: 'error', message: 'Failed to fetch queries' });
+  }
+});
+
+//related quiry
+router.get('/api/getreatedqueries/:related', async (req, res) => {
+  try {
+    const userEmail = req.params.related; // Corrected parameter name
+    const queries = await CommunityPosts.find({ category: userEmail });
+    console.log(queries);
+    res.json({ status: 'success', queries });
+  } catch (error) {
+    console.error('Error fetching queries:', error);
+    res.status(500).json({ status: 'error', message: 'Failed to fetch queries' });
+  }
+});
+
 
 router.post("/api/updatePost", async (req, res) => {
   const pid = req.body.pid;
