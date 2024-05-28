@@ -250,9 +250,9 @@ const Project = () => {
         <div>
           <div className="pd-project-subheading">Project ID: {projects[0].projectId}</div>
 
-          <p className="pd-project-subheading">Email: <p className="pdu-project-description">{projects[0].email}</p></p>
+          {/* <p className="pd-project-subheading">Email: <p className="pdu-project-description">{projects[0].email}</p></p> */}
           <p className="pd-project-image">
-            Image: <img src={projects[0].images} alt="Project Image" />
+            <img src={projects[0].images} alt="Project Image" />
           </p>
           <br/>
           <h2>Project Content:</h2>

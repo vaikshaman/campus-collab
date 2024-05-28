@@ -84,7 +84,7 @@ const About = () => {
         {user ? (
           <>
             {/* Display user information and sign-out button */}
-            <p className="user">Welcome, {user.displayName}</p>
+            <p className="user-1">Welcome, {user.displayName}</p>
             {/* <p className="email">Email: {user.email}</p> */}
             <button className="btn" onClick={handleSignOut}>
               Sign out
@@ -123,7 +123,7 @@ const About = () => {
             {user ? (
               <>
                 {/* Display user information and sign-out button */}
-                <p className="user">Welcome, {user.displayName}</p>
+                <p className="user-2">Welcome, {user.displayName}</p>
                 {/* <p className="email">Email: {user.email}</p> */}
                 {/* <button className="btn" onClick={handleSignOut}>Sign out</button> */}
                 <div className="well-btn">

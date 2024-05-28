@@ -6,6 +6,21 @@ import isFriend from "../../assets/is-friend.png";
 import AVATAR from "../../assets/Avatar.jpg";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Notification from "./Notification";
+
+
+const NotifyPage = ({ onClose }) => {
+  return (
+    <div className='notify-overlay'>
+      <div className="notify">
+        <div className="cross-btn" onClick={onClose}>X</div>
+        <Notification
+          close= {onClose}
+        />
+      </div>
+    </div>
+  );
+};
 
 const Infobar = () => {
   const [openSection, setOpenSection] = useState("discover");
@@ -59,6 +74,14 @@ const Infobar = () => {
     }
   };
 
+   // Function to toggle the visibility of the pop-up page
+   const [isNotifyOpen, setIsNotifyOpen] = useState(false);
+
+   const toggleNotify = () => {
+    
+    setIsNotifyOpen(!isNotifyOpen);
+};
+
   return (
     <div className="infobar">
       <div className="info-section">
@@ -66,7 +89,7 @@ const Infobar = () => {
           Notification
         </button>
         <div className={`panel ${openSection === "notification" ? "open" : "instant-close"}`}>
-        <div className="info-content">
+        <div className="info-content"  onClick={toggleNotify}>
             {/* Profile Bio Here */}
             <img src={AVATAR} className="info-image" alt="Avatar" />
             <div className="info-info">
@@ -77,7 +100,7 @@ const Infobar = () => {
           <div className="info-content">
             {/* Profile Bio Here */}
             <img src={AVATAR} className="info-image" alt="Avatar" />
-            <div className="info-info">
+            <div className="info-info"  onClick={toggleNotify}>
               <div>Message from Rishi Kiran</div>
               <p>Do you know how to use figma</p>
             </div>
@@ -121,6 +144,7 @@ const Infobar = () => {
       <div className="info-section fixed-bottom">
         {/* Additional info sections */}
       </div>
+      {isNotifyOpen && <NotifyPage onClose={toggleNotify} />}
     </div>
   );
 };

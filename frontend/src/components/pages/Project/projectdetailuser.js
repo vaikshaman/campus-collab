@@ -179,7 +179,7 @@ const Projectuser = () => {
 
           <p className="pdu-project-subheading">Email: <p className="pdu-project-description">{projects[0].email}</p></p>
           <p  className="pdu-project-image">
-            Image: <img src={projects[0].images} alt="Project Image" />
+            <img src={projects[0].images} alt="Project Image" />
           </p>
           <br/>
           <h2>Project Content:</h2>
