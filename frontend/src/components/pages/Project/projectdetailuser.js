@@ -5,13 +5,15 @@ import axios from "axios";
 import { useParams } from "react-router-dom"; // Import useParams to extract parameters
 import "./Review.css";
 import thumbsUp from "../../assets/thumbs-up.png";
+import { Link } from "react-router-dom";
+
 
 const Projectuser = () => {
   const { projectId } = useParams(); // Extract project ID from URL
   const [projects, setProjects] = useState([]); // Initialize projects state as an empty array
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
-
+  const [profileDetails, setProfileDetails] = useState(null);
   const [profiles, setProfiles] = useState([]);
   const storedUserData = localStorage.getItem("user"); // Retrieve the stored user data
 
@@ -51,6 +53,29 @@ const Projectuser = () => {
     fetchProjectDetail();
   }, [projectId]);
 
+
+  useEffect(() => {
+    if (projects && projects.length > 0 && projects[0].email) {
+      const fetchProfileDetails = async () => {
+        try {
+          const response = await axios.get(
+            `http://localhost:8050/api/ownerprofile/${projects[0].email}`
+          );
+
+          console.log(projects[0].email);
+      
+          setProfileDetails(response.data.profile);
+        
+          
+        } catch (error) {
+          console.error("Error fetching profile details:", error);
+        }
+      };
+      fetchProfileDetails();
+    }
+  }, [projects]);
+
+
   useEffect(() => {
     const fetchComments = async () => {
       try {
@@ -71,6 +96,7 @@ const Projectuser = () => {
         projectId,
         userName: profiles.name, // Replace with actual username or fetch from authentication
         image: profiles.imageUrl,
+        userid : profiles.userid,
         content: newComment,
       });
       console.log(response);
@@ -110,6 +136,18 @@ const Projectuser = () => {
   };
   //LIKES END
 
+  const renderFieldValue = (field) => {
+    // Check if the value of the field is an object
+    if (typeof field.value === 'object' && field.value !== null) {
+      // If it's an object, stringify it for display
+      return JSON.stringify(field.value);
+    } else {
+      // Otherwise, render the value as is
+      return field.value;
+    }
+  };
+  
+
   return (
     <div>
       <Navbar />
@@ -127,22 +165,23 @@ const Projectuser = () => {
             </div>
             <div className="pdu-project-heading">Project Detail</div>
             {projects && projects.length > 0 && (
-              <div>
-                <div className="pdu-project-subheading">Project ID: {projects[0].projectId}</div>
-                <p className="pdu-project-description">Email: {projects[0].email}</p>
-                <p className="pd-project-image">
-                  Images: <img src={projects[0].images} alt="Project Image" />
-                </p>
-                <h3>Input Fields:</h3>
-                <ul>
-                  {projects[0].inputFields.map((field, index) => (
-                    <li key={index}>
-                      Type: {field.type}, Value: {field.value}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+        <div>
+          <h2>Project ID: {projects[0].projectId}</h2>
+
+          <p>Email: {projects[0].email}</p>
+          <p>
+            Images: <img src={projects[0].images} alt="Project Image" />
+          </p>
+          <h3>Input Fields:</h3>
+          <ul>
+            {projects[0].inputFields.map((field, index) => (
+              <li key={index}>
+                Type: {field.type}, Value: {renderFieldValue(field)}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
           </form>
         </div>
       </div>
@@ -159,15 +198,19 @@ const Projectuser = () => {
               <div className="pdu-user-user">
                 <div className="pdu-user-name">
                   Owner
-                  {projects.length > 0 && (
-                    <div className="pdu-my-name">
-                      <img src=""></img>
-                      <div className="pdu-final-name">
-                        <p className="pdu-p1">{projects[0].name}</p>
-                        <p className="pdu-p2">134 projects - 3 following</p>
-                      </div>
-                    </div>
-                  )}
+                  {projects.length > 0 && profileDetails && (
+        <div className="pd-my-name">
+          <img src={profileDetails.imageUrl} alt={profileDetails.name} />
+          <div className="pd-final-name">
+             
+          <Link
+      to={`/userprofile/${profileDetails.userid}`}>
+        <p className="pd-p1">{profileDetails.name}</p>
+    </Link>
+            <p className="pd-p2">134 projects - 3 following</p>
+          </div>
+        </div>
+      )}
                 </div>
                 <div className="pdu-about-proj">
                   <div className="pdu-category">
@@ -213,7 +256,10 @@ const Projectuser = () => {
 
                     <div className="pdu-poster-content">
                       <div className="pdu-div-1">
-                        <div className="pdu-d1">{comment.userName}</div>
+                      <Link
+      to={`/userprofile/${comment.userid}`}>
+                        <div className="pd-d1">{comment.userName}</div>
+                        </Link>
                         <div className="pdu-d2">
                           &nbsp;. {comment.createdAt}
                         </div>

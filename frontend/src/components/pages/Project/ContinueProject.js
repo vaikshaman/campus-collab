@@ -1,82 +1,87 @@
-import React from 'react'
+// ContinueProject.js
+import React from 'react';
 import { Link } from 'react-router-dom';
-import './ContinueProject.css'
+import './ContinueProject.css';
 
-function ContinueProject(props) {
+const ContinueProject = ({ close, formData, setFormData, handleSubmit }) => {
+  
+  const handlePublish = () => {
+    handleSubmit && handleSubmit(); // Call the handleSubmit function only if it's defined
+    close(); // Close the popup after submitting the form
+  };
+
   return (
-    // <div className='con-boss'>
-        <form className='Project_Overlay'>
-         
-         <div className='Project_Overlay_Upper_Part'>
-   
+    <div className='popup-overlay'>
+      <div className="popup">
+        <div className='Project_Overlay_Upper_Part'>
           <div className='Project_Overlay_Top2'>
-             
-             <div className='Project_Overlay_img'></div>
-   
-             <div className='Project_Overlay_img_right'>
-                <div className='Project_Overlay_Name'>ProjectName</div>
-                <input className='Project_Overlay_Project_Name' placeholder='Enter Project Name'></input>
-             </div>
-             
+            <div className='Project_Overlay_img'></div>
+            <div className='Project_Overlay_img_right'>
+              <div className='Project_Overlay_Name'>ProjectName</div>
+              <input
+                className='Project_Overlay_Project_Name'
+                placeholder='Enter Project Name'
+                value={formData.projectName}
+                onChange={(e) => setFormData({ ...formData, projectName: e.target.value })}
+              />
+            </div>
           </div>
-   
           <div className='Project_Overlay_Mid_Input'>
-   
-             <div className='Project_Overlay_Categories'>
-               <div className='Project_Overlay_Category_Name'>Category</div>
-               <input className='Project_Overlay_Category' placeholder='Website Development,UI Design'></input>
-             </div>
-   
-             <div className='Project_Overlay_Categories'>
-               <div className='Project_Overlay_Category_Name'>Tools</div>
-               <input className='Project_Overlay_Category' placeholder='Website Development,UI Design'></input>
-             </div>
-   
+            <div className='Project_Overlay_Categories'>
+              <div className='Project_Overlay_Category_Name'>Category</div>
+              <input
+                className='Project_Overlay_Category'
+                placeholder='Website Development,UI Design'
+                value={formData.category}
+                onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+              />
+            </div>
+            <div className='Project_Overlay_Categories'>
+              <div className='Project_Overlay_Category_Name'>Tools</div>
+              <input
+                className='Project_Overlay_Category'
+                placeholder='Website Development,UI Design'
+                value={formData.tools}
+                onChange={(e) => setFormData({ ...formData, tools: e.target.value })}
+              />
+            </div>
           </div>
-   
           <div className='Project_Overlay_Project_Status'>
-   
-             <div className='Project_Overlay_Project_Status_Name'>Project Status</div>
-                     
-             <div className='Radio'>
-             <label className='Radio_Input'>
-                <input type='radio' id="option1" name="options" value="option1" checked></input>
+            <div className='Project_Overlay_Project_Status_Name'>Project Status</div>
+            <div className='Radio'>
+              <label className='Radio_Input'>
+                <input
+                  type='radio'
+                  id="option1"
+                  name="options"
+                  value="ongoing"
+                  checked={formData.status === "ongoing"}
+                  onChange={() => setFormData({ ...formData, status: 'ongoing' })}
+                />
                 <span className='Project_Status_Text'>Ongoing</span>
-             </label>
-   
-             <label className='Radio_Input' >
-                <input type='radio' id="option2" name="options" value="option2"></input>
+              </label>
+              <label className='Radio_Input' >
+                <input
+                  type='radio'
+                  id="option2"
+                  name="options"
+                  value="completed"
+                  checked={formData.status === "completed"}
+                  onChange={() => setFormData({ ...formData, status: 'completed' })}
+                />
                 <span className='Project_Status_Text'>Completed</span>
-             </label>
-
-             {/* <div class="radio-container">
-  <input type="radio" id="option1" name="options" value="option1" checked>
-  <label for="option1">Option 1</label>
-</div>
-
-<div class="radio-container">
-  <input type="radio" id="option2" name="options" value="option2">
-  <label for="option2">Option 2</label>
-</div> */}
-   
-           
-           </div>   
-   
-   
+              </label>
+            </div>
           </div>
-   
           <div className='Project_Overlay_Bottom'>
-           <button className='Project_Overlay_Cancel' onClick={props.close}>Cancel</button>
-           {/* <button className='Project_Overlay_Draft'>Save Draft</button> */}
-           <Link to="/profile" className='Project_Overlay_Publish'>Publish Project</Link>
+            <button className='Project_Overlay_Cancel' onClick={close}>Cancel</button>
+            {handleSubmit && <button className='Project_Overlay_Publish' onClick={handlePublish}>Publish Project</button>}
+
           </div>
-   
-         </div>
-   
-       </form>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-    // </div>
-  )
-}
-
-export default ContinueProject
+export default ContinueProject;

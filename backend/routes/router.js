@@ -13,6 +13,8 @@ import notification from "../models/notificationModel.js";
 import Comment from "../models/Projectcomments.js";
 import Likes from "../models/projectlike.js";
 import Message from "../models/Message.js";
+import Follow from '../models/Profilefollow.js';
+import QueryComment from "../models/comunitycomments.js";
 
 // import upload from "../utils/upload.js";
 
@@ -20,16 +22,23 @@ const router = express.Router();
 
 //API FOR LOGIN
 // POST endpoint to store login data
-router.post('/api/login', async (req, res) => {
+router.post('/api/loginData', async (req, res) => {
   try {
+    const loginData = req.body;
+
+    // Check if the login data already exists
+    const existingLoginData = await LoginData.findOne({ loginResponse: loginData });
+
+    if (existingLoginData) {
+      return res.status(400).json({ message: 'Login data already exists' });
+    }
+
     // Create a new document using the LoginData model
-    console.log(req.body);
-    const newLoginData = new LoginData({
-    
-      loginResponse: req.body // Assuming req.body contains the login response object
-    });
+    const newLoginData = new LoginData({ loginResponse: loginData });
+
     // Save the document to the MongoDB collection
     await newLoginData.save();
+
     res.status(201).json({ message: 'Login data saved successfully' });
   } catch (error) {
     console.error('Error saving login data:', error);
@@ -37,15 +46,15 @@ router.post('/api/login', async (req, res) => {
   }
 });
 
-router.get("/api/getlogin", async (req, res) => {
+router.get('/api/getlogin', async (req, res) => {
   try {
-    // Assuming you want to retrieve all login data
+    // Retrieve all login data from the MongoDB collection
     const loginData = await LoginData.find();
-
+    
     res.status(200).json(loginData);
   } catch (error) {
-    console.error("Error retrieving login data:", error);
-    res.status(500).send("Internal server error");
+    console.error('Error retrieving login data:', error);
+    res.status(500).send('Internal server error');
   }
 });
 
@@ -75,16 +84,26 @@ router.get('/api/Project/:projectId', async (req, res) => {
 router.get('/api/fetchProject/:email', async (req, res) => {
   try {
     const userEmail = req.params.email;
-    console.log(userEmail);
-    // Query the database for projects data associated with the user's email
-    const projects = await Project.find({ email: userEmail });
-    console.log(projects);
+    const status = req.query.status; // Get the status query parameter from the request URL
+
+    let projects;
+    if (status === 'ongoing' || status === 'completed') {
+      // Query the database for projects data associated with the user's email and matching status
+      projects = await Project.find({ email: userEmail, 'projectDetails.status': status });
+     
+    } else {
+      // If no status query parameter is provided or it's invalid, fetch all projects for the user
+      projects = await Project.find({ email: userEmail });
+    }
+
+    // console.log(projects);
     res.status(200).json({ status: 'success', data: projects });
   } catch (error) {
     console.error('Error fetching projects:', error);
     res.status(500).json({ status: 'error', message: 'Failed to fetch projects' });
   }
 });
+
 // API FOR GETTING PROJECT DETAILS IN FRONTEN home PAGE
 router.get('/api/fetchProject', async (req, res) => {
   try {
@@ -128,6 +147,26 @@ router.post('/api/comments', async (req, res) => {
 });
 
 ///////commentend
+
+//api fro project owner detail in vewi project
+router.get('/api/ownerprofile/:email', async (req, res) => {
+  const email = req.params.email;
+  console.log(email);
+
+  try {
+    const profile = await Profile.findOne({ email : email });
+    // console.log(profile);
+
+    if (!profile) {
+      return res.status(404).json({ error: "Profile not found" });
+    }
+
+    res.json({ profile });
+  } catch (error) {
+    console.error("Error fetching profile details:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
 
 
 //likes
@@ -218,29 +257,88 @@ router.get('/api/profile/:userId', async (req, res) => {
   }
 });
 
+//api for profile in infobar
+router.get('/api/profiles', async (req, res) => {
+  try {
+    // Query the database to retrieve all profile data
+    const profiles = await Profile.find();
+    res.json(profiles);
+  } catch (error) {
+    console.error('Error fetching profiles:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
 
 
+
+//FOllowingstart
+
+router.post('/api/follow', async (req, res) => {
+  const { follower_username, following_username } = req.body;
+  const follow = new Follow({ follower_username, following_username });
+  try {
+    await follow.save();
+    res.status(201).send('Followed successfully');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+router.delete('/api/unfollow', async (req, res) => {
+  const { follower_username, following_username } = req.body;
+  try {
+    await Follow.findOneAndDelete({ follower_username, following_username });
+    res.status(200).send('Unfollowed successfully');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+// Add a new route to fetch followed users for a specific user with the current user's ID
+router.get('/api/followedUsers/:userId/:currentUserId', async (req, res) => {
+  const { userId, currentUserId } = req.params;
+  try {
+    const followedUsers = await Follow.find({ follower_username: currentUserId });
+    const isFollowing = followedUsers.some(user => user.following_username === userId);
+    res.status(200).json({ followedUsers, isFollowing });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+//follow end
 
 
 
 //API FOR UPLOADING PROJECT
 router.post("/api/saveProject", async (req, res) => {
   try {
-    console.log(req.body);
-    const inputFields = req.body; // Access form fields from req.body
+    // Extract fields from req.body
+    const { projectId, email, name, images, inputFields, projectDetails } = req.body;
 
-    // Create a new project with the received data
+    // Create a new project with the extracted data
     const newProject = new Project({
-      ...inputFields,
+      projectId,
+      email,
+      name,
+      images,
+      inputFields,
+      projectDetails,
     });
 
+    // Save the new project
     await newProject.save();
+
     res.status(200).json({ message: "Project data saved successfully" });
   } catch (error) {
     console.error("Error saving project data:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 });
+
 
 // END API FOR UPLOAD PROJECT
 
@@ -285,51 +383,121 @@ router.get("/api/sortCoursePostsByLatest", async (req, res) => {
 });
 
 router.post("/api/addPost", async (req, res) => {
-  // const obj = {
-  //   authorEmail : req.body.authorEmail,
-  //   authorName : req.body.authorName,
-  //   question : req.body.question,
-  //   description : req.body.description,
-  //   comments : []
-  // }
+  try {
+    const { authorEmail, authorName, autherimage, question, description, category, postType } = req.body;
 
-  // const obj = {
-  //   authorEmail : "g.kancharla@iitg.ac.in",
-  //   authorName : "KANCHARLA ABHIJITH GOUD",
-  //   question : "HELLO WORLD",
-  //   description : "HELLO WORLD",
-  //   postType : "QUERY",
-  //   comments : []
-  // }
-  //console.log(req.body);
-  // const obj = {
-  //   authorEmail : "pratyush.r@iitg.ac.in",
-  //   authorName : "PRATYUSH R",
-  //   question : "HELLO WORLD",
-  //   description : "HELLO WORLD",
-  //   postType : "COURSE",
-  //   comments : []
-  // }
-  const obj = {
-    authorEmail: req.body.authorEmail,
-    authorName: req.body.authorName,
-    question: req.body.question,
-    description: req.body.description,
-    postType: req.body.postType,
-    comments: [],
-  };
-  const resu = await mongoose.model("CommunityPosts").insertMany(obj);
-  console.log(resu);
-  res.sendStatus(200);
+    // Check if any required fields are missing
+    if (!authorEmail || !authorName || !autherimage || !question || !description || !category || !postType) {
+      return res.status(400).send({ message: "Missing required fields" });
+    }
+
+    // Create a new post object
+    const newPost = await CommunityPosts.create({
+      authorEmail,
+      authorName,
+      autherimage,
+      question,
+      description,
+      category,
+      postType,
+    });
+
+    console.log("New post created:", newPost);
+
+    // Send a success response
+    res.sendStatus(201); // 201 Created status
+  } catch (error) {
+    // Handle errors
+    console.error("Error creating new post:", error);
+    res.status(500).send({ message: "Internal server error" });
+  }
 });
 
-router.get("/api/getdetailquerybyid", async (req, res) => {
-  const qid = req.query.id;
-  console.log(qid);
-  const resu = await mongoose.model("CommunityPosts").findOne({ _id: qid });
-  console.log(resu);
-  res.json(resu);
+//get all postquesry
+
+router.get("/api/posts", async (req, res) => {
+  try {
+    // Fetch all posts from the database
+    const posts = await CommunityPosts.find();
+
+    // Send the posts as a response
+    res.status(200).json(posts);
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
 });
+
+router.get("/api/getdetailquerybyid/:id", async (req, res) => {
+  try {
+    const qid = req.params.id;
+    console.log(qid);
+    const resu = await CommunityPosts.findOne({ _id: qid }); // Use the imported model
+    console.log(resu);
+    if (!resu) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+    // Exclude comments for now
+    const { comments, ...postWithoutComments } = resu.toObject();
+    res.json(postWithoutComments);
+  } catch (error) {
+    console.error("Error fetching detail query by ID:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+router.get('/api/querycomments/:queryId', async (req, res) => {
+  try {
+    const queryId = req.params.queryId;
+    const comments = await QueryComment.find({ queryId });
+    res.json({ status: 'success', comments });
+  } catch (error) {
+    console.error('Error fetching comments:', error);
+    res.status(500).json({ status: 'error', message: 'Failed to fetch comments' });
+  }
+});
+
+router.post('/api/querycomments', async (req, res) => {
+  try {
+    const { queryId, userid ,userName, image, content } = req.body; // Destructure queryId, userName, image, and content from the request body
+    const comment = new QueryComment({ queryId,userid, userName, image, content }); // Create a new QueryComment document
+    await comment.save(); // Save the comment to the database
+    res.json({ status: 'success', comment }); // Respond with success status and the saved comment
+  } catch (error) {
+    console.error('Error posting comment:', error);
+    res.status(500).json({ status: 'error', message: 'Failed to post comment' }); // Respond with error status and message
+  }
+});
+
+
+
+// GET all queries for a specific user email
+router.get('/api/getqueries/:userEmail', async (req, res) => {
+  try {
+    const userEmail = req.params.userEmail;
+    const queries = await  CommunityPosts.find({ authorEmail: userEmail });
+
+    
+    res.json({ status: 'success', queries });
+  } catch (error) {
+    console.error('Error fetching queries:', error);
+    res.status(500).json({ status: 'error', message: 'Failed to fetch queries' });
+  }
+});
+
+//related quiry
+router.get('/api/getreatedqueries/:related', async (req, res) => {
+  try {
+    const userEmail = req.params.related; // Corrected parameter name
+    const queries = await CommunityPosts.find({ category: userEmail });
+    console.log(queries);
+    res.json({ status: 'success', queries });
+  } catch (error) {
+    console.error('Error fetching queries:', error);
+    res.status(500).json({ status: 'error', message: 'Failed to fetch queries' });
+  }
+});
+
 
 router.post("/api/updatePost", async (req, res) => {
   const pid = req.body.pid;

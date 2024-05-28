@@ -1,4 +1,3 @@
-// models/Comment.js
 import mongoose from 'mongoose';
 
 const { Schema, model } = mongoose;
@@ -14,6 +13,10 @@ const commentSchema = new Schema({
   },
   image: {
     type: String // Assuming the image URL will be stored as a string
+  },
+  userid: {
+    type: String, // Assuming the userid will be stored as a string
+    
   },
   content: {
     type: String,

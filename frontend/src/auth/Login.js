@@ -28,16 +28,19 @@ function Login() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const storedUser = JSON.parse(localStorage.getItem('user'));
-        console.log(storedUser); // Log stored user data
-        if (storedUser) {
-          const response = await fetch('http://localhost:8050/api/login', {
+        const storedUserData = localStorage.getItem('user'); // Retrieve the stored user data
+
+    const user = JSON.parse(storedUserData); // Parse the stored user data from JSON to JavaScript object
+        console.log(user); // Log stored user data
+        if (user) {
+          const response = await fetch('http://localhost:8050/api/loginData', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ user: storedUser })
+            body: JSON.stringify({ user: user })
           });
+          
           if (response.ok) {
             
             console.log('Login data saved successfully');
