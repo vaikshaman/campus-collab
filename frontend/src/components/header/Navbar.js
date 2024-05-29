@@ -50,8 +50,37 @@ const Navbar = () => {
   }, []);
   
 
+  
 
 
+
+  const [query, setQuery] = useState('');
+  const [suggestions, setSuggestions] = useState([]);
+  const [selectedProfile, setSelectedProfile] = useState(null);
+
+  const handleSearch = async (event) => {
+    const value = event.target.value;
+    if (value.length > 0) {
+      setQuery(value);
+      try {
+        const response = await axios.get(`http://localhost:8050/api/search?q=${value}`);
+        setSuggestions(response.data);
+      } catch (error) {
+        console.error('Error fetching profiles', error);
+      }
+    } else {
+      setQuery(''); // Clear the query
+      setSuggestions([]); // Clear the suggestions
+    }
+  };
+  
+  
+
+  const handleSuggestionClick = (profile) => {
+    setSelectedProfile(profile);
+    setSuggestions([]);
+    setQuery(profile.name);
+  };
   
 
 
@@ -84,19 +113,39 @@ const Navbar = () => {
           Queries
         </Link>
        
-        <input
-          ref={inputRef}
-          type="text"
-          className="search-input"
-          placeholder="Search"
-          onChange={(e) => setTarget(e.target.value)}
-          onKeyDown={handleKeyDown}
-        />
+      
+
+        
+
+        <div>
+  <input
+    type="text"
+    // value={query}
+    onChange={handleSearch}
+    className="search-input"
+    placeholder="Search profiles..."
+  />
+  {query && suggestions.length > 0 && (
+    <ul className="suggestions">
+      {suggestions.map((profile) => (
+        <Link to={`/userprofile/${profile.userid}`} key={profile._id}>
+          <li onClick={() => handleSuggestionClick(profile)}>
+            <img src={profile.imageUrl} alt={profile.name} width="50" height="50" />
+            <span>{profile.name}</span>
+          </li>
+        </Link>
+      ))}
+    </ul>
+  )}
+</div>
+
        <Link
       to={`/userprofile/${profiles.userid}`}
       className={`myprofile ${
         location.pathname === `/profile/${profiles.userid}` ? "active" : ""
       }`}
+
+      
     >
       My Profile
     </Link>

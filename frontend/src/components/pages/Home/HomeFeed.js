@@ -27,10 +27,16 @@ const HomeFeed = () => {
     }
   };
 
+
+
   return (
     <div className="HomeFeed">
       <div className="biggest-container">
         <div className="biggest-box">
+
+     
+   
+
           {projects && projects.length > 0 ? (
             // Render project boxes if projects array is not empty
             projects.map((project) => (
@@ -60,7 +66,13 @@ const HomeFeed = () => {
         </div>
       </div>
       <Infobar />
+
+      
     </div>
+
+
+
+
   );
 };
 
