@@ -366,7 +366,7 @@ const OpenQueries = () => {
                             {comments.map(comment => (
                                 <div className='Open_Queries_Actual_Sub_Comments' key={comment._id}>
                                     <div className='Open_queries_Sub_Comments_Profile'>
-                                        <div>
+                                        <div className='oq_comment-pic'>
                                             <img src={comment.image} alt="Profile" className='comment-profile-pic' />
                                         </div>
                                         <div className='Open_Queries_Comments_Content'>
