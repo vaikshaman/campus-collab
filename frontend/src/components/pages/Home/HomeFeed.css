@@ -126,7 +126,7 @@ a:nth-child(1):hover ~ .animation {
   justify-content: center;
   /* background-color: red; */
   display: flex;
-  margin-top: 3.5vw;
+  margin-top: 7.5vw;
   flex-wrap: wrap;
   gap: 20px;
   /* max-width: 75%; */

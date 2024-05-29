@@ -135,17 +135,26 @@ const Projectuser = () => {
     }
   };
   //LIKES END
-
   const renderFieldValue = (field) => {
     // Check if the value of the field is an object
     if (typeof field.value === 'object' && field.value !== null) {
       // If it's an object, stringify it for display
       return JSON.stringify(field.value);
     } else {
+      // Check for the specific input type that requires splitting by `;`
+      if (field.type === 'code-block') { // Replace 'specialType' with the specific type
+        return field.value.split(';').map((part, index) => (
+          <div key={index}>{part.trim()}</div>
+        ));
+      }
       // Otherwise, render the value as is
       return field.value;
     }
   };
+
+  const excludedTypes = ['image']; // Add the types you want to exclude here
+  const typesWithoutDescription = ['heading', 'subheading'];
+
   
 
   return (
@@ -166,20 +175,25 @@ const Projectuser = () => {
             <div className="pdu-project-heading">Project Detail</div>
             {projects && projects.length > 0 && (
         <div>
-          <h2>Project ID: {projects[0].projectId}</h2>
+          <div className="pdu-project-subheading">Project ID: {projects[0].projectId}</div>
 
-          <p>Email: {projects[0].email}</p>
-          <p>
-            Images: <img src={projects[0].images} alt="Project Image" />
+          <p className="pdu-project-subheading">Email: <p className="pdu-project-description">{projects[0].email}</p></p>
+          <p  className="pdu-project-image">
+            <img src={projects[0].images} alt="Project Image" />
           </p>
-          <h3>Input Fields:</h3>
-          <ul>
-            {projects[0].inputFields.map((field, index) => (
-              <li key={index}>
-                Type: {field.type}, Value: {renderFieldValue(field)}
-              </li>
+          <br/>
+          <h2>Project Content:</h2>
+          <div>
+          {projects[0].inputFields.filter(field => !excludedTypes.includes(field.type)).map((field, index) => (
+              
+              <div key={index} >
+                {!typesWithoutDescription.includes(field.type) && (
+                  <div className="pdu-project-subheading">{field.type}: </div>
+                )}
+                <div className={`pdu-project-${field.type}`}>{renderFieldValue(field)}</div>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       )}
           </form>
@@ -199,15 +213,15 @@ const Projectuser = () => {
                 <div className="pdu-user-name">
                   Owner
                   {projects.length > 0 && profileDetails && (
-        <div className="pd-my-name">
+        <div className="pdu-my-name">
           <img src={profileDetails.imageUrl} alt={profileDetails.name} />
-          <div className="pd-final-name">
+          <div className="pdu-final-name">
              
           <Link
       to={`/userprofile/${profileDetails.userid}`}>
-        <p className="pd-p1">{profileDetails.name}</p>
+        <p className="pdu-p1">{profileDetails.name}</p>
     </Link>
-            <p className="pd-p2">134 projects - 3 following</p>
+            <p className="pdu-p2">134 projects - 3 following</p>
           </div>
         </div>
       )}
@@ -258,7 +272,7 @@ const Projectuser = () => {
                       <div className="pdu-div-1">
                       <Link
       to={`/userprofile/${comment.userid}`}>
-                        <div className="pd-d1">{comment.userName}</div>
+                        <div className="pdu-d1">{comment.userName}</div>
                         </Link>
                         <div className="pdu-d2">
                           &nbsp;. {comment.createdAt}

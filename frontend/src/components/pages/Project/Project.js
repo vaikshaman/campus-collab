@@ -143,7 +143,7 @@ const Project = () => {
           onInput={adjustHeight}
         />
       );
-    } else if (field.type === 'image' || field.type === 'pdf') {
+    } else if (field.type === 'image') {
       return field.value;
     }
   };
@@ -263,9 +263,6 @@ const Project = () => {
               </button>
               <button className="main-btn" onClick={() => addInputField('image')}>
                 Attach Image
-              </button>
-              <button className="main-btn" onClick={() => addInputField('pdf')}>
-                Attach PDF
               </button>
               <button className="main-btn" onClick={() => addInputField('code-block')}>
                 Code Block
