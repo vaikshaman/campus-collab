@@ -229,15 +229,15 @@
     margin-top: 0px;
 }
 
-.pd-user-info{
-    /* display: inline-flex;
+/* .pd-user-info{
+    display: inline-flex;
     padding-top: 2.5rem;
     flex-direction: column;
     align-items: flex-start;
     gap: 2.5rem;
     margin-left: 5vw;
-    margin-bottom: 1vw; */
-}
+    margin-bottom: 1vw;
+} */
 
 .pd-test{
     display: inline-flex;
