@@ -36,14 +36,14 @@
   /* box-sizing: border-box; */
   float: right;
   max-width: 25%;
-  margin-top: 5.5vw;
+ 
   margin-right: 3vw;
 }
 
 .info-content{
   display: flex;
   /* margin: 5px; */
-  max-height: 3.4rem;
+ 
   overflow: hidden;
 }
 

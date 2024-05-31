@@ -67,7 +67,7 @@ function Queries() {
 
             <div className='Queries_Main'>
               <div className='Top3AndAddCourse_Queries'>
-                 <Top3 />
+             
                  <Queries_Main 
                     Show_Query={ShowQuery}
                  /> 
@@ -105,6 +105,8 @@ function Queries() {
             </div>
           )
         }
+
+        
 
 </div>
 

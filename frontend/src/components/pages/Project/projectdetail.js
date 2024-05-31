@@ -45,6 +45,7 @@ const Project = () => {
         );
         if (response.data.status === "success") {
           setProjects(response.data.data); // Set projects state to the array of project data
+         
           console.log(projects);
           setComments(response.data.data.comments || []); // Set comments state from fetched project data
         } else {
@@ -126,40 +127,42 @@ const Project = () => {
 
   //LIKES
  
-    const [liked, setLiked] = useState(false);
-    const [totalLikes, setTotalLikes] = useState(0);
+  const [liked, setLiked] = useState(false);
+  const [totalLikes, setTotalLikes] = useState(0);
   
-    useEffect(() => {
-      const fetchLikeStatus = async () => {
-        try {
-          const response = await axios.get(`http://localhost:8050/api/projectslike/status/${projectId}/${user.uid}`);
-          if (response.status === 200) {
-            setLiked(response.data.liked);
-            setTotalLikes(response.data.totalLikes);
-          } else {
-            console.error("Failed to fetch like status");
-          }
-        } catch (error) {
-          console.error("Error fetching like status:", error);
-        }
-      };
-  
-      fetchLikeStatus();
-    }, [projectId, user.uid]);
-  
-    const handleLikeClick = async () => {
+  useEffect(() => {
+    const fetchLikeStatus = async () => {
       try {
-        const response = await axios.post(`http://localhost:8050/api/projectslike/${projectId}/${user.uid}/like`);
+        const response = await axios.get(`http://localhost:8050/api/projectslike/status/${projectId}/${user.uid}`);
         if (response.status === 200) {
           setLiked(response.data.liked);
-          setTotalLikes((prevTotalLikes) => response.data.liked ? prevTotalLikes + 1 : prevTotalLikes - 1);
+          setTotalLikes(response.data.totalLikes);
         } else {
-          console.error("Failed to update like status");
+          console.error("Failed to fetch like status");
         }
       } catch (error) {
-        console.error("Error updating like status:", error);
+        console.error("Error fetching like status:", error);
       }
     };
+  
+    fetchLikeStatus();
+  }, [projectId, user.uid]);
+  
+  const handleLikeClick = async () => {
+    try {
+      const response = await axios.post(`http://localhost:8050/api/projectslike/${projectId}/${user.uid}/like`);
+      if (response.status === 200) {
+        const responseData = response.data;
+        setLiked(responseData.liked);
+        setTotalLikes(responseData.totalLikes);
+      } else {
+        console.error("Failed to update like status");
+      }
+    } catch (error) {
+      console.error("Error updating like status:", error);
+    }
+  };
+  
   
   
   //LIKES END
@@ -169,37 +172,48 @@ const Project = () => {
   
 
   //Collaboration
-
   const [text, setText] = useState("");
   const [receiverId, setReceiverId] = useState("");
 
   const handleCollaboration = async () => {
     try {
+      const senderId = profiles.email; // Assuming profiles contains sender information
       const senderName = profiles.name; // Assuming profiles contains sender information
-      console.log(senderName);
 
       let projectName = ""; // Initialize projectName
-
+      let projectactname = ""; // Initialize projectName
+       let projectid = "";
       // Check if projects array is not empty and projects[0].name is defined
       if (projects.length > 0 && projects[0].name) {
         projectName = projects[0].name; // Assign projectName if conditions are met
+        projectactname = projects[0].projectDetails.projectName;
+        projectid = projects[0].projectId;
       } else {
         console.error("Project name is not available.");
         return; // Exit the function if project name is not available
       }
 
-      const messageText = `Message from ${senderName} regarding project ${projectName}: ${text}`;
+      const messageText = `Message from ${senderName} to collab on  ${projectactname}: ${text}`;
 
       const requestBody = {
         text: messageText,
-        senderId: senderName, // Assuming senderName is the sender's name
-        receiverId: projectName, // Assign receiverId using projectName
+        senderuserid: user.uid,
+        receiveruserid: profileDetails.userid,
+        senderId: senderId, // Use actual senderId
+        senderName: user.displayName,
+        receiverName: profileDetails.name,
+        senderImg: profiles.imageUrl,
+        receiverImg: profileDetails.imageUrl,
+        projectName: projectactname,
+        projectid : projectid,
+        receiverId: projects[0].email, // Use actual receiverId from state
+        
       };
 
       console.log(requestBody);
 
       // Send POST request to the server
-      await axios.post("http://localhost:8050/api/messages", requestBody);
+      await axios.post("http://localhost:8050/api/send-collab-request", requestBody);
       alert("Message sent successfully");
     } catch (error) {
       console.error("Error sending message:", error);
@@ -207,6 +221,7 @@ const Project = () => {
     }
   };
 
+  
   const renderFieldValue = (field) => {
     // Check if the value of the field is an object
     if (typeof field.value === 'object' && field.value !== null) {
@@ -276,7 +291,10 @@ const Project = () => {
       <div className="pd-review-section">
         <div className="pd-heading">
           Project Heading
-          <p className="pd-update-btn"></p>
+          {projects && projects.length > 0 && (
+          <p className="pd-update-btn">{projects[0].projectDetails.status
+}</p>
+          )}
         </div>
 
         <div className="pd-section">

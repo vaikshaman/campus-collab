@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import './Sidebar.css';
@@ -31,6 +31,7 @@ function Sidebar() {
 
   const currentUserId = user.email;
   const userId = profiles.email;
+  const [notifications, setNotifications] = useState([]);
 
   const [followedUsers, setFollowedUsers] = useState([]);
   const [isFollowing, setIsFollowing] = useState(false);
@@ -67,6 +68,9 @@ function Sidebar() {
       console.error('Error unfollowing user:', error);
     }
   };
+
+  
+ 
 
   return (
     <div className="app">
@@ -124,10 +128,18 @@ function Sidebar() {
           )}
         </div>
 
-        <button className="follow-btn" onClick={isFollowing ? handleUnfollow : handleFollow}>
-                {isFollowing ? "Unfollow" : "Follow"}
+        {currentUserId === userId ? (
+        <button className="follow-btn">
+          Edit Profile
         </button>
+      ) : (
+        <button className="follow-btn" onClick={isFollowing ? handleUnfollow : handleFollow}>
+          {isFollowing ? "Unfollow" : "Follow"}
+        </button>
+      )}
       </div>
+
+      
     </div>
   );
 }

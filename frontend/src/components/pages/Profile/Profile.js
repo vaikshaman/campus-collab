@@ -7,24 +7,15 @@ import Navbar from "../../header/Navbar";
 import { useParams } from "react-router-dom";
 
 const Profile = () => {
-  const [selectedStatus, setSelectedStatus] = useState("ongoing"); // Initialize selectedStatus with "ongoing"
+  const [selectedStatus, setSelectedStatus] = useState("completed"); // Initialize selectedStatus with "ongoing"
   const [projects, setProjects] = useState([]);
   const storedUserData = localStorage.getItem("user");
   const user = JSON.parse(storedUserData);
-
+  
   const [profiles, setProfiles] = useState([]);
   const { userid } = useParams(); // Extract userid from URL
-
-  useEffect(() => {
-    axios
-      .get(`http://localhost:8050/api/profile/${userid}`)
-      .then((Profile) => {
-        console.log(Profile);
-        setProfiles(Profile.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
+  
+  // Define fetchProjectDetails function before using it in useEffect hooks
   const fetchProjectDetails = async () => {
     try {
       const response = await fetch(
@@ -40,14 +31,27 @@ const Profile = () => {
       console.error("Error fetching project details:", error);
     }
   };
-
+  
   useEffect(() => {
+    // Fetch user profile data when the component mounts
+    axios
+      .get(`http://localhost:8050/api/profile/${userid}`)
+      .then((Profile) => {
+        console.log(Profile);
+        setProfiles(Profile.data);
+      })
+      .catch((err) => console.log(err));
+  }, [userid]); // Make sure to include userid as a dependency
+  
+  useEffect(() => {
+    // Fetch project details based on the default selected status when the component mounts
     fetchProjectDetails();
-  }, [selectedStatus]); // Refetch projects whenever selectedStatus changes
-
+  }, [userid, selectedStatus, profiles.email]); // Refetch projects when userid, selectedStatus, or profiles.email changes
+  
   const handleStatusClick = (status) => {
     setSelectedStatus(status); // Update selectedStatus when the status button is clicked
   };
+  
 
   return (
     <div>

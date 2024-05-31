@@ -203,7 +203,9 @@ const Projectuser = () => {
       <div className="pdu-review-section">
         <div className="pdu-heading">
           Project Heading
-          <p className="pdu-update-btn">Completed</p>
+          {projects && projects.length > 0 && (
+          <p className="pd-update-btn">{projects[0].projectDetails.status
+}</p>)}
         </div>
 
         <div className="pdu-section">

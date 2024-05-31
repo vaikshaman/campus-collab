@@ -9,12 +9,13 @@ import Project from "../models/Project.js";
 import CommunityPosts from "../models/communityPost.js";
 import mongoose from "mongoose";
 import coursePosts from "../models/coursePosts.js";
-import notification from "../models/notificationModel.js";
 import Comment from "../models/Projectcomments.js";
 import Likes from "../models/projectlike.js";
 import Message from "../models/Message.js";
 import Follow from '../models/Profilefollow.js';
 import QueryComment from "../models/comunitycomments.js";
+import Notification from "../models/notification.js";
+import CollabRequest from "../models/Message.js";
 
 // import upload from "../utils/upload.js";
 
@@ -216,6 +217,110 @@ router.get('/api/projectslike/likes', async (req, res) => {
 
 
 //CollaborTION
+router.post('/api/send-collab-request', async (req, res) => {
+
+  const { text, senderuserid, receiveruserid, senderId, senderName, senderImg, receiverId, receiverName, receiverImg, projectName,projectid } = req.body;
+
+  try {
+    // Create a new collaboration request
+    const newRequest = new CollabRequest({
+      text,
+      senderuserid,
+      receiveruserid,
+      senderId,
+      senderName,
+      senderImg,
+      receiverId,
+      receiverName,
+      receiverImg,
+      projectName,
+      projectid,
+      status: 'pending', // Set status to 'pending' by default
+    });
+    await newRequest.save();
+
+    // Create a new notification
+    const notification = new Notification({
+      senderuserid,
+      receiveruserid,
+      receiverId,
+      senderId,
+      senderName,
+      senderImg,
+      receiverName,
+      receiverImg,
+      projectName,
+      projectid,
+      message: `Collaboration request from <a href="/userprofile/${senderuserid}">${senderName}</a> on project <a href="/project/${projectid}">${projectName}</a>`, // Include sender's name and project name as links
+    });
+    await notification.save();
+
+    res.status(200).send('Collaboration request sent successfully');
+  } catch (error) {
+    console.error('Error sending collaboration request:', error);
+    res.status(500).send('Internal server error');
+  }
+});
+
+
+router.get('/api/notifications/:userId', async (req, res) => {
+  const { userId } = req.params;
+  const notifications = await Notification.find({ receiverId: userId, read: false });
+ 
+  res.status(200).json(notifications);
+});
+router.post('/api/accept-collab-request', async (req, res) => {
+  try {
+    const { notificationId, senderId , senderimg ,  sendername} = req.body;
+
+    // Logic to update the collaboration request status to accepted
+    await Notification.findByIdAndUpdate(notificationId, { status: 'accepted' });
+
+    // Create a notification for the sender
+    const acceptNotification = new Notification({
+    
+    
+      receiverId: senderId,
+      senderImg:  senderimg,
+      senderName:  sendername,
+      message: `Your collaboration request has been accepted by ${sendername} `,
+      read: false,
+      createdAt: new Date(),
+    });
+    await acceptNotification.save();
+
+    res.status(200).send('Collaboration request accepted successfully');
+  } catch (error) {
+    console.error('Error accepting collaboration request:', error);
+    res.status(500).send('Internal server error');
+  }
+});
+
+// API to decline collaboration request
+router.post('/api/decline-collab-request', async (req, res) => {
+  try {
+    const { notificationId, senderId , senderimg, sendername } = req.body;
+
+    // Logic to delete the collaboration request
+    await Notification.findByIdAndDelete(notificationId);
+
+    // Create a notification for the sender
+    const declineNotification = new Notification({
+      receiverId: senderId,
+      senderImg:  senderimg,
+      senderName:  sendername,
+      message: `Your collaboration request has been declined by ${sendername}`,
+      read: false,
+      createdAt: new Date(),
+    });
+    await declineNotification.save();
+
+    res.status(200).send('Collaboration request declined successfully');
+  } catch (error) {
+    console.error('Error declining collaboration request:', error);
+    res.status(500).send('Internal server error');
+  }
+});
 
 //collab end
 
@@ -303,6 +408,20 @@ router.get('/api/followedUsers/:userId/:currentUserId', async (req, res) => {
     const followedUsers = await Follow.find({ follower_username: currentUserId });
     const isFollowing = followedUsers.some(user => user.following_username === userId);
     res.status(200).json({ followedUsers, isFollowing });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+router.get('/api/following/:email', async (req, res) => {
+  const { email } = req.params;
+  try {
+    const followingUsers = await Follow.find({ follower_username: email });
+    
+    const followingEmails = followingUsers.map(follow => follow.following_username);
+    
+    res.status(200).json(followingEmails);
   } catch (err) {
     console.error(err);
     res.status(500).send('Internal Server Error');

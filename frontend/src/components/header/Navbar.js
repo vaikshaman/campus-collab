@@ -216,6 +216,14 @@ const Navbar = () => {
         >
           Queries
         </Link>
+        <Link
+          to="/About"
+          className={`courses ${
+            location.pathname === "/About" ? "active" : ""
+          }`}
+        >
+          About
+        </Link>
        
       
 

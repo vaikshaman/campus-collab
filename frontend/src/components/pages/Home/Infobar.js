@@ -6,26 +6,16 @@ import isFriend from "../../assets/is-friend.png";
 import AVATAR from "../../assets/Avatar.jpg";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Notification from "./Notification";
-
-
-const NotifyPage = ({ onClose }) => {
-  return (
-    <div className='notify-overlay'>
-      <div className="notify">
-        <div className="cross-btn" onClick={onClose}>X</div>
-        <Notification
-          close= {onClose}
-        />
-      </div>
-    </div>
-  );
-};
 
 const Infobar = () => {
   const [openSection, setOpenSection] = useState("discover");
   const [profiles, setProfiles] = useState([]);
   const [followedUsers, setFollowedUsers] = useState([]);
+  const [notifications, setNotifications] = useState([]);
+  const [acceptedNotifications, setAcceptedNotifications] = useState(() => {
+    const storedAcceptedNotifications = localStorage.getItem("acceptedNotifications");
+    return storedAcceptedNotifications ? JSON.parse(storedAcceptedNotifications) : [];
+  });
   const currentUserId = JSON.parse(localStorage.getItem("user")).email;
 
   useEffect(() => {
@@ -34,6 +24,10 @@ const Infobar = () => {
       fetchFollowedUsers();
     }
   }, [openSection]);
+
+  useEffect(() => {
+    fetchNotifications();
+  }, []);
 
   const fetchProfiles = async () => {
     try {
@@ -50,6 +44,16 @@ const Infobar = () => {
       setFollowedUsers(response.data.followedUsers);
     } catch (error) {
       console.error("Error fetching followed users:", error);
+    }
+  };
+
+  const fetchNotifications = async () => {
+    try {
+      const response = await axios.get(`http://localhost:8050/api/notifications/${currentUserId}`);
+      setNotifications(response.data);
+      console.log(notifications);
+    } catch (error) {
+      console.error('Error fetching notifications:', error);
     }
   };
 
@@ -74,13 +78,40 @@ const Infobar = () => {
     }
   };
 
-   // Function to toggle the visibility of the pop-up page
-   const [isNotifyOpen, setIsNotifyOpen] = useState(false);
+  const handleAccept = async (notificationId, senderId, senderimg , sendername) => {
+    try {
+      await axios.post('http://localhost:8050/api/accept-collab-request', {
+        notificationId,
+        senderId,
+        senderimg,
+        sendername,
+      });
+      setAcceptedNotifications([...acceptedNotifications, notificationId]);
+      localStorage.setItem("acceptedNotifications", JSON.stringify([...acceptedNotifications, notificationId]));
+    } catch (error) {
+      console.error('Error accepting request:', error);
+    }
+  };
 
-   const toggleNotify = () => {
-    
-    setIsNotifyOpen(!isNotifyOpen);
-};
+  const handleDecline = async (notificationId, senderId, senderimg , sendername) => {
+    try {
+      await axios.post('http://localhost:8050/api/decline-collab-request', {
+        notificationId,
+        senderId,
+        senderimg,
+        sendername,
+        
+      });
+      setAcceptedNotifications([...acceptedNotifications, notificationId]);
+      localStorage.setItem("acceptedNotifications", JSON.stringify([...acceptedNotifications, notificationId]));
+    } catch (error) {
+      console.error('Error declining request:', error);
+    }
+  };
+
+  const isNotificationAccepted = (notificationId) => {
+    return acceptedNotifications.includes(notificationId);
+  };
 
   return (
     <div className="infobar">
@@ -89,25 +120,36 @@ const Infobar = () => {
           Notification
         </button>
         <div className={`panel ${openSection === "notification" ? "open" : "instant-close"}`}>
-        <div className="info-content"  onClick={toggleNotify}>
-            {/* Profile Bio Here */}
-            <img src={AVATAR} className="info-image" alt="Avatar" />
-            <div className="info-info">
-              <div>Message from Rishi Kiran</div>
-              <p>Do you know how to use figma</p>
-            </div>
-          </div>
-          <div className="info-content">
-            {/* Profile Bio Here */}
-            <img src={AVATAR} className="info-image" alt="Avatar" />
-            <div className="info-info"  onClick={toggleNotify}>
-              <div>Message from Rishi Kiran</div>
-              <p>Do you know how to use figma</p>
-            </div>
-          </div>
-        
-
-          {/* Notification panel content */}
+          {notifications.length === 0 ? (
+            <p>No new notifications</p>
+          ) : (
+            <ul>
+              {notifications.map(notification => (
+                <li key={notification._id} className='noti-item'>
+                  <div className='info-image'>
+                    <img className="info-image" src={notification.senderImg}   alt="Avatar" />
+                    </div>
+                    <div className='info-name'>
+                      <div className="info-info" dangerouslySetInnerHTML={{ __html: notification.message }} />
+                    </div>
+                 
+                  {/* Render accept and decline buttons only if message starts with "collab" and not already accepted */}
+                  {notification.message.startsWith("Coll") && !isNotificationAccepted(notification._id) && (
+                    <div className='noti-butn'>
+                      <button className='noti-accept' onClick={() => handleAccept(notification._id, notification.senderId , notification.receiverImg, notification.receiverName)}>Accept</button>
+                      <button className='noti-decline' onClick={() => handleDecline(notification._id, notification.senderId, notification.receiverImg ,notification.receiverName)}>Decline</button>
+                    </div>
+                  )}
+                  {/* Render message indicating accepted or declined */}
+                  {isNotificationAccepted(notification._id) && (
+                    <div className='noti-butn'>
+                      <p>Accepted</p>
+                    </div>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
 
@@ -144,7 +186,6 @@ const Infobar = () => {
       <div className="info-section fixed-bottom">
         {/* Additional info sections */}
       </div>
-      {isNotifyOpen && <NotifyPage onClose={toggleNotify} />}
     </div>
   );
 };

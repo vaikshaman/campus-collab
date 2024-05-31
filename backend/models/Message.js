@@ -1,12 +1,24 @@
 import mongoose from 'mongoose';
 
-const messageSchema = new mongoose.Schema({
-  text: { type: String, required: true },
-  senderId: { type:String, ref: 'User', required: true },
-  receiverId: { type: String, ref: 'User', required: true },
-  createdAt: { type: Date, default: Date.now }
+const { Schema, model } = mongoose;
+
+const messageSchema = new Schema({
+  text: String,
+  senderuserid: String,
+  receiveruserid: String,
+  senderId: String,
+  senderName: String,
+  senderImg: String,
+  receiverId: String,
+  receiverName: String,
+  receiverImg: String,
+  projectName: String,
+  projectid : String,
+  status: { type: String, enum: ['pending', 'accepted', 'declined'], default: 'pending' }
+
+
 });
 
-const Message = mongoose.model('Message', messageSchema);
+const Message = model('Message', messageSchema);
 
 export default Message;
