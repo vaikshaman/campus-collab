@@ -63,8 +63,14 @@
      width: 5.25rem;
      height: 5.25rem;
   
-     border-radius: 0.25rem;
+     border-radius: 50%;
      background: #D9D9D9;
+  }
+
+  .Open_Queries_Rectangle img{
+   width: -webkit-fill-available;
+   height: inherit;
+   border-radius: 50%;
   }
   
   .Open_Queries_LHS_Top_Left_Icons{
@@ -299,6 +305,19 @@
      /* align-items: center; */
   }
   
+  .oq_comment-pic{
+   width: 5.25rem;
+   height: 5.25rem;
+   border-radius: 50%;
+   background: #D9D9D9;
+  }
+
+  .oq_comment-pic img{
+   width: -webkit-fill-available;
+   height: inherit;
+   border-radius: 50%;
+  }
+
   .Open_Queries_Comments_Content{
      /* display: flex;
      flex-direction: column;
@@ -376,6 +395,10 @@
      font-weight: 400;
      line-height: normal;
      /* background-color: blue; */
+  }
+
+  .Open_Queries_Comments_Content_Name_Time a{
+      text-decoration: none;
   }
   
   .Open_Queries_RHS_Courses{
@@ -462,6 +485,8 @@
       .Open_Queries_RHS{
         height: fit-content;
         /* padding-left: 8.5rem; */
+        width: 23vw;
+        margin-right: 20px;
       }
     }
     .Open_Queries_Main_Question{
