@@ -141,18 +141,10 @@ body{
   .Profile{
     margin-top:0px;
   }
-  .show-project{
-    /* margin-top:6vh; */
-    /* width: 42rem; */
-  }
 }
 @media(max-width:400px){
   .Profile{
     margin-top:0vh;
-  }
-  .show-project{
-    /* margin-top:6vh; */
-    /* width: 32rem; */
   }
 }
 
