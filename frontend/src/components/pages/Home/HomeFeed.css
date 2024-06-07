@@ -47,7 +47,7 @@
 }
 .Upper_part > a:nth-child(1) {
   margin-bottom: 20px;
-  width: 6.25rem;
+  /* width: 6.25rem; */
 }
 .Upper_part > .start-home,
 a:nth-child(1):hover ~ .animation {

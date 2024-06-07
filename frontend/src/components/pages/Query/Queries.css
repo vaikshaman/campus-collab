@@ -11,6 +11,7 @@
 .Queries_Main {
   display: grid;
   grid-template-columns: 2fr 1fr;
+  padding-top: 1vw;
 }
 
 .RHS_Queries_Main {
@@ -41,7 +42,15 @@
   width: 90%;
 }
 
-@media (min-width: 0px) and (max-width: 550px) {
+
+@media (min-width: 0px) and (max-width: 770px) {
+  .Queriess{
+    padding-top: 20px;
+  }
+}
+
+
+@media (min-width: 0px) and (max-width: 630px) {
   .Queries_Main {
     display: flex;
     flex-direction: column;
@@ -66,7 +75,11 @@
     margin-top: 2.5%; /* Adjusted margin-top */
   }
 
+}
+
+@media (min-width: 0px) and (max-width: 630px) {
   .RHS_Queries_Main {
-    margin-right: 0; /* Removed margin-right */
+    /* margin-right: 0; Removed margin-right */
+    /* width: 100%; */
   }
 }

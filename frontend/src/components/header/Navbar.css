@@ -94,7 +94,7 @@
 @media(max-width: 1300px){
 
   .nav-items{
-    height: 8vw;
+    height: 6vw;
   }
   .home,
 .queries,
@@ -146,10 +146,17 @@
     padding-bottom: 3vw;
     padding-left: 2vw;
     display: flex;
+    /* width: 110%; */
     /* background: #BAE84D; */
     flex-direction: row;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+  }
+
+  @media(max-width:630px){
+    .hamburger{
+      width: 110%;
+    }
   }
 
   .ham-active{

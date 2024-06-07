@@ -12,6 +12,12 @@
     margin-bottom: 20px;
 }
 
+@media(max-width:640px){
+    .individual-comment{
+        width: 45vw;
+    }
+}
+
 .Queries_Main-RHS-Text-Main{
     /* width: 48.5625rem; */
     max-height: 4.6875rem;
@@ -180,7 +186,7 @@ hr{
     margin: 1vw;
 }
 
-@media (min-width: 0px) and (max-width: 550px) {
+@media (min-width: 0px) and (max-width: 630px) {
     .comment-section {
         height: auto; /* Adjusted height */
         width: 100%; /* Adjusted width */
@@ -200,7 +206,7 @@ hr{
     }
 
     .individual-comment {
-        width: 90%; /* Adjusted width */
+        width: 80%; /* Adjusted width */
         margin-bottom: 2rem; /* Adjusted margin */
     }
 }

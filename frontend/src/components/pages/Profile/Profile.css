@@ -136,10 +136,6 @@ body{
   .Profile{
     margin-top:6vh;
   }
-  .show-project{
-    /* margin-top:6vh; */
-    /* width: 62rem; */
-  }
 }
 @media(max-width:500px){
   .Profile{
