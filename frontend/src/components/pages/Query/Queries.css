@@ -27,10 +27,6 @@
   margin-top: 0vh;
 }
 
-.AskQuery_Queries {
-  /* margin-top: -15%; */
-}
-
 .Back_Queries {
   /* opacity: 0.5; */
   display: grid;
@@ -75,11 +71,4 @@
     margin-top: 2.5%; /* Adjusted margin-top */
   }
 
-}
-
-@media (min-width: 0px) and (max-width: 630px) {
-  .RHS_Queries_Main {
-    /* margin-right: 0; Removed margin-right */
-    /* width: 100%; */
-  }
 }
