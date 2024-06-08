@@ -152,10 +152,10 @@ function Queries_Main(props) {
     return (
         <div className='Queries_Main'>
         <div className='query'>
-            {/* <div className="Top3">
+            <div className="Top3">
                 <div className="Top3-biggest-container">
-                    <div className="container-1"> */}
-                        {/* <nav className='Upper_part'>
+                    <div className="container-1">
+                        <nav className='Upper_part'>
                             <a href="#" className='gugu item-container-1'>
                                 <div
                                     className={`${
@@ -181,10 +181,10 @@ function Queries_Main(props) {
                                 >Following</div>
                             </a>
                             <div className="animation start-home"></div>
-                        </nav> */}
-                    {/* </div>
+                        </nav>
+                    </div>
                 </div>
-            </div> */}
+            </div>
             <div className="section-container">
                 <div className="comment-section">
                     {
