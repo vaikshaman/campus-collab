@@ -4,17 +4,17 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './config/db.js';
 import bodyParser from "body-parser";
-// import mongoose from "mongoose";
-// import router from './routes/router.js';
-// import path from 'path';
-// const uploadsDirectory = path.join(process.cwd(), 'uploads');
+import mongoose from "mongoose";
+import router from './routes/router.js';
+import path from 'path';
+const uploadsDirectory = path.join(process.cwd(), 'uploads');
 
 
 // Configure dotenv
 dotenv.config();
 
 // Connect to MongoDB
-// connectDB();
+connectDB();
 
 // Create an instance of Express
 const app = express();
@@ -33,7 +33,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Use router middleware
-// app.use(router);
+app.use(router);
 // app.use('/api/notification', notificationRouter)
 
 // Define the port
