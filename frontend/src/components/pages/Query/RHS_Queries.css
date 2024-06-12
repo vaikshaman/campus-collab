@@ -46,6 +46,24 @@
     align-items: flex-start;
     gap: 1.25rem;
     margin-top: 4.5%;
+    float: right;
+}
+
+@media(max-width:630px){
+    .RHS_Queries-Add-Courses{
+        width:85vw;
+    }
+
+    .RHS_Queries-Biggest-Container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 40px;
+        margin-bottom: 15px;
+    }
+    .RHS_Queries-My-Courses{
+        width: 85vw;
+    }
 }
 
 .RHS_Queries-My-Courses-Upper-Part{
