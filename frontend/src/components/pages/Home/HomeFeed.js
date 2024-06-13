@@ -4,7 +4,7 @@ import './HomeFeed.css';
 import Infobar from "./Infobar";
 import axios from "axios";
 import './Top3.css';
-import dotenv from 'dotenv';
+
  
   
 const HomeFeed = (props) => {
