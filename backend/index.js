@@ -18,10 +18,7 @@ connectDB();
 
 // Create an instance of Express
 const app = express();
-// app.use(cors({origin:["http://localhost:3000"]}));
-// Middleware
-app.use(cors());
-
+app.use(cors({origin:["http://localhost:3000"]}));
 
 // Set view engine
 app.set("view engine", "es");
@@ -29,7 +26,7 @@ app.set("view engine", "es");
 // Serve static files from the 'public' directory
 app.use(express.static('public'));
 //for accessing uploads folder
-app.use('/uploads', express.static(uploadsDirectory));
+// app.use('/uploads', express.static(uploadsDirectory));
 
 // Middleware for parsing incoming request bodies
 app.use(express.urlencoded({ extended: true }));
