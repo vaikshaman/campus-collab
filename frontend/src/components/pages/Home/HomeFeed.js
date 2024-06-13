@@ -40,7 +40,7 @@ const HomeFeed = (props) => {
 
   const fetchFollowingUsers = async () => {
     try {
-      const response = await axios.get(`http://localhost:8050/api/following/${user.email}`);
+      const response = await axios.get(`${SERVER_URL}/api/following/${user.email}`);
       setFollowingUsers(response.data);
     
     } catch (error) {
