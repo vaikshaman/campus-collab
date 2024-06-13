@@ -18,7 +18,7 @@ connectDB();
 
 // Create an instance of Express
 const app = express();
-app.use(cors({origin:["http://localhost:3000"]}));
+app.use(cors({origin:["http://localhost:3000", "https://campus-collab-pi.vercel.app"]}));
 
 // Set view engine
 app.set("view engine", "es");
