@@ -3,14 +3,18 @@ import { Link } from "react-router-dom";
 import './HomeFeed.css';
 import Infobar from "./Infobar";
 import axios from "axios";
-import './Top3.css'
-
+import './Top3.css';
+import dotenv from 'dotenv';
+ 
+  
 const HomeFeed = (props) => {
   const [projects, setProjects] = useState([]);
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [followingUsers, setFollowingUsers] = useState([]);
   const storedUserData = localStorage.getItem('user');
   const user = JSON.parse(storedUserData);
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+  
 
   useEffect(() => {
     // Fetch project data from the backend when the component mounts
@@ -21,7 +25,7 @@ const HomeFeed = (props) => {
   const fetchProjects = async () => {
     try {
       // Make a GET request to fetch projects from the backend API
-      const response = await axios.get(`http://localhost:8050/api/fetchProject`);
+      const response = await axios.get(`${SERVER_URL}/api/fetchProject`);
       if (response.data.status === "success") {
         // Set the projects state with the fetched project data
         setProjects(response.data.data);

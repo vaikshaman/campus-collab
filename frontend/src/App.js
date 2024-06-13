@@ -9,9 +9,10 @@ import Project from './components/pages/Project/Project';
 import AskQuery from './components/pages/Query/AskQuery';
 
 function App() {
+  const SERVER_URL = "campus-collab-backdeploy.vercel.app";
   return (
     <div className="App">
-      <AppRoutes/>
+      <AppRoutes SERVER_URL = {SERVER_URL}/>
     </div>
   );
 }
