@@ -10,6 +10,7 @@ import Review from "./Review";
 import thumbsUp from "../../assets/thumbs-up.png";
 
 const Project = () => {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const { projectId } = useParams(); // Extract project ID from URL
   const [projects, setProjects] = useState([]); // Initialize projects state as an empty array
   const [comments, setComments] = useState([]);
@@ -25,7 +26,7 @@ const Project = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8050/api/profile/${user.uid}`)
+      .get(`${SERVER_URL}/api/profile/${user.uid}`)
       .then((Profile) => {
       
         setProfiles(Profile.data);
@@ -41,7 +42,7 @@ const Project = () => {
     const fetchProjectDetail = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8050/api/Project/${projectId}`
+          `${SERVER_URL}/api/Project/${projectId}`
         );
         if (response.data.status === "success") {
           setProjects(response.data.data); // Set projects state to the array of project data
@@ -68,7 +69,7 @@ const Project = () => {
       const fetchProfileDetails = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:8050/api/ownerprofile/${projects[0].email}`
+            `${SERVER_URL}/api/ownerprofile/${projects[0].email}`
           );
 
           console.log(projects[0].email);
@@ -89,7 +90,7 @@ const Project = () => {
     const fetchComments = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8050/api/comments/${projectId}`
+          `${SERVER_URL}/api/comments/${projectId}`
         );
         setComments(response.data.comments);
 
@@ -105,7 +106,7 @@ const Project = () => {
 
   const handleCommentSubmit = async () => {
     try {
-      const response = await axios.post("http://localhost:8050/api/comments", {
+      const response = await axios.post(`${SERVER_URL}/api/comments`, {
         projectId,
         userName: profiles.name, // Replace with actual username or fetch from authentication
         image: profiles.imageUrl,
@@ -133,7 +134,7 @@ const Project = () => {
   useEffect(() => {
     const fetchLikeStatus = async () => {
       try {
-        const response = await axios.get(`http://localhost:8050/api/projectslike/status/${projectId}/${user.uid}`);
+        const response = await axios.get(`${SERVER_URL}/api/projectslike/status/${projectId}/${user.uid}`);
         if (response.status === 200) {
           setLiked(response.data.liked);
           setTotalLikes(response.data.totalLikes);
@@ -150,7 +151,7 @@ const Project = () => {
   
   const handleLikeClick = async () => {
     try {
-      const response = await axios.post(`http://localhost:8050/api/projectslike/${projectId}/${user.uid}/like`);
+      const response = await axios.post(`${SERVER_URL}/api/projectslike/${projectId}/${user.uid}/like`);
       if (response.status === 200) {
         const responseData = response.data;
         setLiked(responseData.liked);
@@ -213,7 +214,7 @@ const Project = () => {
       console.log(requestBody);
 
       // Send POST request to the server
-      await axios.post("http://localhost:8050/api/send-collab-request", requestBody);
+      await axios.post(`${SERVER_URL}/api/send-collab-request`, requestBody);
       alert("Message sent successfully");
     } catch (error) {
       console.error("Error sending message:", error);

@@ -11,7 +11,7 @@ import { storage } from '../../../auth/firebase'; // Adjust the path as per your
 import { signInWithMicrosoft, signOut, auth } from '../../../auth/firebase';
 
 function EditProfile() {
-
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState('');
   const [progress, setProgress] = useState(0);
@@ -127,7 +127,7 @@ function EditProfile() {
 
     try {
       const response = await fetch(
-        "http://localhost:8050/api/profileModel",
+        `${SERVER_URL}/api/profileModel`,
         {
           method: "POST",
           headers: {

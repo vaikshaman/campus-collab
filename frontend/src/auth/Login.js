@@ -4,6 +4,7 @@ import './Login.css';
 
 function Login() {
   const [user, setUser] = useState(null); // State to store user data
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
   useEffect(() => {
     // Listen for changes in authentication state
@@ -33,7 +34,7 @@ function Login() {
     const user = JSON.parse(storedUserData); // Parse the stored user data from JSON to JavaScript object
         console.log(user); // Log stored user data
         if (user) {
-          const response = await fetch('http://localhost:8050/api/loginData', {
+          const response = await fetch(`${SERVER_URL}/api/loginData`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

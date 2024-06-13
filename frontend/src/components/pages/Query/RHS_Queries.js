@@ -108,6 +108,7 @@ import './RHS_Queries.css';
 
 function RHS_Queries(props) {
   const [ShowMyCourses_Queries, setShowMyCourses_Queries] = useState(true);
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const [myQueries, setMyQueries] = useState([]);
   useEffect(() => {
     async function fetchMyQueries() {
@@ -118,7 +119,7 @@ function RHS_Queries(props) {
           return;
         }
         const user = JSON.parse(storedUserData);
-        const response = await axios.get(`http://localhost:8050/api/getqueries/${user.email}`);
+        const response = await axios.get(`${SERVER_URL}/api/getqueries/${user.email}`);
         
         // Check if the response status is 'success' and if it contains the 'queries' array
         if (response.data.status === 'success' && Array.isArray(response.data.queries)) {

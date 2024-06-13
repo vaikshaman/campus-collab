@@ -8,6 +8,7 @@ import { auth } from '../../../auth/firebase';
 const API_URI = 'http://localhost:8080';
 
 const PopupPage = ({ onClose, formData, setFormData, handleSubmit }) => {
+  
   return (
     <div className='popup-overlay'>
       <div className="popup">
@@ -23,6 +24,7 @@ const PopupPage = ({ onClose, formData, setFormData, handleSubmit }) => {
 };
 
 const Project = () => {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const [user, setUser] = useState(null);
   const [projectId, setProjectId] = useState('');
   const [inputFields, setInputFields] = useState([]);
@@ -60,7 +62,7 @@ const Project = () => {
 
   const uploadFile = async (data) => {
     try {
-      const response = await axios.post(`${API_URI}/upload`, data);
+      const response = await axios.post(`${SERVER_URL}/upload`, data);
       console.log("response is:", response)
       return response.data;
     } catch (error) {
@@ -170,7 +172,7 @@ const Project = () => {
   
       console.log('Combined Form Data:', requestData);
   
-      const response = await fetch('http://localhost:8050/api/saveProject', {
+      const response = await fetch(`${SERVER_URL}/api/saveProject`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -4,13 +4,14 @@ import axios from "axios";
 
 function SearchResult() {
   const location = useLocation();
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const params = new URLSearchParams(location.search);
   const receivedData = params.get("target");
   const [searchResult, setsearchResult] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/searchProjects?target=${receivedData}`)
+      .get(`${SERVER_URL}/api/searchProjects?target=${receivedData}`)
       .then((response) => {
         // console.log(response.data)
         setsearchResult(response.data.data);

@@ -5,11 +5,12 @@ import axios from 'axios';
 function Test() {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const receivedData = params.get('id');
   const [project, setProject] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/api/addProject/?projectId=${receivedData}`)
+    axios.get(`${SERVER_URL}/api/addProject/?projectId=${receivedData}`)
       .then(Project => {
         setProject(Project.data);
       })

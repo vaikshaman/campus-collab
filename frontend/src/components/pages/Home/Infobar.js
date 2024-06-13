@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 const Infobar = () => {
   const [openSection, setOpenSection] = useState("discover");
   const [profiles, setProfiles] = useState([]);
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const [followedUsers, setFollowedUsers] = useState([]);
   const [notifications, setNotifications] = useState([]);
   const [acceptedNotifications, setAcceptedNotifications] = useState(() => {
@@ -31,7 +32,7 @@ const Infobar = () => {
 
   const fetchProfiles = async () => {
     try {
-      const response = await axios.get("http://localhost:8050/api/profiles");
+      const response = await axios.get(`${SERVER_URL}/api/profiles`);
       setProfiles(response.data);
     } catch (error) {
       console.error("Error fetching profiles:", error);
@@ -40,7 +41,7 @@ const Infobar = () => {
 
   const fetchFollowedUsers = async () => {
     try {
-      const response = await axios.get(`http://localhost:8050/api/followedUsers/${currentUserId}`);
+      const response = await axios.get(`${SERVER_URL}/api/followedUsers/${currentUserId}`);
       setFollowedUsers(response.data.followedUsers);
     } catch (error) {
       console.error("Error fetching followed users:", error);
@@ -49,7 +50,7 @@ const Infobar = () => {
 
   const fetchNotifications = async () => {
     try {
-      const response = await axios.get(`http://localhost:8050/api/notifications/${currentUserId}`);
+      const response = await axios.get(`${SERVER_URL}/api/notifications/${currentUserId}`);
       setNotifications(response.data);
       console.log(notifications);
     } catch (error) {
@@ -60,13 +61,13 @@ const Infobar = () => {
   const handleFollowToggle = async (profileId, isCurrentlyFollowing) => {
     try {
       if (isCurrentlyFollowing) {
-        await axios.delete("http://localhost:8050/api/unfollow", {
+        await axios.delete(`${SERVER_URL}/api/unfollow`, {
           data: { follower_username: currentUserId, following_username: profileId },
         });
         setFollowedUsers(followedUsers.filter((userId) => userId !== profileId));
         alert(`You unfollowed ${profileId}`);
       } else {
-        await axios.post("http://localhost:8050/api/follow", {
+        await axios.post(`${SERVER_URL}/api/follow`, {
           follower_username: currentUserId,
           following_username: profileId,
         });
@@ -80,7 +81,7 @@ const Infobar = () => {
 
   const handleAccept = async (notificationId, senderId, senderimg , sendername) => {
     try {
-      await axios.post('http://localhost:8050/api/accept-collab-request', {
+      await axios.post(`${SERVER_URL}/api/accept-collab-request`, {
         notificationId,
         senderId,
         senderimg,
@@ -95,7 +96,7 @@ const Infobar = () => {
 
   const handleDecline = async (notificationId, senderId, senderimg , sendername) => {
     try {
-      await axios.post('http://localhost:8050/api/decline-collab-request', {
+      await axios.post(`${SERVER_URL}/api/decline-collab-request`, {
         notificationId,
         senderId,
         senderimg,

@@ -104,6 +104,7 @@ import "./Navbar.css"; // Assuming you have a CSS file for Navbar styles
 import axios from "axios";
 
 const Navbar = () => {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const inputRef = useRef(null);
   const [Target, setTarget] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -138,7 +139,7 @@ const Navbar = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8050/api/profile/${user.uid}`)
+      .get(`${SERVER_URL}/api/profile/${user.uid}`)
       .then((Profile) => {
         console.log(Profile);
         setProfiles(Profile.data);
@@ -160,7 +161,7 @@ const Navbar = () => {
     if (value.length > 0) {
       setQuery(value);
       try {
-        const response = await axios.get(`http://localhost:8050/api/search?q=${value}`);
+        const response = await axios.get(`${SERVER_URL}/api/search?q=${value}`);
         setSuggestions(response.data);
       } catch (error) {
         console.error('Error fetching profiles', error);

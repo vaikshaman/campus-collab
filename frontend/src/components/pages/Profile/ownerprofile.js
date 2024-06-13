@@ -6,6 +6,7 @@ import axios from "axios";
 import Navbar from "../../header/Navbar";
 
 const Profile = () => {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const [selectedStatus, setSelectedStatus] = useState("ongoing"); // Initialize selectedStatus with "ongoing"
   const [projects, setProjects] = useState([]);
   const storedUserData = localStorage.getItem('user');
@@ -13,7 +14,7 @@ const Profile = () => {
 
   const fetchProjectDetails = async () => {
     try {
-      const response = await fetch(`http://localhost:8050/api/fetchProject/${user.email}?status=${selectedStatus}`);
+      const response = await fetch(`${SERVER_URL}/api/fetchProject/${user.email}?status=${selectedStatus}`);
       if (response.ok) {
         const data = await response.json();
         setProjects(data.data);

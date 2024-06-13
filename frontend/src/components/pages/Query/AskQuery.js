@@ -8,7 +8,7 @@ function AskQuery(props) {
     const [ques, setQues] = useState('');
     const [desc, setDesc] = useState('');
     const [category, setCategory] = useState('');
-
+    const SERVER_URL = process.env.REACT_APP_SERVER_URL;
     const[profiles,setProfiles]=useState([]);
     const storedUserData = localStorage.getItem('user');
     const user = JSON.parse(storedUserData);
@@ -20,7 +20,7 @@ function AskQuery(props) {
     
 
   useEffect(() => {
-    axios.get(`http://localhost:8050/api/profile/${user.uid}`)
+    axios.get(`${SERVER_URL}/api/profile/${user.uid}`)
       .then(Profile => {
 
         console.log(Profile);
@@ -37,7 +37,7 @@ function AskQuery(props) {
         if (user) {
             if (ques && desc && category) {
                 try {
-                    const res = await axios.post('http://localhost:8050/api/addPost', {
+                    const res = await axios.post(`${SERVER_URL}/api/addPost`, {
                         authorEmail: profiles.email,
                         authorName: profiles.name,
                         autherimage: profiles.imageUrl,

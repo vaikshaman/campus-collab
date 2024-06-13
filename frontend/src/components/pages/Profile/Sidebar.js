@@ -10,12 +10,13 @@ import diamond from "../../assets/diamond.png";
 
 function Sidebar() {
   const [profiles, setProfiles] = useState([]);
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const storedUserData = localStorage.getItem('user');
   const user = JSON.parse(storedUserData);
   const { userid } = useParams(); // Extract userid from URL
 
   useEffect(() => {
-    axios.get(`http://localhost:8050/api/profile/${userid}`)
+    axios.get(`${SERVER_URL}/api/profile/${userid}`)
       .then(Profile => {
         console.log(Profile);
         setProfiles(Profile.data);
@@ -39,7 +40,7 @@ function Sidebar() {
   useEffect(() => {
     const fetchFollowedUsers = async () => {
       try {
-        const response = await axios.get(`http://localhost:8050/api/followedUsers/${userId}/${currentUserId}`);
+        const response = await axios.get(`${SERVER_URL}/api/followedUsers/${userId}/${currentUserId}`);
         setFollowedUsers(response.data.followedUsers);
         setIsFollowing(response.data.isFollowing);
       } catch (error) {
@@ -51,7 +52,7 @@ function Sidebar() {
 
   const handleFollow = async () => {
     try {
-      await axios.post('http://localhost:8050/api/follow', { follower_username: currentUserId, following_username: userId });
+      await axios.post(`${SERVER_URL}/api/follow`, { follower_username: currentUserId, following_username: userId });
       setIsFollowing(true);
       alert(`You started following ${profiles.name}`);
     } catch (error) {
@@ -61,7 +62,7 @@ function Sidebar() {
 
   const handleUnfollow = async () => {
     try {
-      await axios.delete('http://localhost:8050/api/unfollow', { data: { follower_username: currentUserId, following_username: userId } });
+      await axios.delete(`${SERVER_URL}/api/unfollow`, { data: { follower_username: currentUserId, following_username: userId } });
       setIsFollowing(false);
       alert(`You unfollowed ${profiles.name}`);
     } catch (error) {

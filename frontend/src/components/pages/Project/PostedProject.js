@@ -10,14 +10,14 @@ import { useParams } from "react-router-dom"; // Import useParams to extract par
 
 const ProjectDetail = () => {
   const { projectId } = useParams(); // Extract project ID from URL
-  
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const [projects, setProjects] = useState([]); // Initialize projects state as an empty array
 
   useEffect(() => {
     // Fetch project details using project ID
     const fetchProjectDetail = async () => {
       try {
-        const response = await axios.get(`http://localhost:8050/api/Project/${projectId}`);
+        const response = await axios.get(`${SERVER_URL}/api/Project/${projectId}`);
         console.log(response);
         if (response.data.status === "success") {
           setProjects(response.data.data); // Set projects state to the array of project data

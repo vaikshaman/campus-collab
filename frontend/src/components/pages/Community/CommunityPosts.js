@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
 function CommunityPosts() {
-
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
     const [ques,setQues] = useState('');
     const [desc,setDesc] = useState('');
   const handleSubmit = async (e) => {
@@ -11,7 +11,7 @@ function CommunityPosts() {
         const username = JSON.parse(localStorage.getItem('msalAccount'))['name'];
         const useremail = JSON.parse(localStorage.getItem('msalAccount'))['username'];
         console.log(useremail,username);
-        axios.post('http://localhost:8080/api/postQuestion', {
+        axios.post(`${SERVER_URL}/api/postQuestion`, {
         ques,
         desc,
         username,

@@ -7,6 +7,7 @@ import Navbar from "../../header/Navbar";
 import { useParams } from "react-router-dom";
 
 const Profile = () => {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const [selectedStatus, setSelectedStatus] = useState("completed"); // Initialize selectedStatus with "ongoing"
   const [projects, setProjects] = useState([]);
   const storedUserData = localStorage.getItem("user");
@@ -19,7 +20,7 @@ const Profile = () => {
   const fetchProjectDetails = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8050/api/fetchProject/${profiles.email}?status=${selectedStatus}`
+        `${SERVER_URL}/api/fetchProject/${profiles.email}?status=${selectedStatus}`
       );
       if (response.ok) {
         const data = await response.json();
@@ -35,7 +36,7 @@ const Profile = () => {
   useEffect(() => {
     // Fetch user profile data when the component mounts
     axios
-      .get(`http://localhost:8050/api/profile/${userid}`)
+      .get(`${SERVER_URL}/api/profile/${userid}`)
       .then((Profile) => {
         console.log(Profile);
         setProfiles(Profile.data);

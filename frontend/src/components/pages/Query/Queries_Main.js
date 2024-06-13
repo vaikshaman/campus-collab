@@ -84,6 +84,7 @@ import Top3 from '../Courses/Top3';
 
 function Queries_Main(props) {
     const [allQueries, setAllQueries] = useState([]);
+    const SERVER_URL = process.env.REACT_APP_SERVER_URL;
     const [filteredQueries, setFilteredQueries] = useState([]);
     const [followingUsers, setFollowingUsers] = useState([]);
 
@@ -92,7 +93,7 @@ function Queries_Main(props) {
 
     useEffect(() => {
         // Fetch all posts from the API
-        axios.get('http://localhost:8050/api/posts')
+        axios.get(`${SERVER_URL}/api/posts`)
             .then(response => {
                 setAllQueries(response.data);
                 setFilteredQueries(response.data); // Initially show all queries
@@ -102,7 +103,7 @@ function Queries_Main(props) {
             });
 
         // Fetch the list of users that the current user is following
-        axios.get(`http://localhost:8050/api/following/${user.email}`)
+        axios.get(`${SERVER_URL}/api/following/${user.email}`)
         .then(response => {
             setFollowingUsers(response.data);
             console.log(followingUsers);

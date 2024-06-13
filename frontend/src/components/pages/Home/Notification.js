@@ -5,10 +5,11 @@ import mapicon from "../../assets/map-icon.png";
 import AVATAR from "../../assets/Avatar.jpg";
 
 function Notification(props) {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const handleAccept = async () => {
     try {
       // Send a request to accept collaboration
-      await axios.post(`http://localhost:8050/api/notification/${props.notificationId}/accept`);
+      await axios.post(`${SERVER_URL}/api/notification/${props.notificationId}/accept`);
       // Optionally, you can update the UI after accepting the collaboration
     } catch (error) {
       console.error('Error accepting collaboration:', error);
@@ -18,7 +19,7 @@ function Notification(props) {
   const handleDecline = async () => {
     try {
       // Send a request to decline collaboration
-      await axios.post(`http://localhost:8050/api/notification/${props.notificationId}/decline`);
+      await axios.post(`${SERVER_URL}/api/notification/${props.notificationId}/decline`);
       // Optionally, you can update the UI after declining the collaboration
     } catch (error) {
       console.error('Error declining collaboration:', error);

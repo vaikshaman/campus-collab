@@ -218,6 +218,7 @@ import axios from 'axios';
 
 const OpenQueries = () => {
     const location = useLocation();
+    const SERVER_URL = process.env.REACT_APP_SERVER_URL;
     const params = new URLSearchParams(location.search);
     const id = params.get('id');
 
@@ -244,7 +245,7 @@ const OpenQueries = () => {
 
     const fetchDetailQuery = async (postId) => {
         try {
-            const response = await axios.get(`http://localhost:8050/api/getdetailquerybyid/${postId}`);
+            const response = await axios.get(`${SERVER_URL}/api/getdetailquerybyid/${postId}`);
             if (response.status === 200) {
                 setDetailQuery(response.data);
             } else {
@@ -257,7 +258,7 @@ const OpenQueries = () => {
 
     const fetchProfile = async (userId) => {
         try {
-            const response = await axios.get(`http://localhost:8050/api/profile/${userId}`);
+            const response = await axios.get(`${SERVER_URL}/api/profile/${userId}`);
             setProfiles(response.data);
         } catch (error) {
             console.error('Error fetching profile:', error.message);
@@ -266,7 +267,7 @@ const OpenQueries = () => {
 
     const fetchComments = async (queryId) => {
         try {
-            const response = await axios.get(`http://localhost:8050/api/querycomments/${queryId}`);
+            const response = await axios.get(`${SERVER_URL}/api/querycomments/${queryId}`);
             setComments(response.data.comments);
         } catch (error) {
             console.error('Error fetching comments:', error.message);
@@ -276,7 +277,7 @@ const OpenQueries = () => {
     const handleCommentSubmit = async () => {
         if (newComment.trim()) {
             try {
-                const response = await axios.post("http://localhost:8050/api/querycomments", {
+                const response = await axios.post(`${SERVER_URL}/api/querycomments`, {
                     queryId: id,
                     userName: profiles.name,
                     image: profiles.imageUrl,
@@ -305,7 +306,7 @@ const OpenQueries = () => {
         async function fetchMyQueries() {
           try {
            
-            const response = await axios.get(`http://localhost:8050/api/getreatedqueries/${detailQuery.category}`);
+            const response = await axios.get(`${SERVER_URL}/api/getreatedqueries/${detailQuery.category}`);
             console.log(response);
             
             

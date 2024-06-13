@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 
 const Projectuser = () => {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const { projectId } = useParams(); // Extract project ID from URL
   const [projects, setProjects] = useState([]); // Initialize projects state as an empty array
   const [comments, setComments] = useState([]);
@@ -21,7 +22,7 @@ const Projectuser = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8050/api/profile/${user.uid}`)
+      .get(`${SERVER_URL}/api/profile/${user.uid}`)
       .then((Profile) => {
         console.log(Profile);
         setProfiles(Profile.data);
@@ -34,7 +35,7 @@ const Projectuser = () => {
     const fetchProjectDetail = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8050/api/Project/${projectId}`
+          `${SERVER_URL}/api/Project/${projectId}`
         );
         if (response.data.status === "success") {
           setProjects(response.data.data); // Set projects state to the array of project data
@@ -59,7 +60,7 @@ const Projectuser = () => {
       const fetchProfileDetails = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:8050/api/ownerprofile/${projects[0].email}`
+            `${SERVER_URL}/api/ownerprofile/${projects[0].email}`
           );
 
           console.log(projects[0].email);
@@ -80,7 +81,7 @@ const Projectuser = () => {
     const fetchComments = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8050/api/comments/${projectId}`
+          `${SERVER_URL}/api/comments/${projectId}`
         );
         setComments(response.data.comments);
       } catch (error) {
@@ -92,7 +93,7 @@ const Projectuser = () => {
 
   const handleCommentSubmit = async () => {
     try {
-      const response = await axios.post("http://localhost:8050/api/comments", {
+      const response = await axios.post(`${SERVER_URL}/api/comments`, {
         projectId,
         userName: profiles.name, // Replace with actual username or fetch from authentication
         image: profiles.imageUrl,
@@ -119,7 +120,7 @@ const Projectuser = () => {
   const handleLikeClick = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8050/api/projectslike/${projectId}/${user.uid}/like`,
+        `${SERVER_URL}/api/projectslike/${projectId}/${user.uid}/like`,
         { method: "POST" }
       );
       if (response.ok) {
