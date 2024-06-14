@@ -334,3 +334,8 @@ text-decoration: none;
 .profile-details {
   margin-top: 20px;
 }
+@media(max-width: 500px){
+  .hamburger{
+  width: 130%;
+}
+}

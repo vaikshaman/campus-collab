@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import './HomeFeed.css';
 import Infobar from "./Infobar";
 import axios from "axios";
-import './Top3.css';
 
  
   
@@ -132,7 +131,7 @@ const HomeFeed = (props) => {
                   src={project.images} 
                   alt="Project"
                   className="project-image"
-                  style={{ width: '28vw' }}
+                  style={{  }}
                 />
                 <div className="project-details">
                   <h3>{project.projectId}</h3>

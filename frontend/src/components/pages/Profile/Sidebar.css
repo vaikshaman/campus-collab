@@ -35,7 +35,7 @@
   transition: max-height 0.3s ease;
   height: 18rem;
   max-height: 1000rem; 
-  width:20vw;
+  
 }
 
 .view-profile-close,
@@ -46,7 +46,7 @@
   /* max-height: 0; Collapse to zero height when closed */
   overflow: hidden;
   height: 3.5rem;
-  width:20vw;
+  
 }
 
 .profile-btn {

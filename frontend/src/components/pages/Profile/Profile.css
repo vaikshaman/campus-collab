@@ -161,6 +161,7 @@ body{
 .projects {
   display: flex;
   flex-wrap: wrap;
+  gap: 2rem;
 }
 
 @media (max-width: 769px) {
@@ -205,5 +206,15 @@ body{
   }
   .profile_ongoing_btn {
     font-size: 1vh;
+  }
+}
+
+
+@media (max-width: 650px) {
+  .project-box{
+    width: 50vw;
+  }
+  .project-image{
+    width: 100%;
   }
 }

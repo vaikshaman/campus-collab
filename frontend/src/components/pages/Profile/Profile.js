@@ -99,7 +99,7 @@ const Profile = () => {
                       src={project.images}
                       alt="Project"
                       className="project-image"
-                      style={{ width: "28vw" }}
+                      style={{ }}
                     />
                     <div className="project-details">
                       <h3>{project.projectId}</h3>

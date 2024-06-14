@@ -196,9 +196,7 @@
         width: 80vw;
       }
 
-      .well-btn{
-        padding-left: 12vw;
-      }
+      
 
       .more {
         display: flex;
@@ -223,7 +221,7 @@
 .well-content{
   display: flex;
   width: 44.75rem;
-  height: 31.8125rem;
+ 
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
@@ -235,7 +233,7 @@
   align-items: flex-start;
   gap: 1.25rem;
   align-self: stretch;
-  margin-top: 15px;
+  
 }
 
 .sign-up{
@@ -253,7 +251,7 @@
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.03), 0px 12px 12px 0px rgba(0, 0, 0, 0.03), 0px 48px 19px 0px rgba(0, 0, 0, 0.00), 0px 75px 21px 0px rgba(0, 0, 0, 0.00);
   color: #000;
   font-family: "Pangea Trial";
-  font-size: 1.125rem;
+  font-size: 1.025rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -536,9 +534,7 @@
     margin-top: 10rem;
   }
 
-  .user-2{
-    margin-left: 5rem;
-  }
+  
 }
 
 @media(max-width: 600px){
@@ -602,12 +598,14 @@
   .well-content{
     width: 0rem;
     margin-left: 70px;
+    height: 100%;
+    gap: 1.5rem;
   }
 
   .well-btn{
-    padding-left: 2vw;
+    
     width: 83vw;
-    justify-content: space-evenly;
+    
   }
 
   .log{
@@ -619,7 +617,7 @@
   }
 
   .About-logo{
-    font-size: 2.6rem;
+    font-size: 2.2rem;
   }
 
   .querie{
