@@ -92,12 +92,14 @@ const About = () => {
           </>
         ) : (
           <>
+          <div className="well-bt">
             <button className="querie" onClick={handleSignIn}>
-              Login
+              Getting Started
             </button>
             <button className="course" onClick={handleSignIn}>
               Signup with Outlook
             </button>
+            </div>
           </>
         )}
       </nav>

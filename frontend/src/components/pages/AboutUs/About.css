@@ -48,7 +48,7 @@
   .querie {
     height: auto;
     /* width: 30px; */
-    margin-left: 40%; /* Add right margin for spacing */
+   
   }
   
   .course {
@@ -308,13 +308,12 @@
   margin-bottom: 15px;
 }
 
-.well-img{
+/* .well-img{
   height: 43.125rem;
   z-index: -1;
   filter: drop-shadow(-7px 22px 50px rgba(0, 0, 0, 0.10)) drop-shadow(-28px 87px 91px rgba(0, 0, 0, 0.09)) drop-shadow(-62px 195px 123px rgba(0, 0, 0, 0.05)) drop-shadow(-110px 347px 146px rgba(0, 0, 0, 0.01)) drop-shadow(-172px 543px 159px rgba(0, 0, 0, 0.00));
-  /* transform: translateY(-50%); */
   animation: enterFromRight 1.5s ease-out;
-}
+} */
 
 @keyframes enterFromRight {
   0% {
@@ -621,7 +620,9 @@
   }
 
   .querie{
-    display: none;
+    padding: 10px 10px;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 
   .course{
@@ -662,4 +663,10 @@
     padding: 1rem 1.25rem;
   }
   
+}
+
+.well-bt {
+  display: flex;
+  gap: 2rem;
+  margin-right: 20px;
 }
