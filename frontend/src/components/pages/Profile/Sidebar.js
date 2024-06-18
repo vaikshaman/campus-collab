@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import './Sidebar.css';
@@ -130,9 +131,10 @@ function Sidebar() {
         </div>
 
         {currentUserId === userId ? (
-        <button className="follow-btn">
-          Edit Profile
-        </button>
+         
+          <Link to={`/EditProfile`} className="follow-btn">
+        Edit Profile
+      </Link>
       ) : (
         <button className="follow-btn" onClick={isFollowing ? handleUnfollow : handleFollow}>
           {isFollowing ? "Unfollow" : "Follow"}
