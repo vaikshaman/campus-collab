@@ -29,6 +29,18 @@ function Queries() {
     setShowOpenQuery(true)
   }
 
+
+    const SearchList = React.memo(({ list, query }) => {
+  console.log('SearchList component rendered'); 
+
+  // Check if the query exists in the list
+  const exists = list.some(item => item.toLowerCase().includes(query.toLowerCase()));
+  if(exists)console.log("exists");
+    else console.log("not working properly");
+});
+
+  
+
   return (
 
 
