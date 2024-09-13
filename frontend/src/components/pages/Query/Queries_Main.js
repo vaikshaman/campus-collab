@@ -155,35 +155,35 @@ function Queries_Main(props) {
         <div className='query'>
             <div className="Top3">
                 <div className="Top3-biggest-container">
-                    <div className="container-1">
-                        <nav className='Upper_part'>
-                            <a href="#" className='gugu item-container-1'>
-                                <div
-                                    className={`${
-                                        isopen1 === true ? "yesopen" : "notopen"
-                                    }`}
-                                    onClick={() => clicked1(true)}
-                                >All</div>
-                            </a>
-                            <a href="#" className='gugu item-container-1'>
-                                <div
-                                    className={`${
-                                        isopen2 === true ? "yesopen" : "notopen"
-                                    }`}
-                                    onClick={() => clicked2(true)}
-                                >Latest</div>
-                            </a>
-                            <a href="#" className='gugu item-container-1'>
-                                <div
-                                    className={`${
-                                        isopen3 === true ? "yesopen" : "notopen"
-                                    }`}
-                                    onClick={() => clicked3(true)}
-                                >Following</div>
-                            </a>
-                            <div className="animation start-home"></div>
-                        </nav>
-                    </div>
+                    // <div className="container-1">
+                    //     <nav className='Upper_part'>
+                    //         <a href="#" className='gugu item-container-1'>
+                    //             <div
+                    //                 className={`${
+                    //                     isopen1 === true ? "yesopen" : "notopen"
+                    //                 }`}
+                    //                 onClick={() => clicked1(true)}
+                    //             >All</div>
+                    //         </a>
+                    //         <a href="#" className='gugu item-container-1'>
+                    //             <div
+                    //                 className={`${
+                    //                     isopen2 === true ? "yesopen" : "notopen"
+                    //                 }`}
+                    //                 onClick={() => clicked2(true)}
+                    //             >Latest</div>
+                    //         </a>
+                    //         <a href="#" className='gugu item-container-1'>
+                    //             <div
+                    //                 className={`${
+                    //                     isopen3 === true ? "yesopen" : "notopen"
+                    //                 }`}
+                    //                 onClick={() => clicked3(true)}
+                    //             >Following</div>
+                    //         </a>
+                    //         <div className="animation start-home"></div>
+                    //     </nav>
+                    // </div>
                 </div>
             </div>
             <div className="section-container">
