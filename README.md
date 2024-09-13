@@ -1,7 +1,5 @@
 CAMPUS COLLABORATION
 
-Site Link : https://campus-collab-pi.vercel.app/
-
 Presentation: https://www.figma.com/file/Y3EG3vH5d9gw2NYOn5s3fu/Campus-Collaborate-Manas?type=design&node-id=1351%3A766&mode=design&t=ZjxgFeM8gJMxaoFI-1
 
 •	 Campus Collaborate
